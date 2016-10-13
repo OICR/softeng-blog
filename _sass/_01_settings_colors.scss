@@ -11,6 +11,13 @@
 
 */
 
+/* Fobts
+------------------------------------------------------------------- */
+
+@font-face {
+  font-family: gotham;
+  src: url(/assets/fonts/gotham-bold.ttf);
+}
 
 
 /* Basics
@@ -18,7 +25,7 @@
 
 $text-color:       	#111;
 $body-font-color: 	$text-color;
-$body-bg: 			#fdfdfd;
+$body-bg: 			#f7f8fa;
 
 
 
@@ -108,7 +115,7 @@ $topbar-menu-icon-color-toggled: $ci-6;
 ------------------------------------------------------------------- */
 
 $footer-bg: $grey-8;
-$footer-color: #fff;
+$footer-color: #9497a8;
 $footer-link-color: $ci-6;
 
 

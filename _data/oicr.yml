@@ -1,0 +1,10 @@
+- title: "Ontario Institute for Cancer Research"
+  url: "http://oicr.on.ca/"
+  image: "oicr-logo.png"
+  class: "oicr-logo"
+
+- title: "Terms and Conditions"
+  url: "http://icgc.org/index.php?q=terms-and-conditions"
+
+- title: "Privacy"
+  url: "http://icgc.org/index.php?q=privacy-policy"

@@ -268,15 +268,56 @@ body.video cite { color: #fff; }
 }
 
 #footer {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    background: $footer-bg;
-    color: $footer-color;
-    }
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #FFF url('/images/footer-bg.png') center center;
 
-    #footer a {
-        color: $footer-link-color;
+    ul{
+        display: inline;
+
+        &:first-child{
+            padding-right:30px;
+        }
+
+        &.oicr-info{
+            li{
+                &:first-child{
+                    &:after{
+                        content: '';
+                    }
+                }
+            }
+        }
+
+         li{
+            display:inline;
+            font-family: gotham;
+            font-size: 12px;
+            color: $footer-color;
+
+            &:last-child{
+                &:after{
+                    content: '';
+                }
+            }
+
+            &:after{
+                content: '/';
+                font-weight: bold;
+            }
+            a{
+                color: $footer-color;
+                font-weight: 500;
+                padding: 0px 10px;
+
+                img{
+                    width: 11%;
+                    filter: grayscale(100%);
+                }
+            }
+         }
     }
+}
     #footer h4,
     #footer h5 {
         letter-spacing: 1px;

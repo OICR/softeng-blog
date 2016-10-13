@@ -8,17 +8,42 @@
     <footer id="footer-content" class="bg-grau">
       <div id="footer">
         <div class="row">
-          <div class="medium-6 large-5 columns">
+          <div>
+            <ul class="no-bullet">
+                {% for navigation_item in site.data.navigation %}
+                  {% if navigation_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
+                  <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
+                    <a href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
+                  </li>
+                {% endfor %}
+            </ul>
+            <ul class="no-bullet oicr-info">
+              {% for oicr_item in site.data.oicr %}
+                {% if oicr_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
+                <li {% if oicr_item.class %}class="{{ oicr_item.class }}" {% endif %}>
+                  <a href="{{ domain }}{{ oicr_item.url }}" {% if oicr_item.url contains 'http' %}target="_blank" {% endif %} title="{{ oicr_item.title }}">
+                    {% if oicr_item.image %}
+                      <img src="{{ site.urlimg }}{{ oicr_item.image }}" />
+                    {% else %}
+                      {{ oicr_item.title }}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <!--<div class="medium-6 large-5 columns">
             <h5 class="shadow-black">{{ site.data.language.info_website }}</h5>
 
             <p class="shadow-black">
               {{ site.description }}
               <a href="{{ site.url }}{{ site.baseurl }}/info/">{{ site.data.language.more }}</a>
             </p>
-          </div><!-- /.large-6.columns -->
+          </div>-->
+          <!-- /.large-6.columns -->
 
 
-          <div class="small-6 medium-3 large-3 large-offset-1 columns">
+          <!--<div class="small-6 medium-3 large-3 large-offset-1 columns">
             {% for service_item in site.data.services %}
               {% if forloop.first == true %}
                 <h5 class="shadow-black">{{ service_item.menu_name }}</h5>
@@ -33,10 +58,11 @@
                   </li>
               {% endfor %}
               </ul>
-          </div><!-- /.large-4.columns -->
+          </div>-->
+          <!-- /.large-4.columns -->
 
 
-          <div class="small-6 medium-3 large-3 columns">
+          <!--<div class="small-6 medium-3 large-3 columns">
             {% for network_item in site.data.network %}
               {% if forloop.first == true %}
                 <h5 class="shadow-black">{{ network_item.menu_name }}</h5>
@@ -51,13 +77,14 @@
                 </li>
             {% endfor %}
             </ul>
-          </div><!-- /.large-3.columns -->
+          </div>-->
+          <!-- /.large-3.columns -->
         </div><!-- /.row -->
 
       </div><!-- /#footer -->
 
 
-      <div id="subfooter">
+      <!--<div id="subfooter">
         <nav class="row">
           <section id="subfooter-left" class="small-12 medium-6 columns credits">
             {{ site.credits }}
@@ -71,5 +98,6 @@
             </ul>
           </section>
         </nav>
-      </div><!-- /#subfooter -->
+      </div>-->
+      <!-- /#subfooter -->
     </footer>
