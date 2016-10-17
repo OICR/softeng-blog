@@ -1,7 +1,6 @@
 ---
 layout: page
 sidebar: right
-subheadline: Templates
 title:  "PGMLab and Task Queueing with Celery"
 breadcrumb: true
 tags:
@@ -39,7 +38,6 @@ Pellentesque vestibulum, felis ut viverra elementum, elit massa faucibus enim, e
 `
 
 ~~~
-Note
 The prop `transitionAppear` was added to `ReactCSSTransitionGroup` in version 0.13.
 ~~~
 

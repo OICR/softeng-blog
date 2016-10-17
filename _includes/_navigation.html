@@ -1,38 +1,24 @@
-<div class="top-container">
-  <div class="header-container row" style="width: 100%" data-equalizer>
-    <div class="small-2 medium-2 columns" data-equalizer-watch>
-      <a href="{{ site.url }}{{ site.baseurl }}"> 
-        <img class="header-logo" src="{{ site.url }}/assets/icons/logo-Ferretti-blog.svg">
-      </a>
-    </div>
-    <div class="nav-container small-8 medium-8 columns" data-equalizer-watch>
-      <ul> 
-        {% for link in site.data.navigation %}
-              {% if link.url contains 'http' %}
-                {% assign domain = '' %}
-              {% elsif link.url == '#' %}
-                {% assign domain = '' %}
-              {% else %}
-                {% assign domain = site.url %}
-              {% endif %}
-
-            <li {% if link.url == page.url %}
-                  class="active"
-                {% elsif page.homepage == true and link.url == '/' %}
-                  class="active"
-                {% endif %}>
-                
-                <a href="{{ domain }}{{ site.baseurl }}{{ link.url }}"
-                  {% if link.url contains 'http' %} target="_blank" {% endif %}>
-                  {{ link.title | escape }}</a>
+<div id="navigation">
+  <nav role="navigation">
+    <div class="row">
+      <div class="small-12 columns">
+        <ul class="no-bullet">
+          <li>
+            <a href="/" title="Ferretti Blog">
+              <img src="{{site.urlimg}}logo-Ferretti-blog.svg" title="Ferretti Blog" />
+            </a>
+          </li>
+          {% for navigation_item in site.data.navigation %}
+             <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
+              <a href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
             </li>
-        {% endfor %}
-      </ul>
+          {% endfor %}
+          <li>
+            <input/>
+            
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="small-2 medium-2 columns" style="position: relative;" data-equalizer-watch>
-      <img width="30px" height="30px" style="position: absolute; right: 0; top: 0;" src="/assets/icons/icon-youtube.svg">
-      <!-- Border rad is in here since the guy who made the theme has a css reset for inputs loading after all scss... !--> 
-      <input class="search-input" style="-webkit-border-radius: 15px; -moz-border-radius: 15px; border-radius: 15px;" type="text" placeholder="Search...">
-    </div>
-  </div>
-</div>
+  </nav>
+</div><!-- /#navigation -->
