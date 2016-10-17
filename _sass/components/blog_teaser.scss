@@ -1,3 +1,40 @@
 .blog_teaser {
     border-bottom: 1px solid #E2E3E7;
 }
+
+nav#pagination{
+    .pag_prev{
+        float:left;
+    }
+    .pag_nums{
+        display: block;
+        text-align: center;
+    }
+    .pag_next{
+        float:right;
+    }
+}
+
+.blog_button {
+    a{
+        color: #FFF;
+        background: #45a7ca;
+        padding: 10px;
+        margin-right:20px;
+        border-radius: 15px;
+        box-shadow: inset 0px -3px 0px 0px #E3E4E8;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    img{
+        margin: -1px 0px 0px 10px;
+        width: 3%;
+    }
+}
+
+.blog_button:hover {
+    a{
+        background:  rgba(0,0,0,0.2);
+    }
+}

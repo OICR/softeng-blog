@@ -1,7 +1,8 @@
 <aside>
-	<div class="content-sidebar">
-		<h3>Popular Topics</h3>
-		<ul>
+	<div class="blog-sidebar">
+		<h4>Popular Topics</h4>
+		<br>
+		<ul class="tag-list">
 			{% capture tags %}
 				{% for tag in site.tags %}
 					{{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}%
@@ -12,6 +13,7 @@
 			{% assign i = 0 %}
 			{% for tag in sortedtags reversed %}
 				{% if i == 10 %}
+					<br>
 					<li>View All</li>
 					{% break %}
 				{% endif %}
@@ -21,26 +23,29 @@
 			{% endfor %}
 		</ul>
 	</div>
-	<div class="content-sidebar">
-		<ul>
+	<div class="blog-sidebar">
+		<ul class="accordion dates" data-accordion>
 			{% for post in site.posts %}
 				{% assign currentdate = post.date | date: "%Y %B" %}
 				{% assign currentmonth = post.date | date: "%B" %}
 				{% assign currentyear = post.date | date: "%Y" %}
 				
 				{% if currentyear != year %}
-					<h2> {{ currentyear }} </h2>
-					{% assign year = currentyear %}
+				  {% unless forloop.first %}
+				  	</div>
+				  	</li>
+				  {% endunless %}
+				  <li class="accordion-navigation">
+				  <a href="#panel{{ currentyear }}" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
+				  <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %}">
+				  {% assign year = currentyear %}
 				{% endif %}
 
 				{% if currentdate != date %}
-					{% unless forloop.first %}</ul>{% endunless %}
-					<h3>{{ currentmonth }}</h3>
+					  <a href="#currentmonth"> {{ currentmonth }} </a>
 					<ul>
 					{% assign date = currentdate %}
 				{% endif %}
-
-					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 				{% if forloop.last %}</ul>{% endif %}
 			{% endfor %}
 		</ul>
