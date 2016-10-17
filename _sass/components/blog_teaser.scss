@@ -1,4 +1,7 @@
 .blog_teaser {
+    h2{
+        color: #6B6F89;
+    }
     border-bottom: 1px solid #E2E3E7;
 }
 
@@ -16,11 +19,11 @@ nav#pagination{
 }
 
 .blog_button {
+    height: 36px;
     a{
         color: #FFF;
         background: #45a7ca;
         padding: 10px;
-        margin-right:20px;
         border-radius: 15px;
         box-shadow: inset 0px -3px 0px 0px #E3E4E8;
         font-size: 12px;
@@ -28,13 +31,36 @@ nav#pagination{
     }
 
     img{
-        margin: -1px 0px 0px 10px;
-        width: 3%;
+        display: inline-block;
+        height: 60%;
     }
 }
 
 .blog_button:hover {
     a{
         background:  rgba(0,0,0,0.2);
+    }
+}
+
+span.icon-price-tag{
+    font-size: 12px;
+    color: #81C8E1;
+}
+
+.pag_nums {
+    height:36px;
+    a{
+        background: #EAEBF0;
+        color: #E17A13;
+        padding: 10px 20px 10px 20px;
+        text-align: center;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    a.pag_active{
+        color: #FFF;
+        background: #E17A13;
     }
 }
