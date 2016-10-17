@@ -45,9 +45,42 @@ body.video cite { color: #fff; }
 /* Navigation
 ------------------------------------------------------------------- */
 
-#navigation {
-    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+nav{
+    border-bottom: 5px solid #eaebf0;
+
+    ul{
+        margin: 12.5px 0px;
+        display: inline-block;
+
+        li{
+            display: inline;
+            padding: 0px 20px;
+
+            &:first-child{
+                padding-left: 0;
+            }
+
+            &:last-child{
+                padding-right: 0;
+
+                input{
+                    width: 10%;
+                }
+            }
+
+            a{
+                vertical-align: bottom;
+                font-family: gotham-bold;
+                color: #9a9dad !important;
+                font-size: 15px;
+            }
+
+            img{
+                width: 10%;
+                margin-right: 20px;
+            }
+        }
+    }
 }
 
 
