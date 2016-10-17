@@ -58,6 +58,11 @@ nav{
 
             &:first-child{
                 padding-left: 0;
+
+                 img{
+                    width: 12%;
+                    margin:-35px 20px 0 0;
+                }
             }
 
             &:last-child{
@@ -65,13 +70,15 @@ nav{
                 display: inline-block;
 
                 div{
-                    display: block;
+                    &:last-child{
+                        position: relative;
+                    }
                 }
 
                 a{
                     img{
-                        width: 15%;
-                        margin:0 0 20px 0;
+                        width: 12%;
+                        margin:0 0 15px 0;
                         float: right;                        
                     }
                 }
@@ -80,6 +87,15 @@ nav{
                     width: 100%;
                     margin: 0 0 0 0;
                     border-radius: 25px;
+                    line-height: 3rem;
+                    padding-left: 2rem;
+                }
+
+                i{
+                    position: absolute;
+                    top: 3.1rem;
+                    left:0.7rem;
+                    color: #9497a8;
                 }
             }
 
@@ -88,11 +104,6 @@ nav{
                 font-family: gotham-bold;
                 color: #9a9dad !important;
                 font-size: 13px;
-            }
-
-            img{
-                width: 10%;
-                margin-right: 20px;
             }
         }
     }
