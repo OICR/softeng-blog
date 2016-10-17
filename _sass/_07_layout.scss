@@ -54,7 +54,7 @@ nav{
 
         li{
             display: inline;
-            padding: 0px 20px;
+            padding: 0px 10px;
 
             &:first-child{
                 padding-left: 0;
@@ -62,17 +62,32 @@ nav{
 
             &:last-child{
                 padding-right: 0;
+                display: inline-block;
+
+                div{
+                    display: block;
+                }
+
+                a{
+                    img{
+                        width: 15%;
+                        margin:0 0 20px 0;
+                        float: right;                        
+                    }
+                }
 
                 input{
-                    width: 10%;
+                    width: 100%;
+                    margin: 0 0 0 0;
+                    border-radius: 25px;
                 }
             }
 
             a{
-                vertical-align: bottom;
+                vertical-align: baseline;
                 font-family: gotham-bold;
                 color: #9a9dad !important;
-                font-size: 15px;
+                font-size: 13px;
             }
 
             img{
