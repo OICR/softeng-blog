@@ -1,23 +1,35 @@
-{% comment %}
-*  This loops through the paginated posts
-*
-*  Total posts: {{ paginator.total_posts }}
-*  Total paginate-pages: {{ paginator.total_pages }}
-*
-{% endcomment %}
-
-
 {% for post in paginator.posts %}
-  <div class="row">
-    <div class="small-12 columns b60">
+{% assign author = site.data.authors[page.author] %}
+  <div class="row" >
+    <div class="small-12 columns b60 blog_teaser">
+      {{ post.date | date: "%B. %-d, %Y" }}
       <p class="subheadline">{{ post.categories | join: ' &middot; ' | prepend: '<span class="subheader">' | append: '</span>' }}{% if post.categories != empty and post.subheadline != NULL %} – {% endif %}{{ post.subheadline }}</p>
       <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{% if author %}By: {{author.name}}{% endif %}</p>
       <p>
-        {% if post.image.thumb %}<a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" class="alignleft" width="150" height="150" alt="{{ page.title escape_once }}"></a>{% endif %}
-
-        {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% elsif post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
-
-        <a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>{{ site.data.language.read_more }}</strong></a>
+        {% if post.tags.first %}
+          <span class="icon-price-tag pr10">
+          {% for tag in post.tags %}
+            {{ tag }}
+            {% unless forloop.last %}
+             / 
+            {% endunless %}
+          {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+        {% if post.image.thumb %}
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" stlyle="max-width: 100%" alt="{{ page.title escape_once }}"></a>
+        {% endif %}
+        <div>
+          <p>
+            {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}
+            {% elsif post.teaser %}
+            {{ post.teaser | strip_html | escape }}
+            {% endif %}
+          </p>
+          <p><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>{{ site.data.language.full_article }}</strong></a></p>
+        </div>
       </p>
     </div><!-- /.small-12.columns -->
   </div><!-- /.row -->
@@ -33,10 +45,34 @@
       {% endif %}
     {% endif %}
 
-    <a class="radius button small" href="{{ site.url }}/blog/archive/" title="{{ site.data.language.blog_archive }}">{{ site.data.language.blog_archive }}</a>
+    {% assign away_from_end = paginator.total_pages %}
+    
+    {% if paginator.total_pages < 5 %}
+      {% assign beginning = 1 %}
+      {% assign ending = paginator.total_pages %}
+    {% elsif paginator.page - 2 < 1 %}
+      {% assign beginning = 1 %}
+      {% assign ending = 5 %}
+    {% elsif paginator.page + 2 > paginator.total_pages %}
+      {% assign beginning = paginator.total_pages - 5 %}
+      {% assign ending = paginator.total_pages %}
+    {% else %}
+      {% assign beginning = paginator.page - 2 %}
+      {% assign ending = paginator.page + 2 %}
+    {% endif %}
+
+    {% for i in (beginning..ending) %}
+      {% if i != paginator.page %}
+        <a href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
+      {% else %}
+        {{i}}
+      {% endif %}
+
+      
+    {% endfor %}
 
     {% if paginator.next_page %}
-    <a rel="next" class="radius button small" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">{{ site.data.language.next }} &raquo;</a>
+      <a rel="next" class="radius button small" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">{{ site.data.language.next }} &raquo;</a>
     {% endif %}
   </nav>
 
