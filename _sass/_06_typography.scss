@@ -26,24 +26,24 @@ Check typography variables › _3_typography_settings.scss
 
 a,
 a:link {
-    transition: all .4s;
+    color: #e17913;
 }
 
-a:visited {
-    border-bottom: $grey-2;
-}
+// a:visited {
+//     border-bottom: $grey-2;
+// }
 
-a:hover {
-    color: darken( $ci-1, 10% );
-}
+// a:hover {
+//     color: darken( $ci-1, 10% );
+// }
 
-a:focus {
-    color: lighten( $ci-1, 20% );
-}
+// a:focus {
+//     color: lighten( $ci-1, 20% );
+// }
 
-a:active {
-    color: darken( $ci-1, 20% );
-}
+// a:active {
+//     color: darken( $ci-1, 20% );
+// }
 
 
 
@@ -97,22 +97,18 @@ h1 {
 }
 h2 {
     font-size: $font-size-h2;
-    margin: 1.563em 0 0 0;
 }
     .blog-index h2 {
         margin-top: 0;
     }
 h3 {
     font-size: $font-size-h3;
-    margin: 1.152em 0 0 0;
 }
 h4 {
     font-size: $font-size-h4;
-    margin: 1.152em 0 0 0;
 }
 h5 {
     font-size: $font-size-h5;
-    margin: 1em 0 0 0;
 }
 
 

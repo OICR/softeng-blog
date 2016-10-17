@@ -1,6 +1,17 @@
 ---
 layout: default
 format: frontpage
+header: 
+    title: Software Engineering Blog
+    caption: We are OICR's passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.
+    image: header-logo-crop.png
+    page: front
+    class: no-icon
+    buttons:
+        - title: Meet the Team
+          link: "/team/"
+        - title: Join the Team
+          link: "/careers/"
 ---
 <div id="header-home">
     <div class="row">
@@ -15,7 +26,7 @@ format: frontpage
 * First check, if widget is empty or not by checking if there is a title
 *
 {% endcomment %}
-<div class="row t60">
+<div class="row t60" style="visibility: hidden;">
 	{% if page.widget1.title %}
 		{% include _frontpage-widget.html widget=page.widget1 %}
 	{% endif %}

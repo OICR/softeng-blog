@@ -11,6 +11,24 @@ Modular Scale › http://www.modularscale.com//?16,36&px&1.25&web&table
 
 @import "functions"; // Allows the use of rem-calc() or lower-bound() in your settings
 
+/* Fonts
+------------------------------------------------------------------- */
+
+@font-face {
+  font-family: gotham-bold;
+  src: url(/assets/fonts/gotham-bold.otf);
+}
+
+@font-face {
+  font-family: gotham-book;
+  src: url(/assets/fonts/gotham-book.otf);
+}
+
+@font-face {
+  font-family: gotham-black;
+  src: url(/assets/fonts/gotham-black.otf);
+}
+
 
 
 /* Fonts
@@ -21,16 +39,18 @@ $rem-base: $base-font-size;
 // $base-line-height is 24px while $base-font-size is 16px
 $base-line-height: 1.5 !default;
 
-
+$font-family-gotham-bold: "gotham-bold";
+$font-family-gotham-book: "gotham-book";
+$font-family-gotham-black: "gotham-black";
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif: "Volkhov", Georgia, Times, serif;
 $font-family-monospace: "Lucida Console", Monaco, monospace;
 
-$body-font-family: $font-family-sans-serif;
+$body-font-family: $font-family-gotham-book;
 $body-font-weight: normal;
 $body-font-style: normal;
 
-$header-font-family: $font-family-serif;
+$header-font-family: $font-family-gotham-bold;
 
 
 
