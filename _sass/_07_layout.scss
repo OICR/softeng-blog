@@ -46,6 +46,7 @@ body.video cite { color: #fff; }
 ------------------------------------------------------------------- */
 
 nav{
+    background: #FFF;
     border-bottom: 5px solid #eaebf0;
 
     ul{
@@ -138,7 +139,6 @@ nav{
         font-family: $font-family-gotham-bold;
 
         .header-icon{
-            width: 10%;
             display: inline-block;
             vertical-align: middle;
         }
@@ -149,7 +149,11 @@ nav{
             h2{
                 color: #FFF;
                 font-size: 33px;
-                margin:5px 0px 0px 10px
+                margin:5px 0px 0px 10px;
+
+                &.small{
+                    font-size: 28px;
+                }
             }
 
             &.no-icon{
@@ -454,7 +458,72 @@ nav{
     background: $grey-2;
 }
 
+/* Authors
+------------------------------------------------------------------- */
 
+.authors{
+
+    padding: 10px 0px;
+
+    .columns{
+        padding: .4375rem;
+    }
+    .author{
+        margin:0.75rem;
+        padding: 1.25rem;
+        background: #fff;
+        color: #333;
+        box-shadow: 0 0 2px 0 rgba(0,0,0,.15);
+        border-radius: 5px;
+        border: 1px solid #FFF;
+        font-size: 13px;
+
+        img{
+            border-radius: 50%;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        .author-name{
+            font-family: $font-family-gotham-bold;
+            font-size: 16px;
+            color: #6c708d;
+        }
+
+        .author-position{
+            font-family: $font-family-gotham-bold;
+            font-size: 12px;
+        }
+
+        .author-links{
+            a{
+                padding:0 20px;
+                font-family: $font-family-gotham-bold;
+
+                &:first-child{
+                    padding-left: 0;
+                }
+            }            
+        }
+    }
+}
+
+.join-the-team{
+    text-align: center;
+    .label{
+        padding: 30px 5px;
+        background: #eaebf0;
+        border-radius: 25px;
+        font-size: 15px;
+
+        a{
+            margin-left: 30px;
+            margin-right: 0px;
+        }
+    }
+}
 
 /* Footer
 ------------------------------------------------------------------- */
@@ -466,6 +535,7 @@ nav{
 }
 
 #footer {
+    margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
     background: #FFF url('/images/footer-bg.png') center center;

@@ -1,5 +1,6 @@
 <div class="masthead" style="background-image: url('/images/{{page.header.image}}')">
   <div class="row">
+    {% if page.header.version == 'full' %}
     <div class="small-7 columns left-column">
       {% if page.header.icon %}
       <div class="header-icon">
@@ -23,6 +24,17 @@
         </div>
       {% endif %}
     </div>
+    {% endif %}
+    {% if  page.header.version == 'small' %}
+    <div class="small-11 columns left-column">
+      <div class="header-icon small-1 columns">
+        <img src="{{site.urlimg}}icons/{{page.header.icon}}.svg" />
+      </div>
+      <div class="header-title small-11 columns {{page.header.class}}">
+        <h2 class="small">{{page.header.title}}</h2>
+      </div>
+    </div>
+    {% endif %}
     {% if page.header.page == 'front' %}
       <div class="small-5 columns right-column">
         <div class="next-meeting">

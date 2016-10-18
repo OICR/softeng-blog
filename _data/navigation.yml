@@ -3,7 +3,7 @@
   side: left
 
 - title: Meet the Team
-  url: "/getting-started/"
+  url: "/team/"
   side: left
 
 - title: Software Engineering Club
@@ -15,7 +15,7 @@
   side: left
 
 - title: Contact
-  url: "/contact"
+  url: "mailto:dcc-support@oicr.on.ca"
   side: left
 
 # - title: YouTube

@@ -27,8 +27,23 @@ Check typography variables › _3_typography_settings.scss
 a,
 a:link {
     color: #e17913;
-}
 
+    &.action-buttons{
+        background: #45a7ca;
+        color: #FFF;
+        padding: 10px;
+        margin-right:20px;
+        border-radius: 20px;
+        box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.1);
+        font-family: $font-family-gotham-bold;
+        font-size: 12px;
+
+        img{
+            margin: -1px 0px 0px 10px;
+            width: 3%;
+        }
+    }
+}
 // a:visited {
 //     border-bottom: $grey-2;
 // }
