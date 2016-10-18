@@ -63,6 +63,3 @@ permalink: /index.html
     {% include _action_buttons.html link='blog' text='View Full Blog' button='right' %}
   </div>
 </div>
-<div class="small-5 columns">
-  {% include _blog_sidebar.html %}
-</div>
