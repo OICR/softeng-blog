@@ -22,7 +22,7 @@
 			{% endfor %}
 		</ul>
 	</div>
-	<div class="blog-sidebar">
+	<div class="blog-sidebar date_sort_container">
 		<ul class="accordion dates" data-accordion>
 			{% for post in site.posts %}
 				{% assign currentdate = post.date | date: "%Y %B" %}
@@ -35,7 +35,7 @@
 				  	</li>
 				  {% endunless %}
 				  <li class="accordion-navigation">
-				  <a href="#panel{{ currentyear }}" class="year-panel" style="padding-top: 6px; padding-bottom: 6px;"><h4 style="margin: 0 !important; padding: 0 important!;">{{ currentyear }}</h4></a>
+				  <a href="#panel{{ currentyear }}" class="year-panel" style="padding-top: 6px; padding-bottom: 6px;"><h4 style="font-size: 15px; margin: 5px 0 5px 0 !important; padding: 0 important!;">{{ currentyear }}</h4></a>
 				  <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %} ">
 				  {% assign year = currentyear %}
 				{% endif %}
@@ -48,5 +48,7 @@
 			{% endfor %}
 		</ul>
 	</div>
-	<a href="{{ site.rss_link }}" class="rss-link"><span class="icon-rss"></span> Subscribe to RSS!</span>
+	<div class="rss-container">
+		<strong><a href="{{ site.rss_link }}" class="rss-link"><span class="icon-rss"></span> Subscribe to RSS!</span></strong>
+	</div>
 </aside>
