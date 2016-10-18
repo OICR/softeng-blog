@@ -1,53 +1,47 @@
 <aside>
-	<div class="blog-sidebar">
-		<h4>Popular Topics</h4>
-		<br>
-		<ul class="tag-list">
-			{% capture tags %}
-				{% for tag in site.tags %}
-					{{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}%
-				{% endfor %}
-			{% endcapture %}
-			{% assign sortedtags = tags | split:'%' | sort %}
+  <div class="blog-sidebar">
+    <h4>Popular Topics</h4>
+    <ul class="tag-list">
+      {% capture tags %}
+        {% for tag in site.tags %}
+          {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}%
+        {% endfor %}
+      {% endcapture %}
+      {% assign sortedtags = tags | split:'%' | sort %}
 
-			{% assign i = 0 %}
-			{% for tag in sortedtags reversed %}
-				{% if i == 10 %}
-					<br>
-					<li>View All</li>
-					{% break %}
-				{% endif %}
-				{% assign i = i | plus: 1 %} 
-				{% assign tagitems = tag | split: '#' %}
-				<li><a href="/tags/#{{ tagitems[1] }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="blog-sidebar">
-		<ul class="accordion dates" data-accordion>
-			{% for post in site.posts %}
-				{% assign currentdate = post.date | date: "%Y %B" %}
-				{% assign currentmonth = post.date | date: "%B" %}
-				{% assign currentyear = post.date | date: "%Y" %}
-				
-				{% if currentyear != year %}
-				  {% unless forloop.first %}
-				  	</div>
-				  	</li>
-				  {% endunless %}
-				  <li class="accordion-navigation">
-				  <a href="#panel{{ currentyear }}" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
-				  <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %}">
-				  {% assign year = currentyear %}
-				{% endif %}
+      {% assign i = 0 %}
+      {% for tag in sortedtags reversed %}
+        {% if i == 10 %}
+          <br>
+          <li>Load More »</li>
+          {% break %}
+        {% endif %}
+        {% assign i = i | plus: 1 %} 
+        {% assign tagitems = tag | split: '#' %}
+        <li><a href="/tags/#{{ tagitems[1] }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="blog-sidebar">
+    <ul class="accordion dates" data-accordion>
+      {% for post in site.posts %}
+        {% assign currentdate = post.date | date: "%Y %B" %}
+        {% assign currentmonth = post.date | date: "%B" %}
+        {% assign currentyear = post.date | date: "%Y" %}
+        
+        {% if currentyear != year %}
+          {% unless forloop.first %}
+            </div>
+            </li>
+          {% endunless %}
+          <li class="accordion-navigation">
+          <a href="#panel{{ currentyear }}" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
+          <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %}">
+          {% assign year = currentyear %}
+        {% endif %}
 
-				{% if currentdate != date %}
-					  <a href="#currentmonth"> {{ currentmonth }} </a>
-					<ul>
-					{% assign date = currentdate %}
-				{% endif %}
-				{% if forloop.last %}</ul>{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</aside>
+        {% if currentdate != date %}
+            <a href="#currentmonth"> {{ currentmonth }} </a>
+          {% assign date = currentdate %}
+        {% endif %}
+      {% endfor %}

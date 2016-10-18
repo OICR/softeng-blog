@@ -3,6 +3,8 @@ layout: page
 sidebar: right
 title:  "PGMLab and Task Queueing with Celery"
 breadcrumb: true
+author: Martin Pham
+date: 2016-08-22
 tags:
     - Software Engineering Club
     - Python

@@ -16,6 +16,7 @@ tags:
 # Styling
 #
 header: no
+date: 2015-10-15
 image:
     title: mediaplayer_js-title.jpg
     thumb: mediaplayer_js-thumb.jpg
