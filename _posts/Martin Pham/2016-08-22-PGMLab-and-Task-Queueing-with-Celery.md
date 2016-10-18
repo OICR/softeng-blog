@@ -1,6 +1,5 @@
 ---
 layout: page
-sidebar: right
 title:  "PGMLab and Task Queueing with Celery"
 breadcrumb: true
 tags:
