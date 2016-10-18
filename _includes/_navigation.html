@@ -10,7 +10,7 @@
           </li>
           {% for navigation_item in site.data.navigation %}
              <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
-              <a href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
+                <a {% if navigation_item.url == page.url %} class="active" {% endif %} href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
             </li>
           {% endfor %}
           <li>
