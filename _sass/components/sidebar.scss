@@ -12,7 +12,7 @@
 
 div.blog-sidebar{
     a{
-        color: #6BB5D1 !important;
+        color: #45a7ca;
         font-family: sans-serif;
     }
     @include panel(#FFFFFF);
@@ -42,4 +42,13 @@ ul.tag-list{
     list-style-type: none;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
+}
+
+.year-panel{
+    color: #222 !important;
+    font-weight: 500 !important;
+}
+
+a.orange-link{
+    color: #e17913 !important;
 }

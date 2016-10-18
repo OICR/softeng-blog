@@ -14,7 +14,7 @@
 			{% for tag in sortedtags reversed %}
 				{% if i == 10 %}
 					<br>
-					<li>View All</li>
+					<li><a href="/blog/" class="orange-link">View All</a></li>
 					{% break %}
 				{% endif %}
 				{% assign i = i | plus: 1 %} 
@@ -36,8 +36,8 @@
 				  	</li>
 				  {% endunless %}
 				  <li class="accordion-navigation">
-				  <a href="#panel{{ currentyear }}" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
-				  <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %}">
+				  <a href="#panel{{ currentyear }}" class="year-panel" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
+				  <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %} ">
 				  {% assign year = currentyear %}
 				{% endif %}
 
@@ -49,6 +49,5 @@
 			{% endfor %}
 		</ul>
 	</div>
-	</div>
+	<a href="{{ site.rss_link }}" class="rss-link"> Subscribe to RSS!</span>
 </aside>
-<a href="{{ site.rss_link }}" class="rss-link">Subscribe to RSS!</span>

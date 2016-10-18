@@ -1,12 +1,22 @@
 .blog_teaser {
+    .date-display{
+        color: #9397A8;
+    }
     h2{
-        color: #6B6F89;
+        a{
+            color: #222 !important;
+        }
+        color: #222 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     border-bottom: 1px solid #E2E3E7;
 }
 
 nav#pagination{
+    background: none;
     .pag_prev{
+        width: 150px;
         float:left;
     }
     .pag_nums{
@@ -14,29 +24,12 @@ nav#pagination{
         text-align: center;
     }
     .pag_next{
+        width: 150px;
         float:right;
     }
 }
 
 span.icon-price-tag{
     font-size: 12px;
-    color: #81C8E1;
-}
-
-.pag_nums {
-    height:36px;
-    a{
-        background: #EAEBF0;
-        color: #E17A13;
-        padding: 10px 20px 10px 20px;
-        text-align: center;
-        border-radius: 15px;
-        font-size: 12px;
-        font-weight: 500;
-    }
-
-    a.pag_active{
-        color: #FFF;
-        background: #E17A13;
-    }
+    color: #45a7ca;
 }
