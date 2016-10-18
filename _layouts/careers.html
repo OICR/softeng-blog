@@ -19,3 +19,21 @@ header:
         </div>
     </div>
 </div>
+<table class="careers-table">
+    <tr>
+        <th>Current Oppertunities</th>
+        <th>Location</th>
+        <th>Posted Date</th>
+        <th> </th>
+    </tr>
+    {% for posting in site.data.careers %}
+    <tr>
+        <td>{{ posting.position }}</td>
+        <td>{{ posting.location }}</td>
+        <td>{{ posting.posted_date }}</td>
+        <td>{{ posting.app_link }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+        
