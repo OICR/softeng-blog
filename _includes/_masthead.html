@@ -3,11 +3,11 @@
     {% if page.header.version == 'full' %}
     <div class="small-7 columns left-column">
       {% if page.header.icon %}
-      <div class="header-icon">
+      <div class="header-icon small-1 columns">
         <img src="{{site.urlimg}}icons/{{page.header.icon}}.svg" />
       </div>
       {% endif %}
-      <div class="header-title {{page.header.class}}">
+      <div class="header-title {{page.header.class}} small-11 columns">
         <h2>{{page.header.title}}</h2>
       </div>
       {% if page.header.caption %}
