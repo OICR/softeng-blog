@@ -40,13 +40,11 @@
       <span class="blog_button pag_prev">
         {% if paginator.previous_page == 1 %}
         <a rel="prev" href="{{ site.url }}/blog/" title="{{ site.data.language.previous_posts }}">
-          <img src="/images/icons/icon-arrow-blue.svg">
           {{ site.data.language.previous }}
         </a>
         {% else %}
         <a rel="prev" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/" title="{{ site.data.language.previous }}">
           {{ site.data.language.previous }}
-          <img src="/images/icons/icon-arrow-blue.svg">
         </a>
         {% endif %}
       </span>
@@ -54,7 +52,9 @@
 
     {% if paginator.next_page %}
       <span class="blog_button pag_next">
-        <a rel="next" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">Next Page<img src="/images/icons/icon-arrow-blue.svg"></a>
+        <a rel="next" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">
+          Next Page
+        </a>
       </span>
     {% endif %}
     

@@ -42,12 +42,13 @@
 				{% endif %}
 
 				{% if currentdate != date %}
-					  <a href="#currentmonth"> {{ currentmonth }} </a>
-					<ul>
+					  <a style="display:block" href="#currentmonth"> {{ currentmonth }} </a>
 					{% assign date = currentdate %}
 				{% endif %}
 				{% if forloop.last %}</ul>{% endif %}
 			{% endfor %}
 		</ul>
 	</div>
+	</div>
 </aside>
+<a href="{{ site.rss_link }}" class="rss-link">Subscribe to RSS!</span>
