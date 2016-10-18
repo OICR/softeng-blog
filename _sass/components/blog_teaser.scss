@@ -1,16 +1,24 @@
 .blog_teaser {
+    .teaser-image{
+        border: solid 4px #EAEBEF;
+        margin-bottom: 10px;
+    }
     .date-display{
         color: #9397A8;
     }
     h2{
         a{
-            color: #222 !important;
+            color: #6B6E90 !important;
         }
-        color: #222 !important;
+        color: #6B6E90 !important;
         margin: 0 !important;
         padding: 0 !important;
     }
     border-bottom: 1px solid #E2E3E7;
+    margin-bottom: 30px !important;
+    a{
+        border-bottom: none !important;
+    }
 }
 
 nav#pagination{

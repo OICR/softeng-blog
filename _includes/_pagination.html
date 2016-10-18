@@ -18,7 +18,7 @@
         {% endif %}
       </p>
         {% if post.image.thumb %}
-          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" stlyle="max-width: 100%" alt="{{ page.title escape_once }}"></a>
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" class="teaser-image" alt="{{ page.title escape_once }}"></a>
         {% endif %}
         <div>
           <p>

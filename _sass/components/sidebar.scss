@@ -11,8 +11,12 @@
 .clearfix { display: block; }
 
 div.blog-sidebar{
+    h4{
+        color: #6B6E90 !important;
+    }
     a{
         color: #45a7ca;
+        font-size: 13px;
         font-family: sans-serif;
     }
     @include panel(#FFFFFF);
