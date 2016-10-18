@@ -13,7 +13,7 @@
       {% for tag in sortedtags reversed %}
         {% if i == 10 %}
           <br>
-          <li>Load More »</li>
+          <li><a href="/blog/" class="orange-link">Load More &#187;</a></li>
           {% break %}
         {% endif %}
         {% assign i = i | plus: 1 %} 
@@ -35,13 +35,18 @@
             </li>
           {% endunless %}
           <li class="accordion-navigation">
-          <a href="#panel{{ currentyear }}" style="padding-top: 6px; padding-bottom: 6px;"> {{ currentyear }} </a>
-          <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %}">
+          <a href="#panel{{ currentyear }}" class="year-panel" style="padding-top: 6px; padding-bottom: 6px;"><h4 style="margin: 0 !important; padding: 0 important!;">{{ currentyear }}</h4></a>
+          <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %} ">
           {% assign year = currentyear %}
         {% endif %}
 
         {% if currentdate != date %}
-            <a href="#currentmonth"> {{ currentmonth }} </a>
+            <a style="display:block" href="#currentmonth"> {{ currentmonth }} </a>
           {% assign date = currentdate %}
         {% endif %}
+        {% if forloop.last %}</ul>{% endif %}
       {% endfor %}
+    </ul>
+  </div>
+  <a href="{{ site.rss_link }}" class="rss-link"><span class="icon-rss"></span> Subscribe to RSS!</span>
+</aside>

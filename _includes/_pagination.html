@@ -1,10 +1,10 @@
 {% for post in paginator.posts %}
-{% assign author = site.data.authors[page.author] %}
+{% assign author = site.data.authors[post.author] %}
   <div class="row" >
     <div class="small-12 columns b60 blog_teaser">
-      {{ post.date | date: "%B. %-d, %Y" }}
+      <span class="date-display">{{ post.date | date: "%B. %-d, %Y" }}</span>
       <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{% if author %}By: <a href="#placeholder">{{author.name}}</a>{% endif %}</p>
+      {% if author %}<p>By: <a href="#placeholder">{{author.name}}</a></p>{% endif %}
       <p>
         {% if post.tags.first %}
           <span class="icon-price-tag pr10">
@@ -18,7 +18,7 @@
         {% endif %}
       </p>
         {% if post.image.thumb %}
-          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" stlyle="max-width: 100%" alt="{{ page.title escape_once }}"></a>
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title escape_once }}"><img src="{{ site.urlimg }}{{ post.image.thumb }}" class="teaser-image" alt="{{ page.title escape_once }}"></a>
         {% endif %}
         <div>
           <p>
@@ -27,7 +27,7 @@
             {{ post.teaser | strip_html | escape }}
             {% endif %}
           </p>
-          <p><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>Full Article</strong></a></p>
+          <p><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>Full Article &#187;</strong></a></p>
         </div>
       </p>
     </div><!-- /.small-12.columns -->
@@ -35,29 +35,23 @@
 {% endfor %}
 
 
-<nav id="pagination" class="clearfix">
-    {% if paginator.previous_page %}
-      <span class="blog_button pag_prev">
-        {% if paginator.previous_page == 1 %}
-        <a rel="prev" href="{{ site.url }}/blog/" title="{{ site.data.language.previous_posts }}">
-          <img src="/images/icons/icon-arrow-blue.svg">
-          {{ site.data.language.previous }}
-        </a>
-        {% else %}
-        <a rel="prev" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/" title="{{ site.data.language.previous }}">
-          {{ site.data.language.previous }}
-          <img src="/images/icons/icon-arrow-blue.svg">
-        </a>
-        {% endif %}
-      </span>
-    {% endif %}
+<nav id="pagination" class="row">
+    <div class="small-4 columns" style="height: 50px;">
+      {% if paginator.previous_page %}
+          {% if paginator.previous_page == 1 %}
+            <a class="action-buttons" href="{{ site.url }}/blog/">
+              {{ site.data.language.previous }}
+              <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+            </a>
+          {% else %}
+            <a class="action-buttons" style="float:left;" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/">
+              {{ site.data.language.previous }}
+              <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+            </a>
+          {% endif %}
+      {% endif %}
+    </div>
 
-    {% if paginator.next_page %}
-      <span class="blog_button pag_next">
-        <a rel="next" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">Next Page<img src="/images/icons/icon-arrow-blue.svg"></a>
-      </span>
-    {% endif %}
-    
     {% assign away_from_end = paginator.total_pages %}
     
     {% if paginator.total_pages < 5 %}
@@ -74,14 +68,27 @@
       {% assign ending = paginator.page + 2 %}
     {% endif %}
     
-    <span class="pag_nums">
-      {% for i in (beginning..ending) %}
-        {% if i != paginator.page %}
-          <a href="{{ site.url }}/blog/page{{ i }}/">{{i}}</a>
-        {% else %}
-          <a class="pag_active" href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
+    <div class="small-4 columns" style="height: 50px;">
+      <span class="pag_nums">
+        {% for i in (beginning..ending) %}
+          {% if i != paginator.page %}
+            <a href="{{ site.url }}/blog/page{{ i }}/">{{i}}</a>
+          {% else %}
+            <a class="pag_active" href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
+          {% endif %}
+        {% endfor %}
+      </span>
+    </div>
+
+    <div class="small-4 columns" style="height: 50px;">
+      <div style="float: right">
+        {% if paginator.next_page %}
+            <a class="action-buttons" href="{{ site.url }}/blog/page{{ paginator.next_page }}/">
+                  Next Page
+                  <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+            </a>
         {% endif %}
-      {% endfor %}
-    </span>
+      </div>
+    </div>
   </nav>
 

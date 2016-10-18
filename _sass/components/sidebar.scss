@@ -5,7 +5,14 @@ div.blog-sidebar{
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.15);
     border-radius: 10px;
     font-family: $font-family-gotham-bold;
-
+    h4{
+        color: #6B6E90 !important;
+    }
+    a{
+        color: #45a7ca;
+        font-size: 13px;
+        font-family: sans-serif;
+    }
     ul.dates{
         padding-left: 0;
         margin-left: 0; 
@@ -27,22 +34,11 @@ ul.tag-list{
     margin: 20px 0 0 0;
 }
 
+.year-panel{
+    color: #222 !important;
+    font-weight: 500 !important;
+}
 
-/* Side Bar
-------------------------------------------------------------------- */
-
-// aside{
-//     font-family: $font-family-gotham-bold;
-
-//     a{
-//         color: #45a7ca !important;
-//     }
-
-//     h4{
-//         color: #6c708d !important;
-//     }
-
-//     .tag-list{
-//         margin-top: 20px;
-//     }
-// }
+a.orange-link{
+    color: #e17913 !important;
+}
