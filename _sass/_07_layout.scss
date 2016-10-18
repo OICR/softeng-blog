@@ -372,6 +372,18 @@ nav{
         padding: 20px;
         margin:150px 0 0 -11px; 
     }
+    .posts{
+        margin-top: 20px;
+        padding:20px 20px 0 0;
+
+        div{
+            &:last-child{
+                .blog_teaser{
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
 }
 
 

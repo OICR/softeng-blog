@@ -5,17 +5,17 @@
 # 3. Change default post/page authors in config.yml
 #
 # Resource › http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html
-- name: Engineer Name
+- name: Adam Wright
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-1
 
-- name: Engineer Name
+- name: Martin Pham
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-2
 
-- name: Engineer Name
+- name: Shane Wilson
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-3
