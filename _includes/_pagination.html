@@ -3,18 +3,17 @@
   <div class="row" >
     <div class="small-12 columns b60 blog_teaser">
       {{ post.date | date: "%B. %-d, %Y" }}
-      <p class="subheadline">{{ post.categories | join: ' &middot; ' | prepend: '<span class="subheader">' | append: '</span>' }}{% if post.categories != empty and post.subheadline != NULL %} – {% endif %}{{ post.subheadline }}</p>
       <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{% if author %}By: {{author.name}}{% endif %}</p>
+      <p>{% if author %}By: <a href="#placeholder">{{author.name}}</a>{% endif %}</p>
       <p>
         {% if post.tags.first %}
           <span class="icon-price-tag pr10">
-          {% for tag in post.tags %}
-            {{ tag }}
-            {% unless forloop.last %}
-             / 
-            {% endunless %}
-          {% endfor %}
+            {% for tag in post.tags %}
+              {{ tag }}
+              {% unless forloop.last %}
+              / 
+              {% endunless %}
+            {% endfor %}
           </span>
         {% endif %}
       </p>
@@ -28,7 +27,7 @@
             {{ post.teaser | strip_html | escape }}
             {% endif %}
           </p>
-          <p><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>{{ site.data.language.full_article }}</strong></a></p>
+          <p><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}"><strong>Full Article</strong></a></p>
         </div>
       </p>
     </div><!-- /.small-12.columns -->
@@ -36,15 +35,29 @@
 {% endfor %}
 
 
-<nav id="pagination">
+<nav id="pagination" class="clearfix">
     {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-      <a rel="prev" class="radius button small" href="{{ site.url }}/blog/" title="{{ site.data.language.previous_posts }}">&laquo; {{ site.data.language.previous_posts }}</a>
-      {% else %}
-      <a rel="prev" class="radius button small" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/" title="{{ site.data.language.previous_posts }}">&laquo; {{ site.data.language.previous }}</a>
-      {% endif %}
+      <span class="blog_button pag_prev">
+        {% if paginator.previous_page == 1 %}
+        <a rel="prev" href="{{ site.url }}/blog/" title="{{ site.data.language.previous_posts }}">
+          <img src="/images/icons/icon-arrow-blue.svg">
+          {{ site.data.language.previous }}
+        </a>
+        {% else %}
+        <a rel="prev" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/" title="{{ site.data.language.previous }}">
+          {{ site.data.language.previous }}
+          <img src="/images/icons/icon-arrow-blue.svg">
+        </a>
+        {% endif %}
+      </span>
     {% endif %}
 
+    {% if paginator.next_page %}
+      <span class="blog_button pag_next">
+        <a rel="next" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">Next Page<img src="/images/icons/icon-arrow-blue.svg"></a>
+      </span>
+    {% endif %}
+    
     {% assign away_from_end = paginator.total_pages %}
     
     {% if paginator.total_pages < 5 %}
@@ -60,19 +73,15 @@
       {% assign beginning = paginator.page - 2 %}
       {% assign ending = paginator.page + 2 %}
     {% endif %}
-
-    {% for i in (beginning..ending) %}
-      {% if i != paginator.page %}
-        <a href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
-      {% else %}
-        {{i}}
-      {% endif %}
-
-      
-    {% endfor %}
-
-    {% if paginator.next_page %}
-      <a rel="next" class="radius button small" href="{{ site.url }}/blog/page{{ paginator.next_page }}/" title="{{ site.data.language.next_posts }}">{{ site.data.language.next }} &raquo;</a>
-    {% endif %}
+    
+    <span class="pag_nums">
+      {% for i in (beginning..ending) %}
+        {% if i != paginator.page %}
+          <a href="{{ site.url }}/blog/page{{ i }}/">{{i}}</a>
+        {% else %}
+          <a class="pag_active" href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
+        {% endif %}
+      {% endfor %}
+    </span>
   </nav>
 
