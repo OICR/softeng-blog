@@ -1,0 +1,25 @@
+table.careers-table{
+    background: transparent;
+    border-bottom: none;
+    margin-bottom: 80px;
+    tr.spacer{
+        height: 20px;
+    }
+    tr{
+        background: transparent;
+        td{
+            padding: 10px 0 10px 0;
+            border-bottom: 1px solid #EBECF0;
+        }
+        td:first-child{
+            border-bottom: none;   
+        }
+        td:last-child{
+            border-bottom: none;   
+        }
+    }
+    tr:first-child{
+        background-color: #EAEBF0;
+        margin-bottom: 20px;
+    }
+}
