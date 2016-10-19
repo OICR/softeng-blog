@@ -153,22 +153,26 @@ nav{
 
     .left-column{
         font-family: $font-family-gotham-bold;
-
-        .header-icon{
-            display: inline-block;
-            vertical-align: middle;
-        }
+        
         .header-title{
-            display: inline-block;
-            vertical-align: middle;
 
             h2{
                 color: #FFF;
                 font-size: 33px;
                 margin:5px 0px 0px 10px;
+                display: inline-block;
+                vertical-align: middle;
 
                 &.small{
                     font-size: 28px;
+                }
+            }
+
+            img{
+                width: 10%;
+
+                &.small{
+                    width: 5.5%;
                 }
             }
 
