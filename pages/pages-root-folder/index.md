@@ -17,11 +17,12 @@ permalink: /index.html
 
 <div class="small-7 columns posts">
   {% for post in site.posts limit:3 %}
+  {% assign author = site.data.authors[post.author] %}
     <div class="row" >
       <div class="small-12 columns b30 blog_teaser">
-        <span class="date-display">{{ post.date | date: "%b. %-d, %Y" }}</span>
+        <span class="date-display"><strong>{{ post.date | date: "%b. %-d, %Y" }}</strong></span>
         <h3 class="post-title"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
-        {% if post.author %}<p class="post-author">By: <a href="#placeholder"><Strong>{{ post.author }}</strong></a></p>{% endif %}
+        {% if author %}<p class="post-author">By: <a href="#placeholder"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
           <div class="circle"></div>

@@ -1,11 +1,12 @@
 .blog_teaser {
-    font-family: $font-family-gotham-bold;
+    font-family: $font-family-gotham-book;
 
     .date-display{
         color: #9397A8;
     }
     h3{
         a{
+            font-family: $font-family-gotham-bold;
             color: #6C708D;
         }
     }
@@ -17,17 +18,12 @@
     }
     .post-tags{
         color: #7ec9e4;
-        font-family: $font-family-gotham-book;
         
         span{
             font-size: 12px;
         }
     }
-    .post-author{
-        font-family: $font-family-gotham-book;
-    }
     .teaser{
-        font-family: $font-family-gotham-book;
         margin-top: 10px;
         p{
             padding-top: 10px;

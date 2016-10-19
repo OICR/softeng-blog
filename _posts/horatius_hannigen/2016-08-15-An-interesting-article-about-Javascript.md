@@ -3,7 +3,7 @@ layout: page
 sidebar: right
 title:  "An interesting article about Javascript"
 breadcrumb: false
-author: Shane Wilson
+author: horatius_hannigen
 date: 2016-08-15
 tags:
     - Javascript

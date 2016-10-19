@@ -1,9 +1,9 @@
 ---
 layout: page
 sidebar: right
-title:  "Software Engineering Club goes global"
+title:  "Software Engineering Club"
 breadcrumb: false
-author: Adam Wright
+author: shahnaz_amsing
 date: 2016-08-09
 tags:
     - Software Engineering Club

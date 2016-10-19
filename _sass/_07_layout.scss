@@ -104,12 +104,6 @@ nav{
                 }
             }
 
-            &.active{
-                a{
-                    border-bottom:  3px solid #ffbd66;;
-                }
-            }
-
             a{
                 vertical-align: baseline;
                 font-family: gotham-bold;
@@ -120,6 +114,10 @@ nav{
                 &:hover{
                     color: #6c708d !important;
                     border-bottom: 3px solid #ffbd66;
+                }
+
+                &.active{
+                    border-bottom:  3px solid #ffbd66;
                 }
             }
         }
