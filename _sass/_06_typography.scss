@@ -142,33 +142,6 @@ img { border-radius: $global-radius;}
 figure {
     margin: 0 0 rem-calc(30) 0;
 }
-#masthead-with-background-color figure,
-#masthead-with-pattern figure {
-    margin: 0;
-}
-figcaption,
-.masthead-caption {
-    color: $grey-10;
-    font-family: $font-family-sans-serif;
-    font-size: rem-calc(13);
-    padding-top: rem-calc(2);
-}
-figcaption a,
-.masthead-caption a {
-    border-bottom: 1px dotted $grey-4;
-    color: $grey-10;
-}
-figcaption a:hover,
-.masthead-caption a:hover {
-    border-bottom: 2px solid $primary-color;
-    color: $primary-color;
-}
-.masthead-caption {
-    padding-right: 10px;
-    text-align: right;
-}
-
-
 
 /* Tables
 ------------------------------------------------------------------- */
@@ -186,8 +159,6 @@ pre {
     overflow: auto;
     margin-bottom: rem-calc(20);
     padding: 5px;
-    background-color: $code-background-color;
-    border-radius: $global-radius;
 }
 pre code {
     padding: rem-calc(2) rem-calc(5) rem-calc(1) rem-calc(0);

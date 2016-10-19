@@ -52,4 +52,7 @@ The prop `transitionAppear` was added to `ReactCSSTransitionGroup` in version 0.
 ###Subtitle
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula. Praesent finibus tempor laoreet. Suspendisse ut nunc ante. Pellentesque arcu eros, molestie vitae eros at, sagittis pharetra nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc interdum nibh sed sapien sagittis, sit amet viverra metus lobortis. Quisque eu pellentesque quam. Aenean luctus id risus sit amet elementum. "
 
-<img src="{{site.urlimg}}GDC-Portal.png" />
+<figure>
+    <img src="{{site.urlimg}}GDC-Portal.png" />
+    <figcaption>National Cancer Institute - Genomic Data Commons Data Portal</figcaption>
+</figure>

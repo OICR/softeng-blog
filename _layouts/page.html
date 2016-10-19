@@ -4,7 +4,8 @@ format: page
 ---
 {% assign author = site.data.authors[page.author] %}
 <div class="row blog">
-  <div class="small-7 columns blog-post">
+  <div class="small-7 columns">
+    <div class="blog-post">
       <div class="blog_teaser">
         <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
         <h3 class="post-title"><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h3>
@@ -38,26 +39,82 @@ format: page
         {{ content }}
         </div>
     </article>
+    <div class="social-media">
+      <div class="small-9 columns">
+        <span>Share:</span>
+      </div>
+      <div class="small-1 columns">
+        <a href="#">
+          <img src="/images/icons/icon-twitter.svg" />
+        </a>
+      </div>
+      <div class="small-1 columns">
+        <a href="#">
+          <img src="/images/icons/icon-facebook.svg" />
+        </a>
+      </div>
+      <div class="small-1 columns">
+        <a href="#">
+          <img src="/images/icons/icon-linkedin.svg" />
+        </a>
+      </div>
+    </div>
+    </div>
+    <div class="author-box columns"> 
+      <div class="author">
+        <div class="small-2 columns">
+          <img src="{{site.urlimg}}avatars/{{author.avatar}}.svg" title="{{ author.name }}"/>
+        </div>
+        <div class="small-10 columns">
+          <div class="author-bio">
+            <span>
+              <strong>{{author.name}},</strong>
+            </span>
+            <span>
+              {{author.position}}
+            </span>
+          </div>
+          <div class="author-info">
+            <span>{{ author.info }}</span>
+          </div>
+          <div class="author-links">
+            <a class="author-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
+            <a class="author-github" href="https://github.com/blog/{{ author[1].github }}"> Github </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="small-5 columns ">
     {% include _blog_sidebar.html %}
   </div>
-  <!--<div class="author_box_container small-7 columns"> 
-    <div class="content-sidebar">
-      <p>{{ author.name }}</p>
-      <p>{{ author.info }}</p>
-      <p><a href="{{ site.url }}/blog/{{ author.name }}"> Blog Posts </a></p>
-      <p><a href="https://github.com/blog/{{ author.github }}"> Github </a></p>
+
+  <div class="small-12 columns to-top">
+    <div class="small-5 columns previous-link">
+      {% if page.previous.url %}
+        <a style="float: left;" href="{{page.previous.url}}">
+          <span class="icon-previous">
+            <img src="/images/icons/icon-arrow-blue.svg" />
+          </span>
+          <span><strong>Previous:</strong> {{page.previous.title}}</span>
+        </a>
+      {% endif %}
     </div>
-  </div>-->
-
-
-  <div class="pageNav small-12 columns">
-    {% if page.previous.url %}
-      <a style="float: left;" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-    {% endif %}
+    <div class="small-2 columns top-link">
+      <a href="#top">
+        <span><img src="/images/icons/icon-arrow.svg" /></span>
+        <span>Back to Top</span>
+      </a>
+    </div>
+    <div class="small-5 columns next-link">
     {% if page.next.url %}
-      <a style="float: right;" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+      <a href="{{page.next.url}}">
+        <span><strong>Next:</strong> {{page.next.title}}</span>
+        <span class="icon-next">
+          <img src="/images/icons/icon-arrow-blue.svg" />
+        </span>
+      </a>
     {% endif %}
+    </div>
   </div>
 </div><!-- /.row -->
