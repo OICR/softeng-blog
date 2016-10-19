@@ -5,47 +5,56 @@
 # 3. Change default post/page authors in config.yml
 #
 # Resource › http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html
-- name: Adam Wright
+Adam-Wright:
+  name: Adam Wright
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-1
 
-- name: Martin Pham
+Martin-Pham:
+  name: Martin Pham
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-2
 
-- name: Shane Wilson
+Shane-Wilson:
+  name: Shane Wilson
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-3
 
-- name: Engineer Name
+Engineer-Name:
+  name: Engineer Name
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-4
 
-- name: Engineer Name
+Engineer-Name-1:
+  name: Engineer Name
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-5
 
-- name: Engineer Name
+Engineer-Name-2:
+  name: Engineer Name 2
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-6
 
-- name: Engineer Name
+Engineer-Name-3:
+  name: Engineer Name
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-7
 
-- name: Engineer Name
+Engineer-Name-4:
+  name: Engineer Name
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-8
 
-- name: Engineer Name
+Engineer-Name-5:
+  name: Engineer Name
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-9

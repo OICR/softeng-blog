@@ -4,27 +4,42 @@ format: page
 header: 
     version: nohead
 ---
-{% assign author = site.data.authors[post.author] %}
+{% assign cur_author = site.data.authors[page.author] %}
+
 <div class="row">
-	<div class="small-7 columns blog-post">
-			<header>
-			<h1>{{ page.title }}</h1>
+	<div class="clearfix">
+		<div class="small-7 columns blog-post">
+				<span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
+				<h1>{{ page.title }}</h1>
+				{{ page.author }}
+				<div itemprop="articleSection">
+				{{ content }}
+				</div>
+			</article>
+		</div>
 
-			{% if page.teaser %}
-			<p class="teaser" itemprop="description">
-				{{ page.teaser }}
-			</p>
-			{% endif %}
+		<div class="small-1 columns"><br></div>
 
-			<div itemprop="articleSection">
-			{{ content }}
-			</div>
-		</article>
+		<div class="small-4 columns">
+			{% include _blog_sidebar.html %}
+		</div>
+	</div>
+	<div class="author_box_container small-7 columns"> 
+		<div class="content-sidebar">
+			<p>{{ cur_author.name }}</p>
+			<p>{{ cur_author.description }}</p>
+			<p><a href="{{ site.url }}/blog/{{ cur_author.name }}"> Blog Posts </a></p>
+			<p><a href="https://github.com/blog/{{ cur_author.github }}"> Github </a></p>
+		</div>
 	</div>
 
-	<div class="small-1 columns"><br></div>
 
-	<div class="small-4 columns">
-		{% include _blog_sidebar.html %}
+	<div class="pageNav small-12 columns">
+		{% if page.previous.url %}
+			<a style="float: left;" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+		{% endif %}
+		{% if page.next.url %}
+			<a style="float: right;" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+		{% endif %}
 	</div>
 </div><!-- /.row -->
