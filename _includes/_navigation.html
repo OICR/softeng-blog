@@ -1,0 +1,33 @@
+<div id="navigation">
+  <nav role="navigation">
+    <div class="row">
+      <div class="small-12 columns">
+        <ul class="no-bullet">
+          <li>
+            <a href="/" title="Ferretti Blog">
+              <img src="{{site.urlimg}}logo-Ferretti-blog.png" title="Ferretti Blog" />
+            </a>
+          </li>
+          {% for navigation_item in site.data.navigation %}
+             <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
+                <a {% if navigation_item.url == page.url %} class="active" {% endif %} href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
+            </li>
+          {% endfor %}
+          <li>
+            <div>
+              <div>
+                <a href="http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA" target="_blank" title="YouTube">
+                  <img src="{{site.urlimg}}icons/icon-youtube.svg" />
+                </a>
+              </div>
+              <div>
+                <input type="search" placeholder="Search..."/>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div><!-- /#navigation -->

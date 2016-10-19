@@ -1,0 +1,63 @@
+ {% unless page.header.version == 'nohead' %}
+  <div class="masthead" style="background-image: url('/images/{{page.header.image}}')">
+    <div class="row">
+      {% if page.header.version == 'full' %}
+      <div class="small-7 columns left-column">
+        <div class="header-title {{page.header.class}} clearfix">
+          {% if page.header.icon %}
+          <img src="{{site.urlimg}}icons/{{page.header.icon}}.svg" />
+          {% endif %}
+          <h2>{{page.header.title}}</h2>
+        </div>
+        {% if page.header.caption %}
+          <span>{{page.header.caption}}</span>
+        {% endif %}
+        {% if page.header.buttons %}
+          <div class="action-buttons">
+          {% for button_item in page.header.buttons %}
+            <a href="{{button_item.link}}">
+              {{button_item.title}}
+              <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+            </a>
+          {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if  page.header.version == 'small' %}
+      <div class="small-12 columns left-column">
+        <div class="header-title">
+          <img class="small" src="{{site.urlimg}}icons/{{page.header.icon}}.svg" />
+          <h2 class="small">{{page.header.title}}</h2>
+        </div>
+      </div>
+      {% endif %}
+      {% if page.header.page == 'front' %}
+        <div class="small-5 columns right-column">
+          <div class="next-meeting">
+            <div class="next-meeting-info">
+              <div class="club-icon">
+                <img src="{{site.urlimg}}icons/icon-software-engineering-club.svg" />
+              </div>
+              <div class="meeting-info">
+                <span class="meeting-club">Software Engineering Club</span>
+                <span class="meeting-next">Next Meeting</span>
+                <span class="meeting-time"><strong>When:</strong> Fri. Sept 30, 2016, 12pm - 1pm</span>
+                <span class="meeting-place"><strong>Where:</strong> OICR - Room 5-20</span>
+                <span class="meeting-host"><strong>Who:</strong> <a href="/Shane Wilson">Shane Wilson</a></span>
+                <span class="meeting-talk"><strong>What:</strong> Something Development Related</span>
+                <span class="meeting-archive">
+                  <a href="#">
+                    <strong>Club Archive »</strong>
+                  </a>
+                </span>
+              </div>
+              
+            </div>
+            <div class="meeting-bg"></div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endunless %}

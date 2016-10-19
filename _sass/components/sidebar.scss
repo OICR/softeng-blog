@@ -1,0 +1,53 @@
+div.blog-sidebar{
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: #fff;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.15);
+    border-radius: 10px;
+    font-family: $font-family-gotham-bold;
+
+    h4{
+        color: #6B6E90 !important;
+    }
+    a{
+        color: #45a7ca;
+        font-size: 13px;
+    }
+    ul.dates{
+        padding-left: 0;
+        margin-left: 0; 
+        li{
+            padding-bottom:10px;
+            a{
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                border-radius: 16px;
+            }
+        }
+    }
+
+}
+
+ul.tag-list{
+    list-style-type: none;
+    padding: 0 0 0 0;
+    margin: 20px 0 0 0;
+}
+
+.year-panel{
+    color: #222 !important;
+    font-weight: 500 !important;
+}
+
+a.orange-link{
+    color: #e17913 !important;
+}
+.rss-container{
+    text-indent: 14px;
+    font-size: 13px;
+    font-family: $font-family-gotham-bold;
+}
+
+.date_sort_container{
+    padding: 10px 10px 10px 10px !important;
+}

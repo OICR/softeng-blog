@@ -1,0 +1,73 @@
+.blog_teaser {
+    font-family: $font-family-gotham-book;
+
+    .date-display{
+        color: #9397A8;
+    }
+    h3{
+        a{
+            font-family: $font-family-gotham-bold;
+            color: #6C708D;
+        }
+    }
+    a{
+        border-bottom: none !important;
+    }
+    p{
+        margin-bottom: 0;
+    }
+    .post-tags{
+        color: #7ec9e4;
+        
+        span{
+            font-size: 12px;
+        }
+    }
+    .teaser{
+        margin-top: 10px;
+        p{
+            padding-top: 10px;
+        }
+         .teaser-image{
+            border: solid 5px #eaebf0;
+            margin-bottom: 20px;
+        }
+    }
+    .circles{
+        margin: 5px 0px;
+        .circle{
+            display: inline-block;
+            vertical-align: middle;
+            width:5px;
+            height:5px;
+            border-radius: 50%;
+            background: #cdced4;
+        }
+    }
+    .post-link{
+        margin: 10px 0 0;
+        padding:0 0 20px;
+        border-bottom: 1px solid #E2E3E7;
+    }
+}
+
+nav#pagination{
+    background: none;
+    .pag_prev{
+        width: 150px;
+        float:left;
+    }
+    .pag_nums{
+        display: block;
+        text-align: center;
+    }
+    .pag_next{
+        width: 150px;
+        float:right;
+    }
+}
+
+span.icon-price-tag{
+    font-size: 12px;
+    color: #45a7ca;
+}

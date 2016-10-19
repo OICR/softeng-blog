@@ -1,0 +1,35 @@
+    <footer id="footer-content" class="bg-grau">
+      <div id="footer">
+        <div class="row">
+          <div>
+            <ul class="no-bullet">
+                {% for navigation_item in site.data.navigation %}
+                  {% if navigation_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
+                  <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
+                    <a href="{{ domain }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">{{ navigation_item.title }}</a>
+                  </li>
+                {% endfor %}
+                <li>
+                  <a href="http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA"
+                   target="_blank" title="YouTube}">YouTube</a>
+                </li>
+            </ul>
+            <ul class="no-bullet oicr-info">
+              {% for oicr_item in site.data.oicr %}
+                {% if oicr_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
+                <li {% if oicr_item.class %}class="{{ oicr_item.class }}" {% endif %}>
+                  <a href="{{ domain }}{{ oicr_item.url }}" {% if oicr_item.url contains 'http' %}target="_blank" {% endif %} title="{{ oicr_item.title }}">
+                    {% if oicr_item.image %}
+                      <img src="{{ site.urlimg }}{{ oicr_item.image }}" />
+                    {% else %}
+                      {{ oicr_item.title }}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /#footer -->
+    </footer>
