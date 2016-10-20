@@ -203,6 +203,7 @@ nav{
     .right-column{
         padding: 20px;
         position: relative;
+        z-index: 99;
 
         .next-meeting{
             position: absolute;
@@ -278,7 +279,7 @@ nav{
                 }
             }
             .meeting-bg{
-                background: url('{{site.urlimg}}meeting-bg.png');
+                background: url('/softeng/images/meeting-bg.png');
                 padding: 4em;
                 margin: 7px -100px 0px;
                 background-position: bottom;
@@ -469,7 +470,7 @@ nav{
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
-    background: #FFF url('/images/footer-bg.png') center center;
+    background: #FFF url('/softeng/images/footer-bg.png') center center;
     font-family: $font-family-gotham-bold;
 
     ul{
