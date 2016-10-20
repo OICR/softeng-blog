@@ -22,8 +22,8 @@ author: ICGC
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: ''
-baseurl: ''
+url: 'https://icgc-dcc.github.io'
+baseurl: '/softeng/'
 
 rss-link: ''
 
@@ -41,7 +41,7 @@ urlimg: '/softeng/images/'
 
 
 # Logo size is 600x80 pixels
-logo: "logo.png"
+logo: "logo-Ferretti-blog.png"
 
 # Gems
 gems:
