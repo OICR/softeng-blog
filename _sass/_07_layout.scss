@@ -278,7 +278,7 @@ nav{
                 }
             }
             .meeting-bg{
-                background: url('/images/meeting-bg.png');
+                background: url('{{site.urlimg}}meeting-bg.png');
                 padding: 4em;
                 margin: 7px -100px 0px;
                 background-position: bottom;
