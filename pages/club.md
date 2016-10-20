@@ -1,0 +1,4 @@
+---
+layout: club
+permalink: /club/
+---

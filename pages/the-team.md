@@ -23,7 +23,7 @@ permalink: "/team/"
         </div>
         <div class="small-12 columns author-links">
           <a class="author-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
-          <a class="author-github" href="https://github.com/blog/{{ author[1].github }}"> Github </a>
+          <a class="author-github" href="https://github.com/{{ author[1].github }}"> github</a>
         </div>
       </div>
     </div>

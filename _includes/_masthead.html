@@ -34,14 +34,17 @@
         </div>
       </div>
       {% endif %}
-      {% if page.header.page == 'front' %}
+      {% if page.header.page == 'front' or page.header.page == 'club' %}
         <div class="small-5 columns right-column">
-          <div class="next-meeting">
+          <div class="next-meeting {% if page.header.page == 'club' %}in-club{% endif %}">
             <div class="next-meeting-info">
               <div class="club-icon">
                 <img src="{{site.urlimg}}icons/icon-software-engineering-club.svg" />
               </div>
               <div class="meeting-info">
+                {% if page.header.page == 'club' %}
+                  <span class="meeting-join-us">Join us for our next meeting</span>
+                {% endif %}
                 <span class="meeting-club">Software Engineering Club</span>
                 <span class="meeting-next">Next Meeting</span>
                 <span class="meeting-time">
@@ -61,7 +64,7 @@
               </div>
               
             </div>
-            <div class="meeting-bg"></div>
+            <div class="meeting-bg" style="background-image: url('{{site.urlimg}}/meeting-bg.png');"></div>
           </div>
         </div>
       {% endif %}
