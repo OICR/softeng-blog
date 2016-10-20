@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title:  "PGMLab and Task Queueing with Celery"
 breadcrumb: true
 author: shahnaz_amsing

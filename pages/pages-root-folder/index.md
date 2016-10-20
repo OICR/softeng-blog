@@ -61,6 +61,8 @@ permalink: /index.html
     </div><!-- /.row -->
   {% endfor %}
   <div class="row">
-    {% include _action_buttons.html link='blog' text='View Full Blog' button='right' %}
+    <div class="columns">
+      {% include _action_buttons.html link='blog' text='View Full Blog' button='right' %}
+    </div>
   </div>
 </div>

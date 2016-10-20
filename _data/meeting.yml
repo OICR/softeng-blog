@@ -1,0 +1,7 @@
+- when: 
+    date: 2016-09-30 
+    start: '12pm'
+    end: '1pm'
+  where: 'Room 5-20'
+  who: 'alwilda_summers'
+  what: 'Develop on your own'

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 sidebar: right
 title:  "An interesting article about Javascript"
 breadcrumb: false

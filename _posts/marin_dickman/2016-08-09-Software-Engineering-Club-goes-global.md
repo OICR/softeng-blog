@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 sidebar: right
 title:  "Software Engineering Club goes global"
 breadcrumb: false

@@ -1,3 +1,5 @@
+ {% assign author = site.data.authors[site.data.meeting.first.who] %}
+ 
  {% unless page.header.version == 'nohead' %}
   <div class="masthead" style="background-image: url('{{site.urlimg}}{{page.header.image}}')">
     <div class="row">
@@ -42,10 +44,15 @@
               <div class="meeting-info">
                 <span class="meeting-club">Software Engineering Club</span>
                 <span class="meeting-next">Next Meeting</span>
-                <span class="meeting-time"><strong>When:</strong> Fri. Sept 30, 2016, 12pm - 1pm</span>
-                <span class="meeting-place"><strong>Where:</strong> OICR - Room 5-20</span>
-                <span class="meeting-host"><strong>Who:</strong> <a href="/Shane Wilson">Shane Wilson</a></span>
-                <span class="meeting-talk"><strong>What:</strong> Something Development Related</span>
+                <span class="meeting-time">
+                  <strong>When:</strong> 
+                  {{site.data.meeting.first.when.date | date:'%a. %b. %d, %Y,'}}
+                  {{ site.data.meeting.first.when.start }} - 
+                  {{ site.data.meeting.first.when.end }}
+                </span>
+                <span class="meeting-place"><strong>Where:</strong> OICR - {{site.data.meeting.first.where}}</span>
+                <span class="meeting-host"><strong>Who:</strong> <a href="/Shane Wilson">{{author.name}}</a></span>
+                <span class="meeting-talk"><strong>What:</strong> {{site.data.meeting.first.what}}</span>
                 <span class="meeting-archive">
                   <a href="#">
                     <strong>Club Archive »</strong>
