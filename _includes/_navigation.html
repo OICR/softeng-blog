@@ -19,7 +19,7 @@
             <ul class="no-bullet">
               {% for navigation_item in site.data.navigation %}
                 <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
-                    <a {% if navigation_item.url == page.url %} class="active" {% endif %} href="{{ site.url }}/{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">
+                    <a {% if navigation_item.url == page.url %} class="active" {% endif %} href="{{ site.url }}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">
                       {% if navigation_item.image %}
                         <img src="{{ site.urlimg }}icons/{{ navigation_item.image }}" />
                       {% else %}
