@@ -81,10 +81,18 @@ nav{
                 }
 
                 a{
+                    display: block;
+                    border:none;
+                    text-indent: -99999px;
+
+                    &:hover{
+                        border: none;
+                    }
+
                     img{
                         width: 12%;
                         margin:0 0 15px 0;
-                        float: right;                        
+                        float: right;
                     }
                 }
 
@@ -98,7 +106,7 @@ nav{
 
                 i{
                     position: absolute;
-                    top: 3.1rem;
+                    top: 1.2rem;
                     left:0.7rem;
                     color: #9497a8;
                 }
@@ -207,7 +215,7 @@ nav{
 
         .next-meeting{
             position: absolute;
-            top: 150%;
+            top: 65px;
 
             .next-meeting-info{
                 background: #FFF;
@@ -279,11 +287,42 @@ nav{
                 }
             }
             .meeting-bg{
-                background: url('/images/meeting-bg.png');
                 padding: 4em;
                 margin: 7px -100px 0px;
                 background-position: bottom;
                 background-size: cover;
+            }
+
+            &.in-club{
+                position: initial;
+                top: 0px;
+
+                .next-meeting-info{
+                    .club-icon{
+                        display: none;
+                    }
+                    .meeting-info{
+                        .meeting-join-us{
+                            color: #6c708d;
+                            font-family: $font-family-gotham-bold;
+                            font-size: 18px;
+                            padding: 20px 0 5px;
+                        }
+                        .meeting-club{
+                            display: none;
+                        }
+                        .meeting-next{
+                            display: none;
+                        }
+                        .meeting-archive{
+                            display: none;
+                        }
+                    }
+                }
+                
+                .meeting-bg{
+                    display: none;
+                }
             }
         }
     }
@@ -436,6 +475,10 @@ nav{
 
                 &:first-child{
                     padding-left: 0;
+                }
+
+                &.author-github{
+                    background: url('/images/icons/icon-github.svg') no-repeat;
                 }
             }
         }

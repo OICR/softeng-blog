@@ -1,54 +1,63 @@
 # Author details
-horatius_hannigen:
-  name: Horatius Hannigen
+sid_joshi:
+  name: Sid Joshi
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-1
+  github: sidsyrus
 
 rajab_yamasaki:
   name: Rajab Yamasaki
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-2
+  github: rajab_saki
 
 shahnaz_amsing:
   name: Shahnaz Amsing
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-3
+  github: shahnaz_amsing
 
 adam_wright:
   name: Adam Wright
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-4
+  github: adam_wright
 
 jirou_mencher:
   name: Jirou Mencher
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-5
+  github: jirou_mencher
 
 mariano_losa:
   name: Mariano Losa
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-6
+  github: mario_losa
 
 alwilda_summers:
   name: Alwilda Summers
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-7
+  github: alwi_summers
 
 marin_dickman:
   name: Marin Dickman
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-8
+  github: marin_dickman
 
 lilly_brune:
   name: Lilly Brune
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
   avatar: random-9
+  github: lilly_brune

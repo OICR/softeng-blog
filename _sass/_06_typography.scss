@@ -24,8 +24,7 @@ Check typography variables › _3_typography_settings.scss
 /* Links
 ------------------------------------------------------------------- */
 
-a,
-a:link {
+a{
     color: #e17913;
 
     &.action-buttons{
