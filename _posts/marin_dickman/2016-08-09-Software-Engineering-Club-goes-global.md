@@ -5,9 +5,7 @@ title:  "Software Engineering Club goes global"
 breadcrumb: false
 author: marin_dickman
 date: 2016-08-09
-tags:
-    - Software Engineering Club
-    - OICR
+tags: [Software Engineering Club, OICR]
 teaser:
     info: Software powers an increasingly large portion of our lives, from the phones in our hands to the computers we work at to the cars we drive. The engineering expertise behind all these tools has, unsurprisingly, become a hot commodity.
     image: post-2.png

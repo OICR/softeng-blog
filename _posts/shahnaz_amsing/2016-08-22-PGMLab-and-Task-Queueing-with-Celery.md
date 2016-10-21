@@ -4,10 +4,7 @@ title:  "PGMLab and Task Queueing with Celery"
 breadcrumb: true
 author: shahnaz_amsing
 date: 2016-08-22
-tags:
-    - Software Engineering Club
-    - Python
-    - React
+tags: [Software Engineering Club, Python, React]
 teaser:
     info: A talk given for the Ontario Institute for Cancer Research’s software engineering club on PGMLab (Probabilistic Graphical Model Lab) and developing web applications for Celery. Javascript web technologies such as React, Redux, Immutable.js, ECMAScript 6 (ES6) are discussed...
     image: post.png
