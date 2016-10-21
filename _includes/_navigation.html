@@ -9,8 +9,11 @@
         </div>
         <div class="small-10 columns">
           <div class="search-bar clearfix">
-            <input type="search" placeholder="Search..."/>
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <form action="/search" method="get">
+              <input id="search-box" name="q" type="text" placeholder="Search..."/>
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input type="submit" style="position: absolute; left: -9999px"/>
+            </form>
           </div>
           <div class="navigation-bar">
             <ul class="no-bullet">

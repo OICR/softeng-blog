@@ -1,0 +1,24 @@
+- name: ICGC-DCC
+  url: //github.com/icgc-dcc
+  icon: //avatars2.githubusercontent.com/u/1508638
+  info: The Data Coordinating Center for the ICGC.org project
+
+- name: Cancer Collaboratory
+  url: //github.com/CancerCollaboratory
+  icon: //avatars1.githubusercontent.com/u/10966125
+  info: Cancer Collaboratory
+
+- name: icgc
+  url: //github.com/icgc
+  icon: //avatars0.githubusercontent.com/u/14312020
+  info: International Cancer Genome Consortium
+
+- name: NCI-GDC
+  url: //github.com/NCI-GDC
+  icon: //avatars2.githubusercontent.com/u/7882952
+  info: Genomic Data Commons
+
+- name: OncoJS
+  url: //github.com/oncojs
+  icon: //avatars3.githubusercontent.com/u/22945033?v=3&s=200
+  info: Javascript visualizations for cancer analytics

@@ -5,7 +5,7 @@ header:
     version: full
     title: Software Engineering Club
     caption: The OICR Software Engineering Club is a monthly forum that facilitates the sharing of hot topic technologies. Each month a volunteer is selected to showcase a topic of his or her choosing and present it here at OICR. Presenters pick their topics based on their working experience or a topic they are considering using in the future. That way they have a real connection with what they are presenting. 
-    image: header-logo-crop.png
+    image: ferretti-theme-banner.png
     page: club
     icon: icon-software-engineering-club
 ---

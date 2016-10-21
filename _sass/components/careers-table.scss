@@ -2,6 +2,20 @@ table.careers-table{
     background: transparent;
     border-bottom: none;
     margin-bottom: 80px;
+    font-family: $font-family-gotham-bold;
+
+    thead{
+        tr{
+            th{
+                color: #6c708d;
+            }
+        }
+    }
+
+    a.position{
+        color: #45a7ca;
+    }
+
     tr.spacer{
         height: 20px;
     }

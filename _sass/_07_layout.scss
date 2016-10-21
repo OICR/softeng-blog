@@ -391,15 +391,15 @@ nav{
     background: $grey-2;
 }
 
-/* Home Page
+/* Home Page and Club Page
 ------------------------------------------------------------------- */
 
-.home-page, .club-page{
+.home-page, .club-page, .search-page{
     aside{
         padding: 20px;
         margin:150px 0 0 -11px; 
     }
-    .club-sidebar{
+    .club-sidebar, .search-sidebar{
         aside{
             margin:30px 0 0 0;
         }
@@ -412,6 +412,26 @@ nav{
             &:last-child{
                 .blog_teaser{
                     margin-bottom: 0 !important;
+                }
+            }
+        }
+
+        .results{
+            ul{
+                li{
+                    padding: 20px 0;
+                    border-bottom: 2px solid #e3e4e9; 
+                    p.post-author{
+                        color: #9497a8;
+                    }
+                    b{
+                        color: #000;
+                    }
+                    h3{
+                        b{
+                            font-weight: 100;
+                        }
+                    }
                 }
             }
         }
@@ -438,6 +458,7 @@ nav{
         border-radius: 5px;
         border: 1px solid #FFF;
         font-size: 13px;
+        min-height: 215px;
 
         img{
             border-radius: 50%;
@@ -460,14 +481,10 @@ nav{
 
         .author-links{
             a{
-                padding:0 20px;
                 font-family: $font-family-gotham-bold;
 
-                &:first-child{
-                    padding-left: 0;
-                }
-
                 &.author-github{
+                    padding-left: 20px; 
                     background: url('/images/icons/icon-github.svg') no-repeat;
                 }
             }
@@ -487,6 +504,14 @@ nav{
             margin-left: 30px;
             margin-right: 0px;
         }
+    }
+}
+
+.club-posts-info{
+    background: #eaebf0;
+    h6{
+        margin-top: 0.5rem;
+        color: #6c708d;
     }
 }
 

@@ -1,12 +1,6 @@
 ---
 layout: default
 format: careers
-header: 
-    version: full
-    title: Careers
-    caption: The OICR team is growing quickly. We are innovative dedicated professionals who bring expertise to each of our roles. We are looking for individuals interested in being a part of culture of excellence that will result in Ontario being recognized internationally as a leading jurisdiction for cancer research.
-    image: header-logo-crop.png
-    icon: icon-careers
 ---
 <div id="header-home">
     <div class="row">
@@ -15,25 +9,29 @@ header:
     </div>
 </div>
 <table class="careers-table" style="width: 100%">
-    <tr>
-        <th style="width: 15%">&nbsp;</th>
-        <th>Current Oppertunities</th>
-        <th>Location</th>
-        <th>Posted Date</th>
-        <th>&nbsp;</th>
-        <th style="width: 15%">&nbsp;</th>
-    </tr>
-    <tr class="spacer"></tr>
-    {% for posting in site.data.careers %}
-    <tr>
-        <td></td>
-        <td><a href="posting.app_link">{{ posting.position }}</a></td>
-        <td>{{ posting.location }}</td>
-        <td>{{ posting.posted_date }}</td>
-        <td><a href="posting.app_link">Apply »</a></td>
-        <td></td>
-    </tr>
-    {% endfor %}
+    <thead>
+        <tr>
+            <th style="width: 15%">&nbsp;</th>
+            <th>Current Oppertunities</th>
+            <th>Location</th>
+            <th>Posted Date</th>
+            <th>&nbsp;</th>
+            <th style="width: 15%">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="spacer"></tr>
+        {% for posting in site.data.careers %}
+        <tr>
+            <td></td>
+            <td><a class="position" href="posting.app_link">{{ posting.position }}</a></td>
+            <td>{{ posting.location }}</td>
+            <td>{{ posting.posted_date }}</td>
+            <td><a href="posting.app_link">Apply »</a></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 <div class="join-the-team row">
