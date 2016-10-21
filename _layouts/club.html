@@ -1,25 +1,13 @@
 ---
 layout: default
 format: club
-header: 
-    version: full
-    title: Software Engineering Club
-    caption: The OICR Software Engineering Club is a monthly forum that facilitates the sharing of hot topic technologies. Each month a volunteer is selected to showcase a topic of his or her choosing and present it here at OICR. Presenters pick their topics based on their working experience or a topic they are considering using in the future. That way they have a real connection with what they are presenting. 
-    image: header-logo-crop.png
-    page: club
-    icon: icon-software-engineering-club
-permalink: /index.html
 ---
 
-<div class="row">
-	<div class="small-7 columns t30">
-		{% include _pagination.html filter='tags' value='Software Engineering Club' %}
-	</div><!-- /.medium-7.columns -->
-
-	<div class="small-1 columns t30"> <!-- Spacing -->
-	</div>
-
-	<div class="medium-4 columns t30">
-		{% include _blog_sidebar.html %}
-	</div><!-- /.medium-5.columns -->
-</div><!-- /.row -->
+<div class="club-page">
+    <div class="row">
+        {{ content }}
+        <div class="small-5 columns club-sidebar">
+            {% include _blog_sidebar.html %}
+        </div>
+    </div><!-- /.row -->
+</div><!-- /#header-home -->

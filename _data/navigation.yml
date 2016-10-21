@@ -1,22 +1,21 @@
 - title: Technical Blog
   url: "/blog/"
-  side: left
 
 - title: Meet the Team
   url: "/team/"
-  side: left
+
+- title: Our Projects
+  url: "/projects/"
 
 - title: Software Engineering Club
   url: "/club/"
-  side: left
 
 - title: Careers
   url: "/careers/"
-  side: left
 
 - title: Contact
   url: "mailto:dcc-support@oicr.on.ca"
-  side: left
 
-# - title: YouTube
-#   url: "http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA"
+- title: YouTube
+  url: http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA
+  image: icon-youtube.svg

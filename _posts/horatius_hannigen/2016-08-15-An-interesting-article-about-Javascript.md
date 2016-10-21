@@ -5,7 +5,10 @@ title:  "An interesting article about Javascript"
 breadcrumb: false
 author: sid_joshi
 date: 2016-08-15
-tags: [ Javascript, OICR, Software Engineering Club]
+tags:
+    - Javascript
+    - OICR
+    - Software Engineering Club
 teaser:
     info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula. Praesent finibus tempor laoreet. Suspendisse ut nunc ante. Pellentesque arcu eros, molestie vitae eros at, sagittis pharetra nunc.
 header: 

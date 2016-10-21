@@ -21,7 +21,7 @@ author: ICGC
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: 'https://icgc-dcc.github.io/softeng/'
+url: 'https://icgc-dcc.github.io/softeng'
 baseurl: ''
 
 rss-link: ''
