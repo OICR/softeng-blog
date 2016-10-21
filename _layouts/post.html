@@ -8,7 +8,7 @@ format: post
     <div class="blog-post">
       <div class="blog_teaser">
         <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
-        <h3 class="post-title"><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h3>
+        <h3 class="post-title"><a href="{{ site.url }}/{{ page.url }}">{{ page.title }}</a></h3>
         {% if author %}<p class="post-author">By: <a href="#placeholder"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
@@ -81,7 +81,7 @@ format: post
             <span>{{ author.info }}</span>
           </div>
           <div class="author-links">
-            <a class="author-blogs" href="{{ site.url }}blog/{{ author[1].name }}">Blog Posts »</a>
+            <a class="author-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
             <a class="author-github" href="https://github.com/blog/{{ author[1].github }}"> Github </a>
           </div>
         </div>

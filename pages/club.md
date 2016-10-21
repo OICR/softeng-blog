@@ -21,7 +21,7 @@ header:
     <div class="row" >
       <div class="small-12 columns b30 blog_teaser">
         <span class="date-display"><strong>{{ post.date | date: "%b. %-d, %Y" }}</strong></span>
-        <h3 class="post-title"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
+        <h3 class="post-title"><a href="{{ site.url }}/{{ post.url }}">{{ post.title }}</a></h3>
         {% if author %}<p class="post-author">By: <a href="#placeholder"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
@@ -56,7 +56,7 @@ header:
             </p>
           </div>
         {% endif %}
-        <p class="post-link"><a href="{{ site.url }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}">Full Article &#187;</a></p>
+        <p class="post-link"><a href="{{ site.url }}/{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}">Full Article &#187;</a></p>
       </div><!-- /.small-12.columns -->
     </div><!-- /.row -->
     {% assign i = i | plus: 1 %}
