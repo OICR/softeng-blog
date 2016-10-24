@@ -3,6 +3,12 @@ layout: search
 title: "Search"
 permalink: /search
 output: true
+header: 
+    version: small
+    title: Search Results
+    image: header-logo-crop.png
+    page: team
+    icon: icon-search-results
 ---
 
 <div class="small-7 columns posts">

@@ -1,6 +1,12 @@
 ---
 layout: projects
 permalink: "/projects/"
+header: 
+    version: small
+    title: Our Projects
+    image: header-logo-crop.png
+    page: team
+    icon: icon-projects
 ---
 
 <div class="authors projects clearfix">

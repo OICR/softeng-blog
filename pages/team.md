@@ -1,6 +1,12 @@
 ---
 layout: team
 permalink: "/team/"
+header: 
+    version: small
+    title: < Writing Code + Solving Problems + Eating Pizza; />
+    image: header-logo-crop.png
+    page: team
+    icon: icon-pizza
 ---
 
 <div class="authors clearfix">
