@@ -4,6 +4,7 @@ sidebar: right
 title:  "An interesting article about Javascript"
 breadcrumb: false
 author: sid_joshi
+categories: sid_joshi
 date: 2016-08-15
 tags:
     - Javascript
