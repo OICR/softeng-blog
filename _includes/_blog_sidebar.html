@@ -1,23 +1,23 @@
 <aside>
   <div class="blog-sidebar">
-    <h4>Popular Topics</h4>
+    <h4>Topics</h4>
     <ul class="tag-list">
       {% capture tags %}
         {% for tag in site.tags %}
-          {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}%
+          {{ tag[1].size }}#{{ tag[0] }}#{{ tag[1].size }}%
         {% endfor %}
       {% endcapture %}
       {% assign sortedtags = tags | split:'%' | sort %}
       {% assign i = 0 %}
       {% for tag in sortedtags reversed %}
         {% if i == 10 %}
-          <br>
-          <li><a href="/blog/" class="orange-link">Load More &#187;</a></li>
+          <!--<br>
+          <li><a href="/blog/" class="orange-link">Load More &#187;</a></li>-->
           {% break %}
         {% endif %}
         {% assign i = i | plus: 1 %} 
         {% assign tagitems = tag | split: '#' %}
-        <li><a href="/tags/#{{ tagitems[1] }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li>
+        {% if tagitems[1] and tagitems[2] %}<li><a href="/blog/tags#{{ tagitems[1] | slugify }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li> {% endif %}
       {% endfor %}
     </ul>
   </div>
@@ -27,7 +27,6 @@
         {% assign currentdate = post.date | date: "%Y %B" %}
         {% assign currentmonth = post.date | date: "%B" %}
         {% assign currentyear = post.date | date: "%Y" %}
-        
         {% if currentyear != year %}
           {% unless forloop.first %}
             </div>
@@ -37,12 +36,12 @@
           <a href="#panel{{ currentyear }}" class="year-panel" style="padding-top: 6px; padding-bottom: 6px;">
             <h4 style="font-size: 15px; margin: 5px 0 5px 0 !important; padding: 0 important!;">{{ currentyear }}</h4></a>
           <div id="panel{{ currentyear }}" class="content {% if forloop.first %} active {% endif %} ">
-          {% assign year = currentyear %}
         {% endif %}
 
         {% if currentdate != date %}
-            <a style="display:block" href="#currentmonth"> {{ currentmonth }} </a>
+            <a style="display:block" href="/archive#{{currentmonth}}-{{currentyear}}"> {{ currentmonth }}</a>
           {% assign date = currentdate %}
+          {% assign year = currentyear %}
         {% endif %}
         {% if forloop.last %}</ul>{% endif %}
       {% endfor %}

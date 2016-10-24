@@ -4,7 +4,7 @@
     <div class="small-12 columns b30 blog_teaser">
       <span class="date-display">{{ post.date | date: "%b. %-d, %Y" }}</span>
       <h3 class="post-title"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
-      {% if author %}<p class="post-author">By: <a href="#placeholder"><strong>{{ author.name }}</strong></a></p>{% endif %}
+      {% if author %}<p class="post-author">By: <a href="{{ site.url }}/blog/category/{{post.author}}"><strong>{{ author.name }}</strong></a></p>{% endif %}
       <div class="circles">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -47,61 +47,66 @@
 {% endfor %}
 
 
-<nav id="pagination" class="row">
-    <div class="small-4 columns" style="height: 50px;">
-      {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-            <a class="action-buttons" href="{{ site.url }}/blog/">
-              <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
-              Previous
-            </a>
-          {% else %}
-            <a class="action-buttons" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/">
-              <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
-              Previous
-            </a>
-          {% endif %}
+<div id="pagination" class="row pagination">
+    <div class="small-12 clearfix">
+      <div class="small-3 columns">
+        {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+              <a class="action-buttons previous" href="{{ site.url }}/blog/">
+                <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+                Previous
+              </a>
+            {% else %}
+              <a class="action-buttons previous" href="{{ site.url }}/blog/page{{ paginator.previous_page }}/">
+                <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
+                Previous
+              </a>
+            {% endif %}
+        {% else %}
+          &nbsp;
+        {% endif %}
+      </div>
+  <!--
+      {% assign away_from_end = paginator.total_pages %}
+      
+      {% if paginator.total_pages < 5 %}
+        {% assign beginning = 1 %}
+        {% assign ending = paginator.total_pages %}
+      {% elsif paginator.page - 2 < 1 %}
+        {% assign beginning = 1 %}
+        {% assign ending = 5 %}
+      {% elsif paginator.page + 2 > paginator.total_pages %}
+        {% assign beginning = paginator.total_pages - 5 %}
+        {% assign ending = paginator.total_pages %}
+      {% else %}
+        {% assign beginning = paginator.page - 2 %}
+        {% assign ending = paginator.page + 2 %}
       {% endif %}
-    </div>
-
-    {% assign away_from_end = paginator.total_pages %}
-    
-    {% if paginator.total_pages < 5 %}
-      {% assign beginning = 1 %}
-      {% assign ending = paginator.total_pages %}
-    {% elsif paginator.page - 2 < 1 %}
-      {% assign beginning = 1 %}
-      {% assign ending = 5 %}
-    {% elsif paginator.page + 2 > paginator.total_pages %}
-      {% assign beginning = paginator.total_pages - 5 %}
-      {% assign ending = paginator.total_pages %}
-    {% else %}
-      {% assign beginning = paginator.page - 2 %}
-      {% assign ending = paginator.page + 2 %}
-    {% endif %}
-    
-    <div class="small-4 columns" style="height: 50px;">
-      <span class="pag_nums">
-        {% for i in (beginning..ending) %}
-          {% if i != paginator.page %}
-            {% if i == 1 %}
-              <a href="{{ site.url }}/blog/">{{i}}</a>
-            {% else %}
-              <a href="{{ site.url }}/blog/page{{ i }}/">{{i}}</a>
+      -->
+      <div class="small-6 columns" >
+        <div class="pagination-page-numbers">
+          {% for page in (1..paginator.total_pages) %}
+            {% if page >6 %}
+              {% break %}
             {% endif %}
-          {% else %}
-            {% if i == 1 %}
-              <a class="pag_active" href="{{ site.url }}/blog/">{{i}}</a>
+            {% if page != paginator.page %}
+              {% if page == 1 %}
+                <a href="{{ site.url }}/blog/">{{page}}</a>
+              {% else %}
+                <a href="{{ site.url }}/blog/page{{ page }}/">{{page}}</a>
+              {% endif %}
             {% else %}
-              <a class="pag_active" href="{{ site.url }}/blog/page/{{ i }}">{{i}}</a>
+              {% if page == 1 %}
+                <a class="active" href="{{ site.url }}/blog/">{{page}}</a>
+              {% else %}
+                <a class="active" href="{{ site.url }}/blog/page/{{ page }}">{{page}}</a>
+              {% endif %}
             {% endif %}
-          {% endif %}
-        {% endfor %}
-      </span>
-    </div>
+          {% endfor %}
+        </div>
+      </div>
 
-    <div class="small-4 columns" style="height: 50px;">
-      <div style="float: right">
+      <div class="small-3 columns">
         {% if paginator.next_page %}
           <a class="action-buttons" href="{{ site.url }}/blog/page{{ paginator.next_page }}/">
             Next
@@ -110,5 +115,5 @@
         {% endif %}
       </div>
     </div>
-  </nav>
+</div>
 

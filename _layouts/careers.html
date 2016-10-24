@@ -24,10 +24,10 @@ format: careers
         {% for posting in site.data.careers %}
         <tr>
             <td></td>
-            <td><a class="position" href="posting.app_link">{{ posting.position }}</a></td>
+            <td><a class="position" href="{{posting.link}}">{{ posting.position }}</a></td>
             <td>{{ posting.location }}</td>
-            <td>{{ posting.posted_date }}</td>
-            <td><a href="posting.app_link">Apply »</a></td>
+            <td>{{ posting.date | date: '%b. %d, %Y'}}</td>
+            <td><a href="{{posting.ink}}">Apply »</a></td>
             <td></td>
         </tr>
         {% endfor %}
@@ -38,7 +38,7 @@ format: careers
   <div class="small-1 columns">&nbsp;</div>
   <div class="small-10 columns label">
     <strong>Other OICR Oppertunities:</strong> Find the job that's right for you.
-    {% include _action_buttons.html link='careers' text='All Postings' %}
+    {% include _action_buttons.html link='http://oicr.on.ca/careers' text='All Postings' %}
   </div>
   <div class="small-1 columns">&nbsp;</div>
 </div>

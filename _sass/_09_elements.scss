@@ -148,3 +148,46 @@ img.lazy {
     transition: opacity 0.7s;
     opacity: 1;
 }
+
+/* Pagination
+------------------------------------------------------------------- */
+
+.pagination{
+
+  .action-buttons{
+    margin-right: 0px;
+    float: right;
+
+    &.previous{
+      float: left;
+
+      img{
+        float: left;
+        width: 20%;
+        transform: rotate(180deg);
+        margin: -1px 20px 0px 0px;
+      }
+    }
+    img{
+      float: right;
+      width: 20%;
+      margin: -1px auto auto;
+    }
+  }
+
+  .pagination-page-numbers{
+    text-align: center;
+    a{
+      padding: 5px 10px;
+      margin-right: 5px;
+      background: #eaebf0;
+      font-family: gotham-bold;
+      border-radius: 20px;
+      
+      &.active{
+        background: #e17913;
+        color: #FFF;
+      }
+    }
+  }
+}

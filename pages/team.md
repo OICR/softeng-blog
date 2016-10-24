@@ -15,8 +15,8 @@ header:
       <div class="author row">
         <div class="small-12 columns">
           <div>
-            <div class="small-3 columns">
-              <img src="{{site.urlimg}}avatars/{{author[1].avatar}}.svg" title="{{ author[1].name }}"/>
+            <div class="small-3 columns" style="padding:0;">
+              <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %}{{site.urlimg}}avatars/{{author[1].avatar}} {% endif %}" title="{{ author[1].name }}"/>
             </div>
             <div class="small-9 columns">
               <p class="author-name">{{ author[1].name }}</p>
@@ -29,10 +29,10 @@ header:
         </div>
         <div class="small-12 columns author-links">
           <div class="small-6 columns">
-            <a class="author-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
+            <a class="author-blogs" href="{{ site.url }}/blog/category/{{ author[0] }}">Blog Posts »</a>
           </div>
           <div class="small-6 columns">
-            <a class="author-github" href="https://github.com/{{ author[1].github }}"> github</a>
+            <a class="author-github" href="https://github.com/{{ author[1].github }}"> {{ author[1].github }}</a>
           </div>
         </div>
       </div>

@@ -3,61 +3,61 @@ sid_joshi:
   name: Sid Joshi
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-1
+  avatar: sid-joshi.svg
   github: sidsyrus
 
 rajab_yamasaki:
   name: Rajab Yamasaki
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-2
+  avatar: random-2.svg
   github: rajab_saki
 
 shahnaz_amsing:
   name: Shahnaz Amsing
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-3
+  avatar: random-3.svg
   github: shahnaz_amsing
 
 adam_wright:
   name: Adam Wright
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-4
+  avatar: random-4.svg
   github: adam_wright
 
 jirou_mencher:
   name: Jirou Mencher
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-5
+  avatar: random-5.svg
   github: jirou_mencher
 
 mariano_losa:
   name: Mariano Losa
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-6
+  avatar: random-6.svg
   github: mario_losa
 
 alwilda_summers:
   name: Alwilda Summers
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-7
+  avatar: random-7.svg
   github: alwi_summers
 
 marin_dickman:
   name: Marin Dickman
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-8
+  avatar: random-8.svg
   github: marin_dickman
 
 lilly_brune:
   name: Lilly Brune
   position: Software Developer
   info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-9
+  avatar: random-9.svg
   github: lilly_brune

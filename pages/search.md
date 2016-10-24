@@ -25,7 +25,17 @@ header:
       "{{ post.url | slugify }}": {
         "title": "{{ post.title | xml_escape }}",
         "author": "{{ site.data.authors[post.author].name | xml_escape }}",
+        "author_link" : "{{ post.author }}",
         "teaser": "{{ post.teaser.info }}",
+        "tags": [
+          {% for tag in post.tags %}
+            {% if forloop.last %}
+              '{{tag}}'
+            {% else %}
+              '{{tag}}',
+            {% endif %}
+          {% endfor %}
+        ],
         "date": "{{ post.date | date:'%b. %d, %Y' }}",
         "url": "{{ post.url | xml_escape }}"
       }

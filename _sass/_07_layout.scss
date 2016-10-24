@@ -394,7 +394,7 @@ nav{
 /* Home Page and Club Page
 ------------------------------------------------------------------- */
 
-.home-page, .club-page, .search-page{
+.home-page, .club-page, .search-page, .tags-page, .months-page {
     aside{
         padding: 20px;
         margin:150px 0 0 -11px; 
@@ -431,6 +431,12 @@ nav{
                         b{
                             font-weight: 100;
                         }
+                    }
+                }
+
+                &.tags-list, &.months-list{
+                    li{
+                        padding-bottom: 5px;
                     }
                 }
             }

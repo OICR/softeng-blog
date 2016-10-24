@@ -9,7 +9,7 @@
         var item = store[results[i].ref];
         appendString += '<li class="blog_teaser">' + 
                         ' <p class="post-author"><strong>' + 
-                        '   Posted By: <a href="#">' + highlightQuery(searchTerm, item.author) + '</a> on ' + item.date + 
+                        '   Posted By: <a href="/blog/category/'+ item.author_link +'">' + highlightQuery(searchTerm, item.author) + '</a> on ' + item.date + 
                         ' </strong></p>' + 
                         ' <h3 class="post-title"><a href="' + item.url +'">'+ highlightQuery(searchTerm, item.title) +'</a></h3>' + 
                         ' <div class="circles"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div>' + 
@@ -68,13 +68,11 @@
     // Initalize lunr with the fields it will be searching on. I've given title
     // a boost of 10 to indicate matches on this field are more important.
     var idx = lunr(function () {
-      this.field('id');
       this.field('title', { boost: 10 });
       this.field('author');
       this.field('teaser');
       // this.field('tags');
       this.field('date');
-      this.field('url');
     });
 
     for (var key in window.posts) { // Add the data to lunr
@@ -82,6 +80,7 @@
         'id': key,
         'title': window.posts[key].title,
         'author': window.posts[key].author,
+        'author_link': window.posts[key].author_link,
         'teaser': window.posts[key].teaser,
         // 'tags': window.posts[key].tags,
         'date': window.posts[key].date,
