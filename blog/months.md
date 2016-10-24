@@ -27,7 +27,7 @@ header:
         <li class="blog_teaser">
           {% if author %}
           <p class="post-author">
-            <strong>Posted By: <a href="/blog/category/{{ post.author }}">{{author.name}}</a> on {{ post.date | date:'%b. %d, %Y' }}</strong>
+            <strong>Posted By: <a href="{{ site.url }}/blog/category/{{ post.author }}">{{author.name}}</a> on {{ post.date | date:'%b. %d, %Y' }}</strong>
           </p>
           {% endif %}
           <h4 class="post-title">

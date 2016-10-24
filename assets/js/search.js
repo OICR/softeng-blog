@@ -9,7 +9,7 @@
         var item = store[results[i].ref];
         appendString += '<li class="blog_teaser">' + 
                         ' <p class="post-author"><strong>' + 
-                        '   Posted By: <a href="/blog/category/'+ item.author_link +'">' + highlightQuery(searchTerm, item.author) + '</a> on ' + item.date + 
+                        '   Posted By: <a href="{{ site.url }}/blog/category/'+ item.author_link +'">' + highlightQuery(searchTerm, item.author) + '</a> on ' + item.date + 
                         ' </strong></p>' + 
                         ' <h3 class="post-title"><a href="' + item.url +'">'+ highlightQuery(searchTerm, item.title) +'</a></h3>' + 
                         ' <div class="circles"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div>' + 
