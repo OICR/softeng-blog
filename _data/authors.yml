@@ -1,63 +1,147 @@
 # Author details
-sid_joshi:
-  name: Sid Joshi
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: sid-joshi.svg
-  github: sidsyrus
-
-rajab_yamasaki:
-  name: Rajab Yamasaki
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-2.svg
-  github: rajab_saki
-
-shahnaz_amsing:
-  name: Shahnaz Amsing
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-3.svg
-  github: shahnaz_amsing
-
 adam_wright:
   name: Adam Wright
   position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-4.svg
+  info: To be completed
+  avatar: random-9.svg
   github: adam_wright
 
-jirou_mencher:
-  name: Jirou Mencher
+alex_wilmer:
+  name: Alex Wilmer
   position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-5.svg
-  github: jirou_mencher
+  info: To be completed
+  avatar: alex_wilmer.png
+  github: alex-wilmer
 
-mariano_losa:
-  name: Mariano Losa
+andy_yang:
+  name: Andy Yang
   position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-6.svg
-  github: mario_losa
+  info: To be completed
+  avatar: andy_yang.svg
+  github: ayang99
 
-alwilda_summers:
-  name: Alwilda Summers
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-7.svg
-  github: alwi_summers
-
-marin_dickman:
-  name: Marin Dickman
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
-  avatar: random-8.svg
-  github: marin_dickman
-
-lilly_brune:
-  name: Lilly Brune
-  position: Software Developer
-  info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in tristique orci, nec aliquam lorem. Pellentesque semper lectus est, ut tincidunt quam aliquam eget. Nunc rhoncus at augue in vehicula.
+bessie_rogel:
+  name: Bessie Rogel
+  position: Business Analyst
+  info: To be completed
   avatar: random-9.svg
-  github: lilly_brune
+  github:
+
+bob_tiernay:
+  name: Bob Tiernay
+  position: Team Lead
+  info: To be completed
+  avatar: bob_tiernay.svg
+  github: btiernay
+
+chang_wang:
+  name: Chang Wang
+  position: Software Developer
+  info: JavaScript Junkie • Pragmatic Perfectionist • Discount-steak Devotee
+  avatar: chang_wang.svg
+  github: cheapsteak
+
+christine_yu:
+  name: Christine Yi
+  position: Software Developer
+  info: To be completed
+  avatar: random-9.svg
+  github: cy
+
+dusan_andric:
+  name: Dusan Andric
+  position: Software Developer
+  info: Full-stack software developer who enjoys tackling all manner of problems. Has a passion and history working in scientific and healthcare related fields. Will yell about the importance of testing. Loves dogs.
+  avatar: dusan_andric.svg
+  github: andricDu
+
+francois_gerthoffert:
+  name: Francois Gerthoffert
+  position: Project Manager
+  info: Curious and passionate about IT and new technologies from networking to software development.
+  avatar: francois_gerthoffert.svg
+  github: fgerthoffert
+
+george_mihaiescu:
+  name: George Mihaiescu
+  position: Cloud Architect
+  info: To be completed
+  avatar: random-9.svg
+  github: gmihaiescu
+
+hardeep_nahal:
+  name: Hardeep Nahal
+  position: Bioinformatician
+  info: To be completed
+  avatar: random-9.svg
+  github:
+
+ivan_borozan:
+  name: Ivan Borozan
+  position: Scientific Associate
+  info: To be completed
+  avatar: random-9.svg
+  github:
+
+jared_baker:
+  name: Jared Baker
+  position: Cloud Specialist
+  info: To be completed
+  avatar: random-9.svg
+  github:
+
+jeffrey_burt:
+  name: Jeffrey Burt
+  position: Software Developer
+  info: To be completed
+  avatar: random-9.svg
+  github: jephuff
+
+junjun_zhang:
+  name: Junjun Zhang
+  position: Lead Bioinformatician
+  info: To be completed
+  avatar: random-9.svg
+  github: junjun-zhang
+
+linda_xiang:
+  name: Linda Xiang
+  position: Bioinformatician
+  info: To be completed
+  avatar: random-9.svg
+  github: lindaxiang
+
+phuong-my_do:
+  name: Phuong-My Do
+  position: Business Analyst
+  info: To be completed
+  avatar: random-9.svg
+  github: phuongmy
+
+sid_joshi:
+  name: Sid Joshi
+  position: Software Developer
+  info: To be completed
+  avatar: random-9.svg
+  github: sidsyrus
+
+shane_wilson:
+  name: Shane Wilson
+  position: Team Lead
+  info: To be completed
+  avatar: shane_wilson.png
+  github: shanewilson
+
+vincent_ferretti:
+  name: Vincent Ferretti
+  position: Software Developer
+  info: To be completed
+  avatar: random-9.svg
+  github: vferretti
+
+vitalii_slobodianyk:
+  name: Vitalii Slobodianyk
+  position: Software Developer
+  info: To be completed
+  avatar: vitalii_slobodianyk.svg
+  github: slovit
