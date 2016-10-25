@@ -34,7 +34,7 @@
         {% if post.teaser %}
         <div class="teaser">
           {% if post.teaser.image %}
-            <img class="teaser-image" src="{{site.urlimg}}{{post.teaser.image}}" />
+            <img class="teaser-image" src="{% if post.teaser.image contains 'http' %} {{ post.teaser.image }} {% else %} {{site.urlimg}}{{post.teaser.image}} {% endif %}" />
           {% endif %}
           <p>
             {{ post.teaser.info | strip_html | escape }}

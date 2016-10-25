@@ -26,5 +26,5 @@ permalink: /index.html
   {% endfor %}
 </div>
 <div class="small-5 columns">
-  {% include _blog_sidebar.html %}
+  {% include _sidebar.html %}
 </div>
