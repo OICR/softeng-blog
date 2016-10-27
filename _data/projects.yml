@@ -3,15 +3,15 @@
   icon: //avatars2.githubusercontent.com/u/1508638
   info: Provides tools for visualizing, querying and downloading the data released quarterly by the consortium's member projects.
 
-- name: Cancer Genome Collaboratory - Core 1
+- name: Collaboratory - Core 1
   url: //github.com/CancerCollaboratory
   icon: //avatars1.githubusercontent.com/u/10966125
-  info: Provide researchers with Compute & Storage resources enhanced with custom-built software.
+  info: Compute & Storage cluster enhanced with custom-built software.
 
 - name: NCI Genomic Data Commons
   url: //github.com/NCI-GDC
   icon: //avatars2.githubusercontent.com/u/7882952
-  info: We build User Interfaces for the GDC, providing the cancer research community with a unified data repository that enables data sharing across cancer genomic studies.
+  info: US-based unified data repository that enables data sharing across cancer genomic studies.
 
 - name: OncoJS
   url: //github.com/oncojs
