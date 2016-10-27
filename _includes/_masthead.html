@@ -51,6 +51,7 @@
                {% if site.data.meeting.first.scheduled == no %}
                 <p> The next Software Engineering Club meeting has not yet been posted. Stay Tuned ! </p>
                {% else %}
+               {{site.data.meeting.first.scheduled}}
                 <span class="meeting-time">
                   <strong>When:</strong> 
                   {{site.data.meeting.first.when.date | date:'%a. %b. %d, %Y,'}}
