@@ -6,7 +6,7 @@
                 {% for navigation_item in site.data.navigation %}
                   {% if navigation_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
                   <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
-                    <a href="{% unless oicr_item.url contains 'mailto' %}{{ domain }}{% endunless %}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">
+                    <a href="{% unless navigation_item.url contains 'mailto' %}{{ domain }}{% endunless %}{{ navigation_item.url }}" {% if navigation_item.url contains 'http' %}target="_blank" {% endif %} title="{{ navigation_item.title }}">
                       {% if navigation_item.image %}
                         <img src="{{ site.urlimg }}icons/{{ navigation_item.image }}" />
                       {% else %}
