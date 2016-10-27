@@ -3,7 +3,7 @@ layout: post
 title:  "Extreme Streams: The What, How and Why of Observables"
 breadcrumb: true
 author: alex_wilmer
-date: 2016-10-26
+date: 2016-05-27
 categories: alex_wilmer
 tags:
     - Softeng Club
