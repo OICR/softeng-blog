@@ -36,6 +36,9 @@
           {% if post.teaser.image %}
             <img class="teaser-image" src="{% if post.teaser.image contains 'http' %} {{ post.teaser.image }} {% else %} {{site.urlimg}}{{post.teaser.image}} {% endif %}" />
           {% endif %}
+          {% if post.teaser.youtube %}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ post.teaser.youtube }}" frameborder="0" allowfullscreen></iframe>
+          {% endif %}          
           <p>
             {{ post.teaser.info | strip_html | escape }}
           </p>
