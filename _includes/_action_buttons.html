@@ -1,5 +1,5 @@
 <a class="action-buttons" 
-  href="{% if include.link contains 'http' %}{{include.link}}{% else %} {{site.url}}/{{include.link}}{% endif %}/"
+  href="{% if include.link contains 'http' %}{{include.link}}{% else %} {{site.url}}/{{include.link}}{% endif %}"
   {% if include.link contains 'http' %} target="_blank" {% endif %}>
   {{include.text}}
   <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
