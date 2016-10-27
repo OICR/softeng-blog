@@ -48,6 +48,9 @@
                 {% endif %}
                 <span class="meeting-club">Software Engineering Club</span>
                 <span class="meeting-next">Next Meeting</span>
+               {% if site.data.meeting.scheduled == 'no' %}
+                <p> The next Software Engineering Club meeting has not yet been posted. Stay Tuned ! </p>
+               {% else %}
                 <span class="meeting-time">
                   <strong>When:</strong> 
                   {{site.data.meeting.first.when.date | date:'%a. %b. %d, %Y,'}}
@@ -57,6 +60,7 @@
                 <span class="meeting-place"><strong>Where:</strong> OICR - {{site.data.meeting.first.where}}</span>
                 <span class="meeting-host"><strong>Who:</strong> <a href="{{site.url}}/blog/category/{{site.data.meeting.first.who}}">{{author.name}}</a></span>
                 <span class="meeting-talk"><strong>What:</strong> {{site.data.meeting.first.what}}</span>
+               {% endif %}
                 <span class="meeting-archive">
                   <a href="{{ site.url }}/blog/archive">
                     <strong>Club Archive »</strong>
