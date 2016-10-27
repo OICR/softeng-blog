@@ -1,8 +1,8 @@
-  scheduled: no 
 - when: 
-    date: tba 
-    start: tba
-    end: tba
-  where: tba
-  who: tba
-  what: tba
+    date: 2016-09-30 
+    start: '12pm'
+    end: '1pm'
+  where: 'Room 5-20'
+  who: 'alwilda_summers'
+  what: 'Develop on your own'
+  scheduled: no 
