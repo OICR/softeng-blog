@@ -1,8 +1,8 @@
 ---
 layout: category
 title: Sample Category
-category: sid_joshi
-permalink: /blog/category/sid_joshi
+category: george_mihaiescu
+permalink: /blog/category/george_mihaiescu
 header: 
     version: small
     title: Software Engineering Blog
