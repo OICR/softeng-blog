@@ -1,7 +1,8 @@
+scheduled: no 
 - when: 
     date: tba 
     start: tba
     end: tba
-  where: tba
-  who: tba
-  what: tba
+where: tba
+who: tba
+what: tba
