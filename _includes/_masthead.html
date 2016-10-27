@@ -17,7 +17,8 @@
         {% if page.header.buttons %}
           <div class="action-buttons">
           {% for button_item in page.header.buttons %}
-            <a href="{{button_item.link}}">
+            <a href="{% if button_item.link contains 'http' %}{{button_item.link}}{% else %} {{site.url}}/{{button_item.link}}{% endif %}"
+  {% if button_item.link contains 'http' %} target="_blank" {% endif %}>
               {{button_item.title}}
               <img src="{{site.urlimg}}icons/icon-arrow-blue.svg"/>
             </a>
