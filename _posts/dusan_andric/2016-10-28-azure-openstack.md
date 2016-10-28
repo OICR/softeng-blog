@@ -43,13 +43,6 @@ You'll want to create a new image on openstack using the file provided by Cloudb
   </figure>
 </center>
 
-<script>
-  window.addEventListener('load', () => {
-    $('.blog > .small-7.columns').addClass('small-9').removeClass('small-7');
-    $('.blog > .small-5.columns').addClass('small-3').removeClass('small-5');
-  });
-</script>
-
 When ready, you can launch a new instance using your new Windows Server image. Once the instance has finished spawning,
 you can view the instance console. You should soon see the cloudbase-init tool doing its magic.
 
