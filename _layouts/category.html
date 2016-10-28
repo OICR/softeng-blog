@@ -20,7 +20,6 @@ format: club
           {% assign i = 1 %}
           {% for post in site.categories.[page.category] %}
           {% assign author = site.data.authors[post.author] %}
-            {% if post.tags contains 'Software Engineering Club'%}
             {% if i > 3 %}
               {% break %}
             {% endif %}
@@ -69,7 +68,6 @@ format: club
               </div><!-- /.small-12.columns -->
             </div><!-- /.row -->
             {% assign i = i | plus: 1 %}
-            {% endif %}
           {% endfor %}
           <div class="row">
             <div class="columns">
