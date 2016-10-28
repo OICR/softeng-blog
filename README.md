@@ -24,7 +24,8 @@ tags:
     - React
 teaser:
     info: A talk given for the Ontario Institute for Cancer Research’s software engineering club on PGMLab (Probabilistic Graphical Model Lab) and developing web applications for Celery. Javascript web technologies such as React, Redux, Immutable.js, ECMAScript 6 (ES6) are discussed...
-    image: post.png
+    image: post.png # optional
+    youtube: youtubevideokey # optional
 ---
 ```
 
