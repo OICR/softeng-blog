@@ -73,7 +73,7 @@ First thing you'll want to install is SQL Server Express LocalDB. It is required
 
 Next, download the standalone installer for the emulator by following the link in the [Azure Storage Emulator documentation.](https://azure.microsoft.com/en-us/documentation/articles/storage-use-emulator/)
 
-Once everything is installed you can start the storage emulator by searching for it from the start screen. It should open up a new cmd window. You can this verify that it is running:
+Once everything is installed you can start the storage emulator by searching for it from the start screen. It should open up a new cmd window. You can then verify that it is running:
 
 <figure>
     <img src="{{site.urlimg}}dusan_andric/azure/azure1.png" />
@@ -82,7 +82,7 @@ Once everything is installed you can start the storage emulator by searching for
 
 ### Networking
 
-***This step is important***. The Storage Emulator is configured to only accept connections from localhost by default. 
+***This step is important***. Currently the Azure Storage Emulator is limited to only accepting connections from localhost by default. 
 This can be changed by editing the config file, but then the storage server will become unavailable localy from the Windows instance. 
 Also it appears that storage clients when run with emulation mode set to true will also attempt to connect to a storage service running locally. 
 
@@ -146,7 +146,10 @@ And there it is:
 
 ## Conclusion
 
-I think it is safe to say that Microsoft products and services are no longer scary when coming from a Unix environment.
+The initial use case for the Azure Storage Emulator was clearly for it be run from your local work station for the purpose of running tests and aiding development. However with two easy commands to setup some port forwarding, one from the Windows server, and one from your Unix client, you can make requests against a remote emulator. 
+
+Microsoft products and services are becoming a little less scary every day for us in the Unix world, and while yes the occasional kludge is required, things are looking brighter. 
+
 As they continue to open source useful libraries and tools and continue their push on platform independence with projects like
 .NET Core, the friction those of us encountered integrating their services in ages past should vanish. 
 
