@@ -13,6 +13,11 @@ tags:
 teaser:
     info: A guide for Unix shops on how to setup the Azure Storage Emulator running on your team's Openstack cloud. ...
     image: dusan_andric/azure/azure-logo.jpg
+header: 
+    version: small
+    title: Software Engineering Blog
+    image: header-logo-crop.png
+    icon: icon-blog
 ---
 
 ## Introduction
@@ -32,7 +37,7 @@ Those of you running an Openstack cloud are probably wondering how this is going
 by the name of Cloudbase Solutions has solved this problem. They specialize in bringing the worlds of Openstack and Windows together. 
 Even better they provide a ready to use Windows Server 2012 Evaluation guest image. 
 
-Go ahead and get the image from here: https://cloudbase.it/windows-cloud-images/
+[Go ahead and get the image from here.](https://cloudbase.it/windows-cloud-images/)
 
 You'll want to create a new image on openstack using the file provided by Cloudbase (This could take a while): 
 
@@ -64,9 +69,9 @@ You can find it on the App Store.
 
 ### Azure Setup
 
-First thing you'll want to install is SQL Server Express LocalDB. It is required by the Storage Emulator. You can find it here: https://www.microsoft.com/en-us/sql-server/sql-server-editions-express
+First thing you'll want to install is SQL Server Express LocalDB. It is required by the Storage Emulator. [You can find it here.](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
 
-Next, download the standalone installer for the emulator by following the link in the Emulator Documentation: https://azure.microsoft.com/en-us/documentation/articles/storage-use-emulator/
+Next, download the standalone installer for the emulator by following the link in the [Azure Storage Emulator documentation.](https://azure.microsoft.com/en-us/documentation/articles/storage-use-emulator/)
 
 Once everything is installed you can start the storage emulator by searching for it from the start screen. It should open up a new cmd window. You can this verify that it is running:
 
@@ -110,7 +115,7 @@ Now that the setup is done, let's actually do something with the emulator in the
 
 First thing I'm going to do is upload an image to the blob storage using the Azure Storage Explorer.
 The tool is cross platform and very handy. 
-You can download it here: http://storageexplorer.com 
+[You can download it here.](http://storageexplorer.com)
 
 From the UI I uploaded an image:
 
