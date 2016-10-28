@@ -24,8 +24,8 @@ header:
             </div>
           </div>
         </div>
-        <div class="small-12 columns">
-          <span class="author-info">{{ author[1].info }}</span>
+        <div class="small-12 columns" class="author-info">
+          <span>{{ author[1].info }}</span>
         </div>
         <div class="small-12 columns author-links">
           <div class="small-6 columns">
