@@ -11,7 +11,7 @@ tags:
     - Cloud
     - Microsoft
 teaser:
-    info: A guide for Unix shops on how to setup the Azure Storage Emulator running on your team's Openstack cloud. ...
+    info: A guide for Unix shops on how to setup the Azure Storage Emulator running on your team's Openstack cloud.
     image: dusan_andric/azure/azure-logo.jpg
 header: 
     version: small
