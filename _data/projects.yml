@@ -1,7 +1,7 @@
 - name: ICGC-DCC
   url: //github.com/icgc-dcc
   icon: //avatars2.githubusercontent.com/u/1508638
-  info: Provides tools for visualizing, querying and downloading the data released quarterly by the consortium's member projects.
+  info: Provides tools for visualizing, querying and downloading the data released by member projects.
 
 - name: Collaboratory - Core 1
   url: //github.com/CancerCollaboratory
