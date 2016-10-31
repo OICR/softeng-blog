@@ -29,7 +29,7 @@ header:
         "teaser": "{{ post.teaser.info }}",
         "date": "{{ post.date | date:'%b. %d, %Y' }}",
         "url": "{{ post.url | xml_escape }}"
-      },
+      }
       {% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
