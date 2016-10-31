@@ -36,10 +36,6 @@
     }
   }
 
-  function addslashes(string) {
-    return (string + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
-  }
-
   function highlightQuery(query, text){
     text = text || '';
       
@@ -57,7 +53,7 @@
     }
 
     // return base text if no match and not hiding
-    return addslashes(text);
+    return text;
   }
 
   function upperCase(string){
