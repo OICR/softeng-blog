@@ -6,7 +6,7 @@
 
 We are open to ideas and suggestion about the blog's content, please suggest your idea to the team on #blog on slack.
 
-Create your own branch and start adding content into your user directory inside `/_posts/`, user directory are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
+Create your own branch and start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
 
 To be properly indexed, markdown files must contain the specific header.
 
