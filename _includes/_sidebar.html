@@ -17,7 +17,7 @@
         {% endif %}
         {% assign i = i | plus: 1 %} 
         {% assign tagitems = tag | split: '#' %}
-        {% if tagitems[1] and tagitems[2] %}<li><a href="/blog/tags#{{ tagitems[1] | slugify }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li> {% endif %}
+        {% if tagitems[1] and tagitems[2] %}<li><a href="{{ site.url }}/blog/tags#{{ tagitems[1] | slugify }}">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li> {% endif %}
       {% endfor %}
     </ul>
   </div>
@@ -39,7 +39,7 @@
         {% endif %}
 
         {% if currentdate != date %}
-            <a style="display:block" href="/archive#{{currentmonth}}-{{currentyear}}"> {{ currentmonth }}</a>
+            <a style="display:block" href="{{ site.url }}/archive#{{currentmonth}}-{{currentyear}}"> {{ currentmonth }}</a>
           {% assign date = currentdate %}
           {% assign year = currentyear %}
         {% endif %}
