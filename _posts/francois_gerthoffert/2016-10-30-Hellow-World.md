@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello World"
+title:  "Hello World!"
 breadcrumb: true
 author: francois_gerthoffert
 date: 2016-10-30
