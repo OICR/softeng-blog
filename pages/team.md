@@ -43,7 +43,7 @@ header:
 <div class="join-the-team row">
   <div class="small-1 columns">&nbsp;</div>
   <div class="small-10 columns label">
-    <strong>Join the Team:</Strong> Check out the interesting oppertunities we have to offer.
+    <strong>Join the Team:</Strong> Check out the interesting opportunities we have to offer.
     {% include _action_buttons.html link='careers' text='Browse Careers' %}
   </div>
   <div class="small-1 columns">&nbsp;</div>
