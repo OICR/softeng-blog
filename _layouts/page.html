@@ -45,17 +45,17 @@ format: page
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="/images/icons/icon-twitter.svg" />
+          <img src="{{ site.url }}/images/icons/icon-twitter.svg" />
         </a>
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="/images/icons/icon-facebook.svg" />
+          <img src="{{ site.url }}/images/icons/icon-facebook.svg" />
         </a>
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="/images/icons/icon-linkedin.svg" />
+          <img src="{{ site.url }}/images/icons/icon-linkedin.svg" />
         </a>
       </div>
     </div>
@@ -94,7 +94,7 @@ format: page
       {% if page.previous.url %}
         <a style="float: left;" href="{{page.previous.url}}">
           <span class="icon-previous">
-            <img src="/images/icons/icon-arrow-blue.svg" />
+            <img src="{{ site.url }}/images/icons/icon-arrow-blue.svg" />
           </span>
           <span><strong>Previous:</strong> {{page.previous.title}}</span>
         </a>
@@ -102,7 +102,7 @@ format: page
     </div>
     <div class="small-2 columns top-link">
       <a href="#top">
-        <span><img src="/images/icons/icon-arrow.svg" /></span>
+        <span><img src="{{ site.url }}/images/icons/icon-arrow.svg" /></span>
         <span>Back to Top</span>
       </a>
     </div>
@@ -111,7 +111,7 @@ format: page
       <a href="{{page.next.url}}">
         <span><strong>Next:</strong> {{page.next.title}}</span>
         <span class="icon-next">
-          <img src="/images/icons/icon-arrow-blue.svg" />
+          <img src="{{ site.url }}/images/icons/icon-arrow-blue.svg" />
         </span>
       </a>
     {% endif %}
