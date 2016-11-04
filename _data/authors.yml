@@ -1,11 +1,4 @@
 # Author details
-adam_wright:
-  name: Adam Wright
-  position: Software Developer
-  info: To be completed
-  avatar: random-9.svg
-  github: adam_wright
-
 alex_wilmer:
   name: Alex Wilmer
   position: Software Developer
@@ -66,7 +59,7 @@ george_mihaiescu:
   name: George Mihaiescu
   position: Cloud Architect
   info: Cloud architect who knows his way around storage, virtualization, networking, security and new design patterns. Enjoys working on performance enhancing problems and proud of making a difference in cancer research.
-  avatar: random-9.svg
+  avatar: george_mihaiescu.svg
   github: gmihaiescu
 
 hardeep_nahal:
