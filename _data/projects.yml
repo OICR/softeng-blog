@@ -1,12 +1,12 @@
 - name: ICGC-DCC
   url: //github.com/icgc-dcc
   icon: //avatars2.githubusercontent.com/u/1508638
-  info: Provides tools for visualizing, querying and downloading the data released by member projects.
+  info: The ICGC Data Coordination Center software infrastructure including the ICGC data portal (dcc.icgc.org)
 
-- name: Collaboratory - Core 1
+- name: The Cancer Genome Collaboratory - Core 1
   url: //github.com/CancerCollaboratory
   icon: //avatars1.githubusercontent.com/u/10966125
-  info: Compute & Storage cluster enhanced with custom-built software.
+  info: ICGC cloud compute & storage cluster enhanced with custom-built software.
 
 - name: NCI Genomic Data Commons
   url: //github.com/NCI-GDC
