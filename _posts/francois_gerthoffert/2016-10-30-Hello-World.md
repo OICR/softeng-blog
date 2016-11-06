@@ -18,7 +18,7 @@ This blog is our opportunity to share with the world how we tackle challenges, f
 
 ## An idea
 
-Discussions on this topic were triggered by a couple of very interesting sprint demos in which team members showed us solutions and walked us through challenge they faced. 
+Discussions on this topic were triggered by a couple of very interesting sprint demos in which team members showed us solutions and walked us through challenges they faced. 
 
 With very limited documentation available online on those particular topics, it was clear we had knowledge worth sharing with the world. 
 
