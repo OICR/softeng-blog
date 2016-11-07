@@ -16,7 +16,7 @@ andy_yang:
 bessie_rogel:
   name: Bessie Rogel
   position: Business Analyst
-  info: To be completed
+  info: Business Analyst who's trying to take on the world one spec/one requirement at a time. I enjoy learning by reverse engineering and practical immersion.  I like to take apart stuff, I just need to learn how to put them back together. Anyone needs extra screws?
   avatar: bessie_rogel.svg
   github:
 
@@ -74,7 +74,7 @@ ivan_borozan:
   position: Scientific Associate
   info: Theoretical physicist working in the fields of computational biology, bioinformatics and biostatistics. Current research projects include computational pathogen sequence identification in whole genome and transcriptome samples, information theory applications for biological sequence analysis, pancancer genome analysis, metagenomics.
   avatar: ivan_borozan.svg
-  github:
+  github: iborozan
 
 jared_baker:
   name: Jared Baker
