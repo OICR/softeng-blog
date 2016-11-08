@@ -2,7 +2,7 @@
       <div id="footer">
         <div class="row">
           <div class="footer-content small-12">
-            <ul class="no-bullet small-8">
+            <ul class="no-bullet large-8 columns">
                 {% for navigation_item in site.data.navigation %}
                   {% if navigation_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
                   <li {% if navigation_item.class %}class="{{ navigation_item.class }}" {% endif %}>
@@ -16,11 +16,11 @@
                   </li>
                 {% endfor %}
             </ul>
-            <ul class="no-bullet oicr-info small-4">
+            <ul class="no-bullet oicr-info large-4 columns">
               {% for oicr_item in site.data.oicr %}
                 {% if oicr_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url + site.baseurl %}{% endif %}
                 <li {% if oicr_item.class %}class="{{ oicr_item.class }}" {% endif %}>
-                  <a href="{% unless oicr_item.url contains 'mailto' %}{{ domain }}{% endunless %}{{ oicr_item.url }}" {% if oicr_item.url contains 'http' %}target="_blank" {% endif %} title="{{ oicr_item.title }}">
+                  <a class="{{ item.class }}" href="{% unless oicr_item.url contains 'mailto' %}{{ domain }}{% endunless %}{{ oicr_item.url }}" {% if oicr_item.url contains 'http' %}target="_blank" {% endif %} title="{{ oicr_item.title }}">
                     {% if oicr_item.image %}
                       <img src="{{ site.urlimg }}{{ oicr_item.image }}" />
                     {% else %}

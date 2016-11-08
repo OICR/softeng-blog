@@ -74,8 +74,10 @@ nav{
         width: 100%;
 
         li{
-            display: inline;
-            padding: 0px 14px;
+            display: inline;;
+            &:not(:last-child) {
+                margin-right: 14px;
+            }
 
             &:first-child{
                 padding-left: 0;
@@ -177,17 +179,20 @@ nav{
         .action-buttons{
             margin: 25px 0px 40px;
             a{
+                & + a {
+                    margin-left: 20px;
+                }
                 background: #FFF;
                 color: #45a7ca;
                 padding: 10px;
-                margin-right:20px;
                 border-radius: 15px;
                 box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.2);
                 font-size: 12px;
+                overflow: auto;
+                display: inline-block;
 
-                img{
-                    margin: -1px 0px 0px 10px;
-                    width: 3%;
+                img {
+                    width: 17px;
                 }
             }
         }
@@ -526,11 +531,20 @@ nav{
         border-radius: 25px;
         font-size: 15px;
 
-        a{
+    }
+
+    a {
+        @media #{$medium-up} {
             margin-left: 30px;
             margin-right: 0px;
         }
+
+        @media #{$small-only} {
+            display: block;
+            margin: 14px 14px 0;
+        }
     }
+    
 }
 
 .club-posts-info{
@@ -560,52 +574,62 @@ nav{
     .footer-content{
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        @media #{$medium-up} {
+            flex-direction: row;
+            .oicr-info{
+                margin-left: 30px;
+            }
+        }
 
         ul{
             margin-top: auto;
             margin-bottom: auto;
-
-            &.oicr-info{
-                margin-left: 30px;
-
-                li{
-                    &:first-child{
-                        &:after{
-                            content: '';
-                        }
-                    }
-                }
+            display: flex;
+            flex-direction: row;
+            @media #{$small-only} {
+                flex-direction: column;
             }
+            align-items: center;
 
             li{
-                display:inline;
+                display: block;
                 font-size: 10px;
                 color: $footer-color;
 
-                &:last-child{
-                    &:after{
-                        content: '';
+                @media #{$medium-up} {
+                    &:not(:last-child):not(.oicr-logo){
+                        &:after {
+                            content: '/';
+                            font-weight: bold;
+                            margin: 0 8px 0 6px;
+                        }
                     }
                 }
-
-                &:after{
-                    content: '/';
-                    font-weight: bold;
+                @media #{$small-only} {
+                    margin-bottom: 12px;
                 }
+                
                 a{
                     color: $footer-color;
                     font-weight: 500;
-                    padding: 0px 8px;
 
                     img{
-                        width: 30%;
                         filter: grayscale(100%);
                     }
                 }
-                &:last-child{
-                    img{
-                        width: 3%;
+
+                &.youtube-link {
+                    a {
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
                     }
+                }
+                &.oicr-logo {
+                    width: 100px;
+                    margin-left: 10px;
+                    margin-right: 10px;
                 }
             }
         }

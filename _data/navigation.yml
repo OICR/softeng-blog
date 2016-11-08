@@ -18,4 +18,5 @@
 
 - title: YouTube
   url: http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA
+  class: youtube-link
   image: icon-youtube.svg
