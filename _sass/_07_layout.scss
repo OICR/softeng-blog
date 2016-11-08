@@ -449,13 +449,14 @@ nav{
 ------------------------------------------------------------------- */
 
 .authors{
-
+    display: flex;
+    flex-wrap: wrap;
     padding: 10px 0px;
 
     .columns{
         padding: .4375rem;
     }
-    .author{
+    .author {
         margin:0.75rem;
         padding: 1.25rem;
         background: #fff;
@@ -464,7 +465,9 @@ nav{
         border-radius: 5px;
         border: 1px solid #FFF;
         font-size: 13px;
-        min-height: 215px;
+
+        display: flex;
+        flex-direction: column;
 
         img{
             border-radius: 50%;
@@ -485,16 +488,30 @@ nav{
             font-size: 12px;
         }
 
-        .author-links{
-            a{
-                font-family: $font-family-gotham-bold;
+        .author-info {
+            flex-grow: 1;
+            margin: 1em 0;
+        }
 
-                &.author-github{
-                    padding-left: 20px; 
-                    background: url('/images/icons/icon-github.svg') no-repeat;
+        .author-links {
+            font-family: $font-family-gotham-bold;
+            display: flex;
+            justify-content: space-between;
+            a {
+                display: flex;
+                align-items: baseline;
+                .fa {
+                    margin-right: 0.2em;
                 }
             }
         }
+    }
+}
+
+.projects {
+    align-items: stretch;
+    .project {
+        height: 100%;
     }
 }
 

@@ -9,9 +9,9 @@ header:
     icon: icon-pizza
 ---
 
-<div class="team-page authors clearfix">
+<div class="team-page authors clearfix grid-container">
   {% for author in site.data.authors %}
-    <div class="small-4 columns">
+    <div class="author-wrapper small-12 medium-6 large-4 columns grid-item">
       <div class="author row">
         <div class="small-12 columns">
           <div>
