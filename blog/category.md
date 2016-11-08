@@ -14,7 +14,7 @@ header:
 <ul class="no-bullet">
   {% for author in site.data.authors %}
     <li>
-      <a href="{{ site.url }}/blog/category/{{author[0]}}">{{author[1].name}}</a>
+      <a href="{{ site.baseurl }}/blog/category/{{author[0]}}">{{author[1].name}}</a>
     </li>
   {% endfor %}
 </ul>

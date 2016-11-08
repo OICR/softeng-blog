@@ -32,7 +32,7 @@ rss-link: ''
 # Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
 # Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
 #
-urlimg: 'https://icgc-dcc.github.io/softeng/images/'
+urlimg: '/softeng/images/'
 
 #Time zone for the site
 timezone: Canada/Eastern

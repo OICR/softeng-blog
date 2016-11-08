@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '3.0.2'
+gem 'guard'
+gem 'guard-livereload'
 
 group :jekyll_plugins do
   gem 'jekyll-gist'
