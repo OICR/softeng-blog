@@ -3,7 +3,7 @@
   icon: //avatars2.githubusercontent.com/u/1508638
   info: The ICGC Data Coordination Center software infrastructure including the ICGC data portal (dcc.icgc.org)
 
-- name: The Cancer Genome Collaboratory - Core 1
+- name: Cancer Genome Collaboratory
   url: //github.com/CancerCollaboratory
   icon: //avatars1.githubusercontent.com/u/10966125
   info: ICGC cloud compute & storage cluster enhanced with custom-built software.
