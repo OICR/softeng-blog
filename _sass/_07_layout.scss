@@ -199,7 +199,9 @@ nav{
         z-index: 99;
 
         .next-meeting{
-            position: absolute;
+            @media#{$medium-up} {
+                position: absolute;
+            }
             top: 65px;
 
             .next-meeting-info{

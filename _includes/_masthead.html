@@ -4,7 +4,7 @@
   <div class="masthead" style="background-image: url('{{site.urlimg}}{{page.header.image}}')">
     <div class="row">
       {% if page.header.version == 'full' %}
-      <div class="small-7 columns left-column">
+      <div class="medium-7 columns left-column">
         <div class="header-title {{page.header.class}} clearfix">
           {% if page.header.icon %}
           <img src="{{site.urlimg}}icons/{{page.header.icon}}.svg" />
@@ -36,7 +36,7 @@
       </div>
       {% endif %}
       {% if page.header.page == 'front' or page.header.page == 'club' %}
-        <div class="small-5 columns right-column">
+        <div class="medium-5 columns right-column">
           <div class="next-meeting {% if page.header.page == 'club' %}in-club{% endif %}">
             <div class="next-meeting-info">
               <div class="club-icon">
