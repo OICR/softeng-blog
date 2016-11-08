@@ -1,5 +1,20 @@
 # ICGC - Software Engineering Blog
 
+## Instructions for development
+
+
+```bash
+gem install jekyll bundler
+bundle install
+sh serve.sh
+```
+
+For livereload, in a separate terminal, run
+
+```
+guard
+```
+
 ## Contributing
 
 ### Add a blog post
