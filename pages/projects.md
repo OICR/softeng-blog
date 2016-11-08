@@ -28,10 +28,10 @@ header:
         </div>
         <div class="small-12 columns author-links project-links">
           <div class="small-6 columns">
-            <a class="author-blogs project-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
+            <a class="author-blogs project-blogs" href="{{ site.baseurl }}/blog/{{ author[1].name }}">Blog Posts »</a>
           </div>
           <div class="small-6 columns">
-            <a class="author-github project-github" href="{{ project.url }}"> github</a>
+            <a class="author-github project-github" href="{{ project.url }}"><i class="fa fa-github"></i> github</a>
           </div>
         </div>
       </div>

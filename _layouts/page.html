@@ -8,7 +8,7 @@ format: page
     <div class="blog-post">
       <div class="blog_teaser">
         <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
-        <h3 class="post-title"><a href="{{ site.url }}/{{ page.url }}">{{ page.title }}</a></h3>
+        <h3 class="post-title"><a href="{{ site.baseurl }}/{{ page.url }}">{{ page.title }}</a></h3>
         {% if author %}<p class="post-author">By: <a href="#placeholder"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
@@ -45,17 +45,17 @@ format: page
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="{{ site.url }}/images/icons/icon-twitter.svg" />
+          <img src="{{ site.baseurl }}/images/icons/icon-twitter.svg" />
         </a>
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="{{ site.url }}/images/icons/icon-facebook.svg" />
+          <img src="{{ site.baseurl }}/images/icons/icon-facebook.svg" />
         </a>
       </div>
       <div class="small-1 columns">
         <a href="#">
-          <img src="{{ site.url }}/images/icons/icon-linkedin.svg" />
+          <img src="{{ site.baseurl }}/images/icons/icon-linkedin.svg" />
         </a>
       </div>
     </div>
@@ -78,7 +78,7 @@ format: page
             <span>{{ author.info }}</span>
           </div>
           <div class="author-links">
-            <a class="author-blogs" href="{{ site.url }}/blog/{{ author[1].name }}">Blog Posts »</a>
+            <a class="author-blogs" href="{{ site.baseurl }}/blog/{{ author[1].name }}">Blog Posts »</a>
             <a class="author-github" href="https://github.com/blog/{{ author[1].github }}"> Github </a>
           </div>
         </div>
@@ -94,7 +94,7 @@ format: page
       {% if page.previous.url %}
         <a style="float: left;" href="{{page.previous.url}}">
           <span class="icon-previous">
-            <img src="{{ site.url }}/images/icons/icon-arrow-blue.svg" />
+            <img src="{{ site.baseurl }}/images/icons/icon-arrow-blue.svg" />
           </span>
           <span><strong>Previous:</strong> {{page.previous.title}}</span>
         </a>
@@ -102,7 +102,7 @@ format: page
     </div>
     <div class="small-2 columns top-link">
       <a href="#top">
-        <span><img src="{{ site.url }}/images/icons/icon-arrow.svg" /></span>
+        <span><img src="{{ site.baseurl }}/images/icons/icon-arrow.svg" /></span>
         <span>Back to Top</span>
       </a>
     </div>
@@ -111,7 +111,7 @@ format: page
       <a href="{{page.next.url}}">
         <span><strong>Next:</strong> {{page.next.title}}</span>
         <span class="icon-next">
-          <img src="{{ site.url }}/images/icons/icon-arrow-blue.svg" />
+          <img src="{{ site.baseurl }}/images/icons/icon-arrow-blue.svg" />
         </span>
       </a>
     {% endif %}

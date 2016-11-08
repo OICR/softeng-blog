@@ -9,7 +9,7 @@ header:
     icon: icon-pizza
 ---
 
-<div class="authors clearfix">
+<div class="team-page authors clearfix">
   {% for author in site.data.authors %}
     <div class="small-4 columns">
       <div class="author row">
@@ -27,12 +27,16 @@ header:
         <div class="small-12 columns" class="author-info">
           <span>{{ author[1].info }}</span>
         </div>
-        <div class="small-12 columns author-links">
-          <div class="small-6 columns">
-            <a class="author-blogs" href="{{ site.url }}/blog/category/{{ author[0] }}">Blog Posts »</a>
+        <div class="author-links">
+          <div class="author-links__blog">
+            <a class="author-blogs" href="{{ site.baseurl }}/blog/category/{{ author[0] }}">Blog Posts »</a>
           </div>
-          <div class="small-6 columns">
-            <a class="author-github" href="https://github.com/{{ author[1].github }}"> {{ author[1].github }}</a>
+          <div class="author-links__github">
+            {% if author[1].github %}
+            <a class="author-github" href="https://github.com/{{ author[1].github }}">
+              <i class="fa fa-github"></i> {{ author[1].github }}
+            </a>
+            {% endif %}
           </div>
         </div>
       </div>
