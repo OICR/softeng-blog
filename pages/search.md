@@ -11,7 +11,7 @@ header:
     icon: icon-search-results
 ---
 
-<div class="small-7 columns posts">
+<div class="small-8 columns posts">
   <div class="results">
     <ul class="no-bullet" id="search-results">
       
