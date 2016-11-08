@@ -399,7 +399,9 @@ nav{
 .home-page, .club-page, .search-page, .tags-page, .months-page {
     aside{
         padding: 20px;
-        margin:150px 0 0 -11px; 
+        @media #{$large-up} {
+            margin: 130px 0 0 -11px;
+        } 
     }
     .club-sidebar, .search-sidebar{
         aside{
@@ -408,7 +410,6 @@ nav{
     }
     .posts{
         margin-top: 20px;
-        padding:20px 20px 0 0;
 
         div{
             &:last-child{
