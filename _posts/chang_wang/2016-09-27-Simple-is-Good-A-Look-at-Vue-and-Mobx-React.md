@@ -6,7 +6,6 @@ author: chang_wang
 date: 2016-09-27
 categories: chang_wang
 tags:
-    - Software Engineering Club
     - Javascript
     - React
     - Vue
