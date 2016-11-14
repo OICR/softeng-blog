@@ -21,8 +21,8 @@ author: ICGC
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: 'https://oicr-softeng.github.io/ferretti-blog'
-baseurl: '/ferretti-blog'
+url: 'http://softeng.oicr.on.ca'
+baseurl: '/'
 
 rss-link: ''
 
@@ -32,7 +32,7 @@ rss-link: ''
 # Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
 # Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
 #
-urlimg: '/ferretti-blog/images/'
+urlimg: '/images/'
 
 #Time zone for the site
 timezone: Canada/Eastern
