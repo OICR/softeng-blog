@@ -17,9 +17,11 @@ guard
 
 ## Contributing
 
-### Add a blog post
+### Suggest Blog posts
 
-We are open to ideas and suggestion about the blog's content, please suggest your idea to the team on #blog on slack.
+We are open to ideas and suggestion about the blog's content, please suggest your idea to the team by creating github issues. Discussions can also happen in #softeng-blog on OCIR slack.
+
+### Add a blog post
 
 Create your own branch and start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
 
@@ -57,8 +59,6 @@ to get yourself more familiar with the coding style.
 Images can be added as an absolute or a relative link. You can look at kramdown syntax documentation to find out about adding absolute links. For a relative link images you can upload them into your folder inside images directory `/images/firstname_lastname/image.png`
 
 To refer them inside your blog post, use the image url from the site config as `{{ site.urlimg }}` and append relative link of your image. `{{ site.urlimg }}/firstname_lastname/image.png`
-
-
 
 ### Update blog content (non-posts)
 
