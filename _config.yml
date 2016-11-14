@@ -22,7 +22,7 @@ author: ICGC
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
 url: 'http://softeng.oicr.on.ca'
-baseurl: '/'
+baseurl: ''
 
 rss-link: ''
 
