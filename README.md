@@ -21,6 +21,9 @@ guard
 
 We are open to ideas and suggestion about the blog's content, please suggest your idea to the team by creating github issues. Discussions can also happen in #softeng-blog on OCIR slack.
 
+When creating github issues, please use the following format: YYYY-MM-DD - Assignee - Topic 
+ - YYYY-MM-DD: Target completion date
+
 ### Add a blog post
 
 Create your own branch and start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
