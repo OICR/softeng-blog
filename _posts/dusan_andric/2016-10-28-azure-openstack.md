@@ -7,7 +7,7 @@ date: 2016-10-28
 categories: dusan_andric
 tags:
     - Azure
-    - Openstack
+    - OpenStack
     - Cloud
     - Microsoft
 teaser:
