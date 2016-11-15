@@ -19,7 +19,7 @@ guard
 
 ### Suggest Blog posts
 
-We are open to ideas and suggestion about the blog's content, please suggest your idea to the team by creating github issues. Discussions can also happen in #softeng-blog on OCIR slack.
+We are open to ideas and suggestion about the blog's content, please suggest your idea to the team by creating github issues. Discussions can also happen in [#softeng-blog](https://oicr.slack.com/messages/softeng-blog/) on OICR slack.
 
 When creating github issues, please use the following format: YYYY-MM-DD - Assignee - Topic 
  - YYYY-MM-DD: Target completion date
