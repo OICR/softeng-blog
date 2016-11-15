@@ -9,9 +9,9 @@ header:
     class: no-icon
     buttons:
         - title: Meet the Team
-          link: "/team/"
+          link: "team/"
         - title: Join the Team
-          link: "/careers/"
+          link: "careers/"
 permalink: /index.html
 ---
 
