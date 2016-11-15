@@ -3,7 +3,7 @@ layout: frontpage
 header: 
     version: full
     title: Software Engineering Blog
-    caption: We are OICR's passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.
+    caption: We are OICR's passionate team of software engineers, infrastructure specialists and bioinformaticians who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.
     image: header-logo-crop.png
     page: front
     class: no-icon
