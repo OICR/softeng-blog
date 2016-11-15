@@ -19,7 +19,7 @@ header:
     icon: icon-blog
 ---
 
-[George](http://softeng.oicr.on.ca/blog/category/george_mihaiescu) has recently been working with the Univeristy of Cambridge on a whitepaper. The Collaboratory infrastructure is detailed in pages 30 to 33 of the document (below).
+[George](http://softeng.oicr.on.ca/blog/category/george_mihaiescu) and the Collaboratory team have recently been working with the Univeristy of Cambridge on a whitepaper. The Collaboratory infrastructure is detailed in pages 30 to 33 of the document (below).
 
 <figure>
 	<a href="http://www.openstack.org/assets/science/OpenStack-CloudandHPC6x9Booklet-v4-online.pdf">
