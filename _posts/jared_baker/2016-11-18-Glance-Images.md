@@ -29,7 +29,7 @@ When users deploy instances in the Cloud the first thing they often do is update
     <figcaption>:(</figcaption>
 </figure>
 
-As a Cloud admin, part of my job is to provide an efficient but secure user experience. In this post I will share with you how we achieve that by keeping our Glance images in OpenStack up to date.
+As a Cloud admin, part of my job is to provide an efficient but secure user experience. In this post I will share with you how we achieve that by keeping our Glance images in OpenStack up to date. Unfortunately Glance does not have any auto-update mechanism for cloud images, nor could I find any 3rd party solutions so I wrote a bash script to do this for us.
 
 <figure>
     <img src="{{site.urlimg}}jared_baker/glanceimages/no-updates.png" />
@@ -54,6 +54,20 @@ As a Cloud admin, part of my job is to provide an efficient but secure user expe
 I come from a IP Networking & technical support background. I don't claim to be of a developers mindset and clearly you will see that in my rudimentary implementation of automating this task. I encourage you to take this script and make it your own.
 
 [Available here](https://github.com/CancerCollaboratory/infrastructure/blob/master/utils/image_refresh.sh)
+
+## Usage
+We run the script once a day with cron. If nothing needs to be updated then no email will be sent and the output of the script is quietly logged. Otherwise if there is any images that are out of date an email will be sent saying what needs to be updated. At that point you can decide to run the script interactively using the --update argument. We chose to not automatically update the images because we often want to review release notes, check compatibility, etc.
+
+~~~bash
+#./image_refresh.sh
+Thu Nov 17 15:42:00 EST 2016
+Ubuntu 14.04 Update available. Run with --update
+Ubuntu 16.04 online checksum matches local, nothing to do
+CentOS 7 online checksum matches local, nothing to do
+Debian 8 online checksum matches local, nothing to do
+#./image_refresh.sh --update
+RUNNING SCRIPT IN UPDATE MODE
+~~~
 
 ## Wish List
 These are just a few things I would like to improve upon when I get a bit more time and develop my skills in bash scripting. I will update the script on github when time permits to make these modifications and more!
