@@ -715,3 +715,10 @@ nav{
 .pr5  { padding-right: 5px !important; }
 .pr10 { padding-right: 10px !important; }
 .pr20 { padding-right: 20px !important; }
+
+.header-navigation {
+    @media#{$medium-up} {
+        display: flex;
+        align-items: center;
+    }
+}
