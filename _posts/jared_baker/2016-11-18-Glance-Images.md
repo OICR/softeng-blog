@@ -3,7 +3,7 @@ layout: post
 title:  "Staying up to date with Glance Images"
 breadcrumb: true
 author: jared_baker
-date: 2016-11-18
+date: 2016-11-17
 categories: jared_baker
 tags:
     - Glance
@@ -44,22 +44,23 @@ As a Cloud admin, part of my job is to provide an efficient but secure user expe
 * Log script output to a file that is handled by logstash
 * By default run as a check & notifier via cron but be able to run interactively to update with added syntax (--update)
 
-## The Bash script
-[Available here](https://github.com/CancerCollaboratory/infrastructure/blob/master/utils/image_refresh.sh)
-
-#### Disclaimer
-I come from a IP Networking & technical support background. I don't claim to be of a developers mindset and clearly you will see that in my rudimentary implementation of automating this task. I encourage you to take this script and make it your own.
-
 #### Prerequisites
 * [openstack client](https://github.com/openstack/python-openstackclient)
 * [gmail_alert.sh](https://gist.github.com/superdaigo/3754055/)
 
+## The Bash script
+
+##### Disclaimer
+I come from a IP Networking & technical support background. I don't claim to be of a developers mindset and clearly you will see that in my rudimentary implementation of automating this task. I encourage you to take this script and make it your own.
+
+[Available here](https://github.com/CancerCollaboratory/infrastructure/blob/master/utils/image_refresh.sh)
+
 ## Wish List
+These are just a few things I would like to improve upon when I get a bit more time and develop my skills in bash scripting. I will update the script on github when time permits to make these modifications and more!
+
 * Make the script easier to maintain by using for loops
 * Check for successful openstack image creation before deletion
 * Improve the logging to contain timestamps on each log entry
-
-I will update the script on github when time permits to make these modifications.
 
 ## Conclusion
  Users will now deploy instances from our public images that contain the latest builds from each Linux distribution. This cuts down on deployment time for the users and reduces exposure to potential vulnerabilities.
