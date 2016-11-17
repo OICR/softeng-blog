@@ -35,7 +35,7 @@ git clone https://github.com/OICR/softeng-blog.git
 cd softeng-blog
 ```
 
-(or) Pull Recent changes:
+(or) Pull recent changes:
 ```
 cd softeng-blog
 git checkout gh-pages
