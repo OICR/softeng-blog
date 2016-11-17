@@ -1,7 +1,8 @@
 # ICGC - Software Engineering Blog
 
-## Instructions for development
+Although not mandatory, you might want to run a local instance of the blog to verify that your blog post content renders properly. 
 
+## Instructions to run a local instance of Jekyll
 
 ```bash
 gem install jekyll bundler
@@ -24,9 +25,35 @@ We are open to ideas and suggestion about the blog's content, please suggest you
 When creating github issues, please use the following format: YYYY-MM-DD - Assignee - Topic 
  - YYYY-MM-DD: Target completion date
 
+### Clone the repo locally (or pull latest changes)
+
+This will setup a local and up-to-date copy of the repository.
+
+Clone:
+```
+git clone https://github.com/OICR/softeng-blog.git
+cd softeng-blog
+```
+
+(or) Pull Recent changes:
+```
+cd softeng-blog
+git checkout gh-pages
+git pull
+```
+
+### Branch from gh-pages and push your branch to github
+
+This will create a new branch for your blog post and sync it with github.
+```
+git checkout -b <branch>
+git push -u origin <branch>
+```
+Branch name can be your firstname_topic (for example: dusan_azure). Branches can be deleted after merge.
+
 ### Add a blog post
 
-Create your own branch and start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
+Start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
 
 To be properly indexed, markdown files must contain the specific header.
 
@@ -62,6 +89,21 @@ to get yourself more familiar with the coding style.
 Images can be added as an absolute or a relative link. You can look at kramdown syntax documentation to find out about adding absolute links. For a relative link images you can upload them into your folder inside images directory `/images/firstname_lastname/image.png`
 
 To refer them inside your blog post, use the image url from the site config as `{{ site.urlimg }}` and append relative link of your image. `{{ site.urlimg }}/firstname_lastname/image.png`
+
+### Sync your new branch with Github
+
+At regular interval, push your content to Github.
+
+```
+git commit -a -m "Describe your changes"
+git push
+```
+
+### Create Pull Request
+
+Once your content is ready for review, create a pull request from your new branch towards gh-pages.
+
+https://help.github.com/articles/creating-a-pull-request/
 
 ### Update blog content (non-posts)
 
