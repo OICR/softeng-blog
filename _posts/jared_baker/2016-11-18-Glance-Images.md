@@ -63,3 +63,8 @@ I will update the script on github when time permits to make these modifications
 
 ## Conclusion
  Users will now deploy instances from our public images that contain the latest builds from each Linux distribution. This cuts down on deployment time for the users and reduces exposure to potential vulnerabilities.
+
+ <figure>
+     <img src="{{site.urlimg}}jared_baker/glanceimages/glanceimages.png" />
+     <figcaption>Nice and clean!</figcaption>
+ </figure>
