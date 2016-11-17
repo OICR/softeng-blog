@@ -99,7 +99,7 @@ git commit -a -m "Describe your changes"
 git push
 ```
 
-### Create Pull Request
+### Create a Pull Request
 
 Once your content is ready for review, create a pull request from your new branch towards gh-pages.
 
