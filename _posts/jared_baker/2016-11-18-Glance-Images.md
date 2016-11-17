@@ -3,7 +3,7 @@ layout: post
 title:  "Staying up to date with Glance Images"
 breadcrumb: true
 author: jared_baker
-date: 2016-11-17
+date: 2016-11-18
 categories: jared_baker
 tags:
     - Glance
