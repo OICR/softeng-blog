@@ -14,7 +14,7 @@ header:
     <div class="blog-post">
       <div class="blog_teaser">
         <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
-        <h3 class="post-title"><a href="{{ site.baseurl }}/{{ page.url }}">{{ page.title }}</a></h3>
+        <h3 class="post-title"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h3>
         {% if author %}<p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{page.author}}"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
@@ -52,18 +52,19 @@ header:
       <div class="small-1 columns">
         <a class="twitter-share-button" 
           target="_blank"
-          href="https://twitter.com/intent/tweet?text={{page.title}}%0D%0A{{site.baseurl}}/{{page.url}}">
+          href="https://twitter.com/intent/tweet?text={{page.title}}%0D%0A{{site.url}}{{page.url}}">
           <img src="{{ site.baseurl }}/images/icons/icon-twitter.svg" />
         </a>
       </div>
       <div class="small-1 columns">
-        <a href="#">
+        <a target="_blank"
+          href="http://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}">
           <img src="{{ site.baseurl }}/images/icons/icon-facebook.svg" />
         </a>
       </div>
       <div class="small-1 columns">
         <a target="_blank" 
-          href="https://www.linkedin.com/shareArticle?mini=true&url={{site.baseurl}}/{{page.url}}&title={{page.title}}&source={{site.baseurl}}">
+          href="https://www.linkedin.com/shareArticle?mini=true&url={{site.url}}/{{page.url}}&title={{page.title}}&source={{site.baseurl}}">
           <img src="{{ site.baseurl }}/images/icons/icon-linkedin.svg" />
         </a>
       </div>
