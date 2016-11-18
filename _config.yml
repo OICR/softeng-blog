@@ -36,7 +36,6 @@ urlimg: '/images/'
 
 #Time zone for the site
 timezone: Canada/Eastern
-google_analytics_tracking_id: UA-87708930-1
 
 # Logo size is 600x80 pixels
 logo: "logo-Ferretti-blog.png"
@@ -226,6 +225,7 @@ sass:
 # used in _includes/footer_scripts
 
 # google_analytics_tracking_id: UA-60112281-1
+google_analytics_tracking_id: UA-87708930-1
 
 
 
