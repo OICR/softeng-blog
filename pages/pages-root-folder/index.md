@@ -21,7 +21,7 @@ permalink: /index.html
     <div class="row" >
       <div class="small-12 columns b30 blog_teaser">
         <span class="date-display"><strong>{{ post.date | date: "%b. %-d, %Y" }}</strong></span>
-        <h3 class="post-title"><a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a></h3>
+        <h3 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
         {% if author %}<p class="post-author">By: <a href="{{ site.baseurl }}/blog/category/{{ post.author }}"><strong>{{ author.name }}</strong></a></p>{% endif %}
         <div class="circles">
           <div class="circle"></div>
