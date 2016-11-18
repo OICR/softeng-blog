@@ -16,7 +16,7 @@ permalink: /index.html
 ---
 
 <div class="large-8 columns posts">
-  {% for post in site.posts limit:3 %}
+  {% for post in site.posts limit:5 %}
   {% assign author = site.data.authors[post.author] %}
     <div class="row" >
       <div class="small-12 columns b30 blog_teaser">
