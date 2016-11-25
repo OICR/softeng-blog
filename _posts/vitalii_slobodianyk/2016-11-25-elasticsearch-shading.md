@@ -20,7 +20,9 @@ header:
 
 ## Introduction
 
-In this blog post I will provide instructions how to create an Elasticsearch jar file with 'shaded' dependencies. This operation is often required when you use of some libraries the Elasticsearch depends on, but version of the library differs. In such a case you project might not compile or run. A solution to the problem is to create a custom Elasticsearch distribution file which has the problematic dependencies 'shaded'.
+'Shading' or package renaming(relocation) is a process of creating an [uber-jar](http://imagej.net/Uber-JAR) which contains its dependencies and package names of some of the dependendencies are renamed.
+
+In this blog post I will provide instructions how to create an Elasticsearch jar file with 'shaded' dependencies. This operation is often required when you use some libraries the Elasticsearch depends on, but version of the library differs. In such a case your project might not compile or run. A solution to the problem is to create a custom Elasticsearch distribution jar file which has the problematic dependencies 'shaded'(renamed).
 
 I will also guide how to create a 'shaded' jar file for testing with an in-memory Elasticsearch instance.
 
@@ -75,7 +77,7 @@ The following configuration enables such functionality. We also instructed the p
 <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
 ~~~
 
-The generated jar files should contain `META-INF/MANIFEST.MF`. `Elasticsearch` relies on some of the properties in the `MANIFEST.MF` to identify if the artifact was properly built. For this reason `Change` and `Build-Date` properties are included. Their values do not really matter.
+The generated jar files should contain `META-INF/MANIFEST.MF`. Elasticsearch relies on some of the properties in the `MANIFEST.MF` to identify if the artifact was properly built. For this reason `Change` and `Build-Date` properties are included. Their values do not really matter.
 
 ~~~xml
 <transformers>
@@ -232,7 +234,7 @@ There is no other configuration as all the dependencies relocations are defined 
 
 #### elasticsearch-test-shaded
 
-There is a problem related to testing. Sometimes it is preferable to be able to query agains a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3-rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recomemnded](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12). 
+There is a problem related to testing with Elasticsearch. Sometimes it is preferable to be able to query agains a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3-rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recomemnded](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12). 
 
 The drawback of using the `ESIntegTestCase` is that it requires additional configuration when you would like to run scripts. Modules which support particular query language, for example `Painless` or `Groovy` should be added separately. Those modules are not available in the Central Maven repository, however they are provided with the Elasticsearch artifact.
 
