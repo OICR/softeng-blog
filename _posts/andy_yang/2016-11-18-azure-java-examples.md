@@ -51,7 +51,7 @@ One of our design philosophies was to avoid dissemination of repository access k
 
 The mechanism for this is a Pre-Signed URL. Azure calls this a Shared Access Signature. This is a URI that is signed with the authorizing credentials, but usable by anyone else. These URI's can be expired after a set period of time, and can be used by any REST client.
 
-SAS URI's can be generated for Containers as well as individual Blobs, but our system hides all details of Containers from its users; and access is granted to Blobs individually.
+SAS URI's can be generated for Containers as well as for individual Blobs, but our system hides all details of Containers from its users; and access is granted to Blobs individually.
 
 ## Microsoft's Java SDK
 
@@ -82,7 +82,7 @@ However, you don't even have to use the Java SDK on the client side - any REST c
 
 ### Code Examples
 
-Here are some examples extracted from the code developed for our own needs. We develop using Java 8.
+Here are some Java 8 examples extracted from the code developed for our own needs.
 
 This is the initial set up boilerplate. The account name and account key credentials are used to construct a CloudBlobClient instance.
 
@@ -130,7 +130,7 @@ While you can generate standlone SAS URL's directly at this point, the recommend
   container.uploadPermissions(permissions);
 ~~~
 
-And then you can finally get to generating the SAS for a given object. Note that to account for variances in system clocks, Microsoft recommends you backdate your SAS start time by 15 minutes.
+And then you can finally get to generating the SAS for a given object. Note that to account for variances in system clocks, Microsoft recommends you back date your SAS start time by 15 minutes.
 
 
 ~~~java
@@ -182,7 +182,7 @@ That whole process was just to authenticate you as someone who is authorized to 
   blob.downloadToFile("path/to/save/download");
 ~~~
 
-And if you gave them the SAS URI you generated with the UploadPolicy, then unsurprisingly, to upload a file:
+And if you had the SAS URI you generated with the _UploadPolicy_, then unsurprisingly, to upload a file:
 
 ~~~java
   URI url = new URI(sasUri);
@@ -190,11 +190,11 @@ And if you gave them the SAS URI you generated with the UploadPolicy, then unsur
   blob.uploadFromFile("path/to/file/to/upload");
 ~~~
 
-### Other Snippets
+### Concurrent Uploads
 
 For all files larger than 64 MB, they are automatically stored as something called a Block Blob. Every block is uploaded to Azure and stored individually, to be logically combined and ordered once all the blocks have been successfully sent. Azure Blob Storage has a maximum block size of 4 MB. Considering a single BAM alignment file can be more than 415 GB in size, we're dealing with a _lot_ of blocks. In fact, at this time, Azure can't even store the larger BAM's _at all_. They promise us that's changing though. 
 
-The point of all this, is that uploading a file would take a really long time, one 4 MB block at a time. Instead, their Java SDK allows us to send blocks up to Azure *concurrently*:
+The point of all this, is that uploading one of our alignment files would take a really long time, one 4 MB block at a time. Instead, their Java SDK allows us to send blocks up to Azure *concurrently*:
 
 ~~~
   // specify number of parts to upload at the same time
@@ -211,12 +211,18 @@ Under the covers, Microsoft has already taken care of managing the block lists f
 
 ### References
 
-http://gauravmantri.com/2013/02/13/revisiting-windows-azure-shared-access-signature/
-Revisiting Windows Azure Shared Access Signature
-February 13, 2013 
+Myers, Tamra. [Using Shared Access Signatures (SAS)][myers1]  
+October 17, 2016
+[myers1]: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
 
-https://www.simple-talk.com/cloud/platform-as-a-service/azure-blob-storage-part-9-shared-access-signatures/
-Azure Blob Storage Part 9: Shared Access Signatures
+Mantri, Guarav. [Revisiting Windows Azure Shared Access Signature][mantri1]  
+February 13, 2013 
+[mantri1]: http://gauravmantri.com/2013/02/13/revisiting-windows-azure-shared-access-signature/
+
+Shahan, Robin. [Azure Blob Storage Part 9: Shared Access Signatures][shahan1]  
 March 12, 2015
+[shahan1]: https://www.simple-talk.com/cloud/platform-as-a-service/azure-blob-storage-part-9-shared-access-signatures/
+
+
 
 
