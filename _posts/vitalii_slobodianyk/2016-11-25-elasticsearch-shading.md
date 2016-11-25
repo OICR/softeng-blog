@@ -28,9 +28,9 @@ I will also guide how to create a 'shaded' jar file for testing with an in-memor
 
 ## Maven project configuration
 
-I will use the Apache Maven to create the jar files, so let's prepare the standard maven directories layout.
+We will use the Apache Maven to create the jar files, so let's prepare the standard maven directories layout.
 
-First, I create 2 modules which provide a shaded Elasticsearch artifact and shaded dependencies for Elasticsearch testing. A parent pom will be created to organize common configuration, versions and variables. The project layout will be the following:
+First, we create 2 modules which provide a shaded Elasticsearch artifact and shaded dependencies for Elasticsearch testing. A parent pom will be created to organize common configuration, versions and variables. The project layout will be the following:
 
 ~~~
 .
@@ -136,7 +136,7 @@ Now, we'll define the 'meat' of the configuration: the dependencies relocation c
 
 It is important to note that `joda` packages should not be shaded if you use scripts written in `Painless` language. It is a default Elasticsearch scripting language developed by the Elasticsearch team. It relies on Java data types and uses `joda`'s types for date. If you relocate it `Painless` script will fail to compile.
 
-As I mentioned before, I want to include only Elasticsearch and the relocated dependencies. To do that I define artifact sets which should be included in the shaded jar file.
+As mentioned before, we want to include only Elasticsearch and the relocated dependencies. To do that we define artifact sets which should be included in the shaded jar file.
 
 ~~~xml
 <artifactSet>
@@ -178,7 +178,7 @@ The last step in terms of `maven-shade-plugin` configuration is to configure fil
 
 Now we are done with the shade plugin configuration. For more information on the configuration parameters refer to the [plugin documentation](https://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html).
 
-The last piece of configuration. I put in the parent pom is configuration for artifacts deployment. This is a repository for our internal dependencies, which is publicly available.
+The last piece of configuration. We put in the parent pom is configuration for artifacts deployment. This is a repository for our internal dependencies, which is publicly available.
 
 
 ~~~xml
@@ -234,7 +234,7 @@ There is no other configuration as all the dependencies relocations are defined 
 
 #### elasticsearch-test-shaded
 
-There is a problem related to testing with Elasticsearch. Sometimes it is preferable to be able to query agains a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3-rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recomemnded](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12). 
+There is a problem related to testing with Elasticsearch. Sometimes it is preferable to be able to query against a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3-rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recomemnded](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12). 
 
 The drawback of using the `ESIntegTestCase` is that it requires additional configuration when you would like to run scripts. Modules which support particular query language, for example `Painless` or `Groovy` should be added separately. Those modules are not available in the Central Maven repository, however they are provided with the Elasticsearch artifact.
 
