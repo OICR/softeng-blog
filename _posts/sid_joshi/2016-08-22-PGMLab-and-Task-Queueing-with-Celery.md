@@ -20,3 +20,5 @@ header:
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qgcj1K_ocy0" frameborder="0" allowfullscreen></iframe>
 
+A talk given by Martin Pham for the Ontario Institute for Cancer Research’s software engineering club on PGMLab (Probabilistic Graphical Model Lab) and developing web applications for Celery. Javascript web technologies such as React, Redux, Immutable.js, ECMAScript 6 (ES6) are discussed. Python technologies such as Klein and Celery for asynchronous task queueing are also discussed.
+
