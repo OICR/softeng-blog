@@ -10,7 +10,7 @@ tags:
     - Maven
     - Jar Hell
 teaser:
-    info: A guide how to prepare an Elasticsearch distribution tailored to your needs.
+    info: 'Shading' or package renaming a.k.a class relocation is a process of creating an uber-jar which contains its dependencies and package names of some of the dependencies are renamed. In this blog post I will provide instructions how to create an Elasticsearch jar file with 'shaded' dependencies to save you from the perils of 'Jar Hell'.
     image: vitalii_slobodianyk/elastic/elastic-logo.png
 header: 
     version: small
