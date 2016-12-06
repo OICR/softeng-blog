@@ -3,7 +3,7 @@ layout: post
 title:  "Use Git to Manage the Big Genomic Data Migration in Cloud"
 breadcrumb: true
 author: linda_xiang
-date: 2016-12-03
+date: 2016-12-06
 categories: linda_xiang
 tags:
     - Git
