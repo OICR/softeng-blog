@@ -133,7 +133,6 @@ The remote git repository is the place where we will store our jobs and their mi
 ├── downloading-jobs
 ├── failed-jobs
 ├── queued-jobs
-├── retry-jobs
 └── uploading-jobs
 ~~~~
 
@@ -187,6 +186,6 @@ It is obvious that all these procedures are completely visible to all the worker
 
 ## Conclusion
 
-The presented solution is the result of work that we put into building the system to migrate huge-scale PCAWG data to Collaboratory/AWS S3 cloud storage. We needed a simple, yet flexible, efficient and real-time management system. Combining Git, Github, Elasticsearch and Cloud instances provided a very satisfactory solution that we encourage you to give it a try.
+The presented solution is the result of work that we put into building the system to migrate huge-scale PCAWG data to Collaboratory/Amazon S3 cloud storage. We needed a simple, yet flexible, efficient and real-time management system. Combining Git, Github, Elasticsearch and Cloud instances provided a very satisfactory solution that we encourage you to give it a try.
 
 
