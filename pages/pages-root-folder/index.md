@@ -1,6 +1,6 @@
 ---
 layout: frontpage
-header: 
+header:
     version: full
     title: Software Engineering Blog
     caption: We are OICR's passionate team of software engineers, infrastructure specialists and bioinformaticians building tools to empower researchers in their endeavours to elucidate cancer. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.
@@ -17,12 +17,24 @@ permalink: /index.html
 
 <div class="large-8 columns posts">
   {% for post in site.posts limit:5 %}
-  {% assign author = site.data.authors[post.author] %}
+
     <div class="row" >
       <div class="small-12 columns b30 blog_teaser">
         <span class="date-display"><strong>{{ post.date | date: "%b. %-d, %Y" }}</strong></span>
         <h3 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-        {% if author %}<p class="post-author">By: <a href="{{ site.baseurl }}/blog/category/{{ post.author }}"><strong>{{ author.name }}</strong></a></p>{% endif %}
+        {% assign authorsCount = post.authors | size %}
+        {% assign authorCount = post.author | size %}
+        {% if authorsCount > 0 %}
+          <p class="post-author">By:
+          {% for currentAuthor in post.authors %}
+            {% assign author = site.data.authors[currentAuthor] %}
+            <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+          </p>    
+        {% else if authorCount > 0 %}
+          {% assign author = site.data.authors[post.author] %}
+          <p class="post-author">By: <a href="{{ site.baseurl }}/blog/category/{{ post.author }}"><strong>{{ author.name }}</strong></a></p>
+        {% endif %}
         <div class="circles">
           <div class="circle"></div>
           <div class="circle"></div>
@@ -39,7 +51,7 @@ permalink: /index.html
               {% for tag in post.tags %}
                 {{ tag }}
                 {% unless forloop.last %}
-                / 
+                /
                 {% endunless %}
               {% endfor %}
             </strong>

@@ -1,13 +1,14 @@
 ---
 layout: default
 format: post
-header: 
+header:
     version: small
     title: Software Engineering Blog
     image: header-logo-crop.png
     icon: icon-blog
 ---
-{% assign author = site.data.authors[page.author] %}
+{% assign authorsCount = page.authors | size %}
+{% assign authorCount = page.author | size %}
 <div class="row blog">
 
   <div class="large-9 columns">
@@ -15,7 +16,17 @@ header:
       <div class="blog_teaser">
         <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
         <h3 class="post-title"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h3>
-        {% if author %}<p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{page.author}}"><strong>{{ author.name }}</strong></a></p>{% endif %}
+        {% if authorsCount > 0 %}
+          <p class="post-author">By:
+          {% for currentAuthor in page.authors %}
+            {% assign author = site.data.authors[currentAuthor] %}
+            <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+          </p>
+        {% else if authorCount > 0 %}
+          {% assign author = site.data.authors[page.author] %}
+          <p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{page.author}}"><strong>{{ author.name }}</strong></a></p>
+        {% endif %}
         <div class="circles">
           <div class="circle"></div>
           <div class="circle"></div>
@@ -32,7 +43,7 @@ header:
               {% for tag in page.tags %}
                 {{ tag }}
                 {% unless forloop.last %}
-                / 
+                /
                 {% endunless %}
               {% endfor %}
               </strong>
@@ -50,7 +61,7 @@ header:
         <span>Share:</span>
       </div>
       <div class="small-1 columns">
-        <a class="twitter-share-button" 
+        <a class="twitter-share-button"
           target="_blank"
           href="https://twitter.com/intent/tweet?text={{page.title}}%0D%0A{{site.url}}{{page.url}}">
           <img src="{{ site.baseurl }}/images/icons/icon-twitter.svg" />
@@ -63,37 +74,68 @@ header:
         </a>
       </div>
       <div class="small-1 columns">
-        <a target="_blank" 
+        <a target="_blank"
           href="https://www.linkedin.com/shareArticle?mini=true&url={{site.url}}/{{page.url}}&title={{page.title}}&source={{site.baseurl}}">
           <img src="{{ site.baseurl }}/images/icons/icon-linkedin.svg" />
         </a>
       </div>
     </div>
     </div>
-    <div class="author-box columns"> 
-      <div class="author">
-        <div class="small-2 columns">
-          <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
+    {% if authorsCount > 0 %}
+      {% for currentAuthor in page.authors %}
+        {% assign author = site.data.authors[currentAuthor] %}
+        <div class="author-box columns">
+          <div class="author">
+            <div class="small-2 columns">
+              <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
+            </div>
+            <div class="small-10 columns">
+              <div class="author-bio">
+                <span>
+                  <strong>{{author.name}},</strong>
+                </span>
+                <span>
+                  {{author.position}}
+                </span>
+              </div>
+              <div class="author-info">
+                <span>{{ author.info }}</span>
+              </div>
+              <div class="author-links">
+                <a class="author-blogs" href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}">Blog Posts »</a>
+                <a class="author-github" href="https://github.com/{{ author.github }}"> GitHub </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="small-10 columns">
-          <div class="author-bio">
-            <span>
-              <strong>{{author.name}},</strong>
-            </span>
-            <span>
-              {{author.position}}
-            </span>
+      {% endfor %}
+    {% else if authorCount > 0 %}
+      {% assign author = site.data.authors[page.author] %}
+      <div class="author-box columns">
+        <div class="author">
+          <div class="small-2 columns">
+            <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
           </div>
-          <div class="author-info">
-            <span>{{ author.info }}</span>
-          </div>
-          <div class="author-links">
-            <a class="author-blogs" href="{{ site.baseurl }}/blog/category/{{ page.author }}">Blog Posts »</a>
-            <a class="author-github" href="https://github.com/{{ author.github }}"> GitHub </a>
+          <div class="small-10 columns">
+            <div class="author-bio">
+              <span>
+                <strong>{{author.name}},</strong>
+              </span>
+              <span>
+                {{author.position}}
+              </span>
+            </div>
+            <div class="author-info">
+              <span>{{ author.info }}</span>
+            </div>
+            <div class="author-links">
+              <a class="author-blogs" href="{{ site.baseurl }}/blog/category/{{ page.author }}">Blog Posts »</a>
+              <a class="author-github" href="https://github.com/{{ author.github }}"> GitHub </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
   <div class="large-3 columns">
     {% include _sidebar.html %}
