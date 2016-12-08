@@ -27,7 +27,7 @@ The blog is built on [jekyll](http://jekyllrb.com/), which uses [Liquid](https:/
 
 There was multiple options to declare authors in a blog post, I was initially looking at having different types for the 'author' variable, and then depending of the type, implement a different logic to display authors.
 
-~~~
+~~~yml
 # One author:
 author: francois_gerthoffert
 
@@ -39,7 +39,7 @@ author:
 
 Sadly Liquid did not allow type checking, so our solution used a simpler approach, using different variable names when having one or having multiple authors
 
-~~~
+~~~yml
 # One author:
 author: francois_gerthoffert
 
