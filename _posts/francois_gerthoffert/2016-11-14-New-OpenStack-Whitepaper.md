@@ -2,7 +2,9 @@
 layout: post
 title:  "New OpenStack Whitepaper"
 breadcrumb: true
-author: francois_gerthoffert
+authors:
+    - francois_gerthoffert
+    - george_mihaiescu
 date: 2016-11-14
 categories: francois_gerthoffert
 tags:
@@ -12,7 +14,7 @@ tags:
 teaser:
     info: The team has been contributing to a Whitepaper on OpenStack for Scientific Research. It went live today.
     image: francois_gerthoffert/crossroads-cloud-collaboratory.png
-header: 
+header:
     version: small
     title: Software Engineering Blog
     image: header-logo-crop.png
@@ -26,4 +28,3 @@ header:
     <img src="{{site.urlimg}}francois_gerthoffert/crossroads-cloud-collaboratory.png" /></a>
     <figcaption>The Crossroads of Cloud and HPC: OpenStack for Scientific Reasearch.</figcaption>
 </figure>
-
