@@ -57,7 +57,7 @@ Start adding content into your user directory inside `/_posts/`, user directorie
 
 To be properly indexed, markdown files must contain the specific header.
 
-```
+```yml
 ---
 layout: post
 title:  "YOUR BLOG TITLE"
@@ -87,7 +87,7 @@ to get yourself more familiar with the coding style.
 #### Support for multiple authors
 
 Replace 'author' in the blog post with an array of authors like this:
-```
+```yml
 authors:
     - firstname_lastname
     - firstname_lastname
