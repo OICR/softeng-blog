@@ -19,19 +19,19 @@ OICR being a research institute, a portion of the team, in particular those of u
 
 This blog post will detail the solution we implemented to add this feature into our Jekyll implementation of the blog hosted on [GitHub Pages](https://pages.github.com/).
 
-## Jekyll & Liquid
+## jekyll & Liquid
 
-The blog is built on [Jekyll](http://jekyllrb.com/), which uses [Liquid](https://shopify.github.io/liquid/) for its template engine. Liquid provides basic operators, types and a set of filters to implement logic into templates.
+The blog is built on [jekyll](http://jekyllrb.com/), which uses [Liquid](https://shopify.github.io/liquid/) for its template engine. Liquid provides basic operators, types and a set of filters to implement logic into templates.
 
-## Declaring Authors in a blog post
+## Declaring authors in a blog post
 
 There was multiple options to declare authors in a blog post, I was initially looking at having different types for the 'author' variable, and then depending of the type, implement a different logic to display authors.
 
 ~~~
-# One Author:
+# One author:
 author: francois_gerthoffert
 
-# Multiple Authors
+# Multiple authors
 author:
    - francois_gerthoffert
    - jared_baker
@@ -40,16 +40,16 @@ author:
 Sadly Liquid did not allow type checking, so our solution used a simpler approach, using different variable names when having one or having multiple authors
 
 ~~~
-# One Author:
+# One author:
 author: francois_gerthoffert
 
-# Multiple Authors
+# Multiple authors
 authors:
    - francois_gerthoffert
    - jared_baker
 ~~~
 
-## Listing Authors
+## Listing authors
 
 To list authors, the system will first count the size of the "author" and "authors" variable declared in the blog post, returning 0 if the variable does not exists or is empty.
 
@@ -68,10 +68,10 @@ To list authors, the system will first count the size of the "author" and "autho
  <p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{post.author}}"><strong>{{ author.name }}</strong></a></p>
 (% endif %)
 
-# Note: Replace () with {} in the code above, for it to be understood by Liquid
+# Note: replace () with {} in the code above, for it to be understood by Liquid
 ~~~
 
-## Listing Blog Posts for a particular Author
+## Listing blog posts for a particular author
 
 You might want to display a list of blog posts written by various authors, we performed this using the following logic. The category is used to identify the author's posts to be displayed, and we compare this value with author(s) listed in the blog post.
 
@@ -97,7 +97,7 @@ You might want to display a list of blog posts written by various authors, we pe
    (% endif %)
 (% endfor %)  
 
-# Note: Replace () with {} in the code above, for it to be understood by Liquid
+# Note: replace () with {} in the code above, for it to be understood by Liquid
 ~~~
 
 ## Conclusion
