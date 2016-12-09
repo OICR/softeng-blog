@@ -2,9 +2,7 @@
 layout: post
 title:  "New OpenStack Whitepaper"
 breadcrumb: true
-authors:
-    - francois_gerthoffert
-    - george_mihaiescu
+author: francois_gerthoffert, george_mihaiescu
 date: 2016-11-14
 categories: francois_gerthoffert
 tags:

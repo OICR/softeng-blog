@@ -4,19 +4,13 @@
     <div class="small-12 columns b30 blog_teaser">
       <span class="date-display">{{ post.date | date: "%b. %-d, %Y" }}</span>
       <h3 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-      {% assign authorsCount = post.authors | size %}
-      {% assign authorCount = post.author | size %}
-      {% if authorsCount > 0 %}
-        <p class="post-author">By:
-        {% for currentAuthor in post.authors %}
-          {% assign author = site.data.authors[currentAuthor] %}
-          <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-        </p>
-      {% else if authorCount > 0 %}
-        {% assign author = site.data.authors[post.author] %}
-        <p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{post.author}}"><strong>{{ author.name }}</strong></a></p>
-      {% endif %}
+      {% assign authors = post.author | split: ", " %}
+      <p class="post-author">By:
+      {% for currentAuthor in authors %}
+        {% assign author = site.data.authors[currentAuthor] %}
+        <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+      </p>
       <div class="circles">
         <div class="circle"></div>
         <div class="circle"></div>
