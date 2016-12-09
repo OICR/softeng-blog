@@ -1,6 +1,6 @@
 # ICGC - Software Engineering Blog
 
-Although not mandatory, you might want to run a local instance of the blog to verify that your blog post content renders properly. 
+Although not mandatory, you might want to run a local instance of the blog to verify that your blog post content renders properly.
 
 ## Instructions to run a local instance of Jekyll
 
@@ -22,7 +22,7 @@ guard
 
 We are open to ideas and suggestion about the blog's content, please suggest your idea to the team by creating github issues. Discussions can also happen in [#softeng-blog](https://oicr.slack.com/messages/softeng-blog/) on OICR slack.
 
-When creating github issues, please use the following format: YYYY-MM-DD - Assignee - Topic 
+When creating github issues, please use the following format: YYYY-MM-DD - Assignee - Topic
  - YYYY-MM-DD: Target completion date
 
 ### Clone the repo locally (or pull latest changes)
@@ -57,7 +57,7 @@ Start adding content into your user directory inside `/_posts/`, user directorie
 
 To be properly indexed, markdown files must contain the specific header.
 
-```
+```yml
 ---
 layout: post
 title:  "YOUR BLOG TITLE"
@@ -73,7 +73,7 @@ teaser:
     info: A talk given for the Ontario Institute for Cancer Research’s software engineering club on PGMLab (Probabilistic Graphical Model Lab) and developing web applications for Celery. Javascript web technologies such as React, Redux, Immutable.js, ECMAScript 6 (ES6) are discussed...
     image: post.png # optional
     youtube: youtubevideokey # optional\
-header: 
+header:
     version: small
     title: Software Engineering Blog
     image: header-logo-crop.png
@@ -81,8 +81,18 @@ header:
 ---
 ```
 
-We are using `kramdown` markdown converter. You can find out more about it here [kramdown](http://kramdown.gettalong.org). We highly recommend going through its syntax documentation 
-to get yourself more familiar with the coding style. 
+We are using `kramdown` markdown converter. You can find out more about it here [kramdown](http://kramdown.gettalong.org). We highly recommend going through its syntax documentation
+to get yourself more familiar with the coding style.
+
+#### Support for multiple authors
+
+Simply list authors separated by ", "
+
+```yml
+---
+author: firstname_lastname, firstname_lastname, firstname_lastname
+---
+```
 
 ##### Images
 

@@ -12,7 +12,7 @@ tags:
 teaser:
     info: Shading or package renaming a.k.a class relocation is a process of creating an uber-jar which contains its dependencies and package names of some of the dependencies are renamed. In this blog post I will provide instructions how to create an Elasticsearch jar file with shaded dependencies to save you from the perils of Jar Hell.
     image: vitalii_slobodianyk/elastic/elastic-logo.png
-header: 
+header:
     version: small
     title: Software Engineering Blog
     image: header-logo-crop.png
@@ -55,18 +55,18 @@ To define some common variables and settings we'll use:
   <!-- Versions -->
   <elasticsearch.version>5.0.0</elasticsearch.version>
   <shade-plugin.version>2.4.3</shade-plugin.version>
-  
+
   <!-- Configuration -->
   <elasticsearch.package>org.elasticsearch.shaded</elasticsearch.package>
   <install.dir>${project.build.directory}/distribution</install.dir>
-  
+
   <!-- Encoding -->
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 </properties>
 ~~~
 
-Next, we will define the `maven-shade-plugin` configuration. 
+Next, we will define the `maven-shade-plugin` configuration.
 
 We include only Elasticsearch packages and the relocated dependencies in shaded jar files. All the other Elasticsearch dependencies are promoted as transitive ones. Such a setup provides a better dependencies control, as it's possible to exclude some of the dependencies or override their version downstream in your project if the need arise.
 
@@ -193,7 +193,7 @@ The last piece of configuration. We put in the parent pom is configuration for a
 </distributionManagement>
 ~~~
 and `maven-deploy-plugin` configuration.
- 
+
 ~~~xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
@@ -237,7 +237,7 @@ There is no other configuration as all the dependencies relocations are defined 
 
 #### elasticsearch-test-shaded
 
-There is a problem related to testing with Elasticsearch. Sometimes it is preferable to be able to query against a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of your own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use the provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recommended](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12). 
+There is a problem related to testing with Elasticsearch. Sometimes it is preferable to be able to query against a running instance of Elasticsearch in unit tests, because mocking it too cumbersome or even not possible. There are cases (like development of your own [domain-specific language](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-pql)), when it is not suitable to query against a real Elasticsearch instance and you need an `in-memory` one. There are not good 3rd party projects yet which provide this functionality for Elasticsearch 5.x. The only way is to use the provided [ESIntegTestCase](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/integration-tests.html) even though it is [not recommended](https://discuss.elastic.co/t/5-0-0-using-painless-in-esintegtestcase/64447/12).
 
 The drawback of using the `ESIntegTestCase` is that it requires additional configuration when you would like to run scripts. Modules which support particular query language, for example `Painless` or `Groovy` should be added separately. Those modules are not available in the Central Maven repository, however they are provided with the Elasticsearch distribution.
 
