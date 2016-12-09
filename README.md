@@ -86,12 +86,12 @@ to get yourself more familiar with the coding style.
 
 #### Support for multiple authors
 
-Replace 'author' in the blog post with an array of authors like this:
+Simply list authors separated by ", "
+
 ```yml
-authors:
-    - firstname_lastname
-    - firstname_lastname
-    - firstname_lastname
+---
+author: firstname_lastname, firstname_lastname, firstname_lastname
+---
 ```
 
 ##### Images
