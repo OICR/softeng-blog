@@ -66,7 +66,6 @@ You might want to display a list of blog posts written by various authors, we pe
     (% endif %)
   (% endfor %)
   (% if displayPost == true %)
-  (% if displayPost == true %)
     # Logic to display post content
   (% endif %)
 (% endfor %)  
