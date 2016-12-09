@@ -3,7 +3,7 @@ layout: post
 title:  "Adding support for multiple authors in Jekyll"
 breadcrumb: true
 author: francois_gerthoffert
-date: 2016-12-08
+date: 2016-12-09
 categories: francois_gerthoffert
 tags:
     - Blog
@@ -25,48 +25,28 @@ The blog is built on [jekyll](http://jekyllrb.com/), which uses [Liquid](https:/
 
 ## Declaring authors in a blog post
 
-There was multiple options to declare authors in a blog post, I was initially looking at having different types for the 'author' variable, and then depending of the type, implement a different logic to display authors.
+Authors can be simply listed separated by ", ". Jekyll will build an array of authors and loop through them.
 
 ~~~yml
 # One author:
 author: francois_gerthoffert
 
 # Multiple authors
-author:
-   - francois_gerthoffert
-   - jared_baker
-~~~
-
-Sadly Liquid did not allow type checking, so our solution used a simpler approach, using different variable names when having one or having multiple authors
-
-~~~yml
-# One author:
-author: francois_gerthoffert
-
-# Multiple authors
-authors:
-   - francois_gerthoffert
-   - jared_baker
+author: francois_gerthoffert, jared_baker
 ~~~
 
 ## Listing authors
 
-To list authors, the system will first count the size of the "author" and "authors" variable declared in the blog post, returning 0 if the variable does not exists or is empty.
+To identify authors, the system will [split](https://shopify.github.io/liquid/filters/split/) the author variable by ", " and place the result inside an array.
 
 ~~~
-(% assign authorsCount = post.authors | size %)
-(% assign authorCount = post.author | size %)
-(% if authorsCount > 0 %)
- <p class="post-author">By:
- (% for currentAuthor in post.authors %)
-    (% assign author = site.data.authors[currentAuthor] %)
-    <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>(% unless forloop.last %), (% endunless %)
- (% endfor %)
- </p>
-(% else if authorCount > 0 %)
- (% assign author = site.data.authors[post.author] %)
- <p class="post-author">By: <a href="{{site.baseurl}}/blog/category/{{post.author}}"><strong>{{ author.name }}</strong></a></p>
-(% endif %)
+(% assign authors = post.author | split: ", " %)
+<p class="post-author">By:
+(% for currentAuthor in authors %)
+  (% assign author = site.data.authors[currentAuthor] %)
+  <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>(% unless forloop.last %), (% endunless %)
+(% endfor %)
+</p>
 
 # Note: replace () with {} in the code above, for it to be understood by Liquid
 ~~~
@@ -78,23 +58,17 @@ You might want to display a list of blog posts written by various authors, we pe
 ~~~
 (% assign selectedAuthorId = page.category %)
 (% for post in site.posts %)
-   (% assign displayPost = false %)
-   (% assign authorsCount = post.authors | size %)
-   (% assign authorCount = post.author | size %)
-   (% if authorsCount > 0 %)
-      (% for currentAuthorId in post.authors %)
-         (% if currentAuthorId == selectedAuthorId %)
-            (% assign displayPost = true %)
-         (% endif %)
-      (% endfor %)
-   (% else if authorCount > 0 %)
-      (% if post.author == selectedAuthorId %)
-         (% assign displayPost = true %)
-      (% endif %)
-   (% endif %)
-   (% if displayPost == true %)
-      # Logic to display post content
-   (% endif %)
+  (% assign displayPost = false %)
+  (% assign authors = post.author | split: ", " %)
+  (% for currentAuthorId in authors %)
+    (% if currentAuthorId == selectedAuthorId %)
+      (% assign displayPost = true %)
+    (% endif %)
+  (% endfor %)
+  (% if displayPost == true %)
+  (% if displayPost == true %)
+    # Logic to display post content
+  (% endif %)
 (% endfor %)  
 
 # Note: replace () with {} in the code above, for it to be understood by Liquid
