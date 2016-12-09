@@ -10,7 +10,7 @@ tags:
     - Jekyll
     - Github
 teaser:
-    info: OICR being a research institute, a portion of the team, in particular those of us more on the science side, is used to Academic Publishing and its related conventions such as Academic Authorship. It was not long before we were asked for supporting multiple authors in a blog post.
+    info: OICR being a research institute, a portion of the team, in particular those of the team more on the science side, is used to Academic Publishing and its related conventions such as Academic Authorship. It was not long before we were asked for supporting multiple authors in a blog post.
     image: francois_gerthoffert/jekyll-logo.png
 
 ---
@@ -76,4 +76,4 @@ You might want to display a list of blog posts written by various authors, we pe
 
 ## Conclusion
 
-This implementation is neither fancy nor optimized but is a simple and easy way of achieving our goal. Jekyll being statically built the actual logic does not necessarily need to be optimized considering that the only impact will be on build time which, for a blog, is not a critical component.
+This implementation is neither fancy nor optimized but is a simple and easy way of achieving our goal. Jekyll being statically built, the actual logic does not necessarily need to be optimized. Considering that the only impact will be on build time which, for a blog, is not a critical component.
