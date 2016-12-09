@@ -10,7 +10,7 @@ tags:
     - Jekyll
     - Github
 teaser:
-    info: OICR being a research institute, a portion of the team, in particular those of the team more on the science side, is used to Academic Publishing and its related conventions such as Academic Authorship. It was not long before we were asked for supporting multiple authors in a blog post.
+    info: OICR being a research institute, a portion of the team, in particular those of us more on the science side, is used to Academic Publishing and its related conventions such as Academic Authorship. It was not long before we were asked for supporting multiple authors in a blog post.
     image: francois_gerthoffert/jekyll-logo.png
 
 ---
