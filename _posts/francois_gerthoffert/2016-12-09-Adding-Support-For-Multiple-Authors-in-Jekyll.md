@@ -44,7 +44,7 @@ To identify authors, the system will [split](https://shopify.github.io/liquid/fi
 <p class="post-author">By:
 (% for currentAuthor in authors %)
   (% assign author = site.data.authors[currentAuthor] %)
-  <a href="{{ site.baseurl }}/blog/category/{{ currentAuthor }}"><strong>{{ author.name }}</strong></a>(% unless forloop.last %), (% endunless %)
+  <a href="(( site.baseurl ))/blog/category/(( currentAuthor ))"><strong>(( author.name ))</strong></a>(% unless forloop.last %), (% endunless %)
 (% endfor %)
 </p>
 
