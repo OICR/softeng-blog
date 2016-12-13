@@ -10,7 +10,7 @@ tags:
    - data transfer
    - job scheduling
 teaser:
-   info: Use GitHub repository as job scheduling system to orchestrate large data transfer
+   info: We use JSON files to represent data transfer jobs. Each JSON file contains necessary information for a data transfer job. JSON files are pre-generated and checked into a GitHub repository, which is structured with a few directories each representing a job state. Each data transfer worker clones the GitHub repository and picks up a queued job by moving the corresponding JSON file from 'queued-jobs' to 'downloading-jobs' directory. It then commits the change and pushes back to GitHub central repository. If more than one worker picked up the same job, a Git merge conflict will occur which elegantly avoids double scheduling. As the transfer job progresses to next steps, the worker will add log to the job JSON file and move it from one directory to the next, every file change and movement will be committed and pushed to GitHub.
    image:  linda_xiang/data-transfer/github.png# optional
 header: 
    version: small
@@ -133,17 +133,11 @@ GitHub repo. In case of run time error, before moving the JSON to the
 'failed-jobs' directory, error message will be recorded in the JSON to
 help with debugging and retry.
 
-Except for commit message and revision history are stored in git
-repository, all other information is kept in JSON files as plain text. It's straightforward to retrieve near real time job status by performing a git pull and simply counting files in different sub-directories. With a simple script one can parse the job JSONs to get addition metrics of job executions, such as, average time spent on each state, average data transfer rate for each GNOS repository etc.
+Except for commit message and revision history are stored in git repository, all other information is kept in JSON files as plain text. It's straightforward to retrieve near real time job status by performing a git pull and simply counting files in different sub-directories. With a simple script one can parse the job JSONs to get addition metrics of job executions, such as, average time spent on each state, average data transfer rate for each GNOS repository etc.
 
 ## Conclusion
 
 In summary, we used a GitHub repository as the source of truth for
-information about all transfer jobs. The GitHub repository naturally plays an orchestration role accepting latest job status via git push from all transfer workers and making latest status accessible to all workers using git pull. GitHub service is realiably available from any where in the Internet. With this design, there is no need for us to write any server-side code, we get from GitHub for free all of the important features, such as, job scheduling, logging, status tracking and high
-availability. Client-side code is fairly straightforward to develop, job
-requesting is a matter of a few git commands: git pull, git mv, git commit
-and git push. Logging job status is to simply modify a JSON file, commit
-to git and push back to GitHub.
+information about all transfer jobs. The GitHub repository naturally plays an orchestration role accepting latest job status via git push from all transfer workers and making latest status accessible to all workers using git pull. GitHub service is realiably available from any where in the Internet. With this design, there is no need for us to write any server-side code, we get from GitHub for free all of the important features, such as, job scheduling, logging, status tracking and high availability. Client-side code is fairly straightforward to develop, job requesting is a matter of a few git commands: git pull, git mv, git commit and git push. Logging job status is to simply modify a JSON file, commit to git and push back to GitHub.
 
-We used this system performed over 45,000 transfer jobs, using two GitHub
-repositories, [ceph_transfer](https://github.com/ICGC-TCGA-PanCancer/ceph_transfer_ops) and [s3-transfer](https://github.com/ICGC-TCGA-PanCancer/s3-transfer-operations), with over 210,000 and 150,000 commits reperspectively. It had been very smooth.
+With large number of worker nodes lauched from Collaboratory/AWS, we used this system to perform over 45,000 transfer jobs. Two GitHub repositories, [ceph_transfer](https://github.com/ICGC-TCGA-PanCancer/ceph_transfer_ops) and [s3-transfer](https://github.com/ICGC-TCGA-PanCancer/s3-transfer-operations) were set up to coordinate and track the whole process, generating over 210,000 and 150,000 commits reperspectively. This approach was later adapted by PCAWG OxoG pipeline to run over 2800 [jobs](https://github.com/ICGC-TCGA-PanCancer/oxog-ops). All had been very smooth.
