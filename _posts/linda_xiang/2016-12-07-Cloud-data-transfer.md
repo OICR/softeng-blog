@@ -32,7 +32,7 @@ multiple GNOS repositories, core dataset includes:
 * 695.59 GB of Sanger/DKFZ/Broad/Muse variant calling VCF
 * 24.52 TB of RNA-Seq TopHat2/Star aligned BAM
 
-The ICGC Data Coordination Centre (DCC) was tasked to transfer this
+The ICGC Data Coordination Centre ([DCC](https://dcc.icgc.org/)) was tasked to transfer this
 dataset to cloud based storage systems, specifically, OpenStack Ceph
 system hosted by [Cancer Genome
 Collaboratory](https://www.cancercollaboratory.org/) and AWS S3.
@@ -146,4 +146,4 @@ and git push. Logging job status is to simply modify a JSON file, commit
 to git and push back to GitHub.
 
 We used this system performed over 45,000 transfer jobs, using two GitHub
-repositories, [ceph_transfer (https://github.com/ICGC-TCGA-PanCancer/ceph_transfer_ops) and [s3-transfer](https://github.com/ICGC-TCGA-PanCancer/s3-transfer-operations), with over 210,000 and 150,000 commits perspectively. It had been very smooth.
+repositories, [ceph_transfer](https://github.com/ICGC-TCGA-PanCancer/ceph_transfer_ops) and [s3-transfer](https://github.com/ICGC-TCGA-PanCancer/s3-transfer-operations), with over 210,000 and 150,000 commits reperspectively. It had been very smooth.
