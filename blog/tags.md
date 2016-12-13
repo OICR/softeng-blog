@@ -2,7 +2,7 @@
 layout: tags
 title: Sample Category
 permalink: /blog/tags
-header: 
+header:
     version: small
     title: Software Engineering Blog
     image: header-logo-crop.png
@@ -54,11 +54,15 @@ The purpose of this snippet is to list all your posts posted with a certain tag.
         {% assign author = site.data.authors[post.author] %}
         {% if post.tags contains tag %}
         <li class="blog_teaser">
-          {% if author %}
-          <p class="post-author">
-            <strong>Posted By: <a href="{{ site.baseurl }}/blog/category/{{ post.author }}">{{author.name}}</a> on {{ post.date | date:'%b. %d, %Y' }}</strong>
-          </p>
-          {% endif %}
+          {% assign authors = post.author | split: ", " %}
+          <p class="post-author"><strong>Posted by:
+          {% for currentAuthorId in authors %}
+            {% assign author = site.data.authors[currentAuthorId] %}
+            <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">{{ author.name }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+          on {{ post.date | date:'%b. %d, %Y' }}
+          </strong>          
+          </p>  
           <h4 class="post-title">
             <a href="{{ post.url }}">{{ post.title }}</a>
           </h4>
