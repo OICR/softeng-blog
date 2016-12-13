@@ -1,0 +1,101 @@
+---
+layout: post
+title: GitHub repository as job scheduling system to orchestrate large data transfer
+breadcrumb: true
+author: linda_xiang
+date: 2016-12-06
+categories: linda_xiang
+tags:
+    - Git
+    - data transfer
+    - job scheduling
+teaser:
+    info: Use Git to manage the .
+    image: linda_xiang/data-transfer/data_migrate_block.png # optional
+header: 
+    version: small
+    title: Software Engineering Blog
+    image: header-logo-crop.png
+    icon: icon-blog
+---
+
+## The task
+
+The Pan-Cancer Analysis of Whole Genomes ([PCAWG](https://dcc.icgc.org/pcawg)) project is a collaborative effort by the International Cancer Genome Consortium (ICGC) to identify common mutation pattens from over 2,800 cancer whole genomes with an emphasize in non-coding regions. Large amount of data were generated and stored in multiple GNOS repositories, major core datasets include:
+
+* 703.89 TB whole genome uniformly aligned (by BWA-MEM) sample-level BAM files
+* 695.59 GB Sanger/DKFZ/Broad/Muse variant calling VCF files
+* 24.52 TB RNA-Seq TopHat2/Star aligned BAM files
+
+The ICGC Data Coordination Centre (DCC) was tasked to transfer these datasets to cloud based storaging systems, specifically, OpenStack Ceph system hosted by [Cancer Genome Collaboratory](https://www.cancercollaboratory.org/) and AWS S3.
+
+To rapidly transfer such a large dataset in a well-managed fashion, we need a system to orchestrate execution of large number of data transfer jobs. A system needs to have the following characters:
+
+* simple to develop and use
+* highly reliable
+* able to work with cloud based compute environment
+
+
+## The solution
+
+### Synopsis 
+
+We use JSON files to represent data transfer jobs. Each JSON file contains necessary information for a data transfer job. JSON files are pre-generated and checked into a GitHub repository, which is structured with a few directories each representing a job state. Each data transfer worker clones the GitHub repository and picks up a queued job by moving a JSON file from 'queued-jobs' to 'downloading-jobs' directory, commits the change and pushes back to GitHub central repository. If more than one worker picked up the same job, a Git merge conflict will occur which elegantly avoids double scheduling. As the transfer job progresses to next steps, the worker will add log to the job JSON file and move it from one directory to the next, every file change and movement will be committed and pushed to GitHub.
+
+### Generate the job JSONs
+
+Each job transfers data for a particular Analysis Object consisting of a group of files from a GNOS repository. Job JSON files containing infromation about files to be transfered are generated using metadata retrieved from GNOS repositories. Specially designed convention is followed to name each job JSON file, which includes multiple parts to ensure uniqueness and informative. For example, 001a5fa1-dcc8-43e6-8815-fac34eb8a3c9.RECA-EU.C0015.C0015T.WGS-BWA-Tumor.json, it follows this pattern: {aliquot_id}.{project_code}.{donor_id}.{sample_id}.{data_type}.json. This design makes preventing generating duplicated a trivial task, which otherwise could be a challenge.
+
+
+### GitHub repo as the job scheduler and status tracker
+
+Job JSON files are checked into a GitHub repository, and organized into different folders which each one representing a particual job state. For a typical setup, the following folders are used.
+
+~~~~
+├── backlog-jobs
+├── queued-jobs
+├── retry-jobs
+├── downloading-jobs
+├── failed-jobs
+├── uploading-jobs
+└── completed-jobs
+~~~~ 
+
+Job JSON files are initially put in 'backlog-jobs' folder, this is like the TODO list. When we are ready to run a batch of jobs, the corresponding JSON files will be moved from 'backlog-jobs' to 'queued-jobs' by using normal git commands:
+
+~~~
+git mv backlog-jobs/001* queued-jobs/
+git add .
+git commit -m 'put jobs with name starting with "001" to the queue'
+git push
+~~~
+
+Meanwhile, data transfer workers are watching the content of the 'queued-jobs' folder for jobs to run. This is done by simply cloning the GitHub repo once to the worker machine and running 'git pull' periodically.
+
+When new job JSON files are detected by a worker, it will try to move the first job JSON (assuming alphabetically ordered) from 'queued-jobs' to 'downloading-jobs', then commit the change, and finally push the commit back to GitHub repo. At this point, there are two possibel outcome of the push:
+
+* Git push succeeded. Easy, the job will be considered 'scheduled' to that worker, and the work keeps going with the transfer job.
+* Git push failed. It could be any reason, but typically it is because the same job JSON has already been picked up and moved into 'queued-jobs' folder by another worker. In any case, the worker with failed git push will simply start over to pickup another queued job.
+
+Starting over can be performed by executing the following commands:
+~~~
+git checkout master && \
+git reset --hard origin/master && \
+git pull
+~~~
+
+The goal is to destory all local changes on that worker and re-synchronize with the central GitHub repo, and this will give the worker a clean starting point to pickup a new queued job JSON.
+
+These steps can be retried as many times as needed until the worker gets a new job successfully and start working on it.
+
+Once a worker successfully started working on a job, it will first modify the job JSON file to add some logging information, such as, worker_id, start_time etc. Such change will be committed to git and pushed back to GitHub repo. In case of run time error, before moving the JSON to the 'failed-jobs' folder, error message will be recorded in the JSON to help with debugging and retry.
+
+Except for commit message and revision history are stored in git repository, all other information is kept in plain text JSON files. It's straightforward to retrieve near real time job status by performing a git pull and simply counting files in different sub-folders. With a simple script one can parse the job JSONs to get addition metrics of job executions, such as, average time spent on each state, average data transfer rate for each GNOS server etc. 
+
+## Conclusion
+
+In summary, we use a GitHub repository as the source of truth for information of all transfer jobs. The GitHub repository naturally plays an orchestration role accepting lastest job status via git push from all transfer worker and making lastest status accessible to all workers using git pull. GitHub service is realiably available from any where in the Internet. With this design, there is no need for us to write any server-side code, we get from GitHub for free all of the important features, such as, job scheduling, logging, status tracking and high availability. Client-side code is fairly straightforward to develop, job requesting is a matter of a few git commands: git pull, git mv, git commit and git push. Logging job status is to simply modify a JSON file, commit to git and push back to GitHub.
+
+We used this system to perform over 45,000 transfer jobs, using two GitHub repositories, https://github.com/ICGC-TCGA-PanCancer/ceph_transfer_ops and https://github.com/ICGC-TCGA-PanCancer/s3-transfer-operations, with over 210,000 and 150,000 commits perspectively. It had been very smooth.
+
+
