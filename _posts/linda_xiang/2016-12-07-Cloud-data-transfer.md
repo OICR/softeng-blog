@@ -10,7 +10,7 @@ tags:
    - data transfer
    - job scheduling
 teaser:
-   info: We use JSON files to represent data transfer jobs. Each JSON file contains necessary information for a data transfer job. JSON files are pre-generated and checked into a GitHub repository, which is structured with a few directories each representing a job state. Each data transfer worker clones the GitHub repository and picks up a queued job by moving the corresponding JSON file from 'queued-jobs' to 'downloading-jobs' directory. It then commits the change and pushes back to GitHub central repository. If more than one worker picked up the same job, a Git merge conflict will occur which elegantly avoids double scheduling. As the transfer job progresses to next steps, the worker will add log to the job JSON file and move it from one directory to the next, every file change and movement will be committed and pushed to GitHub.
+   info: The ICGC Data Coordination Centre was tasked to transfer over 700TB dataset into cloud storage systems. We developed a simple and reliable job scheduling system based on GitHub repository to orchestrate and track the execution of over 45,000 transfer jobs.
    image:  linda_xiang/data-transfer/github.png# optional
 header: 
    version: small
@@ -26,7 +26,7 @@ The Pan-Cancer Analysis of Whole Genomes
 the International Cancer Genome Consortium (ICGC) to identify common
 mutation pattens from over 2,800 cancer whole genomes with an emphasize in
 non-coding regions. Large amount of data were generated and stored in
-multiple GNOS repositories, core dataset includes:
+multiple [GNOS](https://annaisystems.zendesk.com/hc/en-us/sections/200575407-GNOS-and-GeneTorrent) repositories, core dataset includes:
 
 * 703.89 TB of whole genome uniformly aligned (by BWA-MEM) sample-level BAM
 * 695.59 GB of Sanger/DKFZ/Broad/Muse variant calling VCF
@@ -65,8 +65,8 @@ information about files to be transfered are generated using metadata
 retrieved from GNOS repositories. Specially designed convention is
 followed to name each job JSON file, which includes multiple parts to
 ensure uniqueness and being informative. For example,
-001a5fa1-dcc8-43e6-8815-fac34eb8a3c9.RECA-EU.C0015.C0015T.WGS-BWA-Tumor.json, it follows this pattern:
-{aliquot_id}.{project_code}.{donor_id}.{sample_id}.{data_type}.json. This design makes preventing generating duplicated job a trivial task, which
+`001a5fa1-dcc8-43e6-8815-fac34eb8a3c9.RECA-EU.C0015.C0015T.WGS-BWA-Tumor.json`, it follows this pattern:
+`{aliquot_id}.{project_code}.{donor_id}.{sample_id}.{data_type}.json`. This design makes preventing generating duplicated job a trivial task, which
 otherwise could be a challenge.
 
 
