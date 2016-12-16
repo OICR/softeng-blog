@@ -73,7 +73,7 @@ Job JSON files are checked into a GitHub repository, and organized in different 
 * failed-jobs
 * completed-jobs
 
-Job JSON files are first placed into 'backlog-jobs' which contains the list of jobs to be processed. At this stage they are not yet ready to be picked up by workers. When we are ready to run a batch of jobs, the corresponding JSON files are moved from 'backlog-jobs' to 'queued-jobs'. This allow fine grain scheduling by giving us the ability to precisely select files ready for processing.
+Job JSON files are first placed into 'backlog-jobs' which contains the list of jobs to be processed. At this stage they are not yet ready to be picked up by workers. When we are ready to run a batch of jobs, the corresponding JSON files are moved from 'backlog-jobs' to 'queued-jobs'. This allows fine grain scheduling by giving us the ability to precisely select files ready for processing.
 
 This operation can be achieved using the following git commands:
 
@@ -84,12 +84,12 @@ git commit -m 'put jobs with name starting with "001" to the queue'
 git push
 ~~~
 
-Data transfer workers are constantly watching the content of the 'queued-jobs' directory, and this is achieved by worker first cloning the GitHub repository and running `git pull` periodically to ensure it accesses the latest version of the job queue.
+Data transfer workers are constantly watching the content of the 'queued-jobs' directory, and this is done by worker first cloning the GitHub repository and running `git pull` periodically to ensure it accesses the latest version of the job queue.
 
 When new job JSON files are detected in the queue by a worker, it will try to move the first job JSON (assuming alphabetically ordered) from 'queued-jobs' to 'downloading-jobs', then commit the change, and push the commit back to GitHub repo. At this point, there are two possible outcomes:
 
 * git push succeeded. The job is then considered 'scheduled' to that worker which initiates the data transfer.
-* git push failed. This is typically caused by the same job JSON having already been picked-up and moved out of the queue by another worker. When this happens, the worker simply re-sync with the remote repository, picks the next job in the queue and goes through the cycle again.
+* git push failed. This is typically caused by the same job JSON having already been picked-up and moved out of the queue by another worker. When this happens, the worker simply re-synchronizes with the remote repository, picks the next job in the queue and goes through the cycle again.
 
 Refreshing the local repository can be achieved using the following set of git commands:
 
