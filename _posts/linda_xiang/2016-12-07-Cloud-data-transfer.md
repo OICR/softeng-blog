@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub repository as job scheduling system to orchestrate large data transfer"
 breadcrumb: true
-author: junjun_zhang, linda_xiang, francois_gerthoffert
+author: junjun_zhang, linda_xiang
 date: 2016-12-12
 categories: linda_xiang
 tags:
