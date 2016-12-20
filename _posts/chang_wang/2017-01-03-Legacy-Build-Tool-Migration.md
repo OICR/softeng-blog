@@ -150,7 +150,7 @@ For maintenence reasons, we didn't want to check this generated string in, and s
 
 ### Code splitting
 
-Splitting out a library into a separate deferred bundle is as simple as [wrapping `require.ensure([], require => { /**/ })`](https://github.com/icgc-dcc/dcc-portal/blob/c889673cd336f82b439e433fb080779cd548d772/dcc-portal-ui/app/scripts/genomemaps/js/viewer.js#L147) at the very top of directive link functions where the library is used. Since we're using an arrow function, context still remains the same, the directive just takes a bit longer to initialize  
+Splitting out a library into a separate deferred bundle is as simple as [wrapping `require.ensure([], require => { /**/ })`](https://github.com/icgc-dcc/dcc-portal/blob/c889673cd336f82b439e433fb080779cd548d772/dcc-portal-ui/app/scripts/genomemaps/js/viewer.js#L147) at the very top of directive link functions where the library is used. Since we're using an arrow function, context still remains the same and the code being wrapped shouldn't need to be touched, the directive just takes a bit longer to initialize  
 
 ## Next steps
 
