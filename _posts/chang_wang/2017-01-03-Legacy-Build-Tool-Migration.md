@@ -57,7 +57,7 @@ I suspect this is mostly because creating new files is inconvenient
   - Add it to `index.html` and via a `script` tag, with a filepath relative to the index.html
   - Add the karma config, with a filepath relative to the karma config
 
-Doesn't seem like a big deal, but sticking it in an existing file is relatively much more frictionless, and that's probably how we ended up with so many files with ~1000 lines of code. 
+Doesn't seem like a big deal, but sticking it in an existing file is frictionless, and that's probably how we ended up with so many files with ~1000 lines of code. 
 
 Having several Angular services or controllers that are each a few hundred lines long all in a `controllers.js`/`services.js`/`directives.js` file makes maintenence work very painful. You have to keep scrolling up and down to reference other things in the same service/controller/directive, but scroll too far and you'll end up in a separate service/controller/directive that has nothing to do with what you're working on.  
 
