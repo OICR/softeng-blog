@@ -55,7 +55,7 @@ I suspect this is mostly because creating new files is inconvenient
 
   - Create a new file
   - Add it to `index.html` and via a `script` tag, with a filepath relative to the index.html
-  - Add the karma config, with a filepath relative to the karma config=
+  - Add the karma config, with a filepath relative to the karma config
 
 Doesn't seem like a big deal, but sticking it in an existing file is relatively much more frictionless, and that's probably how we ended up with so many files with ~1000 lines of code. 
 
