@@ -95,14 +95,14 @@ Here's an example:
 require('expose?donutChooserD3!imports?this=>window&outerRadius=>undefined!exports?donutChooserD3!../vendor/scripts/vcfiobio/donutChooser.d3.js');
 ```
 
-Let's break that down - 
+Let's break that down  
 
-  - `imports?this=>window&outerRadius=>undefined`
+  - `imports?this=>window&outerRadius=>undefined`  
     The module is expecting itself to be in the global scope, so we have to import `this=>window`, setting the value of `this` to `window` for this module.   
     It's also assigning to a variable `outerRadius` without declaring it, so we need to declare the variable first and assign it as `undefined`.
-  - `exports?donutChooserD3`
+  - `exports?donutChooserD3`  
     The module does not export anything, this yanks `donutChooserD3` out from the scope of the module and sets it as the exported value
-  - `expose?donutChooserD3!`
+  - `expose?donutChooserD3!`  
     This sets the variable `donutChooserD3` onto the global scope since there are other modules that are expecting it to be there.
 
 [More info on shimming modules with webpack](https://webpack.github.io/docs/shimming-modules.html)
@@ -167,6 +167,8 @@ Splitting out a library into a separate deferred bundle is as simple as [wrappin
   We should be able to migrate most of the packages still using bower without issue, but there are a few libraries whose versions may be so old that they aren't available on npm, or they may have been abandoned. For those we may either internalize the dependencies (somewhat icky path of least resistence), upgrade to the versions that are available on npm (will need to test for regressions), or publish to npm ourselves (namespaced, of course).
 
 ### Make windows rampup easier  
-  In the process of our build tool upgrade, we've moved from Ruby Sass to node-sass and removed the dependency on Ruby. Ruby was something that tended to snag developers on Windows machines during rampup, and we had hoped that node-sass would alleviate that problem. It turns out node-sass can be troublesome to setup on Windows as well, with binaries sometimes not downloading correctly, and the [recommended version of Visual Studio (2013) no longer being available](https://github.com/sass/node-sass/issues/1838).  
+  In the process of our build tool upgrade, we've moved from Ruby Sass to node-sass and removed the dependency on Ruby.  
+
+  Ruby was something that tended to snag developers on Windows machines during rampup, and we had hoped that node-sass would alleviate that problem. It turns out node-sass can be troublesome to setup on Windows as well, with binaries sometimes not downloading correctly, and the [recommended version of Visual Studio (2013) no longer being available](https://github.com/sass/node-sass/issues/1838).  
   
   A pure node solution would be ideal. However, although there is a pure JS implementation of Sass in [sass.js](https://github.com/medialize/sass.js/) (libsass run through emscripten), it does warn that node-sass is "considerably faster". The tradeoff in compilation speed would not be worth it to switch to sass.js for everyone, but perhaps we could look into using [sassjs-loader](https://github.com/NickHeiner/sassjs-loader) for windows environments only, or make it an opt-in.
