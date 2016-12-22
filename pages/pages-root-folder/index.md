@@ -65,7 +65,7 @@ permalink: /index.html
             </p>
           </div>
         {% endif %}
-        <p class="post-link"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title escape_once }}">Full Article &#187;</a></p>
+        <p class="post-link"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ site.data.language.read }} {{ post.title | escape_once }}">Full Article &#187;</a></p>
       </div><!-- /.small-12.columns -->
     </div><!-- /.row -->
   {% endfor %}
