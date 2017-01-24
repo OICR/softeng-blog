@@ -24,5 +24,5 @@ header:
 <figure>
 	<a href="http://www.openstack.org/assets/science/OpenStack-CloudandHPC6x9Booklet-v4-online.pdf">
     <img src="{{site.urlimg}}francois_gerthoffert/crossroads-cloud-collaboratory.png" /></a>
-    <figcaption>The Crossroads of Cloud and HPC: OpenStack for Scientific Reasearch.</figcaption>
+    <figcaption>The Crossroads of Cloud and HPC: OpenStack for Scientific Research.</figcaption>
 </figure>
