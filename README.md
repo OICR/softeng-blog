@@ -4,6 +4,10 @@ Although not mandatory, you might want to run a local instance of the blog to ve
 
 ## Instructions to run a local instance of Jekyll
 
+First clone this repo
+
+Then cd into the repo and run:
+
 ```bash
 gem install jekyll bundler
 bundle install
