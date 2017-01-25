@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How we use ELK (Elasticsearch, Kibana, Logstash) and Ntopng to track and visualize data downloads"
+title:  "Using ELK and Ntopng to monitor data downloads."
 breadcrumb: true
 author: george_mihaiescu
 date: 2017-01-23
@@ -21,7 +21,7 @@ header:
 ## Introduction
 <a href="http://www.cancercollaboratory.org/">Cancer Genome Collaboratory</a> is a cloud environment built using open-source technologies that aims to offer cancer researchers access to compute resources close to the large data sets used in their analysis. 
 
-Currently we store more than 540 TB of data and have available 2500 CPU cores deployed on top of Openstack and Ceph mainly, but we also use a number of other open-source tools to manage and monitor the infrastructure.
+Currently we have 4 PB of raw Ceph storage and 2500 CPU cores deployed on top of Ceph and Openstack, but we also use a number of other open-source tools to manage and monitor the infrastructure.
 
 All the servers ship their logs to the central Logstash server where they are parsed and injected into Elasticsearch, so we can easily query the download requests.
 
