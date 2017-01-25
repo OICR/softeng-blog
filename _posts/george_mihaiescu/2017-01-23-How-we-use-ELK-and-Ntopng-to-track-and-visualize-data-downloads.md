@@ -23,7 +23,7 @@ header:
 
 Currently we have 4 PB of raw Ceph storage and 2500 CPU cores deployed on top of Ceph and Openstack, but we also use a number of other open-source tools to manage and monitor the infrastructure.
 
-All the servers ship their logs to the central Logstash server where they are parsed and injected into Elasticsearch, so we can easily query the download requests.
+All the servers send their logs to the central <a href="https://www.elastic.co/products/logstash">Logstash<a/> server where they are parsed and injected into <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>, so we can easily query the download requests.
 
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Logstash_fields.png" />
