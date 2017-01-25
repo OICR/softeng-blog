@@ -37,14 +37,14 @@ Because we store the large genomics data files as S3 objects uploaded in 1 GB mu
     <figcaption>:(</figcaption>
 </figure>
 
-Finally, we can create a Kibana visualization out of the search results in order to get a better idea on the major download users (each hit count means 1 GB download).
+Finally, we can create a <a href="https://www.elastic.co/products/kibana">Kibana</a> visualization out of the search results in order to get a better idea on the major download users (each hit count means 1 GB download). 
 
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Large_downloads_visualization.png" />
     <figcaption>:(</figcaption>
 </figure>
 
-In addition to the central aggregation of the application logs in ELK, the core switch connecting the environment to the Internet sends sflow statistics to <a href="http://www.ntop.org/">Ntopng</a> for which we have a free license nicely provided by the Ntop maintainers.
+In addition to the central aggregation of the application logs in ELK, the core switch connecting the environment to the Internet sends sflow statistics to <a href="http://www.ntop.org/">Ntopng</a> for which we have a free license kindly provided by the Ntop maintainers.
 
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Ntopng_flows.png" />
