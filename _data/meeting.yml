@@ -5,4 +5,4 @@
   where: 'Room 5-20'
   who: 'bob_tiernay'
   what: 'Intro to <a href="https://stedolan.github.io/jq/">jq</a>'
-  scheduled: yes 
+  scheduled: no 
