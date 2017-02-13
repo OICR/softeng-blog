@@ -3,7 +3,7 @@ layout: post
 title:  "Azure Blob Storage - Java Examples"
 breadcrumb: true
 author: andy_yang
-date: 2016-11-18
+date: 2017-02-13
 categories: andy_yang
 tags:
     - Azure
