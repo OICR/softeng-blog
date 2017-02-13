@@ -71,4 +71,8 @@ board.on("ready", function() {
 });
 ```
 
-There you go. The very basic of physical computing. Johnny-five provides lot of functionalities, utilities and tutorials to get you hooked on to Arduino. You can check the [examples](http://johnny-five.io/examples/). 
+There you go. The very basic of physical computing. Johnny-five provides lot of functionalities, utilities and tutorials to get you hooked on to Arduino. You can check the [examples](http://johnny-five.io/examples/).  
+
+This example did not include the HTML or CSS the super basic of front-end technologies. To get our microcontroller to talk with HTML, CSS and JS we will need something called **node-webkit** now known as **NW.js**. 
+NW.js uses Chromium and is a full NodeJS environment so you can use everything that comes with Node along with your other front-end tools. This set of tools, NW, Johnny-five, and the Arduino, is called the NJA or ninja tool chain. 
+To get started with NJA please refer to *Jean-Philippe Côté* tutorial on  [TangibleJs](http://tangiblejs.com/posts/nw-js-johnny-five-arduino-wicked-trio).
