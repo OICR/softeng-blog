@@ -21,9 +21,11 @@ header:
 ---
 
 ## Introduction
-The ICGC In The Cloud initiative makes a large genomic database available to cancer researchers in cloud computing environments. Cloud computing helps alleviate the burden, in transfer time and computing resources, that the size of the ICGC datasets places on research groups. Currently, over 750 TB of genomic data is hosted between Amazon Web Services and an OpenStack environment called Cancer Collaboratory. Recently, Microsoft has also expressed a willingness to join ICGC as a partner in hosting genomic data. 
+The "ICGC In The Cloud" initiative makes a large genomic database available to cancer researchers in cloud computing environments. The size of ICGC datasets has typically placed a heavy burden on research groups, in terms of transfer time and computing resources. Cloud computing helps alleviate this burden by creating an environment where processing power and data are kept in close proximity to each other. Researchers no longer have to maintain their own clusters of servers and spend time downloading raw data. Instead, they can focus on performing their actual research.
 
-Both OpenStack's Ceph ObjectStore and AWS S3 use the S3 API. With a very small difference, we are able to essentially run a single code base against both repositories. Microsoft's Azure Blob Storage is altogether a different beast however, and I recently became familiar with it in order to adapt our Storage system to use Azure as a backing repository.
+Currently, over 750 TB of genomic data is hosted between Amazon Web Services and an OpenStack environment called Cancer Genome Collaboratory. Recently, Microsoft has also expressed an interest in working with ICGC to host genomic data. 
+
+Both OpenStack's Ceph ObjectStore and AWS S3 use the S3 API; we are able to essentially run a single code base against both repositories. Microsoft's Azure Blob Storage is a different beast altogether however, and I recently became familiar with it in order to adapt our Storage system to use Azure as a backing repository.
 
 
 ## Background
@@ -41,15 +43,15 @@ At a high level, our system is comprised of 3 components. In addition to the rep
 
 We introduce a middle tier Storage Server component that works in concert with the Client in order to restrict access to the data. Our genomic data is private and subject to tight control. The underlying repository is locked-down (i.e., no anonymous/direct outside access).
 
-The Storage Server component is primarily concerned with determining permissions and generating upload/download URL's. All actual transfers from the repository are initiated and managed directly from the client. The Storage Server is no longer involved by this stage.
+The Storage Server component is primarily concerned with determining permissions and generating upload/download URL's. Once the URL's are generated, all actual transfers from the repository are initiated and managed directly from the client. The Storage Server is no longer involved.
 
-The Storage Client's primary function is to control authorization and access to the data stored in the repository. However, it also provides additional functionality like high-performance upload/download operations, "slicing" out specified ranges of genomic data, and mounting data files as a read-only Filesystem in Userspace (FUSE).
+The Storage Client's primary function is to facilitate authorization and access to the data stored in the repository. However, it also provides additional functionality like high-performance upload/download operations (concurrent connections as well as resumption of partial downloads), "slicing" out specified ranges of genomic data, and mounting data files as a read-only Filesystem in Userspace (FUSE).
 
 ### Design Considerations
 
-One of our design philosophies was to avoid dissemination of repository access keys, saving us from having to manage user provisioning in the Object Store itself. In other words, every time we enroll a new researcher who wants to access the data, we don't want to have to create a user id/key in each repository for that user. The secret key and password are managed in one location.
+One of our design philosophies was to avoid dissemination of repository access keys, saving us from having to manage user provisioning in the Object Store itself. In other words, every time we enroll a new researcher who wants to access the data, we don't want to have to create a user id/key in each repository for that user. We are able to manage the secret key and password in one location.
 
-The mechanism for this is a Pre-Signed URL. Azure calls this a Shared Access Signature. This is a URI that is signed with the authorizing credentials, but usable by anyone else. These URI's can be expired after a set period of time, and can be used by any REST client.
+The mechanism for this is a Pre-Signed URL. Azure calls this a Shared Access Signature (SAS). This is a URI that is signed with the authorizing credentials, but usable by anyone else. These URI's can be expired after a set period of time, and can be used by any REST client.
 
 SAS URI's can be generated for Containers as well as for individual Blobs, but our system hides all details of Containers from its users; and access is granted to Blobs individually.
 
@@ -57,8 +59,7 @@ SAS URI's can be generated for Containers as well as for individual Blobs, but o
 
 <http://azure.github.io/azure-storage-java/>
 
-Don't get confused by the very misleadingly-named <https://github.com/Azure/azure-sdk-for-java>. This latter project is the Management API - to be used for developing apps that manage and administer an Azure environment. For basic use of Blob Storage, it's the Azure Storage Client API (version 4.4.0 as of this writing) you want.
-
+Not to be confused with the similarly-named <https://github.com/Azure/azure-sdk-for-java>. This latter project is the Management API - to be used for managing and automating actions in an Azure environment. For basic use of Blob Storage, it's the Azure Storage Client API (version 4.4.0 as of this writing) you want.
 
 ### The Model
 
@@ -112,7 +113,7 @@ The CloudBlobClient gives you access to the Containers contained in the Storage 
   }
 ~~~
 
-While you can generate standlone SAS URL's directly at this point, the recommendation is to first define Stored Access Policies on the container. These represent a common set of permissions applied to all contents within the container. The most obvious benefit to this is that by changing the Stored Access Policy, the changes automatically get applied to every SAS in the container. This beats having to revoke every individual SAS you've ever created.
+While you can generate standlone SAS URL's directly at this point, the recommendation is to first define Stored Access Policies on the container. These represent a common set of permissions applied to all contents within the container. The most obvious benefit to this is that by changing the Stored Access Policy, the changes get applied automatically to every SAS in the container. This beats having to revoke every SAS you've ever created, individually.
 
 ~~~java
   BlobContainerPermissions permissions = new BlobContainerPermissions();
@@ -174,7 +175,7 @@ because the "DownloadPolicy" Shared Access Policy only grants READ access.
 
 ### Whew, Now What?
 
-That whole process was just to authenticate you as someone who is authorized to use/control a Blob Storage Container, and then to delegate some of your rights via a Shared Access Signature. Anyone with this SAS URI will be able to access the Blob without knowing your storage access key or secret. This is all the code they will need to download the Blob.
+This whole process has simply been to authenticate you as someone who is authorized to use/control a Blob Storage Container, and then to delegate some of your rights via a Shared Access Signature. Anyone with this SAS URI will be able to access the Blob without knowing your storage access key or secret. To actually download the Blob, this is all they will need to do:
 
 ~~~java
   URI url = new URI(sasUri);
@@ -182,7 +183,7 @@ That whole process was just to authenticate you as someone who is authorized to 
   blob.downloadToFile("path/to/save/download");
 ~~~
 
-And if you had the SAS URI you generated with the _UploadPolicy_, then unsurprisingly, to upload a file:
+And with the SAS URI you generated with the _UploadPolicy_, uploading a file looks, unsurprisingly, like this:
 
 ~~~java
   URI url = new URI(sasUri);
@@ -192,13 +193,13 @@ And if you had the SAS URI you generated with the _UploadPolicy_, then unsurpris
 
 ### Concurrent Uploads
 
-For all files larger than 64 MB, they are automatically stored as something called a Block Blob. Every block is uploaded to Azure and stored individually, to be logically combined and ordered once all the blocks have been successfully sent. Azure Blob Storage has a maximum block size of 4 MB. Considering a single BAM alignment file can be more than 415 GB in size, we're dealing with a _lot_ of blocks. In fact, at this time, Azure can't even store the larger BAM's _at all_. They promise us that's changing though. 
+All files larger than 64 MB are automatically stored as something called a Block Blob. Every block is uploaded to Azure and stored individually, to be logically combined and ordered once all the blocks have been successfully sent. Azure Blob Storage has a maximum block size of 4 MB. Considering a single BAM alignment file can be more than 415 GB in size, we're dealing with a _lot_ of blocks. (In fact, at this time, ~~Azure can't even store the larger BAM's *at all*. They promise us that's changing though.~~)
 
-The point of all this, is that uploading one of our alignment files would take a really long time, one 4 MB block at a time. Instead, their Java SDK allows us to send blocks up to Azure *concurrently*:
+The point of all this, is that uploading one of our alignment files would take a really long time, if we had to upload one 4 MB block at a time sequentially. So, Microsoft's Java SDK allows us to send blocks up to Azure *concurrently*:
 
 ~~~
   // specify number of parts to upload at the same time
-  int numConcurrent = 10;
+  int numConcurrent = 10;	// we actually set ours to 20-30
   BlobRequestOptions options = new BlobRequestOptions();
   options.setConcurrentRequestCount(numConcurrent);
 
@@ -208,6 +209,17 @@ The point of all this, is that uploading one of our alignment files would take a
                       new OperationContext());
 ~~~
 Under the covers, Microsoft has already taken care of managing the block lists for the file. 
+
+##### Update: 
+
+Microsoft has just rolled-out Large Block Blob support as of the end of 2016 ([see announcement here][blog-announce]). Files can now be up to 4.77 TB each and individual blocks can be 100 MB (104,857,600 bytes). The Java Client library supporting this feature is version 5.0.0.
+[blog-announce]: https://azure.microsoft.com/en-us/blog/general-availability-larger-block-blobs-in-azure-storage/
+
+### Conclusion
+
+While our Storage System had been architected based solely on Amazon's S3 API, adapting our logic to use Azure Blob Storage went remarkably smoothly. The one notable difference was the mechanism for tracking parts being uploaded concurrently. Azure's CloudBlockBlob.uploadFromFile() method abstracts the whole upload process, including parallel uploads. This is extremely convenient, but it does not include resumption of interrupted transfers. We will have to manage the details of the Block List ourselves if we want to provide this feature.
+
+Overall however, it's a well thought out API that I found very intuitive and easy to work with.
 
 ### References
 
