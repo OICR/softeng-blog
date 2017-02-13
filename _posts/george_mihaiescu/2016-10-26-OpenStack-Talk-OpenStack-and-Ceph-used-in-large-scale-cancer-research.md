@@ -13,5 +13,10 @@ tags:
 teaser:
     info: George was at the OpenStack summit and presented the Cancer Genome Collaboratory infrastructure during a BrownBag talk.
     youtube: Yt4QHTXERUQ
+header:
+    version: small
+    title: Software Engineering Blog
+    image: header-logo-crop.png
+    icon: icon-blog
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Yt4QHTXERUQ" frameborder="0" allowfullscreen></iframe>
