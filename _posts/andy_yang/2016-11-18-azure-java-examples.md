@@ -212,8 +212,7 @@ Under the covers, Microsoft has already taken care of managing the block lists f
 
 ##### Update: 
 
-Microsoft has just rolled-out Large Block Blob support as of the end of 2016 ([see announcement here][blog-announce]). Files can now be up to 4.77 TB each and individual blocks can be 100 MB (104,857,600 bytes). The Java Client library supporting this feature is version 5.0.0.
-[blog-announce]: https://azure.microsoft.com/en-us/blog/general-availability-larger-block-blobs-in-azure-storage/
+Microsoft has just rolled-out Large Block Blob support as of the end of 2016 ([see announcement here](https://azure.microsoft.com/en-us/blog/general-availability-larger-block-blobs-in-azure-storage/)). Files can now be up to 4.77 TB each and individual blocks can be 100 MB (104,857,600 bytes). The Java Client library supporting this feature is version 5.0.0.
 
 ### Conclusion
 
@@ -223,17 +222,14 @@ Overall however, it's a well thought out API that I found very intuitive and eas
 
 ### References
 
-Myers, Tamra. [Using Shared Access Signatures (SAS)][myers1]  
+Myers, Tamra. [Using Shared Access Signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1)  
 October 17, 2016
-[myers1]: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
 
-Mantri, Guarav. [Revisiting Windows Azure Shared Access Signature][mantri1]  
+Mantri, Guarav. [Revisiting Windows Azure Shared Access Signature](http://gauravmantri.com/2013/02/13/revisiting-windows-azure-shared-access-signature/)  
 February 13, 2013 
-[mantri1]: http://gauravmantri.com/2013/02/13/revisiting-windows-azure-shared-access-signature/
 
-Shahan, Robin. [Azure Blob Storage Part 9: Shared Access Signatures][shahan1]  
+Shahan, Robin. [Azure Blob Storage Part 9: Shared Access Signatures](https://www.simple-talk.com/cloud/platform-as-a-service/azure-blob-storage-part-9-shared-access-signatures/)  
 March 12, 2015
-[shahan1]: https://www.simple-talk.com/cloud/platform-as-a-service/azure-blob-storage-part-9-shared-access-signatures/
 
 
 
