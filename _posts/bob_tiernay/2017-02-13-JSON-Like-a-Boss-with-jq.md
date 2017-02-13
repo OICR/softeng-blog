@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JSON: Like a Boss: Introduction wiht ./jq"
+title:  "JSON: Like a Boss - Introduction to ./jq"
 breadcrumb: true
 author: bob_tiernay
 date: 2017-02-13
