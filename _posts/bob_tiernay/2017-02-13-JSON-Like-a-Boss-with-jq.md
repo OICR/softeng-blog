@@ -3,7 +3,7 @@ layout: post
 title:  "JSON: Like a Boss: Introduction wiht ./jq"
 breadcrumb: true
 author: bob_tiernay
-date: 2017-01-31
+date: 2017-02-13
 categories: bob_tiernay
 tags:
     - Software Engineering Club
