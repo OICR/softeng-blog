@@ -21,9 +21,9 @@ header:
 The Wikipedia defines Physical computing as building interactive systems by the use of software and hardware that can sense and respond to the analog world. 
 Physical computing includes IoT, robotics, wearables, interactive tangible medias and a lot more.  
 
-If you want to build a robot, you would require hardware, you need some sort of application/software to control the hardware, you'll need controls to move the robot, and the robot needs to respond to 
-the controls respectively. But can we build something like this with front-end tools? Yes! 
-Of course, we won't be actually building a robot here but looking into different tools, libraries, devices and tutorials that can help you get started on building the things you want.  
+If you want to build a robot, you would require hardware, you need some sort of application/software to communicate with the hardware, you'll need controls to move the robot, and the robot needs to respond to 
+those controls respectively. But can we build something like this with JS? Yes! So, why should you use Javascript to start playing with microcontrollers? Its very easy to learn, has a huge community support and 
+learning it will also open doors for you into web application development. Also, because this article uses Javascript for the tutorial.
 
 There are a lot of JS libraries that you can use to start development on your idea.
 
@@ -33,7 +33,7 @@ There are a lot of JS libraries that you can use to start development on your id
 
 * For interactive art, use  [p5.js](https://p5js.org/)
   
-We will be looking into working with johnny-five.js and Arduino. Before we get started make sure you have latest verison of `node` and `npm` install.  
+For this blog post we will be looking into working with johnny-five.js and Arduino. Before we get started make sure you have latest verison of `node` and `npm` install.  
 
 Arduino is a microcontroller that is cheap, open source and has a great community. 
 To make Arduino talk to our JS application, we will first need to install 'firmata' on it. Firmata is a protocol that lets your program communicate with any microcontroller. 
