@@ -23,7 +23,7 @@ Physical computing includes IoT, robotics, wearables, interactive tangible media
 
 If you want to build a robot, you would require hardware, you need some sort of application/software to communicate with the hardware, you'll need controls to move the robot, and the robot needs to respond to 
 those controls respectively. But can we build something like this with JS? Yes! So, why should you use Javascript to start playing with microcontrollers? Its very easy to learn, has a huge community support and 
-learning it will also open doors for you into web application development. Also, because this article uses Javascript for the tutorial.
+learning it will also open doors for you into web application development. Or, if you are a web developer and would like a low-barrier way to start developing your cool ideas.
 
 There are a lot of JS libraries that you can use to start development on your idea.
 
