@@ -71,6 +71,8 @@ board.on("ready", function() {
 });
 ```
 
+Once the program is uploaded onto Arduino it doesn't need to be connected to the computer. You can remove the USB connector and supply different power source to Arduino to keep the LED blinking.
+
 There you go. The very basic of physical computing. Johnny-five provides lot of functionalities, utilities and tutorials to get you hooked on to Arduino. You can check the [examples](http://johnny-five.io/examples/).  
 
 This example did not include the HTML or CSS the super basic of front-end technologies. To get our microcontroller to talk with HTML, CSS and JS we will need something called **node-webkit** now known as **NW.js**. 
