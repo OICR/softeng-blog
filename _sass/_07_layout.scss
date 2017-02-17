@@ -76,7 +76,7 @@ nav{
         li{
             display: inline;;
             &:not(:last-child) {
-                margin-right: 14px;
+                margin-right: 35px;
             }
 
             &:first-child{
@@ -207,7 +207,8 @@ nav{
             @media#{$medium-up} {
                 position: absolute;
             }
-            top: 65px;
+            top: 85px;
+            right: 0px;
 
             .next-meeting-info{
                 background: #FFF;
