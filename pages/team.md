@@ -11,15 +11,22 @@ header:
 
 <div class="team-page authors clearfix grid-container">
   {% for author in site.data.authors %}
-    <div class="author-wrapper small-12 medium-6 large-4 columns grid-item">
-      <div class="author row">
+    <div class="author-wrapper small-12 medium-6 large-4 columns grid-item ">
+      <div class="author row {% if author[1].is_alumni == true %} is-alumni {% endif %}">
         <div class="small-12 columns">
           <div>
             <div class="small-3 columns" style="padding:0;">
               <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %}{{site.urlimg}}avatars/{{author[1].avatar}} {% endif %}" title="{{ author[1].name }}"/>
             </div>
             <div class="small-9 columns">
-              <p class="author-name">{{ author[1].name }}</p>
+              <div class="author-header">
+                <span class="author-name">{{ author[1].name }}</span>
+                {% if author[1].is_alumni == true %}
+                  <span class="alumni-badge">alumni</span>
+                {% else %}
+                  <!-- <p class="author-name">{{ author[1].name }}</p> -->
+                {% endif %}
+              </div>
               <p class="author-position">{{author[1].position}}</p>
             </div>
           </div>
