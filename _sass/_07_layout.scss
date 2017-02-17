@@ -482,6 +482,16 @@ nav{
             border-radius: 50%;
         }
 
+        &.is-alumni {
+            img {
+                filter: grayscale(0.9);
+                transition: 0.3s ease;
+            }
+            &:hover img {
+                filter: grayscale(0);
+            }
+        }
+
         p{
             margin: 0;
         }
@@ -490,6 +500,18 @@ nav{
             font-family: $font-family-gotham-bold;
             font-size: 16px;
             color: #6c708d;
+        }
+
+        .author-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alumni-badge {
+            opacity: 0.5;
+            text-transform: uppercase;
+            float: right;
         }
 
         .author-position{
