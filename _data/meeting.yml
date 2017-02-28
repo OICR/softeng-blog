@@ -1,8 +1,8 @@
 - when: 
-    date: 2017-01-31 
-    start: '12pm'
-    end: '1pm'
+    date: 2017-02-28
+    start: '4pm'
+    end: '5pm'
   where: 'Room 5-20'
-  who: 'bob_tiernay'
-  what: 'Intro to <a href="https://stedolan.github.io/jq/">jq</a>'
-  scheduled: no 
+  who: 'dusan_andric'
+  what: 'Blockchains'
+  scheduled: yes 
