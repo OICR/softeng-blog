@@ -3,7 +3,7 @@ layout: post
 title:  "Distributed Ledgers, Blockchains and Smart Contracts"
 breadcrumb: true
 author: dusan_andric
-date: 2017-03-02
+date: 2017-03-03
 categories: dusan_andric
 tags:
     - Blockchain
