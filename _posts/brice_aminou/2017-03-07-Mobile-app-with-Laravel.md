@@ -41,23 +41,19 @@ Go to the Apache public directory (Usually /var/www/html, but might change depen
   cd /var/www/html
 ~~~
 
-Create a new project using composer. If you do not have composer installed, I invite you to look at other solutions to create a new Laravel application [in their
-documentation](https://laravel.com/docs/5.4/installation).
+Create a new Laravel project. In this tutorial, we are going to use composer, but you can also use Laravel Installer [in their documentation](https://laravel.com/docs/5.4/installation#installing-laravel), the result is the same.
 
 ~~~BASH
 composer create-project --prefer-dist laravel/laravel blog
 cd blog
 ~~~
 
-Change the permissions of the project folders
+Change the owner of the following folders to let the apache user (often www-data) have read and write permissions.
 
 ~~~BASH
-sudo chmod –R 777 storage
-sudo chmod –R 777 bootstrap
-sudo chmod –R 777 public
+sudo chown –R www-data:www-data storage
+sudo chown -R www-data:www-data vendor
 ~~~
-
-Warning: The permissions of those directories are changed to 777 only for this tutorial. Do not use those permissions in production.
 
 Go to:
 
