@@ -17,7 +17,7 @@ This tutorial describes an easy way to create a mobile app from your existing La
 
 Laravel is a free open-source PHP web Framework that helps you build web applications rapidly and efficiently using the model-view-controller (MVC) architectural pattern.
 To build a web application, Laravel is comparable to Django (Python) or Ruby on rails (Ruby). The choice of the right Framework to use for your next application if you are not
-familiar with any of them would depends on how comfortable you feel with PHP, Python on Ruby. In this post, we are only going to talk about Laravel.
+familiar with any of them would depends on how comfortable you feel with PHP, Python or Ruby. In this post, we are only going to talk about Laravel.
 
 At the end of this tutorial, you will be able to create a hybrid app from an existing Laravel project. A hybrid app have many advantages if you are familiar with HTML, CSS and Javascript:
 
