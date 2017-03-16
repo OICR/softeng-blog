@@ -21,14 +21,23 @@ header:
 ---
 
 ## Introduction
-Migrating instances in a virtualized environment is one of those features that has a marked improvement in an IT administrators quality of life. Why? Think about it. Migrations allow us to offer an uninterrupted user experience in virtualized computing as we can move instances from one host to another with little to no user impact. Mostly gone are the days of overnight maintenances and downtime for patching! Thankfully this is no longer a feature unique to expensive, licensed & proprietary solutions made by VMware, Citrix, etc. This is something you can easily do with Openstack running KVM. Need to patch your kernel? Migrate, patch, reboot, migrate back. No fee's, no licenses and no downtime. <b>Awesome.</b>
+Migrating instances in a virtualized environment is one of those features that has a marked improvement in an IT administrators quality of life. Why? Think about it. Migrations allow us to offer an uninterrupted user experience in virtualized computing. We can move instances from one host to another with little to no user impact. Mostly gone are the days of overnight maintenances and downtime for patching! Thankfully migrations are no longer a feature unique to expensive, licensed & proprietary solutions made by VMware, Citrix, etc. This is something you can easily do with Openstack running KVM. Need to patch your kernel? Migrate, patch, reboot, migrate back. No fee's, no licenses and no downtime. <b>Awesome.</b>
 
-For this blog post I will be covering the different types of migrations that can be done in Openstack with KVM.
+For this blog post I will be covering the different types of migrations that can be done in Openstack (Mitaka) with KVM.
+
+## Migrations in The Cancer Genome Collaboratory
+In a cloud environment, the focus is on providing highly-redundant API services that let the users quickly provision new workloads, instead of providing highly redundant physical infrastructure which costs a lot more, needs specialized hardware and still fails occasionally.
+
+In genomics research especially, the instances are considered ephemeral because they run workflows that fail for various reasons and can be retried easily. The workloads are also usually provisioned on the local disk of the compute nodes, with very large sizes and high disk IO rates which makes them poor candidates for migration.
+
+In large environments with tens or hundreds of servers, migrating instances around for maintenance purposes is time consuming, error prone and can still impact the performance of the workloads, potentially causing discrete errors that might affect the results correctness which would be very hard to detect later on.
+
+Here in the Collaboratory we do make use of the migration functionality but in a case by case basis and not typically for instances running CPU intensive workloads.
 
 #### Official documentation
-* [Openstack doc on Nova migrations](https://docs.openstack.org/admin-guide/cli-nova-migrate.html)
-* [Openstack live migration](https://docs.openstack.org/admin-guide/compute-live-migration-usage.html)
-* [Openstack configuring migrations](https://docs.openstack.org/admin-guide/compute-configuring-migrations.html)
+* [Openstack admin guide on migrations](https://docs.openstack.org/admin-guide/cli-nova-migrate.html)
+* [Openstack admin guide on live migration](https://docs.openstack.org/admin-guide/compute-live-migration-usage.html)
+* [Openstack configuring guide on migrations](https://docs.openstack.org/admin-guide/compute-configuring-migrations.html)
 * [KVM Migration](https://www.linux-kvm.org/page/Migration)
 
 #### Prerequisites
@@ -42,7 +51,7 @@ For this blog post I will be covering the different types of migrations that can
 * Cold Block Migration
   * Requires downtime, does not require shared storage. Uses local disk on the host to store & run the instances. May take a long time depending on the amount of data that needs to be migrated. No way to specify destination hypervisor.
 * Live Block Migration
-  * No downtime and no requirement for shared stored. If you run instances on local disk and need to migrate without interruptions, this is the method you need. May take a long time dependong on the amount of data that needs to be migrated and how active (IO & memory) the instance is.
+  * No downtime and no requirement for shared stored. If you run instances on local disk and need to migrate without interruptions, this is the method you need. May take a long time depending on the amount of data that needs to be migrated and how active (IO & memory) the instance is.
 
 ## How to migrate
 
@@ -59,20 +68,21 @@ nova live-migration <instance id> <optional: destination hypervisor>
 nova live-migration --block-migrate <instance id> <optional: destination hypervisor>
 ~~~
 
-#### CLI migration demo
-<video controls preload>
+Cold migrations don't allow you to specify a destination hypervisor. Instead, the nova scheduler will look for available resources in the cluster and place them accordingly.
+
+#### Migration using the Nova client
+<video width="100%" height="auto" controls preload>
     <source src="{{site.urlimg}}jared_baker/migratinginstances/migrate-with-ping.webm"></source>
 </video>
 
-#### Dashboard migration demo
+#### Migration using the Openstack Dashboard
 <video width="100%" height="auto" controls preload>
     <source src="{{site.urlimg}}jared_baker/migratinginstances/gui-migrate.webm"></source>
 </video>
 
-
 ## Limitations / Caveats
-* Migrations can take longer or not complete if the rate of change to the disk and/or memory contents outpaces the network transfer rate. With a 10Gbps network this should allow lots of headroom in migrating a busy instance.
-* In environments with mixed CPU models you need to set some flags in your /etc/nova/nova.conf to ensure migration compatibility
+* Migrations can take longer or even fail if the rate of change to the disk and/or memory contents outpaces the network transfer rate. With a 10Gbps network this should allow lots of headroom in migrating a busy instance.
+* In environments with mixed CPU models you need to set the following flags in your /etc/nova/nova.conf to ensure migration compatibility
 
 ~~~bash
 [libvirt]
