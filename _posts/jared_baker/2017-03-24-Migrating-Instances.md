@@ -12,7 +12,6 @@ tags:
     - libvirt
 teaser:
     info: How migrating instances within the cloud can improve user experience and make your life easier
-    image: jared_baker/glanceimages/hashbang.jpg
 header:
     version: small
     title: Software Engineering Blog
@@ -21,7 +20,7 @@ header:
 ---
 
 ## Introduction
-Migrating instances in a virtualized environment is one of those features that has a marked improvement in an IT administrators quality of life. Why? Think about it. Migrations allow us to offer an uninterrupted user experience in virtualized computing. We can move instances from one host to another with little to no user impact. Mostly gone are the days of overnight maintenances and downtime for patching! Thankfully migrations are no longer a feature unique to expensive, licensed & proprietary solutions made by VMware, Citrix, etc. This is something you can easily do with Openstack running KVM. Need to patch your kernel? Migrate, patch, reboot, migrate back. No fee's, no licenses and no downtime. <b>Awesome.</b>
+Migrating instances in a virtualized environment is one of those features that has a marked improvement in an IT administrator's quality of life. Why? Think about it. Migrations allow us to offer an uninterrupted user experience in virtualized computing. We can move instances from one host to another with little to no user impact. Mostly gone are the days of overnight maintenances and downtime for patching! Thankfully migrations are no longer a feature unique to expensive, licensed & proprietary solutions made by VMware, Citrix, etc. This is something you can easily do with Openstack running KVM. Need to patch your kernel? Migrate, patch, reboot, migrate back. No fee's, no licenses and no downtime. <b>Awesome.</b>
 
 For this blog post I will be covering the different types of migrations that can be done in Openstack (Mitaka) with KVM.
 
@@ -82,10 +81,12 @@ Cold migrations don't allow you to specify a destination hypervisor. Instead, th
 
 ## Limitations / Caveats
 * Migrations can take longer or even fail if the rate of change to the disk and/or memory contents outpaces the network transfer rate. With a 10Gbps network this should allow lots of headroom in migrating a busy instance.
-* In environments with mixed CPU models you need to set the following flags in your /etc/nova/nova.conf to ensure migration compatibility
+* In environments with mixed CPU models you need to set the following flags in your /etc/nova/nova.conf to ensure migration compatibility.
 
 ~~~bash
 [libvirt]
 cpu_mode=custom
 cpu_model=kvm64
 ~~~
+
+Note: Any existing instances will need to be power cycled for changes to take effect. Instance performance may also be degraded if you were previously using 'cpu_mode=host-passthrough'.
