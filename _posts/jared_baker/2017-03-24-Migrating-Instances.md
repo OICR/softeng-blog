@@ -27,7 +27,7 @@ For this blog post I will be covering the different types of migrations that can
 ## Migrations in The Cancer Genome Collaboratory
 In a cloud environment, the focus is on providing highly-redundant API services that let the users quickly provision new workloads, instead of providing highly redundant physical infrastructure which costs a lot more, needs specialized hardware and still fails occasionally.
 
-In genomics research especially, the instances are considered ephemeral because they run workflows that fail for various reasons and can be retried easily. The workloads are also usually provisioned on the local disk of the compute nodes, with very large sizes and high disk IO rates which makes them poor candidates for migration.
+In genomics research especially, the instances are considered ephemeral because they run workflows that fail for various reasons and can be retried easily. The workloads are also usually provisioned on the local disk of the compute nodes, with very large sizes and high disk I/O rates which makes them poor candidates for migration.
 
 In large environments with tens or hundreds of servers, migrating instances around for maintenance purposes is time consuming, error prone and can still impact the performance of the workloads, potentially causing discrete errors that might affect the results correctness which would be very hard to detect later on.
 
