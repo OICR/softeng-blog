@@ -3,7 +3,7 @@ layout: post
 title:  "Migrating instances within the cloud"
 breadcrumb: true
 author: jared_baker
-date: 2017-03-24
+date: 2017-03-23
 categories: jared_baker
 tags:
     - OpenStack
