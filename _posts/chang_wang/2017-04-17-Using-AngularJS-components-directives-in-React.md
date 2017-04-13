@@ -1,13 +1,26 @@
-# Using Angular 1 components & directives inside React
+---
+layout: post
+title:  "Using AngularJS components & directives inside React"
+breadcrumb: true
+author: chang_wang
+date: 2017-04-17
+categories: chang_wang
+tags:
+    - Javascript
+    - React
+    - Angular
+teaser:
+    info: Using AngularJS components & directives inside React
+
+---
 
 ## Why  
 We've seen some [informative](http://blog.rangle.io/migrating-an-angular-1-application-to-react/) [articles](https://tech.small-improvements.com/2017/01/25/how-to-migrate-an-angularjs-1-app-to-react/) on how to use React components inside an Angular app, but guides for "using Angular components inside React" were scarce.
 
-The [GDC project](https://portal.gdc.cancer.gov/) is in the process of migrating from Angular 1 to React. For quite a while, the React-in-Angular pattern was used to perform a [strangler migration](https://www.martinfowler.com/bliki/StranglerApplication.html) one component at a time. As React ate through more and more of the project, we reached a tipping point where it could become the root app, but we were still short a few pieces of somewhat complex Angular directives that prevented us from reaching feature parity.  
+The [GDC project](https://portal.gdc.cancer.gov/) is in the process of migrating from AngularJS (Angular 1) to React. For quite a while, the React-in-Angular pattern was used to perform a [strangler migration](https://www.martinfowler.com/bliki/StranglerApplication.html) one component at a time. As React ate through more and more of the project, we reached a tipping point where it could become the root app, but we were still short a few pieces of somewhat complex Angular directives that prevented us from reaching feature parity.  
 
 Being able to reuse those Angular directives as-is allowed us to continue the migration without compromising existing features or our delivery timeline.  
 
-Here are the steps.  
 
 ## Bootstrapping Angular
 
@@ -16,6 +29,7 @@ This part is actually incredibly simple.
 Assuming the name of the root module for your legacy Angular app is `ngApp`, and the name of the Angular component you want to wrap as a react component is `widget`
 
 ```js
+{% raw %}
 class AngularWidget extends React.Component {
   componentDidMount() {
     angular.bootstrap(this.container, ['ngApp']);
@@ -27,6 +41,7 @@ class AngularWidget extends React.Component {
     />
   )
 }
+{% endraw %}
 ```
 
 Here's a contrived example using angular-bootstrap-datetimepicker
@@ -64,10 +79,10 @@ A problem we ran into was that after initializing and then navigating away from 
 
 Keep an eye on the address bar:
 
-<video class="share-video" id="share-video" poster="https://thumbs.gfycat.com/SizzlingKeyDolphin-poster.jpg" autoplay="" muted="" loop>
-    <source id="webmSource" src="https://zippy.gfycat.com/SizzlingKeyDolphin.webm" type="video/webm">
-    <source id="mp4Source" src="https://zippy.gfycat.com/SizzlingKeyDolphin.mp4" type="video/mp4">
-    <img title="Sorry, your browser doesn't support HTML5 video." src="https://fat.gfycat.com/SizzlingKeyDolphin.gif">
+<video class="share-video" id="share-video" poster="{{site.urlimg}}chang_wang/ng-in-react/SizzlingKeyDolphin-poster.jpg" autoplay="" muted="" loop>
+    <source id="webmSource" src="{{site.urlimg}}chang_wang/ng-in-react/SizzlingKeyDolphin.webm" type="video/webm">
+    <source id="mp4Source" src="{{site.urlimg}}chang_wang/ng-in-react/SizzlingKeyDolphin.mp4" type="video/mp4">
+    <img title="Sorry, your browser doesn't support HTML5 video." src="{{site.urlimg}}chang_wang/ng-in-react/SizzlingKeyDolphin.gif">
 </video>
 
 It turns out Angular's digest cycle checks the browser's location, and when it notices that the browser's url is different from what it thinks it should be, it sets the browser's url to the "correct" value. Since the url is now being handled outside of Angular, we need to disable this behaviour.  
@@ -105,6 +120,7 @@ We're nearly done, just need to clean up the bootstrapped angular app when the R
 Here's a minimal example (you can replace `ngApp` with the name of your angular module).
 
 ```js
+{% raw %}
 class AngularWidget extends React.Component {
   componentDidMount() {
     this.$rootScope = angular.injector(['ng', 'ngApp']).get('$rootScope');
@@ -120,14 +136,17 @@ class AngularWidget extends React.Component {
     />
   )
 }
+{% endraw %}
 ```
 
 ## Summary  
 
-It's always a difficult decision on whether, when, and how to migrate from a framework. For those that have started or are about to begin, I hope this is article will help ease and complete that transition.  
+It's always a difficult decision on whether, when, and how to migrate from a framework. For those that have started or are about to begin, I hope this article will help ease and complete that transition.  
 
 If you've read this far, consider following me on [Medium](https://medium.com/@cheapsteak/latest) or tweet at me [@CheapSteak](https://twitter.com/CheapSteak)  
 
 You might also be interested in my article on [Migrating a legacy frontend build system to Webpack](http://softeng.oicr.on.ca/chang_wang/2017/01/03/Legacy-Build-Tool-Migration/) and [Quick and Dirty tricks for debugging Javascript](https://medium.com/@cheapsteak/quick-and-dirty-tricks-for-debugging-javascript-d0e911c3afa), or perhaps [Animations with ReactTransitionGroup](https://medium.com/p/animations-with-reacttransitiongroup-4972ad7da286)
+
+Thanks to [Ben Hare](https://twitter.com/hare_ben), [Dusan Andric](https://twitter.com/andricDu), [Jeffrey Burt](https://twitter.com/jephuff) and [Francois Gerthoffert](https://twitter.com/fgerthoffert) for proofreading and feedback 😄
 
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
