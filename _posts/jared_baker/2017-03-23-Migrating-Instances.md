@@ -50,7 +50,7 @@ Here in the Collaboratory we do make use of the migration functionality but in a
 * Cold Block Migration
   * Requires downtime, does not require shared storage. Uses local disk on the host to store & run the instances. May take a long time depending on the amount of data that needs to be migrated. No way to specify destination hypervisor.
 * Live Block Migration
-  * No downtime and no requirement for shared stored. If you run instances on local disk and need to migrate without interruptions, this is the method you need. May take a long time depending on the amount of data that needs to be migrated and how active (IO & memory) the instance is.
+  * No downtime and no requirement for shared storage. If you run instances on local disk and need to migrate without interruptions, this is the method you need. May take a long time depending on the amount of data that needs to be migrated and how active (IO & memory) the instance is.
 
 ## How to migrate
 
