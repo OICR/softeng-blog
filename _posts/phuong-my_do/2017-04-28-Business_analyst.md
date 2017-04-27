@@ -3,7 +3,7 @@ layout: post
 title: "Business Analyst"
 breadcrumb: true
 author: phuong-my_do
-date: 2017-04-07
+date: 2017-04-27
 categories: phuong-my_do
 tags:
     - business analyst
@@ -13,7 +13,7 @@ teaser:
 
 __What is a Business Analyst in the Cancer Genomics and Bioinformatics world?__
 
-If asking this question to employees in a Cancer Research Institute, chances are 90% of respondents would have no idea; 10% may have some ideas... and we don’t want to know how many would be able to describe a Business Analyst job. :)
+If asking this question to employees in a Cancer Research Institute, chances are 90% of respondents would have no idea; 10% may have some ideas... and we don’t want to know how many of the 10% would be able to describe a Business Analyst job. :)
 
 Here’s Brian, the Business Analyst.
 
@@ -23,28 +23,32 @@ Here’s Brian, the Business Analyst.
 
 *<https://rthewitt.com/2013/04/11/brian-the-business-analyst/>*
 
-This article aims to describe what Brian does in his company illustrated by personal experience with more examples focused on Cancer Genomics and Bioinformatics. 
-However you’ll see that Brian could do the exact same job for an insurance or sportswear company, a tires vendor or any industries with Users who needs to use a software to perform their job.
+This article aims to describe what Brian does in his company illustrated by personal experience, with more examples focused on Cancer Genomics and Bioinformatics. 
+However you will see that Brian could do the exact same job for an insurance or sportswear company or any industries with Users who need to use a software to perform their job.
 
 # Who are the players in an IT project and interactions with Brian?
-The “business stakeholders”, the product owner (in our context the principal investigator), and the subject matter experts or super-users (the bioinformaticians and lead scientists).
+
+### The Business Stakeholders
+The product owner (in our context the principal investigator), and the subject matter experts or super-users (the bioinformaticians and lead scientists).
 This is the starting point of all projects: what do the stakeholders want? The higher the hierarchy the higher level the requirements. The stakeholder’s role is to give ideas of what they want but Brian is here to dig into the topic and provide more details before any discussion can happen with the software engineering team. 
 
-**The Project Manager (PM)**
+### The Project Manager (PM)
 Brian is responsible for ensuring requirements get done. The PM ensures the requirements get developed on a schedule.
 
-**The Software Development Team** (architects, bioinformaticians, technical leads, developers)
+### The Software Development Team (architects, bioinformaticians, technical leads, developers)
 
 The Dev team may not need Brian, they could go directly to the stakeholder, collect the requirements and implement the solution. In larger-size projects, Brian’s role is to document requirements or implementation options and impacts, any decision, any back-and-forth (yes, the stakeholders can change their mind in the light of external circumstances). Keep in mind that usually the Dev team finds his joy in prototyping and coding, not so much in writing formalized documentation of the stakeholders expectations.  
 
-**The Quality Assurance Team** The QAs perform Quality Assurance based on requirements written by Brian.
+### The Quality Assurance Team 
+The QAs perform Quality Assurance based on requirements written by Brian.
 
-**The users** (bioinformaticians, researchers, students, the cancer research community). 
+### The users (bioinformaticians, researchers, students, the cancer research community). 
 
 Brian will provide assistance in training the users to their new software. For larger projects a user service team could be dedicated; in that case, Brian would provide Level 2 support to the user service Team for a better understanding of the software solution.
    
 **The key in such IT projects** is for Brian not only to document but mostly to understand what bioinformaticians, researchers and software engineers tells him to accurately document it. It’s about asking the right question.
 To be able to ask the right question, Brian needs to understand the business goals as much as the technical aspects of a software.
+
 Who has never seen this scenario? “The user cannot use the feature >> it’s a development issue >> no, it’s a data issue >> no, it’s an environment issue >> no, the user did not use it properly”. Brian’s role here is to clarify the issue, record everyone’s understanding and challenge the answers to ensure the right solution.
 
 # Brian’s techniques and main activities
