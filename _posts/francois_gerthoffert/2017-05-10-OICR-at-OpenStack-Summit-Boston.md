@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "OICR presented at the OpenStack Summit in Boston"
+title:  "OICR presented Collaboratory at the OpenStack Summit in Boston"
 breadcrumb: true
 author: george_mihaiescu, jared_baker
 date: 2017-05-10
