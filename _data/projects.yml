@@ -27,3 +27,8 @@
   url: //github.com/obiba
   icon: //avatars2.githubusercontent.com/u/2547522?v=3&s=200
   info: Data management software for epidemiological studies
+
+- name: Dockstore
+  url: //github.com/ga4gh/dockstore
+  icon: //avatars1.githubusercontent.com/u/25392449?v=3&s=200
+  info: An open platform for sharing Docker-based tools described with the Common Workflow Language used by the GA4GH
