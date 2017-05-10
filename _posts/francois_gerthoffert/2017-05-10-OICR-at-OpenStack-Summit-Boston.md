@@ -2,7 +2,7 @@
 layout: post
 title:  "OICR presented at the OpenStack Summit in Boston"
 breadcrumb: true
-author: francois_gerthoffert, george_mihaiescu, jared_baker
+author: george_mihaiescu, jared_baker
 date: 2017-05-10
 categories: francois_gerthoffert
 tags:
