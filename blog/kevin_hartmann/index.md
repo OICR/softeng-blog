@@ -10,4 +10,4 @@ header:
     page: team
     icon: icon-blog
 ---
-Sorry, no blog posts from yet!
+Sorry, no blog posts from Kevin Hartmann yet!
