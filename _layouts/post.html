@@ -9,46 +9,38 @@ header:
 ---
 {% assign authors = page.author | split: ", " %}
 <div class="row blog">
-  <div class="large-9 columns">
+
     <div class="blog-post">
       <div class="blog_teaser">
-        <span class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</span>
-        <h3 class="post-title"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h3>
-        <p class="post-author">By:
-        {% for currentAuthorId in authors %}
-          {% assign author = site.data.authors[currentAuthorId] %}
-          <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-author">
+          {% for currentAuthorId in authors %}
+            {% assign author = site.data.authors[currentAuthorId] %}
+            <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}"><strong>{{ author.name }}</strong></a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
         </p>
-        <div class="circles">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-        {% if page.tags.first %}
-        <p class="post-tags">
-            <i class="fa fa-tag" aria-hidden="true"></i>
-            <span class="pr10">
-              <strong>
-              {% for tag in page.tags %}
-                {{ tag }}
-                {% unless forloop.last %}
-                /
-                {% endunless %}
-              {% endfor %}
-              </strong>
-            </span>
-        </p>
-        {% endif %}
+        <div class="date-display">{{ page.date | date: "%b. %-d, %Y" }}</div>
       </div>
       <article>
         <div itemprop="articleSection">
         {{ content }}
         </div>
     </article>
+    {% if page.tags.first %}
+    <p class="post-tags">
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        <span class="pr10">
+          <strong>
+          {% for tag in page.tags %}
+            {{ tag }}
+            {% unless forloop.last %}
+            /
+            {% endunless %}
+          {% endfor %}
+          </strong>
+        </span>
+    </p>
+    {% endif %}
     <div class="social-media clearfix">
       <div class="small-9 columns">
         <span>Share:</span>
@@ -115,10 +107,7 @@ header:
             (d.head || d.body).appendChild(s);
         })();
     </script>
-  </div>
-  <div class="large-3 columns">
-    {% include _sidebar.html %}
-  </div>
+
 
   <div class="small-12 columns to-top">
     <div class="small-5 columns previous-link">
@@ -127,20 +116,14 @@ header:
           <span class="icon-previous">
             <img src="{{ site.baseurl }}/images/icons/icon-arrow-blue.svg" />
           </span>
-          <span><strong>Previous:</strong> {{page.previous.title}}</span>
+          <span>{{page.previous.title}}</span>
         </a>
       {% endif %}
     </div>
-    <div class="small-2 columns top-link">
-      <a href="#top">
-        <span><img src="{{ site.baseurl }}/images/icons/icon-arrow.svg" /></span>
-        <span>Back to Top</span>
-      </a>
-    </div>
-    <div class="small-5 columns next-link">
+    <div class="small-5 push-2 columns next-link">
     {% if page.next.url %}
       <a href="{{page.next.url}}">
-        <span><strong>Next:</strong> {{page.next.title}}</span>
+        <span>{{page.next.title}}</span>
         <span class="icon-next">
           <img src="{{ site.baseurl }}/images/icons/icon-arrow-blue.svg" />
         </span>

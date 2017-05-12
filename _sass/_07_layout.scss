@@ -48,6 +48,9 @@ body.video cite { color: #fff; }
 nav{
     background: #FFF;
     border-bottom: 5px solid #eaebf0;
+    .post & {
+        border-bottom: 0;
+    }
     padding: 20px  0;
 
     .search-bar{
@@ -59,6 +62,9 @@ nav{
             border-radius: 20px;
             padding:2px 10px 0 33px;
             color: #9497a8;
+            &:not(:hover) {
+                border-color: transparent;
+            }
         }
         i{
             position: absolute;
@@ -709,6 +715,13 @@ nav{
       color: #fff;
     }
   }
+}
+ .youtube-link {
+    &:not(:hover) {
+        img {
+            filter: grayscale(100%) brightness(150%);
+        }
+    }
 }
 
 

@@ -1,27 +1,17 @@
-.blog{
-
-    .blog-post {
+.blog {
+    @media #{$large-up} {
+        max-width: 740px;
+    }
+    .blog-post {     
         background: #FFF;
-        padding:40px 20px 0px;
-        box-shadow: 0 0 2px 0 rgba(0,0,0,0.15);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-
+        padding: 60px 20px 0px;;
         pre{
             background: #eaebf0;
             border: none;
             padding: 0;
 
-            &:before{
-                content: 'CODE';
-                padding: 20px;
-                font-family: $font-family-gotham-book;
-                font-size: 12px;
-                color: #999cac;
-            }
-
             &.note{
-                background: #fbecd8;
+                background: $code-bg-color;
 
                 code{
                     display: block;
@@ -47,12 +37,27 @@
         }
 
         code{
-            background: #fbecd8;
+            font-size: 15px;
+            letter-spacing: -0.01em;
+            background: $code-bg-color;
             border: none;
         }
 
         h1,h2,h3,h4,h5{
-            color: #6c708d;
+            font-family: $font-family-sans-serif;
+            color: rgba(0,0,0,0.8);
+        }
+
+        h2 {
+            font-weight: 900;
+            margin-top: 1.51em;
+            margin-bottom: 0;
+        }
+
+        h3 {       
+            font-size: 24px;
+            color: rgba(0,0,0,0.62);
+            font-weight: 700;
         }
 
         iframe, video, img{
@@ -77,20 +82,52 @@
         }
 
         article{
-            font-size: 14px;
-            border-bottom: 2px solid #e3e4e9;
+            margin-top: 30px;
+            p, ul {
+                font-family: $font-family-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 21px;
+                line-height: 1.6;
+                // letter-spacing: -.003em;
+                color: rgba(0,0,0,0.8);
+            }
         }
 
-        .post-tags{
+        a {
+            color: rgba(0,0,0,0.8);
+        }
+
+        .post-title {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.04;
+            margin-bottom: 20px;
+            letter-spacing: -.03em;
+            color: rgba(0,0,0,0.8);
+        }
+
+        .post-tags {
             margin-bottom: 1.25rem;
+            color: #7fa5d2;
+        }
+        .post-author {
+            a {
+                color: #777;
+                font-family: serif;
+                font-size: 21px;
+            }
+        }
+        .date-display {
+            font-size: 12px;
+            font-weight: 300;
         }
     }
 
     .author-box{
         background: #FFF;
-        margin-top: 20px;
+        margin: 40px 0;
         padding:10px;
-        box-shadow: 0 0 2px 0 rgba(0,0,0,0.15);
         border-radius: 10px;
 
         img{
