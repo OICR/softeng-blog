@@ -1,6 +1,6 @@
  {% assign author = site.data.authors[site.data.meeting.first.who] %}
  
- {% unless page.header.version == 'nohead' %}
+ {% unless page.header.version == 'nohead' or page.layout == 'post' %}
   <div class="masthead" style="background-image: url('{{site.urlimg}}{{page.header.image}}')">
     <div class="row">
       {% if page.header.version == 'full' %}
