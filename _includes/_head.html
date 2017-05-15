@@ -9,7 +9,16 @@
 #
 {% endcomment %}{% capture ignore %}
 
-{% capture description %}{% if page.meta_description %}{{ page.meta_description }}{% elsif page.teaser %}{{ page.teaser }}{% elsif page.excerpt %}{{ page.excerpt }}{% elsif site.description %}{{ site.description }}{% endif %}{% endcapture %}
+{% capture description %}
+	{% if page.meta_description %}{{ page.meta_description }}
+	{% elsif page.teaser %}
+		{% if page.teaser.info %}{{ page.teaser.info }}
+		{% else %}{{ page.teaser }}
+		{% endif %}
+	{% elsif page.excerpt %}{{ page.excerpt }}
+	{% elsif site.description %}{{ site.description }}
+	{% endif %}
+{% endcapture %}
 {% assign description = description | strip_html | escape | strip %}
 
 {% capture title %}{% if page.meta_title %}{{ page.meta_title}}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title | strip_html | strip }}{% endif %}{% endcapture %}
@@ -48,6 +57,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="{{ site.title }}">
 	{% if page.image.title %}<meta property="og:image" content="{{ site.urlimg }}{{ page.image.title }}">{% endif %}
+	{% if page.teaser.image %}<meta property="og:image" content="{{ site.url }}/{{ page.teaser.image }}">{% endif %}
 	{% if site.socialmedia.facebook %}<meta property="article:author" content="https://www.facebook.com/{{ site.socialmedia.facebook }}">{% endif %}
 
 
