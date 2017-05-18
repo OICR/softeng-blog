@@ -98,11 +98,17 @@ author: firstname_lastname, firstname_lastname, firstname_lastname
 ---
 ```
 
-##### Images
+#### Images
 
 Images can be added as an absolute or a relative link. You can look at kramdown syntax documentation to find out about adding absolute links. For a relative link images you can upload them into your folder inside images directory `/images/firstname_lastname/image.png`
 
 To refer them inside your blog post, use the image url from the site config as `{{ site.urlimg }}` and append relative link of your image. `{{ site.urlimg }}/firstname_lastname/image.png`
+
+### Code blocks
+
+Please use `~~~` to add code bocks to the blof post. We are using [kramdown](https://kramdown.gettalong.org/) for our markdown engine and it has new [syntax](https://kramdown.gettalong.org/syntax.html#fenced-code-blocks) for code blocks.
+
+[GitHub Pages only supports kramdown as a Markdown processor.](https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/) To change your prefered engine please go to `_config.yml` and change `markdown` to use a different processor.
 
 ### Sync your new branch with Github
 
