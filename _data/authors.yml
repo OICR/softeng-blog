@@ -78,6 +78,13 @@ george_mihaiescu:
   avatar: george_mihaiescu.svg
   github: gmihaiescu
 
+grant_guo:
+  name: Grant Guo
+  position: Senior Software Developer
+  info: Passionate back-end developer interested in applying distributed data computation software to domains, forever curious about new things.
+  avatar: grant_guo.png
+  github: grant_guo
+
 hardeep_nahal:
   name: Hardeep Nahal
   position: Bioinformatician
@@ -169,9 +176,4 @@ vitalii_slobodianyk:
   avatar: vitalii_slobodianyk.svg
   github: slovit
   is_alumni: true
-grant_guo:
-  name: Grant Guo
-  position: Senior Software Developer
-  info: Passionate back-end developer interested in applying distributed data computation software to domains, forever curious about new things.
-  avatar: grant_guo.png
-  github: grant_guo
+
