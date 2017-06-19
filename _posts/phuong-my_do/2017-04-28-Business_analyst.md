@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Business Analyst (BA)"
+title: "Tea Chat with a Business Analyst (BA)"
 breadcrumb: true
 author: phuong-my_do
 date: 2017-06-19
@@ -23,7 +23,7 @@ Here’s Brian, the Business Analyst.
 
 *<https://rthewitt.com/2013/04/11/brian-the-business-analyst/>*
 
-This article aims to describe what Brian does in his company illustrated by personal experience, with more examples focused on Cancer Genomics and Bioinformatics. 
+This article aims at describing what Brian does in his company illustrated by personal experience, with more examples focused on Cancer Genomics and Bioinformatics. 
 However keep in mind that Brian could do the exact same job for an insurance or sportswear company or any industries with Users who need to use an application to perform their job.
 
 # Who are the players in an IT project and interactions with Brian?
@@ -38,7 +38,7 @@ Brian is responsible for ensuring requirements get done. The PM ensures the requ
 
 ### The Software Development Team (architects, bioinformaticians, technical leads, developers)
 
-The Dev team may not need Brian, they could go directly to the stakeholder, collect the requirements and implement the solution. In larger-size projects, Brian’s role is to document the requirements or implementation options, track the impacts, log any decision, any back-and-forth (yes, the stakeholders can change their mind in the light of external circumstances). Usually the Software Develppers find their joy in prototyping and coding, not so much in writing formalized documentation of the stakeholders expectations.  
+The Dev team may not need Brian, they could go directly to the stakeholder, collect the requirements and implement the solution. In larger-size projects, Brian’s role is to document the requirements or implementation options, track the impacts, log any decision, any back-and-forth (yes, the stakeholders can change their mind in the light of external circumstances). Usually the Software Developers find their joy in prototyping and coding, not so much in writing formalized documentation of the stakeholders expectations.  
 
 ### The Quality Assurance Team 
 The QAs perform Quality Assurance based on requirements written by Brian.
@@ -47,15 +47,15 @@ The QAs perform Quality Assurance based on requirements written by Brian.
 
 Brian will provide assistance in training the users to their new application. For larger projects a user service team could be dedicated; in that case, Brian would provide Level 2 support to the user service Team for a better understanding of the solution.
    
-**The key in such IT projects is for Brian not only to document but mostly to understand** what bioinformaticians, researchers and software engineers tell him to accurately document it. It’s about asking the right question.
-To be able to ask the right question, Brian needs to understand the business goals as much as the technical aspects of an application.
+**The key in such IT projects is for Brian not only to document but mostly to understand** what bioinformaticians, researchers and software engineers tell him to accurately document it. 
+It’s about asking the right question. To be able to do so, Brian needs to understand the business goals as much as the technical aspects of an application.
 
-Who has never seen this scenario? User Service Team: “The user cannot use the feature, is it a development issue? >> Developper: "No, it’s a data issue" >> Data Quality: "No, it’s an environment issue" >> Dev-Ops: "No, the user did not use it properly”. Brian’s role here is to clarify the issue, record everyone’s understanding and challenge the answers to ensure the right solution.
+Who has never seen this scenario? User Service Team: “The user cannot use the feature, is it a development issue? >> Developper: "No, it’s a data issue" >> Data Quality: "No, it’s an environment or network issue" >> Dev-Ops: "No, the user did not use it properly”. Brian’s role here is to clarify the issue, record everyone’s understanding and challenge the answers to ensure the right solution is identified.
 
 # Brian’s techniques and main activities
-* **Define the 5 W’s**: Who did What, Where and When, and Why: Probably the basics when Brian starts business analysis. Answering to the question What and Why is sometimes challenging in the cancer genomics research field characterized by exploration (“I don’t know exactly what I want but I feel like it’s the right way to explore”)
+* **Define the 5 W’s**: Who did What, Where, When, and Why: Probably the basics when Brian starts business analysis. Answering What and Why is sometimes challenging in the cancer genomics research field characterized by exploration (“I don’t know exactly what I want but we should keep moving in this direction”)
 
-* **Analyse the existing system and processes, benchmark and best practices**: there is a lot of reading in a Brian’s job, all the documentation of what your company but also what similar companies do.    
+* **Analyse the existing system and processes, benchmark and best practices**: there is a lot of reading in a Brian’s job, all the documentation of what your company and its competitors produce.    
 
 * **Lead brainstorming sessions, interviews and workshops, facilitate meetings**: a project needs someone “not biased” to make sure everyone’s opinion from business and technical perspective will be heard, understood and recorded.
 
@@ -65,7 +65,7 @@ Who has never seen this scenario? User Service Team: “The user cannot use the 
 
 * **Participate in solution design** (data modeling) with the software engineering team and organize walkthrough of the specifications with developers. 
 
-* For both activities described above, it is important to target the audience as Brian will not emphasize the same information. In one case, he wants to validate the impact to the users, in the other one he wants to break it down so the developers understand and can think of how this will impact the application.  
+* For both activities described above, it is important to target the audience as Brian will not emphasize the same information. In one case, he wants to validate the impact to the users, in the other one he wants to break it down so the developers understand and can think of how this will impact their implementation.  
 
 * **Analyse and track issues**: the issue has to describe a user behaviour but explore the technical aspects of it. A good understanding of both functional and technical sides will help to better analyse the issues.
 
@@ -83,7 +83,7 @@ One path to become a business analyst is to start with IT studies. So between a 
 | ----------- |-------------------| ----------------------|
 | Study     		| Software Engineering school | Software Engineering school another path could be business study with IT training down the road|
 | Ongoing learning | R&D on technologies, programming languages...      | Benchmark on company business and minimum understanding of software tools or best practice |
-| Struggles | Unclear and changing requirements and functional specifications coming from the business analysts |    Unclear and changing business requirements coming from the stakeholders |
+| Challenges | Unclear and changing requirements and functional specifications coming from the business analysts |    Unclear and changing business requirements coming from the stakeholders |
 | Must have skills | Analytical, programing skills, problem-solving, willingness to research, teamwork... |    Analytical, documentation, listening, communication, negotiation, teamwork... |
 
 # Fun Facts
@@ -96,7 +96,7 @@ One path to become a business analyst is to start with IT studies. So between a 
 I graduated 10 years ago from a software engineering  school in France (INSA Lyon). I once was a developer (my first internship was to develop a website in PHP for radiologists) but found out quickly that coding was not my thing. 
 
 My passion is in analysis and talking with the business to understand what they need but also think of how it could relate to software implementation. 
-This is how I could work for the national bank of France to implement a numeric vault, for a health insurance company in the Contribution area, for a the Pharmacist Order (e-pharmaceutical file), for the Cancer Care Ontario (cancer assessment surveys for the public), for Michelin Tyre (accounting system) or the equivalent of the French Mountain Coop Equipment (in Identity and Access Management) and now in Cancer Genomics. None of these industries are related but they all require the same skills from a BA perspective.
+This is why I could work for the national bank of France to implement a numeric vault, for a health insurance company in the Contribution area, for a the Pharmacist Order (e-pharmaceutical file), for the Cancer Care Ontario (cancer assessment surveys for the public), for Michelin Tyre (accounting system) or the equivalent of the French Mountain Equipment Coop - MEC (in Identity and Access Management) and now in Cancer Genomics. None of these industries are related but they all require the same skills from a BA perspective.
 
 I think my job is awesome because it’s like having a tea-chat with everyone in a company to understand what they do. I’m not an expert in cancer genomics, I’m not an expert in software development but I do understand who to talk to and how these topics relate to each other. 
 This is what makes business analysis powerful, you just need the right tools to connect people to each other.   
