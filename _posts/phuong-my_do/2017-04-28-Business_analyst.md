@@ -3,7 +3,7 @@ layout: post
 title: "Business Analyst (BA)"
 breadcrumb: true
 author: phuong-my_do
-date: 2017-04-27
+date: 2017-06-19
 categories: phuong-my_do
 tags:
     - business analyst
@@ -18,7 +18,7 @@ If asking this question to employees in a Cancer Research Institute, chances are
 Here’s Brian, the Business Analyst.
 
 <figure>
-    <img src="{{site.urlimg}}phuong-my_do/azure/brian-the-business-analyst.png" />
+    <img src="{{site.urlimg}}phuong-my_do/brian-the-business-analyst.png" />
 </figure>
 
 *<https://rthewitt.com/2013/04/11/brian-the-business-analyst/>*
