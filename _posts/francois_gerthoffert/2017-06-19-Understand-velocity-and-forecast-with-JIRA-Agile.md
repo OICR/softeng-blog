@@ -116,7 +116,7 @@ The estimates details above are far from being a 100% accurate mean of estimatin
  
 # Let’s play
  
-The code (although imperfect), supporting this article is on github and [yours to play with](https://github.com/Fgerthoffert/jira-agile-velocity).
+The code (although imperfect) supporting this article is on github and [yours to play with](https://github.com/Fgerthoffert/jira-agile-velocity).
 
 <center>
   <figure style="width: 70%;">
