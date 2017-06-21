@@ -8,7 +8,7 @@ categories: phuong-my_do
 tags:
     - business analyst
 teaser:
-    info: A Business Analyst working in Bioinformatics in a Software Engineering Team, what is that?
+    info: What does a business analyst in the cancer genomics and bioinformatics world do?
 ---
 
 __What does a business analyst in the cancer genomics and bioinformatics world do?__
