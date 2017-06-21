@@ -3,7 +3,7 @@ layout: post
 title: "Tea Chat with a Business Analyst (BA)"
 breadcrumb: true
 author: phuong-my_do
-date: 2017-06-19
+date: 2017-06-21
 categories: phuong-my_do
 tags:
     - business analyst
