@@ -51,10 +51,12 @@ The key in such IT projects is for Brian to thoroughly understand the different 
 To be able to do so, Brian needs to understand the business goals as much as the technical aspects of an application.
 
 Who has never seen this scenario? 
-> User service team: "The user cannot use the feature, is it a development issue?"
-> Developer: "No, it’s a data issue" 
-> Data Quality: "No, it’s an environment or network issue"
-> Dev-Ops: "No, the user did not use it properly"
+
+* User service team: "The user cannot use the feature, is it a development issue?"
+* Developer: "No, it’s a data issue" 
+* Data Quality: "No, it’s an environment or network issue"
+* Dev-Ops: "No, the user did not use it properly"
+
 Brian’s role here is to clarify the issue and challenge his team to identify the best solution.
 
 # Brian’s techniques and main activities
