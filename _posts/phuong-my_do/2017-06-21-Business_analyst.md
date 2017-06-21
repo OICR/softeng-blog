@@ -71,8 +71,9 @@ Brian’s role here is to clarify the issue and challenge his team to identify t
   - business processes, data flow diagrams and user stories
   - mock-ups and wireframes
   - functional and non-functional requirements
-  - user acceptance criteria, decision logs, user impact of any business and technical decisions. 
-50% of Brian’s job is to write documentation and the other 50% is to listen to and communicate with people to make sure the documentation is accurate and shared.
+  - user acceptance criteria, decision logs, user impact of any business and technical decisions
+
+  50% of Brian’s job is to write documentation and the other 50% is to listen to and communicate with people to make sure the documentation is accurate and shared.
 
 * **Review documentation** with the business stakeholders.
 
