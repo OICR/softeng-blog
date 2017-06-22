@@ -3,7 +3,7 @@ layout: post
 title:  "Understand velocity and forecast with JIRA Agile"
 breadcrumb: true
 author: francois_gerthoffert
-date: 2017-06-19
+date: 2017-06-27
 categories: francois_gerthoffert
 tags:
     - JIRA
