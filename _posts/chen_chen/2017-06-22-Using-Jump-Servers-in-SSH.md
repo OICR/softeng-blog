@@ -33,10 +33,14 @@ One of the main reasons SSH is considered so secure is the fact that the key pai
 To generate a key-pair, enter the following terminal.
  
 ```ssh-keygen```
+
 The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). Once keys are generated, you need to tell your client about them using ssh-add.
-````ssh-add ~/.ssh/id_rsa````
+
+```ssh-add ~/.ssh/id_rsa```
+
 Granting Access to a Server
 Then adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
+
 ```.ssh/authorized_keys```
 
 ## Jump Servers
