@@ -70,7 +70,7 @@ A jump server’s main purpose is to bridge communication between the local comp
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/JumpServer.png" />
-    <figcaption>Map for a jump server connection</figcaption>
+    <figcaption>Accessing a network of servers using a jump server</figcaption>
 </figure>
 
 ## Agent Forwarding
