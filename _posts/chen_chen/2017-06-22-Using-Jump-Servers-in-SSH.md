@@ -92,8 +92,10 @@ Which would then allow chain server hopping like so:
 
 ~~~BASH
 ssh -A user@serverA
-serverA# ssh -A user@serverB
-serverB# ssh user@serverC
+#run inside serverA 
+ssh -A user@serverB
+#run inside serverB 
+ssh user@serverC
 ~~~
 
 ## Port Forwarding
