@@ -25,10 +25,9 @@ As the internet matured to become the defining innovative platform of our genera
 
 ## Key Based Authentication
 ### An Introduction to Public Key Infrastructures (PKI)
-
 SSH key-based authentication relies on two elements to establish a secure communication channel between a server and a client:
-* A public key: is publicly shareable and does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
-* A private key: contains the user’s identity when accessing a server. **MAJOR KEY ALERT!!!** This file must be kept secret.
+- A public key: is publicly shareable and does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
+- A private key: contains the user’s identity when accessing a server. **MAJOR KEY ALERT!!!** This file must be kept secret.
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/PublicKeyInfra.png" />
@@ -47,7 +46,8 @@ To generate a key-pair, enter the following in terminal.
 ssh-keygen
 ~~~
 
-The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). **MAJOR KEY ALERT!!!** Once keys are generated, you need to tell your client about them using ssh-add. This is needed for connecting to servers and agent forwarding.
+The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). 
+**MAJOR KEY ALERT!!!** Once keys are generated, you need to tell your client about them using ssh-add. This is needed for connecting to servers and agent forwarding.
 
 ~~~BASH
 ssh-add ~/.ssh/id_rsa
