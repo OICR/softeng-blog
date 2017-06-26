@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Jump Servers in SSH"
+title: "The Major Keys of SSH"
 breadcrumb: true
 author: chen_chen
 date: 2017-06-26
@@ -15,13 +15,13 @@ teaser:
     image: chen_chen/ssh.png
 ---
 ## Introduction
-As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through an encrypted channel. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone use these tools daily, to access data, administer servers, run workflows, and many more use cases. 
+As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through an encrypted channel. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone uses these tools daily, whether to access data, administer servers, run workflows, as well as many other uses. 
 
 ## Key Based Authentication
 ### An Introduction to Public Key Infrastructures (PKI)
 SSH key-based authentication relies on two elements to establish a secure communication channel between a server and a client:
-* A public key: publicly shareable, this file does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
-* A private key: containing the user’s identify, this file must be kept secret.
+* A public key: is publicly shareable and does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
+* A private key: contains the user’s identity when accessing a server. **MAJOR KEY ALERT!!!** This file must be kept secret.
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/PublicKeyInfra.png" />
@@ -37,12 +37,12 @@ To generate a key-pair, enter the following terminal.
  
 ```ssh-keygen```
 
-The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). Once keys are generated, you need to tell your client about them using ssh-add.
+The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). **MAJOR KEY ALERT!!!** Once keys are generated, you need to tell your client about them using ssh-add. This is needed for connecting to servers and agent forwarding.
 
 ```ssh-add ~/.ssh/id_rsa```
 
 ### Granting Access to a Server
-Then adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
+Adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
 
 ```.ssh/authorized_keys```
 
@@ -51,7 +51,7 @@ A jump server’s main purpose is to bridge communication between the local comp
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/JumpServer.png" />
-    <figcaption>Connections map for jump server</figcaption>
+    <figcaption>Map for a jump server connection</figcaption>
 </figure>
 
 ## Agent Forwarding
