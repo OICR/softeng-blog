@@ -32,12 +32,12 @@ SSH key-based authentication relies on two elements to establish a secure commun
 - A public key: is publicly shareable and does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
 - A private key: contains the user’s identity when accessing a server. <span style="color:gold">**MAJOR KEY ALERT!!!**</span> This file must be kept secret.
 
+When the user makes a connection request to the Server, the server sends back a unique challenge string. This challenge string is then encrypted by the user’s SSH client using the user’s private key and sent back to the server. Once the response is received, the server verifies the user by using the public key to decrypt the response. If the verification is successful, the user is granted access as it has been confirmed that the user is in possession of the private key that pairs with the public key on the server. 
+
 <figure>
     <img src="{{site.urlimg}}chen_chen/PublicKeyInfra.png" />
     <figcaption>Steps for a connection request verification</figcaption>
 </figure>
-
-When the user makes a connection request to the Server, the server sends back a unique challenge string. This challenge string is then encrypted by the user’s SSH client using the user’s private key and sent back to the server. Once the response is received, the server verifies the user by using the public key to decrypt the response. If the verification is successful, the user is granted access as it has been confirmed that the user is in possession of the private key that pairs with the public key on the server. 
 
 One of the main reasons SSH is considered so secure is the fact that the key pair is never communicated during authentication. As long as the private key is never exposed, it is virtually impossible to use any brute force algorithm to calculate the private key from the public key. 
 
