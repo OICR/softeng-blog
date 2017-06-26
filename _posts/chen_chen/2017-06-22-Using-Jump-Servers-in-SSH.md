@@ -3,11 +3,11 @@ layout: post
 title: "Using Jump Servers in SSH"
 breadcrumb: true
 author: chen_chen
-date: 2017-06-22
+date: 2017-06-26
 categories: chen_chen
 tags:
     - SSH
-    - terminal
+    - keys
     - security
     - servers
 teaser:
