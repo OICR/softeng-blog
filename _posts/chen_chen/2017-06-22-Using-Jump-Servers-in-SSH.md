@@ -12,6 +12,7 @@ tags:
     - servers
 teaser:
     info: An introduction and tutorial for key based authentication, jump servers, and port forwarding.
+    image: chen_chen/ssh.png
 ---
 ## Introduction
 As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through an encrypted channel. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone use these tools daily, to access data, administer servers, run workflows, and many more use cases. 
@@ -22,8 +23,10 @@ SSH key-based authentication relies on two elements to establish a secure commun
 * A public key: publicly shareable, this file does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
 * A private key: containing the user’s identify, this file must be kept secret.
 
-
-INSERT DIAGRAM HERE
+<figure>
+    <img src="{{site.urlimg}}chen_chen/PublicKeyInfra.png" />
+    <figcaption>Steps for a connection request verification</figcaption>
+</figure>
 
 When the user makes a connection request to the Server, the server sends back a unique challenge string. This challenge string is then encrypted by the user’s SSH client using the user’s private key and sent back to the server. Once the response is received, the server verifies the user by using the public key to decrypt the response. If the verification is successful, the user is granted access as it has been confirmed that the user is in possession of the private key that pairs with the public key on the server. 
 
@@ -46,7 +49,10 @@ Then adding access to a server is as easy as adding the client’s public key (b
 ## Jump Servers
 A jump server’s main purpose is to bridge communication between the local computer and another server. Using SSH to connect to jump servers creates an end to end encrypted segway for information flow between the local computer and a server. Using a jump server, security of a server network could be improved since only the jump server would be exposed directly to the Internet (and to attacks from outside). This limits the exposure of networks, thereby providing a blanket of SSH protection for all the other nodes. However, jump servers can be a double edged sword since an entire network of servers can be exposed if the jump server is compromised. 
 
-INSERT DIAGRAM 2
+<figure>
+    <img src="{{site.urlimg}}chen_chen/JumpServer.png" />
+    <figcaption>Connections map for jump server</figcaption>
+</figure>
 
 ## Agent Forwarding
 When establishing an SSH connection with default parameters, the private key is only kept on the local computer and the actual communication between the server and computer is using a challenge string. 
@@ -75,10 +81,11 @@ There are three different ways to port forward:
  
 * Dynamic port forwarding: Creates a tunnel for sending and receiving data through firewall pinholes by using multiple ports and servers. It is more complicated to set up than the remote and local port forwarding but it is a very powerful tool that can run several applications from different sources at a time. The source port is not specified since more set up is needed in order to for connections to be made to the specific ports.
 
-INSERT DIAGRAM HERE
-
-After using local port forwarding to access a process, the process can be accessed by entering
-`http://your.local.computer.IP:8080`
+<figure>
+    <img src="{{site.urlimg}}chen_chen/PortForwarding.png" />
+    <figcaption>After using local port forwarding to access a process, the process can be accessed by entering
+`http://your.local.computer.IP:8080`</figcaption>
+</figure>
 
 ## Conclusion
 The use of SSH protocols isn’t just limited to software developers. It is freely accessible to anyone who uses a computer. As people are becoming more interested in protecting their private information from piracy on the vast ocean that is the internet, private servers and networks are being built in homes everywhere. Society as a whole is becoming more tech-savvy as computers have become widely accessible in most homes and schools. With that, a younger generation is exposed to computers and the internet. Soon, there will be courses even in middle school dedicated to computer and internet security. When that happens, these students will finally find a more boring course than math.
