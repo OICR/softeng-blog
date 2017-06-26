@@ -21,7 +21,7 @@ header:
 ---
 ## Introduction
 
-As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through encrypted channels. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone uses these tools daily, whether to access data, administer servers, run workflows, as well as many other uses. 
+As the internet became the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through encrypted channels. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone uses these tools daily, whether to access data, administer servers, run workflows, as well as many other uses. 
 
 ## Key Based Authentication
 
