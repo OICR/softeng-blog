@@ -38,30 +38,48 @@ The tool will create a public key and a password-protected private key and place
 
 ```ssh-add ~/.ssh/id_rsa```
 
-Granting Access to a Server
+### Granting Access to a Server
 Then adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
 
 ```.ssh/authorized_keys```
 
 ## Jump Servers
-A jump server’s main purpose is to bridge communication between the local computer and another server. Using SSH to connect to jump servers creates an end to end encrypted segway for information flow between the local computer and a server. Using a jump server, security of a server network could be improved since only the jump server would be exposed directly to the Internet (and to attacks from outside). This limits the exposure of networks, thereby providing a blanket of SSH protection for all the other nodes. However, jump servers can be a  double edged sword since an entire network of servers can be exposed if the jump server is compromised. 
+A jump server’s main purpose is to bridge communication between the local computer and another server. Using SSH to connect to jump servers creates an end to end encrypted segway for information flow between the local computer and a server. Using a jump server, security of a server network could be improved since only the jump server would be exposed directly to the Internet (and to attacks from outside). This limits the exposure of networks, thereby providing a blanket of SSH protection for all the other nodes. However, jump servers can be a double edged sword since an entire network of servers can be exposed if the jump server is compromised. 
 
 INSERT DIAGRAM 2
 
 ## Agent Forwarding
 When establishing an SSH connection with default parameters, the private key is only kept on the local computer and the actual communication between the server and computer is using a challenge string. 
  
-However, what if you want to establish a connection, from that (jump) server, to another remote server ? The solution to avoid having to copy private keys around is to achieve this by calling an Agent running on the client. 
+However, since the private key is only stored on the user computer, there is a problem when trying to establish a connection between a jump server to another remote server due to the fact that the jump server does not contain the private key. The solution to avoid storing keys on the jump server and compromising security is using an agent on each connection. Using agent forwarding, multiple servers can be jumped through   
  
-Despite the name including the term “forwarding” the actual mechanism for agent forwarding does not move the key at all. What the agent does is act as a redirect for when the private key is challenged. Since the private key must never leave the local computer, the agent forwards the challenge down each level of connection until it reaches the client local machine. Once the challenge is encrypted by the private key, the response is then forwarded by the key back to the server that issued the challenge.
+Despite the name including the term “forwarding” the actual mechanism for agent forwarding does not move the key at all. What the agent does is act as a redirect for when the private key is challenged. Since the private key must never leave the local computer, the agent forwards the challenge down each level of the SSH connection until it reaches the client local machine. Once the challenge is encrypted by the private key, the response is then forwarded by the key back to the server that issued the challenge.
 
 To agent Forward, just include “-A” after the ssh command to call agent.
  
 ```ssh -A user@server```
  
-Which would then allow you to run this:
+Which would then allow chain server hopping like so:
 ```
 ssh -A user@serverA
 serverA# ssh -A user@serverB
 serverB# ssh user@serverC
 ```
+## Port Forwarding
+Firewalls can provide a front line defense by restricting access to internal services by connections from the Internet, however, there may be cases where a set of “trusted” users require access to these internal services. In the situation that the firewall grants specific servers access to the internal services, these servers as jump servers to establish a secured tunnel in order to access specific, identifiable resources. This act is called port forwarding. When the user makes a request, it is sent to the jump server which forwards the request to the internal resource on the behalf of the user computer. Once the request is granted, the response is then sent back to the jump server which forwards the response to the user computer through the SSH tunnel. 
+ 
+There are three different ways to port forward:
+### *Local port forwarding: 
+Allows the local computer to use a jump server in order to access internal services that are protected by a firewall otherwise. The local computer creates a service tunnel through the firewall to the jump server. The jump server is then able to access the internal service and forwards the data back to the local computer. 
+ 
+*Remote port forwarding: Allows the server to access data from a local computer by using its connection. This is useful when a computer connected to the server contains files that users on the server need access to. The local computer forwards the port of which the internal service is stored. This allows users connected to the server to access the specified port on the local computer that forwarded the port.
+ 
+*Dynamic port forwarding: Creates a tunnel for sending and receiving data through firewall pinholes by using multiple ports and servers. It is more complicated to set up than the remote and local port forwarding but it is a very powerful tool that can run several applications from different sources at a time. The source port is not specified since more set up is needed in order to for connections to be made to the specific ports.
+
+INSERT DIAGRAM HERE
+
+After using local port forwarding to access a process, the process can be accessed by entering
+`http://your.local.computer.IP:8080`
+
+## Conclusion
+The use of SSH protocols isn’t just limited to software developers. It is freely accessible to anyone who uses a computer. As people are becoming more interested in protecting their private information from piracy on the vast ocean that is the internet, private servers and networks are being built in homes everywhere. Society as a whole is becoming more tech-savvy as computers have become widely accessible in most homes and schools. With that, a younger generation is exposed to computers and the internet. Soon, there will be courses even in middle school dedicated to computer and internet security. When that happens, these students will finally find a more boring course than math.
