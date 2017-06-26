@@ -114,7 +114,7 @@ There are three different ways to port forward:
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/PortForwarding.png" />
-    <figcaption>If a local port is forwarded to a webpage, the webpage can be accessed by entering
+    <figcaption>If a local port is forwarded to a web server, the web server can be accessed by entering
 "http://your.local.computer.IP:8080"</figcaption>
 </figure>
 
