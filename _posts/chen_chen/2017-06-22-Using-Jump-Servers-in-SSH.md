@@ -96,7 +96,7 @@ ssh -A user@serverA
 #run inside serverA 
 ssh -A user@serverB
 
-#run inside serverB 
+#run inside serverB. Drop the agent once you are connecting to destination. 
 ssh user@serverC
 ~~~
 
