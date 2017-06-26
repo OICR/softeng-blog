@@ -38,18 +38,24 @@ When the user makes a connection request to the Server, the server sends back a 
 One of the main reasons SSH is considered so secure is the fact that the key pair is never communicated during authentication. As long as the private key is never exposed, it is virtually impossible to use any brute force algorithm to calculate the private key from the public key. 
 
 ## Setting up a Public and Private Key-Pair
-To generate a key-pair, enter the following terminal.
+To generate a key-pair, enter the following in terminal.
  
-```ssh-keygen```
+~~~BASH
+ssh-keygen
+~~~
 
 The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). **MAJOR KEY ALERT!!!** Once keys are generated, you need to tell your client about them using ssh-add. This is needed for connecting to servers and agent forwarding.
 
-```ssh-add ~/.ssh/id_rsa```
+~~~BASH
+ssh-add ~/.ssh/id_rsa
+~~~
 
 ### Granting Access to a Server
 Adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
 
-```.ssh/authorized_keys```
+~~~BASH
+.ssh/authorized_keys
+~~~
 
 ## Jump Servers
 A jump server’s main purpose is to bridge communication between the local computer and another server. Using SSH to connect to jump servers creates an end to end encrypted segway for information flow between the local computer and a server. Using a jump server, security of a server network could be improved since only the jump server would be exposed directly to the Internet (and to attacks from outside). This limits the exposure of networks, thereby providing a blanket of SSH protection for all the other nodes. However, jump servers can be a double edged sword since an entire network of servers can be exposed if the jump server is compromised. 
@@ -68,14 +74,16 @@ Despite the name including the term “forwarding” the actual mechanism for ag
 
 To agent Forward, just include “-A” after the ssh command to call agent.
  
-```ssh -A user@server```
+~~~BASH
+ssh -A user@server
+~~~
  
 Which would then allow chain server hopping like so:
-```
+~~~BASH
 ssh -A user@serverA
 serverA# ssh -A user@serverB
 serverB# ssh user@serverC
-```
+~~~
 ## Port Forwarding
 Firewalls can provide a front line defense by restricting access to internal services by connections from the Internet, however, there may be cases where a set of “trusted” users require access to these internal services. In the situation that the firewall grants specific servers access to the internal services, these servers as jump servers to establish a secured tunnel in order to access specific, identifiable resources. This act is called port forwarding. When the user makes a request, it is sent to the jump server which forwards the request to the internal resource on the behalf of the user computer. Once the request is granted, the response is then sent back to the jump server which forwards the response to the user computer through the SSH tunnel. 
  
