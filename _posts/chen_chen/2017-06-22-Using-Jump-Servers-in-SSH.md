@@ -21,11 +21,12 @@ header:
 ---
 ## Introduction
 
-As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through an encrypted channel. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone uses these tools daily, whether to access data, administer servers, run workflows, as well as many other uses. 
+As the internet matured to become the defining innovative platform of our generation, security and privacy concerns grew. Secure Shell, or SSH, was created to be just a protocol to allow secure connection to a university server. Now, it is one of the most common forms of remote shell access for any server, whether it’s a corporation or personal. It goes beyond a traditional username and password verification, using encryption that is mathematically unbreakable to attackers. The advanced features of SSH can connect an entire network of servers through encrypted channels. SSH has now grown to become one of the fundamental tools for any software developer. At OICR, almost everyone uses these tools daily, whether to access data, administer servers, run workflows, as well as many other uses. 
 
 ## Key Based Authentication
 
 ### An Introduction to Public Key Infrastructures (PKI)
+
 SSH key-based authentication relies on two elements to establish a secure communication channel between a server and a client:
 
 - A public key: is publicly shareable and does not contain confidential information and is used by a third party (the server in our case) to verify a remote party’s identity
@@ -87,16 +88,19 @@ ssh -A user@server
 ~~~
  
 Which would then allow chain server hopping like so:
+
 ~~~BASH
 ssh -A user@serverA
 serverA# ssh -A user@serverB
 serverB# ssh user@serverC
 ~~~
+
 ## Port Forwarding
 
 Firewalls can provide a front line defense by restricting access to internal services by connections from the Internet, however, there may be cases where a set of “trusted” users require access to these internal services. In the situation that the firewall grants specific servers access to the internal services, these servers as jump servers to establish a secured tunnel in order to access specific, identifiable resources. This act is called port forwarding. When the user makes a request, it is sent to the jump server which forwards the request to the internal resource on the behalf of the user computer. Once the request is granted, the response is then sent back to the jump server which forwards the response to the user computer through the SSH tunnel. 
  
 There are three different ways to port forward:
+
 * Local port forwarding: Allows the local computer to use a jump server in order to access internal services that are protected by a firewall otherwise. The local computer creates a service tunnel through the firewall to the jump server. The jump server is then able to access the internal service and forwards the data back to the local computer. 
  
 * Remote port forwarding: Allows the server to access data from a local computer by using its connection. This is useful when a computer connected to the server contains files that users on the server need access to. The local computer forwards the port of which the internal service is stored. This allows users connected to the server to access the specified port on the local computer that forwarded the port.
@@ -105,10 +109,10 @@ There are three different ways to port forward:
 
 <figure>
     <img src="{{site.urlimg}}chen_chen/PortForwarding.png" />
-    <figcaption>After using local port forwarding to access a process, the process can be accessed by entering
+    <figcaption>After a local port is forwarded to a process, the process can be accessed by entering
 "http://your.local.computer.IP:8080"</figcaption>
 </figure>
 
 ## Conclusion
 
-The use of SSH protocols isn’t just limited to software developers. It is freely accessible to anyone who uses a computer. As people are becoming more interested in protecting their private information from piracy on the vast ocean that is the internet, private servers and networks are being built in homes everywhere. Society as a whole is becoming more tech-savvy as computers have become widely accessible in most homes and schools. With that, a younger generation is exposed to computers and the internet. Soon, there will be courses even in middle school dedicated to computer and internet security. When that happens, these students will finally find a more boring course than math.
+The use of SSH protocols isn’t just limited to software developers. It is freely accessible to anyone who uses a computer. As people are becoming more interested in protecting their private information from piracy on the vast ocean that is the internet, more private servers and networks are being built in homes. Society as a whole is becoming more tech-savvy as computers have become widely accessible in most homes and schools. With that, a younger generation is exposed to computers and the internet. Soon, there will be courses even in middle school dedicated to computer and internet security. When that happens, these students might finally find a more boring class than math.
