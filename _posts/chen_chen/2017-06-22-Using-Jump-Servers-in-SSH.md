@@ -50,6 +50,7 @@ ssh-keygen
 ~~~
 
 The tool will create a public key and a password-protected private key and place them in the folder of your choice (usually ~/.ssh/). 
+
 <span style="color:gold">**MAJOR KEY ALERT!!!**</span> Once keys are generated, you need to tell your client about them using ssh-add. This is needed for connecting to servers and agent forwarding.
 
 ~~~BASH
@@ -58,7 +59,7 @@ ssh-add ~/.ssh/id_rsa
 
 ### Granting Access to a Server
 
-Adding access to a server is as easy as adding the client’s public key (by default id_pub file), to the ‘authorized_keys’ on the server.
+Adding access to a server is as easy as adding the client’s public key (by default located in id_rsa.pub file), to the ‘authorized_keys’ on the server.
 
 ~~~BASH
 .ssh/authorized_keys
