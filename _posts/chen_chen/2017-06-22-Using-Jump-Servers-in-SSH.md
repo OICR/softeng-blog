@@ -78,7 +78,7 @@ A jump server’s main purpose is to bridge communication between the local comp
 
 When establishing an SSH connection with default parameters, the private key is only kept on the local computer and the actual communication between the server and computer is using a challenge string. 
  
-However, since the private key is only stored on the user computer, there is a problem when trying to establish a connection between a jump server to another remote server due to the fact that the jump server does not contain the private key. The solution to avoid storing keys on the jump server and compromising security is using an agent on each connection. Using agent forwarding, multiple servers can be jumped through   
+However, since the private key is only stored on the user computer, there is a problem when trying to establish a connection between a jump server to another remote server due to the fact that the jump server does not contain the private key. The solution to avoid storing keys on the jump server and compromising security is using an agent on each connection. Using agent forwarding, multiple servers can be jumped through.   
  
 Despite the name including the term “forwarding” the actual mechanism for agent forwarding does not move the key at all. What the agent does is act as a redirect for when the private key is challenged. Since the private key must never leave the local computer, the agent forwards the challenge down each level of the SSH connection until it reaches the client local machine. Once the challenge is encrypted by the private key, the response is then forwarded by the agent back to the server that issued the challenge.
 
