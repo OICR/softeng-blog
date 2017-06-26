@@ -82,7 +82,7 @@ However, since the private key is only stored on the user computer, there is a p
  
 Despite the name including the term “forwarding” the actual mechanism for agent forwarding does not move the key at all. What the agent does is act as a redirect for when the private key is challenged. Since the private key must never leave the local computer, the agent forwards the challenge down each level of the SSH connection until it reaches the client local machine. Once the challenge is encrypted by the private key, the response is then forwarded by the agent back to the server that issued the challenge.
 
-To agent Forward, just include “-A” after the ssh command to call agent.
+To agent forward, just include “-A” after the ssh command to call agent.
  
 ~~~BASH
 ssh -A user@server
