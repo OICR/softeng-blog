@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Sample Category
+title: Blog Posts
 category: chen_chen
 permalink: /blog/category/chen_chen
 header: 
