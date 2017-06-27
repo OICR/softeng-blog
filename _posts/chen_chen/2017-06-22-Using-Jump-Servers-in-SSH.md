@@ -3,7 +3,7 @@ layout: post
 title: "The Major Keys of SSH: Using Jump Servers and Port Forwarding"
 breadcrumb: true
 author: chen_chen
-date: 2017-06-26
+date: 2017-06-27
 categories: chen_chen
 tags:
     - SSH
