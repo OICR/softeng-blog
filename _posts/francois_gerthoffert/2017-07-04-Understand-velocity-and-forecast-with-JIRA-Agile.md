@@ -19,8 +19,6 @@ header:
     icon: icon-blog
 ---
 
-Understand-velocity-and-forecast-with-JIRA-Agile.
-
 Agile is at the heart of project management methodologies within our software engineering team. While trying our best to follow the [Agile principle](http://agilemanifesto.org/iso/en/principles.html), we frequently adjust tools, workflows, methodologies in an effort to deliver better software, more efficiently. Understanding the team’s velocity in this evolving context is key to assess remaining effort and guess-timate completion dates.
  
 We use Story Points [1, 2, 3, 5, 8, 13] to [estimate the level of complexity](https://www.atlassian.com/agile/estimation) of our activities, all tickets making their way into a sprint, must be estimated. Jira, our Agile ticket/project management platform does provide various tools and reports to assist in estimation and planning but we found those challenging to use in our context of fairly large teams and projects.
