@@ -10,7 +10,7 @@ tags:
     - Project Management
     - Agile
 teaser:
-    info: Agile is at the heart of project management methodologies within our software engineering team. While trying our best to follow the Agile principles, we frequently adjust tools, workflows, methodologies in an effort to deliver better software, more efficiently. Understanding the team’s velocity in this evolving context is key to assess remaining effort and guess-timate completion dates.
+    info: Agile is at the heart of project management methodologies within our software engineering team. While trying our best to follow the Agile principles, we frequently adjust tools, workflows, methodologies in an effort to deliver better software, more efficiently. Understanding the team’s velocity in this evolving context is key to assess remaining effort and guesstimate completion dates.
     image: francois_gerthoffert/jira-agile-velocity/jav-slack.png
 header:
     version: small
