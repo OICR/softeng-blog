@@ -108,7 +108,7 @@ If the remaining amount of work account for 1-2 weeks of work, looking at last w
  
 Although we might have been consistent in our estimates and might have been collecting data over a long period of time, the team do changes, project context do changes, which includes variation in the team’s velocity. So comparing velocity in June 2016 versus June 2017 would likely not be relevant.
  
-An imperfect solution
+# An imperfect solution
  
 The estimates details above are far from being a 100% accurate mean of estimating completion dates, but they do provide the team with trends and number to work with when answering the typical "when will this be ready ?" or "when can we release next ?".
  
