@@ -106,7 +106,7 @@ If the remaining amount of work is limited (let’s say a handful of days), look
  
 If the remaining amount of work account for 1-2 weeks of work, looking at last week’s velocity and a 4 week rolling average is probably your best bet. The longer your period is, the more uncertainty there will be (people will take vacations, are out sick, need to attend meetings, etc...). Comparing over a similar duration, as close as possible from current date, is likely to be the most accurate option. 
  
-Although we might have been consistent in our estimates and might have been collecting data over a long period of time, the team do changes, project context do changes, which includes variation in the team’s velocity. So comparing velocity in June 2016 versus June 2017 would likely not be relevant.
+Although we might have been consistent in our estimates and might have been collecting data over a long period of time, the team does change, project context does change, which includes variation in the team’s velocity. So comparing velocity in June 2016 versus June 2017 would likely not be relevant.
  
 # An imperfect solution
  
