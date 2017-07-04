@@ -104,7 +104,7 @@ Once we understand past velocity, we can estimate the amount of time necessary t
  
 If the remaining amount of work is limited (let’s say a handful of days), looking at "this week" and "last week"’s velocity is likely going to be your best bet in estimating possible completion date. But if daily velocity calculated over a short timeframe strongly diverges from daily velocity calculated over 4 weeks rolling average, some uncertainty should be added around completion date.
  
-If the remaining amount of work account for 1-2 weeks or work, looking at last week’s velocity and a 4 week rolling average is probably your best bet. The longer your period is, the more uncertainty there will be (people will take vacations, are out sick, need to attend meetings, etc...). Comparing over a similar duration, as close as possible from current date, is likely to be most accurate option. 
+If the remaining amount of work account for 1-2 weeks of work, looking at last week’s velocity and a 4 week rolling average is probably your best bet. The longer your period is, the more uncertainty there will be (people will take vacations, are out sick, need to attend meetings, etc...). Comparing over a similar duration, as close as possible from current date, is likely to be the most accurate option. 
  
 Although we might have been consistent in our estimates and might have been collecting data over a long period of time, the team do changes, project context do changes, which includes variation in the team’s velocity. So comparing velocity in June 2016 versus June 2017 would likely not be relevant.
  
