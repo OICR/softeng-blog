@@ -29,7 +29,7 @@ A few months ago, I worked on a project that involved writing model objects to C
 The objective is to write a collection of [beans](https://en.wikipedia.org/wiki/Plain_old_Java_object#JavaBeans) 
 or [POJOs](https://en.wikipedia.org/wiki/Plain_old_Java_object) (Plain Old Java Object - which is a mutable Java class that contains an empty, argument-less constructor, with a getter and setter method for each field) to CSV files using several external libraries, while adhering to the following constraints:
 
-- __Rule 1:__ _Ordered Headers_ - the number of headers and their order may very from how they are defined in the model.
+- __Rule 1:__ _Ordered Headers_ - the number of headers and their order may vary from how they are defined in the model.
 - __Rule 2:__ _Alternative Header Names_ - the column names could be different from the names of the corresponding member variable in the model class.
 - __Rule 3:__ _Model Code Freeze_ - the library containing the model class has its source code frozen, so changes to the code are not possible for the current release.
 - __Rule 4:__ _Encapsulated Configurational Changes_ - ensure that when a configuration needs to be changed, it only needs to be changed in one definition (enumeration, method, constant or fixture) and not in many definitions. This minimizes potential human error, where one definition was updated, but the other was not.
@@ -45,7 +45,9 @@ Ultimately, the software must be maintainable and human readable. The goal is to
 
 ### What is the CSV format and RFC-4180?
 
-The term CSV stands for "Comma Separated Value", and represents a loosely defined format for representing tabular data using plain text, where commas separate field values (columns) and newlines separate records (rows). In fact, CSV files are not limited to the comma character being the delimiter, for instance, a TSV (Tab Separated Value) file is a CSV file that uses the tab character instead of the comma character. CSV is commonly used as a data exchange format for scientific and business applications and is popular for its simplicity and for being human readable.
+The term CSV stands for "Comma Separated Value", and represents a loosely defined format for representing tabular data using plain text, where commas separate field values (columns) and newlines separate records (rows). 
+The plain text representation of tabular data is not limited to the CSV format, the TSV (Tab Separated Value) format provides an alternative, using the tab character instead of the comma character.
+CSV is commonly used as a data exchange format for scientific and business applications and is popular for its simplicity and for being human readable.
 
 Although the CSV format is relatively straight forward, it lacks official standardization. When writing or parsing CSV files, there are several edge cases that need to be standardized so that libraries can all conform to the same rules of CSV processing. The [RFC-4180](https://www.rfc-editor.org/rfc/rfc4180.txt) specification attempts to standardize the format, and is commonly used in many CSV processing libraries, such as 
 [jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv), 
@@ -406,7 +408,7 @@ In contrast to the previous test, this test uses the tab character `\t` as the s
 2               "Frank"                 "Rosenblatt"            43
 3               "Alex"                  "Murphy"                37
 ```
-it is clear that the `jackson-dataformat-csv` library adds quotes to string fields, and does not add quotes to numeric values. If this external library is used to read AND write CSV files, then it is perfectly fine to use. However, if it is used to write CSV files, and then another library reads that CSV file, a error may occur when the library parses the unquoted numeric field. 
+it is clear that the `jackson-dataformat-csv` library adds quotes to string fields, and does not add quotes to numeric values. If this external library is used to read AND write CSV files, then it is perfectly fine to use. However, if it is used to write CSV files, and then another library reads that CSV file, an error may occur when the library parses the unquoted numeric field. 
 
 ```java
   @Test
