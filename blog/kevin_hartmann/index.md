@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Blog Posts 
+title: Sample Category
 category: kevin_hartmann
 permalink: /blog/category/kevin_hartmann
 header: 
@@ -10,4 +10,3 @@ header:
     page: team
     icon: icon-blog
 ---
-Sorry, no blog posts from Kevin Hartmann yet!
