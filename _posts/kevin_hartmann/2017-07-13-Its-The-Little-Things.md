@@ -11,6 +11,7 @@ tags:
     - Gotchas 
 teaser:
     info: It's often the little things in life, and in coding, that trip us up.
+    image: kevin_hartmann/fall.png
 header:
     version: small
     title: Software Engineering Blog
