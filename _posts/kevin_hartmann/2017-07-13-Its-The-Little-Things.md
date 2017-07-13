@@ -25,7 +25,7 @@ Consider a situation where you have a jar file containing a Java program written
 ## Why doesn't this work?
 
 ```
-java -jar --spring.config.location=conf
+java -jar CoolProgram.jar --spring.config.location=conf
 ```
 
 Programmers tend to use the "Principle of Least Surprise" when developing systems in order to make them easier for other programmers to learn; the basic rule is that if something looks the same as it does on another system, it should act the same, too.  
@@ -37,7 +37,7 @@ So, you might naturally think that the command above should work.
 ## Why does this work, instead?
 
 ```
-java -jar --spring.config.location=conf/
+java -jar CoolProgram.jar --spring.config.location=conf/
 ```
 
 The short answer is because Spring defines it that way. The **/** character at the end makes all the difference in the world. 
