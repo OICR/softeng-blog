@@ -296,6 +296,7 @@ public enum PersonSchema implements SchemaField<Person> {
 }
 ```
 Now that `Person` value retrieval (i.e the getter method reference) is coupled with the field name definition, the need for human synchronization is no longer needed. The `LambdaConverter` uses the schema to iterate through all the getter method references in order, and apply them to the object being converted, as shown in the code below.
+
 ```java
 public class LambdaConverter<T> implements Converter<T, String[]> {
   private final SchemaField<T>[] schema;
@@ -405,16 +406,45 @@ Each one of these configurations completes the _Execution_ step shown in __Figur
 </figure>
 </center>
 
- 
 <center>
-| id | firstName | lastName   | age |
-|----|-----------|------------|-----|
-| 1  | Denis     | Ritchie    | 70  |
-| 2  | Frank     | Rosenblatt | 43  |
-| 3  | Alex      | Murphy     | 37  |
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>age</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Denis</td>
+                        <td>Ritchie</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Frank</td>
+                        <td>Rosenblatt</td>
+                        <td>43</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Alex</td>
+                        <td>Murphy</td>
+                        <td>37</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <strong>Table 1:</strong> Example data
+            </td>
+        </tr>
+    </table>
 </center>
-
-###### Table 1: Example data
 
 ### Testing
 
@@ -491,6 +521,7 @@ it is clear that the `jackson-dataformat-csv` library adds quotes to string fiel
         runner.getJacksonBeanPath());
   }
 ```
+
 #### COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2
 
 In this test, the separator is the comma character `,`, quotes are disabled, and the order from `PersonSchema` is shifted left by 2. For example, instead of regular header order `["id", "firstName", "lastName", "age"]`, the shifted order would be `["lastName", "age", "id", "firstName"]`. The purpose of this test is to assess which configurations can properly process fields defined in a different order, which partially satisfies __Rule 1__. The JUnit test below,
