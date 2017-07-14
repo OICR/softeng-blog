@@ -101,7 +101,7 @@ Writing a collection of beans to a CSV file can be modelled using these steps:
     
 The second step can be illustrated as follows:
 
-<figure>
+<figure style="width:700px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_conv_diagram.svg" />
     <figcaption>Figure 1: CSV Writing Process </figcaption>
 </figure>
@@ -138,10 +138,12 @@ public class PersonBean implements Person {
 ```
 which implements the `Person` interface. This code lives in the `blog1-model` module, and will represent frozen code which is unmodifiable, meaning you cannot add annotations, change member field names or their order. Each row of CSV data represents the same data as this bean. In this example, a fixed and pre-populated list of `PersonBean` object was used to test the different `CsvWriterBridge` implementations, by writing the list to a CSV file. Using the 3 external CSV processing libraries, several configurations can be achieved, as discussed in the testing section. There are 2 categories of configurations: bean based (any configuration suffixed with `*_BEAN`) and non-bean based (any configuration suffixed with `*_EXPLICIT` and `*_LAMBDA`). All `*_BEAN` configurations use the underlying library's bean introspective functionality, while all `*_EXPLICIT` configurations use the _Explicit Schema Strategy_ (defined in the [Objective](#objective) section) in combination with the library's `String[]` CSV Writer. Likewise, the _Lambda Schema Strategy_ is used for all `*_LAMBDA` configurations, and is intended to highlight its superiority over the _Explicit Schema Strategy_. An overview of the stages involved are shown in __Figure 2__ 
 
-<figure>
+<center>
+<figure style="width:270px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/process_overview.svg" />
     <figcaption>Figure 2: Stages for writing CSV files </figcaption>
 </figure>
+</center>
 
 In addition, the source code requires Java 8 to compile, uses [Apache Maven](https://maven.apache.org/) as the build automation tool, and [Junit](http://junit.org/junit4/) as the testing framework.
 
@@ -154,10 +156,12 @@ In order to properly configure the CSV writers, certain prerequisite data is nee
 
 This step creates the context needed to commonly configure all 4 CSV writer implementations, as illustrated in __Figure 3__
 
-<figure>
+<center>
+<figure style="width:325px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/context_configuration.svg" />
     <figcaption>Figure 3: Steps involved in the Context Configuration stage  </figcaption>
 </figure>
+</center>
 
 Firstly, the schema is created. In the non-bean based configurations (i.e `*_LAMBDA` and `*_EXPLICIT`), the schema is defined as an array of `SchemaField<T>`, where `T` represents the bean class:
 
@@ -183,10 +187,12 @@ Lastly, the schema is used to create the `CsvWriterBridgeContext`, which is used
 
 The purpose of this stage is to create a CSV writer using a selected implementation and the previously constructed `CsvWriterBridgeContext`. __Figure 4__ below outlines the steps required in this stage:
 
-<figure>
+<center>
+<figure style="width:700px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_writer_bridge_construction.svg" />
     <figcaption>Figure 4: Steps involved in CsvWriterBridge Construction stage  </figcaption>
 </figure>
+</center>
 
 At the core of this design, is the `CsvWriterBridge` interface, which exposes essential CSV writing functionality that is available in all CSV writer libraries. As described in the [How does CSV writing work?](#how-does-csv-writing-work) section, the requirements are to write the header, and one or more beans to a csv file. The `CsvWriterBridge` interface defines this functionality in the code below:
 
@@ -391,17 +397,21 @@ and a simple solution. The following is a list of the 11 different configuration
 
 Each one of these configurations completes the _Execution_ step shown in __Figure 5__, and then write a `List<PersonData>` containing data from __Table 1__ to a CSV file. After writing a CSV file for each configuration, they are compared against the expected results and amongst each other.
 
-<figure>
+<center>
+<figure style="width:325px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/execution.svg" />
     <figcaption>Figure 5: Steps involved in Execution stage  </figcaption>
 </figure>
+</center>
 
  
+<center>
 | id | firstName | lastName   | age |
 |----|-----------|------------|-----|
 | 1  | Denis     | Ritchie    | 70  |
 | 2  | Frank     | Rosenblatt | 43  |
 | 3  | Alex      | Murphy     | 37  |
+</center>
 
 ###### Table 1: Example data
 
