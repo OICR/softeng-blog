@@ -355,6 +355,7 @@ public class StringArrayCsvWriterDecorator<T> implements CsvWriterBridge<T> {
 
 
 Using all the code defined thus far, any configuration can easily be constructed. For example, the following code constructs the `SUPER_CSV_LAMBDA` configuration:
+
 ```java
 //1. Build the context
 CsvWriterBridgeContext context = CsvWriterBridgeContext.<Person>builder()
@@ -525,6 +526,7 @@ In this test, the separator is the comma character `,`, quotes are disabled, and
   }
 ```
 shows that all `*_EXPLICIT` configurations fail to write the correct data. Since they all use the same object converter implementation, the following output CSV file content is the same for all `*_EXPLICIT` configurations:
+
 ```
 personLastName,personAge,personId,personFirstName
 1,Denis,Ritchie,70
@@ -576,37 +578,23 @@ The configuration for this test is exactly the same as the `COMMA_SEP_NO_QUOTES_
 verifies 2 important points:
 
 1. The `JACKSON_BEAN` configuration failed to remove the `id` field completely. Instead, it was appended at the end, which breaks __Rule 1__, as shown below:
-    ```
-    personFirstName,personLastName,personAge
-    Denis,Ritchie,70,1
-    Frank,Rosenblatt,43,2
-    Alex,Murphy,37,3
-    ```
+
+```
+personFirstName,personLastName,personAge
+Denis,Ritchie,70,1
+Frank,Rosenblatt,43,2
+Alex,Murphy,37,3
+```
+
 2. The `*_EXPLICIT` configurations failed to remove the `id` field as well, because the `ExplicitPersonConverter` hardcodes the conversion. In order to correct this mistake, the `ExplicitPersonConverter` would have to be modified, which breaks __Rule 1__ and __Rule 4__. Here is the output:
-    ```
-    personFirstName,personLastName,personAge
-    1,Denis,Ritchie,70
-    2,Frank,Rosenblatt,43
-    3,Alex,Murphy,37
-    ```
+
+```
+personFirstName,personLastName,personAge
+1,Denis,Ritchie,70
+2,Frank,Rosenblatt,43
+3,Alex,Murphy,37
+```
 
 ## Conclusion
 
 The design of the software used in this blog post demonstrates how the bridge pattern can be used to interface with various CSV processing libraries and how the decorator pattern can be used to extend functionality of a particular class without affecting other instances of that class. In addition, the design adheres to the SOLID principles making the software easy to understand and maintainable. By analysing how the configurations satisfy each rule defined in the objective section, the issues with different libraries are brought to light. In general, the bean based methods eliminate the need for defining data conversion, since the libraries use their own bean introspective strategies. The non-bean based methods demonstrate how to write data to CSV files without using bean introspection. The source code also provides a good example of how to configure or setup CSV writing for OpenCSV, SuperCSV, jackson-dataformat-csv and for a simple implementation. It also exemplifies poor design, by comparing the hardcoded object conversion in `ExplicitPersonConverter` to the non-hardcoded implementation in `LambdaConverter`. Overall, this blog post can be used as an example of how to compare or use different libraries with similar functionality in a cohesive and decoupled manner without altering frozen code.
-
-
-    
-### keep list of keywords
-- java 8
-- decorator pattern
-- bridge pattern
-- lambda functions
-- method references
-- reflection
-- opencsv
-- supercsv
-- jackson-dataformat-csv
-- csv
-- maven
-- junit
-
