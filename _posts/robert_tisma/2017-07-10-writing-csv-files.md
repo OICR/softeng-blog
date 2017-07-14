@@ -38,10 +38,10 @@ header:
         2. [CsvWriterBridge Construction](#csvwriterbridge-construction)
         3. [Execution](#execution)
     3. [Testing](#testing)
-        1. [COMMA_SEP_NO_QUOTES_REGULAR_ORDER](#comma_sep_no_quotes_regular_order)
-        2. [TAB_SEP_WITH_QUOTES_REGULAR_ORDER](#tab_sep_with_quotes_regular_order) 
-        3. [COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2](#comma_sep_no_quotes_order_shifted_by_2)
-        4. [COMMA_SEP_NO_QUOTES_1_LESS_HEADER](#comma_sep_no_quotes_1_less_header)
+        1. [COMMA_SEP_NO_QUOTES_REGULAR_ORDER](#t1)
+        2. [TAB_SEP_WITH_QUOTES_REGULAR_ORDER](#t2) 
+        3. [COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2](#t3)
+        4. [COMMA_SEP_NO_QUOTES_1_LESS_HEADER](#t4)
 5. [Conclusion](#conclusion)
         
 ## Introduction
@@ -450,7 +450,8 @@ Each one of these configurations completes the _Execution_ step shown in __Figur
 
 In addition to explaining the design, each configuration was tested by varying the separator character, the quote character, and the order of the headers. The output CSV files, were all compared to a __GOLDEN__ reference representing the _expected_ CSV file contents, which verified the correctness of each configuration and helped identify issues. Since all the tests in the source code pass, the results of each configuration can be deduced from the assertions that were used.
 
-#### COMMA_SEP_NO_QUOTES_REGULAR_ORDER
+
+#### COMMA_SEP_NO_QUOTES_REGULAR_ORDER #### {#t1}
 
 In this test, the separator is the comma character `,`, quoting is disabled (by setting the quote character to the null character `\u0000`), and the order of the headers match the order defined in `PersonSchema`, which is `["id", "firstName", "lastName", "age"]`. The following JUnit test passes, and all configurations match the expected output CSV file, `GOLDEN_COMMA_SEP_NO_QUOTES_REGULAR_ORDER_PATH`.
 
@@ -480,7 +481,7 @@ In this test, the separator is the comma character `,`, quoting is disabled (by 
   }
 ```
 
-#### TAB_SEP_WITH_QUOTES_REGULAR_ORDER
+#### TAB_SEP_WITH_QUOTES_REGULAR_ORDER #### {#t2}
 
 In contrast to the previous test, this test uses the tab character `\t` as the separator, __with quotes__ and uses the regular order defined in `PersonSchema`. The JUnit test asserts that all configurations match the expected output CSV file, except for the `JACKSON_BEAN` configuration. By observing the `JACKSON_BEAN.output.csv` file contents:
 
@@ -522,7 +523,7 @@ it is clear that the `jackson-dataformat-csv` library adds quotes to string fiel
   }
 ```
 
-#### COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2
+#### COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2 #### {#t3}
 
 In this test, the separator is the comma character `,`, quotes are disabled, and the order from `PersonSchema` is shifted left by 2. For example, instead of regular header order `["id", "firstName", "lastName", "age"]`, the shifted order would be `["lastName", "age", "id", "firstName"]`. The purpose of this test is to assess which configurations can properly process fields defined in a different order, which partially satisfies __Rule 1__. The JUnit test below,
 
@@ -568,7 +569,7 @@ personLastName,personAge,personId,personFirstName
 It is evident that although the `personId` header name was rearranged, the data corresponding to it was not. This clearly fails __Rule 1__ and can be attributed to the __poor design__ of the object converter. Recall from the previous sections, all `*_EXPLICIT` configurations decorate a `*StringArrayCsvWriterBridge` with a `ExplicitPersonConverter`. Since the conversion of `Person` data to a `String[]` is hardcoded, 
 when the schema field order is modified in one location (inside the `runTest` method), it is not automatically updated in the `ExplicitPersonConverter` class, which breaks __Rule 4__. In contrast, the `*_LAMBDA` configurations do not hardcode this conversion, and instead use the method references embedded in the schema fields to drive the conversion in the correct order.
 
-#### COMMA_SEP_NO_QUOTES_1_LESS_HEADER
+#### COMMA_SEP_NO_QUOTES_1_LESS_HEADER #### {#t4}
 
 The configuration for this test is exactly the same as the `COMMA_SEP_NO_QUOTES_REGULAR_ORDER` test, except that one field is removed from the schema, and one configuration is skipped. The `OPEN_CSV_BEAN` configuration is skipped because the OpenCSV library errors when a field from the `PersonBean` class is not specified. The purpose of removing one field from the schema is to verify that a subset of fields can be written to file and adhere to __Rule 1__. The JUnit test below:
 
