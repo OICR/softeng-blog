@@ -1,4 +1,28 @@
-# A Detailed Example of Writing CSV Files using Different CSV Processing Libraries
+---
+layout: post
+title:  "A Detailed Example of Writing CSV Files using Different CSV Processing Libraries"
+breadcrumb: true
+author: robert_tisma
+date: 2017-07-10
+categories: robert_tisma
+tags:
+    - Java 8
+    - Decorator Pattern
+    - Bridge Pattern
+    - Lambda Functions
+    - Method References
+    - OpenCSV
+    - SuperCSV
+    - jackson-dataformat-csv
+    - CSV
+teaser:
+    info:  A Detailed Example of Writing CSV Files using Different CSV Processing Libraries
+header: 
+    version: small
+    title: Software Engineering Blog
+    image: header-logo-crop.png
+    icon: icon-blog
+---
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -55,7 +79,10 @@ Although the CSV format is relatively straight forward, it lacks official standa
  and [SuperCSV](http://supercsv.sourceforge.net/). When parsing CSV files, there are several corner cases that require special handling, such as escaped quotes for a quoted CSV file, fields that can contain new lines, fields that contain the delimiting character, and so on. Although this is beyond the scope of this blogpost, the [details involved in csv parsing](https://www.codeproject.com/Articles/1175263/Why-to-build-your-own-CSV-parser-or-maybe-not)
  can be described using a [Mealy finite state machine](https://en.wikipedia.org/wiki/Mealy_machine):
 
-![image](https://www.codeproject.com/KB/string/1175263/csv.diagram.png)
+<figure>
+    <img src="https://www.codeproject.com/KB/string/1175263/csv.diagram.png" />
+    <figcaption>CSV Parsing Finite State Machine</figcaption>
+</figure>
 
 
 ### How does CSV writing work?
@@ -74,8 +101,10 @@ Writing a collection of beans to a CSV file can be modelled using these steps:
     
 The second step can be illustrated as follows:
 
-![image](csv_conv_diagram.svg)
-#####Figure1 
+<figure>
+    <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_conv_diagram.svg" />
+    <figcaption>Figure 1: CSV Writing Process </figcaption>
+</figure>
 
 Since many CSV processing libraries share the same features (obviously with different performance characteristics), what else differentiates them? One important feature is mapping a bean field to a CSV column, which can alternatively be described as configuring a schema.
 All libraries essentially write a `String[]` to a line in a CSV file under the hood, however the magic lies in configuring the CSV writer using a schema. 
@@ -109,7 +138,10 @@ public class PersonBean implements Person {
 ```
 which implements the `Person` interface. This code lives in the `blog1-model` module, and will represent frozen code which is unmodifiable, meaning you cannot add annotations, change member field names or their order. Each row of CSV data represents the same data as this bean. In this example, a fixed and pre-populated list of `PersonBean` object was used to test the different `CsvWriterBridge` implementations, by writing the list to a CSV file. Using the 3 external CSV processing libraries, several configurations can be achieved, as discussed in the testing section. There are 2 categories of configurations: bean based (any configuration suffixed with `*_BEAN`) and non-bean based (any configuration suffixed with `*_EXPLICIT` and `*_LAMBDA`). All `*_BEAN` configurations use the underlying library's bean introspective functionality, while all `*_EXPLICIT` configurations use the _Explicit Schema Strategy_ (defined in the [Objective](#objective) section) in combination with the library's `String[]` CSV Writer. Likewise, the _Lambda Schema Strategy_ is used for all `*_LAMBDA` configurations, and is intended to highlight its superiority over the _Explicit Schema Strategy_. An overview of the stages involved are shown in __Figure 2__ 
 
-![image](process_overview.svg)
+<figure>
+    <img src="{{site.urlimg}}robert_tisma/writing_csv_files/process_overview.svg" />
+    <figcaption>Figure 2: Stages for writing CSV files </figcaption>
+</figure>
 
 In addition, the source code requires Java 8 to compile, uses [Apache Maven](https://maven.apache.org/) as the build automation tool, and [Junit](http://junit.org/junit4/) as the testing framework.
 
@@ -122,7 +154,10 @@ In order to properly configure the CSV writers, certain prerequisite data is nee
 
 This step creates the context needed to commonly configure all 4 CSV writer implementations, as illustrated in __Figure 3__
 
-![image](context_configuration.svg)
+<figure>
+    <img src="{{site.urlimg}}robert_tisma/writing_csv_files/context_configuration.svg" />
+    <figcaption>Figure 3: Steps involved in the Context Configuration stage  </figcaption>
+</figure>
 
 Firstly, the schema is created. In the non-bean based configurations (i.e `*_LAMBDA` and `*_EXPLICIT`), the schema is defined as an array of `SchemaField<T>`, where `T` represents the bean class:
 
@@ -148,7 +183,10 @@ Lastly, the schema is used to create the `CsvWriterBridgeContext`, which is used
 
 The purpose of this stage is to create a CSV writer using a selected implementation and the previously constructed `CsvWriterBridgeContext`. __Figure 4__ below outlines the steps required in this stage:
 
-![image](csv_writer_bridge_construction.svg)
+<figure>
+    <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_writer_bridge_construction.svg" />
+    <figcaption>Figure 4: Steps involved in CsvWriterBridge Construction stage  </figcaption>
+</figure>
 
 At the core of this design, is the `CsvWriterBridge` interface, which exposes essential CSV writing functionality that is available in all CSV writer libraries. As described in the [How does CSV writing work?](#how-does-csv-writing-work) section, the requirements are to write the header, and one or more beans to a csv file. The `CsvWriterBridge` interface defines this functionality in the code below:
 
@@ -353,7 +391,10 @@ and a simple solution. The following is a list of the 11 different configuration
 
 Each one of these configurations completes the _Execution_ step shown in __Figure 5__, and then write a `List<PersonData>` containing data from __Table 1__ to a CSV file. After writing a CSV file for each configuration, they are compared against the expected results and amongst each other.
 
-![image](execution.svg)
+<figure>
+    <img src="{{site.urlimg}}robert_tisma/writing_csv_files/execution.svg" />
+    <figcaption>Figure 5: Steps involved in Execution stage  </figcaption>
+</figure>
 
  
 | id | firstName | lastName   | age |
