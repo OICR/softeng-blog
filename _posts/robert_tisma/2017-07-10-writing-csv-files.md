@@ -24,26 +24,9 @@ header:
     icon: icon-blog
 ---
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Objective](#objective)
-3. [Background](#background)
-    1. [What is the CSV format and RFC-4180](#what-is-the-csv-format-and-rfc-4180)
-    2. [How does CSV writing work](#how-does-csv-writing-work)
-    3. [CSV Schemas](#csv-schemas)
-4. [Example: Writing Person data to csv](#example-writing-person-data-to-csv)
-    1. [Overview](#overview)
-    2. [Design](#design)
-        1. [Context Configuration](#context-configuration)
-        2. [CsvWriterBridge Construction](#csvwriterbridge-construction)
-        3. [Execution](#execution)
-    3. [Testing](#testing)
-        1. [COMMA_SEP_NO_QUOTES_REGULAR_ORDER](#t1)
-        2. [TAB_SEP_WITH_QUOTES_REGULAR_ORDER](#t2) 
-        3. [COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2](#t3)
-        4. [COMMA_SEP_NO_QUOTES_1_LESS_HEADER](#t4)
-5. [Conclusion](#conclusion)
-        
+1. TOC
+{:toc}
+
 ## Introduction
 
 A few months ago, I worked on a project that involved writing model objects to CSV files in a particular order with specific header names. Since classes defining the models were located in an external library, the field names could not be renamed to match the required headers. I then set out on a mission to analyze how I could approach this problem using different libraries, such as SuperCSV, OpenCSV, Jackson and even my very own simple implementation. In this blog post, I will be defining the problem, describing the design used to solve the problem, and analyzing the results of different implementations. 
@@ -53,21 +36,21 @@ A few months ago, I worked on a project that involved writing model objects to C
 The objective is to write a collection of [beans](https://en.wikipedia.org/wiki/Plain_old_Java_object#JavaBeans) 
 or [POJOs](https://en.wikipedia.org/wiki/Plain_old_Java_object) (Plain Old Java Object - which is a mutable Java class that contains an empty, argument-less constructor, with a getter and setter method for each field) to CSV files using several external libraries, while adhering to the following constraints:
 
-- __Rule 1:__ _Ordered Headers_ - the number of headers and their order may vary from how they are defined in the model.
-- __Rule 2:__ _Alternative Header Names_ - the column names could be different from the names of the corresponding member variable in the model class.
-- __Rule 3:__ _Model Code Freeze_ - the library containing the model class has its source code frozen, so changes to the code are not possible for the current release.
-- __Rule 4:__ _Encapsulated Configurational Changes_ - ensure that when a configuration needs to be changed, it only needs to be changed in one definition (enumeration, method, constant or fixture) and not in many definitions. This minimizes potential human error, where one definition was updated, but the other was not.
+- <span style="color: green">__Rule 1:__ _Ordered Headers_</span> - the number of headers and their order may vary from how they are defined in the model.
+- <span style="color: green">__Rule 2:__ _Alternative Header Names_</span> - the column names could be different from the names of the corresponding member variable in the model class.
+- <span style="color: green">__Rule 3:__ _Model Code Freeze_</span> - the library containing the model class has its source code frozen, so changes to the code are not possible for the current release.
+- <span style="color: green">__Rule 4:__ _Encapsulated Configurational Changes_</span> - ensure that when a configuration needs to be changed, it only needs to be changed in one definition (enumeration, method, constant or fixture) and not in many definitions. This minimizes potential human error, where one definition was updated, but the other was not.
 
 The source code for this blog post (available [here](https://github.com/rtisma/blogpost-writing-csv-files)) and must be designed in a way that allows easy "plug and play" of different CSV processing libraries, that generalizes configuration, creation and execution of the CSV writers. The libraries that will be used are OpenCSV, SuperCSV, jackson-dataformat-csv and a simple custom solution. In addition to using the bean-based introspective schema strategies, each library should also use the following non-bean based custom schema strategies:
 
-1. __Explicit Schema Strategy__: converting a bean to a `String[]` by hardcoding method calls
-2. __Lambda Schema Strategy__: converting a bean to a `String[]` by calling Java 8 method references that point to the getter methods of the bean.
+- <span style="color: green">__Explicit Schema Strategy__</span>: converting a bean to a `String[]` by hardcoding method calls
+- <span style="color: green">__Lambda Schema Strategy__</span>: converting a bean to a `String[]` by calling Java 8 method references that point to the getter methods of the bean.
 
 Ultimately, the software must be maintainable and human readable. The goal is to write loosely coupled and highly cohesive software, that not only adheres to the [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) design principles but is also self-documenting.
 
 ## Background
 
-### What is the CSV format and RFC-4180?
+### <span style="color: #1ab2ff">What is the CSV format and RFC-4180?</span>
 
 The term CSV stands for "Comma Separated Value", and represents a loosely defined format for representing tabular data using plain text, where commas separate field values (columns) and newlines separate records (rows). 
 The plain text representation of tabular data is not limited to the CSV format, the TSV (Tab Separated Value) format provides an alternative, using the tab character instead of the comma character.
@@ -85,19 +68,22 @@ Although the CSV format is relatively straight forward, it lacks official standa
 </figure>
 
 
-### How does CSV writing work?
+### <span style="color: #1ab2ff">How does CSV writing work?</span>
 All CSV processors contain two fundamental features, however this blogpost will focus only on the latter:
 
-1. __CSV Parsing__ - converting contents (header and records) of a CSV file into beans the programming language can use
+1. <span style="color :green">__CSV Parsing__</span> - converting contents (header and records) of a CSV file into beans the programming language can use
     
-2. __CSV Writing__ - writing the data contents of a collection of beans to a CSV file 
+2. <span style="color :green">__CSV Writing__</span> - writing the data contents of a collection of beans to a CSV file 
  
 Writing a collection of beans to a CSV file can be modelled using these steps: 
 
 1. Write the header at the beginning (this is optional)
+
 2. For each bean, do the following:
-    1. Convert the bean to a `String[]` (string array), using a CSV schema
-    2. Write the `String[]` to file, abiding by RFC-4180 if available
+
+    - Convert the bean to a `String[]` (string array), using a CSV schema
+
+    - Write the `String[]` to file, abiding by RFC-4180 if available
     
 The second step can be illustrated as follows:
 
@@ -109,7 +95,7 @@ The second step can be illustrated as follows:
 Since many CSV processing libraries share the same features (obviously with different performance characteristics), what else differentiates them? One important feature is mapping a bean field to a CSV column, which can alternatively be described as configuring a schema.
 All libraries essentially write a `String[]` to a line in a CSV file under the hood, however the magic lies in configuring the CSV writer using a schema. 
 
-### CSV Schemas
+### <span style="color: #1ab2ff">CSV Schemas</span>
 
 CSV schemas effectively map getters and setters corresponding to a bean field, to a column name in a CSV file. Referring to __Figure 1__, the schema is used in the object conversion step where a bean is converted to a `String[]`. In libraries such as OpenCSV, SuperCSV, and jackson-dataformat-csv, schemas are created by bean introspection which uses the java reflection api. For instance, the OpenCSV library relies on [annotation processing](https://www.javacodegeeks.com/2015/09/java-annotation-processors.html), where bean fields are annotated with specific annotations and are processed to create a schema. All CSV processing libraries that support beans 
 have their own strategy for creating schemas, which is what primarily differentiates them.
@@ -119,7 +105,7 @@ have their own strategy for creating schemas, which is what primarily differenti
 In the following example, I will be explaining how to configure, construct and write a collection of beans to a CSV file, while abiding by the rules outlined in the [Objective](#objective) section, and discussing some of the issues 
 for each configuration. The source code is freely available on [github](https://github.com/rtisma/blogpost-writing-csv-files)
 
-### Overview
+### <span style="color: #1ab2ff">Overview</span>
 
 The model that will be used for this example will be the `PersonBean` bean
 
@@ -148,10 +134,10 @@ which implements the `Person` interface. This code lives in the `blog1-model` mo
 In addition, the source code requires Java 8 to compile, uses [Apache Maven](https://maven.apache.org/) as the build automation tool, and [Junit](http://junit.org/junit4/) as the testing framework.
 
 
-### Design
+### <span style="color: #1ab2ff">Design</span>
 The following describes the details behind each processing stage in the previous diagram. Although the source code is fairly straight forward and self documenting, the descriptions give insight into some of the design decisions that were used.
 
-#### Context Configuration
+#### <span style="color: blue">Context Configuration</span>
 In order to properly configure the CSV writers, certain prerequisite data is needed. After analyzing configurations of each CSV processing library, a common context data type, called `CsvWriterBridgeContext`, was designed to encapsulate the common configurational data, which satisfies __Rule 4__. All CSV writers need a core `Writer` instance, along with information regarding separation characters and quote characters.
 
 This step creates the context needed to commonly configure all 4 CSV writer implementations, as illustrated in __Figure 3__
@@ -183,7 +169,7 @@ For the `Person` data type (recall, `PersonBean` **_is-a_** `Person`), the schem
 
 Lastly, the schema is used to create the `CsvWriterBridgeContext`, which is used in the next stage to build the a CSV writer.
 
-#### CsvWriterBridge Construction 
+#### <span style="color: blue">CsvWriterBridge Construction </span>
 
 The purpose of this stage is to create a CSV writer using a selected implementation and the previously constructed `CsvWriterBridgeContext`. __Figure 4__ below outlines the steps required in this stage:
 
@@ -216,7 +202,7 @@ be achieved by simply programming to the interface, and replacing one implementa
 concept is simple, it is very effective, as it helps write modular and human readable code.
 
 
-##### Bean and Non-Bean Based Methods
+##### <span style="color: #00b3b3">Bean and Non-Bean Based Methods</span>
 As shown in the previous diagram, there are 2 methods for writing an object to file.
 The first one, the bean based method, describes the `*BeanCsvWriterBridge` configurations, 
 which use the CSV writer libraries that have the option of writing beans to a CSV file. These implementations use the 
@@ -224,7 +210,7 @@ which use the CSV writer libraries that have the option of writing beans to a CS
  
 On the other hand, the non-bean based methods are implemented by decorating the `CsvWriterBridge` interface using a `Converter<T,String[]>` object converter and a `*StringArrayCsvWriterBridge`. The object converter encapsulates information regarding the schema, and is implemented in 2 different ways:
 
-##### Explicit Schema Strategy
+##### <span style="color:#00b3b3 ">Explicit Schema Strategy</span>
 This strategy converts an object to a `String[]` by executing hardcoded method calls in a fixed order. In
  this example, the `ExplicitPersonConverter` performs the explicit conversion of a `Person` to a `String[]`:
  
@@ -271,7 +257,7 @@ The issue with this strategy is that the order of the method calls performed on 
  `PersonSchema`, even if the `convert` method was embedded into the `PersonSchema` class, the developer must 
  __remember__ to update both portions of the code. All of the `*_EXPLICIT` configurations defined in `PersonCsvWriterFactory` are used to illustrate this __poor design__ when the schema field order falls out of sync with the `convert` method definition in `ExplicitPersonConverter`, which also does not satisfy __Rule 1__. 
   
-##### Lambda Schema Strategy
+##### <span style="color:#00b3b3 ">Lambda Schema Strategy</span>
 
 In contrast, the _Lambda Schema Strategy_ __does__ satisfy __Rule 1__ by using [method references](https://marcin-chwedczuk.github.io/method-references-in-java-8), which are a Java 8 feature. Previously, we saw that `ExplicitPersonConverter` did not map `Person` method calls to field names, but instead required manual human synchronization between the schema and the order of method calls. To incorporate method references, the constructor for `PersonSchema` is modified to store the method reference:
 
@@ -323,7 +309,7 @@ LambdaConverter<Person> lambdaPersonConverter = new LambdaConverter<>(PersonSche
 Thus, no additional modifications need to be made to the `LambdaConverter` when `PersonSchema` changes the order of its fields, which is why this strategy satisfies __Rule 1__. 
 
 
-##### Decoration
+##### <span style="color: #00b3b3 ">Decoration</span>
 Lastly, the `*StringArrayCsvWriterBridge` configurations are combined with the `Converter<Person,String[]>` implementation to construct the `StringArrayCsvWriterDecorator`. Recall that the `*StringArrayCsvWriterBridge` uses an external library to write a `String[]` to a CSV file. This implementation has no concept of a schema, as its sole purpose is to write a `String[]` to a CSV file while adhering to RFC-4180. In order achieve the design depicted in [Figure 1](#figure-1), the [decorator design pattern](https://dzone.com/articles/is-inheritance-dead) is used to extend the functionality of a `CsvWriterBridge<String[]>` implementation using an object converter implementation. The class `StringArrayCsvWriterDecorator`, shown below, can write a `Person` object to a CSV file by constructing it with a `Converter<Person,String[]>` and `*StringArrayCsvWriterBridge` implementation.
 
 ```java
@@ -379,22 +365,22 @@ CsvWriterBridge<Person> personCsvWriterBridge = new StringArrayCsvWriterDecorato
 
 Finally, this design adheres to __Rule 3__ since the underlying data models (`Person` and `PersonBean`) remain unmodified. This is a critical point since many libraries such as OpenCSV and jackson-dataformat-csv use annotation processing of bean fields for configuring a CSV schema.
 
-#### Execution
+#### <span style="color: blue">Execution
 
 As mentioned earlier, 3 external CSV processing libraries were used (SuperCSV, OpenCSV, jackson-dataformat-csv) 
 and a simple solution. The following is a list of the 11 different configurations for all 4 libraries:
 
-- __SUPER_CSV_BEAN__ (SuperCSV with bean based processing)
-- __SUPER_CSV_EXPLICIT__ (SuperCSV with explicitly defined object conversion )
-- __SUPER_CSV_LAMBDA__ (SuperCSV with lambda based object conversion )
-- __OPEN_CSV_BEAN__ (OpenCSV with bean based processing)
-- __OPEN_CSV_EXPLICIT__ (OpenCSV with explicitly defined object conversion )
-- __OPEN_CSV_LAMBDA__ (OpenCSV with lambda based object conversion )
-- __SIMPLE_EXPLICIT__ (simple naive CSV processor using explicitly defined object conversion)
-- __SIMPLE_LAMBDA__ (naive java CSV processor using lambda based object conversion)
-- __JACKSON_BEAN__ (jackson-dataformat-csv with bean based processing)
-- __JACKSON_EXPLICIT__ (jackson-dataformat-csv with explicitly defined object conversion)
-- __JACKSON_LAMBDA__ (jackson-dataformat-csv with lambda based object conversion)
+- <span style="color: green">__SUPER_CSV_BEAN__</span> (SuperCSV with bean based processing)
+- <span style="color: green">__SUPER_CSV_EXPLICIT__</span> (SuperCSV with explicitly defined object conversion )
+- <span style="color: green">__SUPER_CSV_LAMBDA__</span> (SuperCSV with lambda based object conversion )
+- <span style="color: green">__OPEN_CSV_BEAN__</span> (OpenCSV with bean based processing)
+- <span style="color: green">__OPEN_CSV_EXPLICIT__</span> (OpenCSV with explicitly defined object conversion )
+- <span style="color: green">__OPEN_CSV_LAMBDA__</span> (OpenCSV with lambda based object conversion )
+- <span style="color: green">__SIMPLE_EXPLICIT__</span> (simple naive CSV processor using explicitly defined object conversion)
+- <span style="color: green">__SIMPLE_LAMBDA__</span> (naive java CSV processor using lambda based object conversion)
+- <span style="color: green">__JACKSON_BEAN__</span> (jackson-dataformat-csv with bean based processing)
+- <span style="color: green">__JACKSON_EXPLICIT__</span> (jackson-dataformat-csv with explicitly defined object conversion)
+- <span style="color: green">__JACKSON_LAMBDA__</span> (jackson-dataformat-csv with lambda based object conversion)
 
 
 Each one of these configurations completes the _Execution_ step shown in __Figure 5__, and then write a `List<PersonData>` containing data from __Table 1__ to a CSV file. After writing a CSV file for each configuration, they are compared against the expected results and amongst each other.
@@ -446,12 +432,12 @@ Each one of these configurations completes the _Execution_ step shown in __Figur
     </table>
 </center>
 
-### Testing
+### <span style="color: #1ab2ff">Testing</span>
 
 In addition to explaining the design, each configuration was tested by varying the separator character, the quote character, and the order of the headers. The output CSV files, were all compared to a __GOLDEN__ reference representing the _expected_ CSV file contents, which verified the correctness of each configuration and helped identify issues. Since all the tests in the source code pass, the results of each configuration can be deduced from the assertions that were used.
 
 
-#### COMMA_SEP_NO_QUOTES_REGULAR_ORDER #### {#t1}
+#### <span style="color: #e68a00">COMMA_SEP_NO_QUOTES_REGULAR_ORDER</span> #### {#t1}
 
 In this test, the separator is the comma character `,`, quoting is disabled (by setting the quote character to the null character `\u0000`), and the order of the headers match the order defined in `PersonSchema`, which is `["id", "firstName", "lastName", "age"]`. The following JUnit test passes, and all configurations match the expected output CSV file, `GOLDEN_COMMA_SEP_NO_QUOTES_REGULAR_ORDER_PATH`.
 
@@ -481,7 +467,7 @@ In this test, the separator is the comma character `,`, quoting is disabled (by 
   }
 ```
 
-#### TAB_SEP_WITH_QUOTES_REGULAR_ORDER #### {#t2}
+#### <span style="color: #e68a00">TAB_SEP_WITH_QUOTES_REGULAR_ORDER</span> #### {#t2}
 
 In contrast to the previous test, this test uses the tab character `\t` as the separator, __with quotes__ and uses the regular order defined in `PersonSchema`. The JUnit test asserts that all configurations match the expected output CSV file, except for the `JACKSON_BEAN` configuration. By observing the `JACKSON_BEAN.output.csv` file contents:
 
@@ -523,7 +509,7 @@ it is clear that the `jackson-dataformat-csv` library adds quotes to string fiel
   }
 ```
 
-#### COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2 #### {#t3}
+#### <span style="color: #e68a00">COMMA_SEP_NO_QUOTES_ORDER_SHIFTED_BY_2</span> #### {#t3}
 
 In this test, the separator is the comma character `,`, quotes are disabled, and the order from `PersonSchema` is shifted left by 2. For example, instead of regular header order `["id", "firstName", "lastName", "age"]`, the shifted order would be `["lastName", "age", "id", "firstName"]`. The purpose of this test is to assess which configurations can properly process fields defined in a different order, which partially satisfies __Rule 1__. The JUnit test below,
 
@@ -569,7 +555,7 @@ personLastName,personAge,personId,personFirstName
 It is evident that although the `personId` header name was rearranged, the data corresponding to it was not. This clearly fails __Rule 1__ and can be attributed to the __poor design__ of the object converter. Recall from the previous sections, all `*_EXPLICIT` configurations decorate a `*StringArrayCsvWriterBridge` with a `ExplicitPersonConverter`. Since the conversion of `Person` data to a `String[]` is hardcoded, 
 when the schema field order is modified in one location (inside the `runTest` method), it is not automatically updated in the `ExplicitPersonConverter` class, which breaks __Rule 4__. In contrast, the `*_LAMBDA` configurations do not hardcode this conversion, and instead use the method references embedded in the schema fields to drive the conversion in the correct order.
 
-#### COMMA_SEP_NO_QUOTES_1_LESS_HEADER #### {#t4}
+#### <span style="color: #e68a00">COMMA_SEP_NO_QUOTES_1_LESS_HEADER</span> #### {#t4}
 
 The configuration for this test is exactly the same as the `COMMA_SEP_NO_QUOTES_REGULAR_ORDER` test, except that one field is removed from the schema, and one configuration is skipped. The `OPEN_CSV_BEAN` configuration is skipped because the OpenCSV library errors when a field from the `PersonBean` class is not specified. The purpose of removing one field from the schema is to verify that a subset of fields can be written to file and adhere to __Rule 1__. The JUnit test below:
 
@@ -609,7 +595,7 @@ The configuration for this test is exactly the same as the `COMMA_SEP_NO_QUOTES_
 
 verifies 2 important points:
 
-1. The `JACKSON_BEAN` configuration failed to remove the `id` field completely. Instead, it was appended at the end, which breaks __Rule 1__, as shown below:
+- The `JACKSON_BEAN` configuration failed to remove the `id` field completely. Instead, it was appended at the end, which breaks __Rule 1__, as shown below:
 
 ```
 personFirstName,personLastName,personAge
@@ -618,7 +604,7 @@ Frank,Rosenblatt,43,2
 Alex,Murphy,37,3
 ```
 
-2. The `*_EXPLICIT` configurations failed to remove the `id` field as well, because the `ExplicitPersonConverter` hardcodes the conversion. In order to correct this mistake, the `ExplicitPersonConverter` would have to be modified, which breaks __Rule 1__ and __Rule 4__. Here is the output:
+- The `*_EXPLICIT` configurations failed to remove the `id` field as well, because the `ExplicitPersonConverter` hardcodes the conversion. In order to correct this mistake, the `ExplicitPersonConverter` would have to be modified, which breaks __Rule 1__ and __Rule 4__. Here is the output:
 
 ```
 personFirstName,personLastName,personAge
