@@ -62,10 +62,17 @@ Although the CSV format is relatively straight forward, it lacks official standa
  and [SuperCSV](http://supercsv.sourceforge.net/). When parsing CSV files, there are several corner cases that require special handling, such as escaped quotes for a quoted CSV file, fields that can contain new lines, fields that contain the delimiting character, and so on. Although this is beyond the scope of this blogpost, the [details involved in csv parsing](https://www.codeproject.com/Articles/1175263/Why-to-build-your-own-CSV-parser-or-maybe-not)
  can be described using a [Mealy finite state machine](https://en.wikipedia.org/wiki/Mealy_machine):
 
-<figure>
+<center>
+<figure style="width:500px;">
     <img src="https://www.codeproject.com/KB/string/1175263/csv.diagram.png" />
-    <figcaption>CSV Parsing Finite State Machine</figcaption>
+    <figcaption>
+        <font size="3">
+            CSV Parsing Finite State Machine
+        </font>
+            (adapted from <a href="https://www.codeproject.com/Articles/1175263/Why-to-build-your-own-CSV-parser-or-maybe-not">here</a>)
+    </figcaption>
 </figure>
+</center>
 
 
 ### <span style="color: #1ab2ff">How does CSV writing work?</span>
@@ -86,11 +93,21 @@ Writing a collection of beans to a CSV file can be modelled using these steps:
     - Write the `String[]` to file, abiding by RFC-4180 if available
     
 The second step can be illustrated as follows:
-
+<center>
 <figure style="width:700px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_conv_diagram.svg" />
-    <figcaption>Figure 1: CSV Writing Process </figcaption>
+    <figcaption>
+        <font size="3">
+            <span style="color: blue">
+                <b>
+                    Figure 1:
+                </b>
+            </span> 
+            CSV Writing Process
+        </font>
+    </figcaption>
 </figure>
+</center>
 
 Since many CSV processing libraries share the same features (obviously with different performance characteristics), what else differentiates them? One important feature is mapping a bean field to a CSV column, which can alternatively be described as configuring a schema.
 All libraries essentially write a `String[]` to a line in a CSV file under the hood, however the magic lies in configuring the CSV writer using a schema. 
@@ -125,9 +142,18 @@ public class PersonBean implements Person {
 which implements the `Person` interface. This code lives in the `blog1-model` module, and will represent frozen code which is unmodifiable, meaning you cannot add annotations, change member field names or their order. Each row of CSV data represents the same data as this bean. In this example, a fixed and pre-populated list of `PersonBean` object was used to test the different `CsvWriterBridge` implementations, by writing the list to a CSV file. Using the 3 external CSV processing libraries, several configurations can be achieved, as discussed in the testing section. There are 2 categories of configurations: bean based (any configuration suffixed with `*_BEAN`) and non-bean based (any configuration suffixed with `*_EXPLICIT` and `*_LAMBDA`). All `*_BEAN` configurations use the underlying library's bean introspective functionality, while all `*_EXPLICIT` configurations use the _Explicit Schema Strategy_ (defined in the [Objective](#objective) section) in combination with the library's `String[]` CSV Writer. Likewise, the _Lambda Schema Strategy_ is used for all `*_LAMBDA` configurations, and is intended to highlight its superiority over the _Explicit Schema Strategy_. An overview of the stages involved are shown in __Figure 2__ 
 
 <center>
-<figure style="width:270px;">
+<figure style="width:210px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/process_overview.svg" />
-    <figcaption>Figure 2: Stages for writing CSV files </figcaption>
+    <figcaption>
+        <font size="3">
+            <span style="color: blue">
+                <b>
+                    Figure 2:
+                </b>
+            </span> 
+            Stages for writing CSV files 
+        </font>
+    </figcaption>
 </figure>
 </center>
 
@@ -145,7 +171,16 @@ This step creates the context needed to commonly configure all 4 CSV writer impl
 <center>
 <figure style="width:325px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/context_configuration.svg" />
-    <figcaption>Figure 3: Steps involved in the Context Configuration stage  </figcaption>
+    <figcaption>
+        <font size="3">
+            <span style="color: blue">
+                <b>
+                Figure 3: 
+                </b>
+            </span> 
+            Steps involved in the Context Configuration stage  
+        </font>
+    </figcaption>
 </figure>
 </center>
 
@@ -176,7 +211,16 @@ The purpose of this stage is to create a CSV writer using a selected implementat
 <center>
 <figure style="width:700px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/csv_writer_bridge_construction.svg" />
-    <figcaption>Figure 4: Steps involved in CsvWriterBridge Construction stage  </figcaption>
+    <figcaption>
+        <font size="3">
+            <span style="color: blue">
+                <b>
+                    Figure 4:
+                </b>
+            </span> 
+            Steps involved in CsvWriterBridge Construction stage
+        </font>
+    </figcaption>
 </figure>
 </center>
 
@@ -388,7 +432,16 @@ Each one of these configurations completes the _Execution_ step shown in __Figur
 <center>
 <figure style="width:325px;">
     <img src="{{site.urlimg}}robert_tisma/writing_csv_files/execution.svg" />
-    <figcaption>Figure 5: Steps involved in Execution stage  </figcaption>
+    <figcaption>
+        <font size="3">
+            <span style="color: blue">
+                <b>
+                    Figure 5:
+                </b>
+            </span> 
+            Steps involved in Execution stage
+        </font>
+    </figcaption>
 </figure>
 </center>
 
@@ -426,7 +479,16 @@ Each one of these configurations completes the _Execution_ step shown in __Figur
         </tr>
         <tr>
             <td>
-                    <strong>Table 1:</strong> Example data
+                <center>
+                    <font size="3">
+                        <span style="color: blue">
+                            <b>
+                                Table 1:
+                            </b>
+                        </span> 
+                        Example Data
+                    </font>
+                </center>
             </td>
         </tr>
     </table>
