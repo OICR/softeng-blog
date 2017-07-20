@@ -315,7 +315,7 @@ Check out the kcc tool, a drop-in replacement for gcc. It might be slow; but the
 
 ### Real cross-language compatiblity
 
- Up until now, code has been largely written in one language; and porting code to another language, despite programs to assist automated translation, has always been a tedious and error prone task. Translating the syntax of one language into another is straightforward, but manginging the subtle differences in language semantics
+ Up until now, code has been largely written in one language; and porting code to another language, despite programs to assist automated translation, has always been a tedious and error prone task. Translating the syntax of one language into another is straightforward, but managing the subtle differences in language semantics
 between one langugage and another was what made the task so difficult and error
 prone. 
 
