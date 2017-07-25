@@ -20,9 +20,10 @@ header:
     icon: icon-blog
 ---
 ### And how she may be able to learn, in the near future...
+<image src="{{ site.urlimg }}/kevin_hartmann/SiriHelp.jpg" /> 
 
 
-Ten years ago, I read an article entitled _Why Johnny Can't Code_. I wasn't very interested in the question. At the time, and even more so today, I was much more interested something else.
+Ten years ago, I read an article entitled _Why Johnny Can't Code_. I wasn't very interested in the question. At the time, and even more so today, I was much more interested in something else.
 
 You see, I didn't care very much about why our kids could (or couldn't) develop code of the type we used to write when was a young boy, using the same tools that I had used. Instead, what I wanted to know was: _"Why have those tools for writing and managing code have advanced relatively little over the past thirty years?"_
 
@@ -32,9 +33,9 @@ It's still a good question, I think. Fifty or sixty years ago, when people first
 
 Today, that situation has drastically changed. Hardware and software is, without exaggeration, over one trillion times more powerful on modern hardware than it was when Artificial Intelligence research in the 1950s. Modern research into _"artificially intelligent"_ programs, (often called simply _AIs_) has quietly become wildly successful. 
 
-Right now, we have powerful computer programs that have solved problems that researchers in the 1950s weren't even sure could ever be solved by anyone other than a human being. Chess grandmasters have already been beaten by AI programs. Decades ago, computers had already "learned" how to read scanned in text, and recognize the data within it. These days, our programs are even able to talk, and they're starting to understand speech, too!
+Right now, we have powerful computer programs that have solved problems that researchers in the 1950s weren't even sure could ever be solved by anyone other than a human being. Chess grandmasters have already been beaten by AI programs. Decades ago, computers had already "learned" how to read scanned-in text, and recognize the data within it. These days, our programs are even able to talk, and they're starting to understand speech, too!
 
-Modern AI programs have become so wildly successful that even non-computer experts have started to use them on a daily basis. AIs like Google's _"Ok Google"_ voice search and Apple's _Siri_, have become astoundingly capable, astoundingly "smart". They can not only recognize what we want, they can link up link to vast networks of powerful computers from all over the world to get it. 
+Modern AI programs have become so wildly successful that even non-computer experts have started to use them on a daily basis. AIs like Google's _"Ok Google"_ voice search and Apple's _Siri_, have become astoundingly capable, astoundingly "smart". They can not only recognize what we want, they can link up to vast networks of powerful computers from all over the world to get it. 
 
 We need only say what we want out loud: and surprisingly often, our AIs now understand what it is we want from them, and provide it. The reality of modern AIs has quietly crept from shadows of science fiction into the real world, but one staple of science fiction remains out of reach for our current AIs: one thing that we might think would be simple; even obvious for such a machine-based "intelligence". 
 
@@ -43,6 +44,8 @@ Given all of that power, why can't Siri, a computer program herself, interact wi
 Why can't she code?
 
 ### Or can she?
+<image src="{{ site.urlimg }}/kevin_hartmann/robot.png" /> 
+
 To be fair, to an extent, we already do have certain kinds of programs that can "code"; or at least,
 that can generate code for us. While we don't typically think of them as AIs, modern optimizing
 compilers generate machine code for us on a daily basis. They do such a good job that few, if any, modern programmers could compete with them directly by generating the same machine code of equal or better quality "by hand";  and even fewer of us would ever want to try. For this particular task, a computer program is already much better at "generating code" than the majority of it's human counterparts.
@@ -54,6 +57,7 @@ proof verifiers already exist, and are getting better.
  Isn't that enough?
 
 ### It's not enough; it's never enough!
+<image src="{{ site.urlimg }}/kevin_hartmann/never_enough4.jpg" /> 
 
 For all that they can do, our existing tools take a very limited
 approach to understanding, verifying, or validating our code. Most of them focus on solving specific problems that are known to occur within a given programming language, such as Findbugs for Java, or Valgrind for C. Our tools work, but for the most part, they can't be said to be very "intelligent"; at least, not in the 
@@ -63,8 +67,10 @@ Most of the hard part, making sure that the code that our tools produce not only
 typically rely on entire "QA" departments to help us find and fix these flaws; making mistakes is something that just happens. Our tools catch a few of our mistakes; but they miss a lot more of them. That's not an easy problem to fix.
 
 ## Arguing about semantics
+<image src="{{ site.urlimg }}/kevin_hartmann/semantic image 1.gif" /> 
 
-One thing that our current tools are lacking is an understanding of what computer scientists call **_semantics_**; the underlying _meaning_ of what our programs do. Instead, most of our tools focus on **_syntax_**; the _representation_ of our code as patterns of symbols. When a programmer defines a programming language, they typically define the syntax very carefully and explicitly, using a mark-up language for syntax such as BNF; but the language's semantics are usually written as an ad-hoc series of rules written in a human language, such as English, if they are even written down at all.
+
+One thing that our current tools are lacking is an understanding of what computer scientists call **_semantics_**; the underlying _meaning_ of what our programs do. Instead, most of our tools focus on **_syntax_**; the _representation_ of our code as patterns of symbols. When a programmer defines a programming language, they typically define the syntax very carefully and explicitly, using a mark-up language for syntax such as [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form); but the language's semantics are usually written as an ad-hoc series of rules written in a human language, such as English, if they are even written down at all.
 
 We leave it up to the writer of a compiler or interpreter to correctly translate the meaning of a program from it's syntactic inputs into code whose semantic meaning matches that of the programming language we're writing in. This job isn't an easy or an obvious one.
 
@@ -76,10 +82,12 @@ And if we could do that, maybe we could teach Siri (or some other AI) to do that
 So, if we know all that, why don't we have these kind of tools already?
 
 ### Why? Why must everything be so hard?
+<image src="{{ site.urlimg }}/kevin_hartmann/homer-bbq.jpg" /> 
 
 What's the problem? Why hasn't Google, or Apple, or somebody else who's really smart already solved this problem already? Why can't I make Siri do all my coding work for me? What's the hold up?
 
 #### **How hard could it be?**
+<image src="{{ site.urlimg }}/kevin_hartmann/how_hard2.jpg" /> 
 
 Well, as you might have guessed, making machines that can think isn't easy.
 
@@ -88,6 +96,7 @@ If it were easy, one of those brilliant Computer Science professors who are doin
 And of course, they're right.
 
 #### **For one thing, it's partly impossible.**
+<image src="{{ site.urlimg }}/kevin_hartmann/frink1.png" /> 
 
 As it turns out, there are a lot of questions in Computer Science that sound easy, but turn out to be impossible. Not merely _"impossibly"_ difficult (as in, _"Gosh, you'd need to be a thousand times smarter than Einstein to figure that one out!"_), but **actually impossible**; that is, mathematically proven not to be solveable, by any means, ever. 
 
@@ -97,16 +106,19 @@ Sadly, some of these unsolveable questions limit what we can know about the natu
 
 For example, we can't always know:
 
-1. _Given some random program_: **"Will this program ever stop, or is there some combination of inputs that we can give it that will make it run forever?"**
-2. _Given two random programs_: **"Do these two programs do the same thing?"** (_for all inputs_),  and, worst of all,
-3. _Given a random program, with random inputs_: **"Is the problem that this program is trying to solve one of those nasty, unsolveable ones?"**
+### 1. _Given some random program_: **"Will this program ever stop, or is there some combination of inputs that we can give it that will make it run forever?"**
+
+### 2. _Given two random programs_: **"Do these two programs do the same thing?"** (_for all inputs_),  and, worst of all,
+
+### 3. _Given a random program, with random inputs_: **"Is the problem that this program is trying to solve one of those nasty, unsolveable ones?"**
 
 
-### So, now what?
+## So, now what?
+<image src="{{ site.urlimg }}/kevin_hartmann/bridge.jpg" /> 
 
 So, if we know that we can't always use semantic analysis to understand what a program will do, or even whether or not it's even possible to use semantic analysis to understand our, where do we go from here? What do we do now?
 
-#### **Semantic Analysis is hard! Let's go shopping!**
+<image src="{{ site.urlimg }}/kevin_hartmann/barbie-doll-semantic-analysis-is-hard-lets-go-shopping.png" /> 
 
 Well, we _could_ just ignore the problem, and not try to solve it. After all, it's hard enough for human programmers to understand what a given section of code does; let alone conveying that meaning in terms simple enough for a machine to understand. 
 
@@ -119,6 +131,7 @@ Wait! Wasn't that last question one of the problems we already know
 we can't always solve?! It was? Now what? Our dream of perfect semantic analysis is falling apart!
 
 #### **Give up on perfection; settle for wonderful!**
+<image src="{{ site.urlimg }}/kevin_hartmann/hammock2.jpg" /> 
 We know we can't possibly use semantic analysis to answer all possible questions about all possible programs. 
 
 We also know we can't always tell if the question we're asking about a given program is one that can't be solved.
@@ -136,12 +149,14 @@ So, we know a computer can do semantic analysis to find out the meaning of at le
 Research has settled upon two main approaches to this problem.
 
 1) **Stack the deck**
+<image src="{{ site.urlimg }}/kevin_hartmann/five_aces.jpg" /> 
 
 It is impossible to know for sure whether or not semantic analysis can succeed for some **randomly** chosen program. But, what if we don't analyse just any old program at random? What if we "cheat", by decided to only work on programs that we already know we can succeed at analysing semantically? 
 
 Some research projects do take this approach. By writing code in an artificially constructed language that was carefully designed to be analysable(or a restricted subset of an existing language), they can ensure that any programs that they do encounter can be analysed. The problem with this is, none of our real world programs are written in these restricted languages; we're not even certain that they always can be.
 
 2) **Roll the dice**
+<image src="{{ site.urlimg }}/kevin_hartmann/dice.jpg" /> 
  
 Try to analyse any program you're given. If you can't, at some point, give up and stop trying.
 
@@ -153,11 +168,12 @@ If we gave up, we don't know the answer, but we also don't know _why_ we don't k
 
 This semantic analysis stuff sounds interesting and all, but how do we actually **do** it? Don't I need a PhD just to get started with this whole thing? Isn't it a purely research thing at this point?
 
-There answers to those questions might have been "yes" a short time ago, but there's a new computing framework out there, designed to make semantic analysis a whole lot easier: in practice, not just in theory!
+The answers to those questions might have been "yes" a short time ago, but there's a new computing framework out there, designed to make semantic analysis a whole lot easier: in practice, not just in theory!
 
 ## Introducing The 𝕂 Framework for Semantic Analysis
+<image src="{{ site.urlimg }}/kevin_hartmann/fireworks.jpg" /> 
 
-𝕂 is an exciting new framework for doing semantic analysis of programming languages; from the ground up.
+[𝕂](http://www.kframework.org/) is an exciting new framework for doing semantic analysis of programming languages; from the ground up.
 
 First, we need to define the both the syntax and the semantics of our programming language, using 𝕂. After that, the 𝕂 framework provides you with a whole suite of tools that are designed to help you work with, understand, and analyse programs written in that language! 
 
@@ -174,8 +190,9 @@ One of the great things about 𝕂 is the high level of knowledge of the people 
 Quick, someone tell Siri!
 
 ### How do they do it?
+<image src="{{ site.urlimg }}/kevin_hartmann/blueprint.jpg" /> 
 
-Previously, one of the most popular representation for formally expressing and reasoning about the semantics of computer systems has been so-called _"Hoare Triples"_ (invented by Tony Hoare in 1969), which encode how a piece of code changes the state of the system with three elements: a set of assertions about the state of the system, called the preconditions; the associated code, called the command, and a series of assertions about the new state of the system, called "postconditions".
+Previously, one of the most popular representation for formally expressing and reasoning about the semantics of computer systems has been so-called [_"Hoare Triples"_](https://en.wikipedia.org/wiki/Hoare_logic) (invented by Tony Hoare in 1969), which encode how a piece of code changes the state of the system with three elements: a set of assertions about the state of the system, called the preconditions; the associated code, called the command, and a series of assertions about the new state of the system, called "postconditions".
 
 In addition, a logical system, called _Hoare logic_, is widely used for for reasoning about the semantic meaning of Hoare Triples. It consists of a series of initial axioms, together with inference rules for reasoning about various programming language constructs. The difficulty with this system was that it's rules were very specific; they had to describe the effect of a change in terms of it's impact on the entire system, and not just on the elements of the system that were relavent to the rule. 
 
@@ -220,6 +237,7 @@ Here's how the plain text markup looks, and how the corresponding symbolic repre
   
 
 #### **How does all this computer theory help Siri and I?**
+<image src="{{ site.urlimg }}/kevin_hartmann/grumpy_cat.jpg" /> 
 
 Consider this scenario. Suppose you used the 𝕂 framework to define all the rules for the syntax and expected semantic behaviour for some real world language, like, say, Javascript.
 
@@ -234,6 +252,7 @@ That's already a valuable real world programming task that Siri could for you, a
 In other words, by using the 𝕂 framework, we're already getting very close to teaching Siri to code!
 
 #### **Doesn't every compiler and interpreter already do this sort of thing during it's parsing phase?**
+<image src="{{ site.urlimg }}/kevin_hartmann/farnsworth1.jpg" /> 
 
 Only in a very limited way. Compilers almost always do their parsing by addressing just the syntax of the language as much as possible. They tend to grow increasingly complex whenver they struggle to manage the complexities of real world languges with real world semantics. Most language parsing tools, be they compilers, interpreters, debuggers, IDEs, or static analysis tools don't try to address the semantics at all, leaving them implicitly defined, and as a result, often inconsistently implemented from tool to tool. 
 
@@ -242,6 +261,7 @@ This kind of confusion of language semantics can cause a program that works perf
 Semantic analysis takes a completely different approach to analysing the code. Instead of looking at the **syntax** of the language, and the relavent rules, and trying to generate the equivelent block of machine code, semantic analysis focuses on making sure the description of the program's interaction with it's inputs, outputs, and environment is always correct _according to the rules of the language itself_. This not only establishes a standard for _how_ a programming language _should_ behave, it gives a way to _verify_ the areas of compliance and non-compliance of with standard.
 
 #### **All this theory is nice, but can it actually be done in practice?**
+<image src="{{ site.urlimg }}/kevin_hartmann/square_wheel2.jpg" /> 
 
 Yes! We know this for sure, because the same people who are developing the 𝕂 system have already done it! 
 Here's a link to their research paper describing how they did it! [KJS: A Complete Formal Semantics of JavaScript](http://fsl.cs.illinois.edu/index.php/KJS:_A_Complete_Formal_Semantics_of_JavaScript)
@@ -271,12 +291,16 @@ Using 𝕂, in just four months, one grad student was able to find flaws in main
 If we can teach Siri to be half as smart as the 𝕂 framework already is, she'll not only qualify as a coder; she may well out-code us all!
 
 #### **Meh. Javascript sucks. When are they going to tackle a "real" language?**
+<image src="{{ site.urlimg }}/kevin_hartmann/comicbookguy.jpg" /> 
+
 
 Is C. real enough for you? What about [Java](http://fsl.cs.uiuc.edu/index.php/K-Java:_A_Complete_Semantics_of_Java)?
 
 Take a look at their semantic analysis of C in [Defining the Undefinedness of C](http://fsl.cs.illinois.edu/index.php/Defining_the_Undefinedness_of_C). If you've ever written a line of C code at any point in your life, you'll find their results impressive! 
 
 Not only does their semantic definition of C work for programs defined within the C programming language, it also defines and detects when and how a given behaviour is *undefined*, and flags it as such.
+
+<image src="{{ site.urlimg }}/kevin_hartmann/debugging.jpg" /> 
 
 As every C. coder soon learns, undefined behaviour is one of the biggest cause of bugs in C. Null pointer errors, segmentation faults, buffer overruns, and stack exploits are invariably caused by a C program that accidentally attempts undefined behaviour. Buffer overruns alone have been the single greatest cause of security flaws within the Linux kernel. The real problem with undefined behaviour is how hard it is to track down.   
 
@@ -298,6 +322,7 @@ However, addressing such speed issues in the 𝕂 framework is already a new res
 And since, all matching rules in 𝕂 can be run in parallel, they could always implement a matching rule engine using massively parallel hardware, and gain at least a few orders of magnitude speed increase that way. 
 
 ## The future of AI?
+<image src="{{ site.urlimg }}/kevin_hartmann/future1.jpg" /> 
 
 The 𝕂 framework is an exciting research project; both in and of itself, and for the prospects for the future that it opens up.
 
@@ -306,6 +331,7 @@ To me, the 𝕂 framework clearly demonstrates that semantic analysis is finally
 Here are just some of the benefits for coders that I forsee this kind of semantic analysis opening up, in the near future, or in some cases, starting right now! 
 
 ### C code that actually works
+<image src="{{ site.urlimg }}/kevin_hartmann/swatter.jpg" /> 
 
 C is a fast, powerful language that actually does run everywhere. It's also so bug-prone that some programmers reflexively wince when they think about trying to guarantee that their C code has no memory leaks, buffer over-runs, null pointer exceptions, or other bad behaviour that compilers don't catch for us.
 
@@ -314,6 +340,7 @@ Thanks to the 𝕂 framework, now we can detect those errors, and fix them; befo
 Check out the kcc tool, a drop-in replacement for gcc. It might be slow; but then again, so is chasing bugs with Valgrind. 
 
 ### Real cross-language compatiblity
+<image src="{{ site.urlimg }}/kevin_hartmann/dolphins.jpg" /> 
 
  Up until now, code has been largely written in one language; and porting code to another language, despite programs to assist automated translation, has always been a tedious and error prone task. Translating the syntax of one language into another is straightforward, but managing the subtle differences in language semantics
 between one langugage and another was what made the task so difficult and error
@@ -324,10 +351,12 @@ A successful toolkit for semantic analysis could change all that. When computer 
 One of the things the people at the 𝕂 framework site have already developed is [A Language-Independent Proof System for Full Program Equivalence](http://fsl.cs.illinois.edu/index.php/A_Language-Independent_Proof_System_for_Full_Program_Equivalence). It demonstrates a formal, mathematical way to prove that two programs do the same thing, no matter what language those programs are written in. It does so by demonstrating that the two programs have are _semantically equivalent_; that is, for some set of semantic behaviour that we are concerned about, the two programs do the same thing! Since that sort of semantic manipulation is exactly what the 𝕂 system is designed to do, I'd be quite surprised if the 𝕂 system isn't can't do that sort of manipulation in the near future. For all I know, it might be able to do it today. 
 
 ### Smarter compilers
+<image src="{{ site.urlimg }}/kevin_hartmann/tunnel.jpg" /> 
 
 With semantic analysis, compilers could get orders of magnitude smarter. Instead of programmers making decisions about which data structures are the best, or which of any number of collections to use to store an object, the compiler could use _semantic analysis_ to pick the best data structure for the job; or even perform run-time optimizations on the fly, choosing the data strutures and algorithms on the fly out of a series of provably equivalent choices, making efficient decisions depending upon the nature of the data being processed.
 
 ### Mission critical code that is formally proven to be correct
+<image src="{{ site.urlimg }}/kevin_hartmann/hal2.gif" /> 
 
 Semantic analysis allows us to verify code in ways that testing simply can't.
 Testing just spot-checks to make sure we haven't gone wrong; but 
@@ -342,6 +371,7 @@ I'd be much happier flying in a plane if I knew all the control software on it h
 They're already hard at work on this problem! Check out this paper from the 𝕂 framework's web site: [RV-ECU: Maximum Assurance In-Vehicle Safety Monitoring](http://fsl.cs.illinois.edu/index.php/RV-ECU:_Maximum_Assurance_In-Vehicle_Safety_Monitoring) to see how they're formally verifying that the control system for a bus works correctly.
 
 ### Smarter AIs
+<image src="{{ site.urlimg }}/kevin_hartmann/smarter_ai4.jpg" /> 
 
 What might happen if we took a program capable of semantic analysis of it's own code, and gave it the task of optimizing itself? 
 
@@ -354,6 +384,7 @@ We could have an AI with a neural network for understanding what human beings ar
 If we had that, we could bring our Siri coder to life; if such a thing turns out to be possible, that is. We won't know for sure until we try!
 
 ## That's all very interesting! But, CAN Siri learn to code?
+<image src="{{ site.urlimg }}/kevin_hartmann/siri_future.jpg" /> 
 
 #### **Well, CAN she be taught?**
 
@@ -366,6 +397,7 @@ In 1955, a program called _Logical Theorist_ was able to use deductive reasoning
 The 𝕂 framework, like Logical Theorist before it, and even modern compiler tools, all share one critically important aspect of Artificial Intelligence; they have all generated new information that humans didn't have without those programs. 
 
 #### **What do you mean by "It wrote the code all by itself!"?**
+<image src="{{ site.urlimg }}/kevin_hartmann/servers.jpg" /> 
 Suppose we gave our AI a set of requirements, and an abstract starting environment, and it could then generate all of the rest of the program for us, in any language that our the AI "knew". In that case, it would be fair to say that in some sense, the AI had "coded" the program for us.
 
 That's almost exactly what the 𝕂 framework already does right now; only backwards. The 𝕂 framework reasons forward according to the semantics of a given language and a given program, and can prove that it will generate results of a given type. 
@@ -383,6 +415,8 @@ Yes, of course! There are certainly programs that even the simplest AI can gener
 
 #### **Sure, but could an AI write code for us that a human couldn't write for themselves?**
 
+<image src="{{ site.urlimg }}/kevin_hartmann/future2.jpg" /> 
+
 The answer to that question probably depends a lot upon the human, the AI, and the nature of the program requirements themselves. It's pretty easy to make an AI that can code better than my grandmother.[1] It's much harder to make an AI that can  outcode me, or any other professional programmer[2]. 
  
 One of the ways programmers write code is to replace requirements with code that implements those requirements, and to keep doing that until the entire program is done.
@@ -390,6 +424,7 @@ One of the ways programmers write code is to replace requirements with code that
 So, if we created a big huge library of existing code, and matched each bit of code up with the corresponding semantic requirements which that code could fulfill, even a very simple program could generate a program for us. It would just have to match up all of the requirements with the corresponding code, assemble all the pieces into a program, and give it back to us! 
 
 ### How Siri might soon learn to out-code us all
+<image src="{{ site.urlimg }}/kevin_hartmann/hail_science.jpg" /> 
 
 The 𝕂 framework already lets us clearly describe a program's requirements in terms of it's semantic results on it's surrounding environment. 
 
@@ -406,6 +441,7 @@ Well, human coders use deductive logic to write programs.
 So...
 
 ### What if we taught Siri how to reason about programs?
+<image src="{{ site.urlimg }}/kevin_hartmann/brain.jpg" /> 
 
 After all, we know it's something that we can teach programs about. We did it in the 1950s, with _Logical Theorist_, so we know we can do it now! 
 
@@ -422,6 +458,7 @@ In other words, we might not have to teach Siri to code. Maybe, Siri could teach
 She might even end up being able to code better than we can!
 
 ## Conclusion
+<image src="{{ site.urlimg }}/kevin_hartmann/yes5.jpg" /> 
 Developing an AI capable of coding the way that I have described here might not actually turn out to be possible, for reasons that I can't forsee now.
 
 But then again, it might. We'll only know if we try. And there's good reason to suspect that we can succeed.
