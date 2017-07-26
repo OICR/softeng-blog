@@ -341,7 +341,7 @@ Check out the kcc tool, a drop-in replacement for gcc. It might be slow; but the
 
 A successful toolkit for semantic analysis could change all that. When a computer can verify that two sections of code have the same semantic meaning, it means that those two sections of code do the same thing, no matter how different they appear, and no matter what language they were written in.  
 
-One of the things the people at the 𝕂 framework site have already developed is [A Language-Independent Proof System for Full Program Equivalence](http://fsl.cs.illinois.edu/index.php/A_Language-Independent_Proof_System_for_Full_Program_Equivalence). It demonstrates a formal, mathematical algorithm to prove that two programs do the same thing, regardless of what programming languages those programs are written in. It does so by demonstrating that the two programs are _semantically equivalent_; that is, for some set of semantic behaviour that we are concerned about, the two programs can be mathematically proven to do the same thing! Since that sort of semantic manipulation is exactly what the 𝕂 system is designed to do, I'd be quite surprised if the 𝕂 system isn't can't do that sort of manipulation in the near future. For all I know, it might already be able to do it today! 
+One of the things the people at the 𝕂 framework site have already developed is [A Language-Independent Proof System for Full Program Equivalence](http://fsl.cs.illinois.edu/index.php/A_Language-Independent_Proof_System_for_Full_Program_Equivalence). It demonstrates a formal, mathematical algorithm to prove that two programs do the same thing, regardless of what programming languages those programs are written in. It does so by demonstrating that the two programs are _semantically equivalent_; that is, for some set of semantic behaviour that we are concerned about, the two programs can be mathematically proven to do the same thing! Since that sort of semantic manipulation is exactly what the 𝕂 system is designed to do, I'd be quite surprised if the 𝕂 system can't do that sort of manipulation in the near future. For all I know, it might already be able to do it today! 
 
 ### Smarter compilers
 <image src="{{ site.urlimg }}/kevin_hartmann/tunnel.jpg" /> 
@@ -422,7 +422,7 @@ Once we have encoded those requirements, we then could try to use its validation
 
 If Siri can prove that a possible solution provides results that are _semantically equivalent_ to the results she wants, she knows that the solution is an answer to her problem. That means that no matter how she gets the right answer, even if it's just by a "lucky guess", she can recognize that the solution is correct, and give us the right answer. 
 
-In such a scenario, Siri could write some programs for us just by quickly making educated guesses about possible solutions until she guesses correctly. She could even start out guessing blindly, and then try to refine her answers until more and more of the semantics associated with her result **become** _semantically equivalent to the correct answer.
+In such a scenario, Siri could write some programs for us just by quickly making educated guesses about possible solutions until she guesses correctly. She could even start out guessing blindly, and then try to refine her guesses until more and more of the semantics associated with her result **become** semantically equivalent to the semantics of the desired result.
 
 How can we teach Siri how to make new guesses, starting from old ones? How can we teach her how to create new programs, starting from old ones?
 
@@ -443,7 +443,7 @@ In general, we could teach Siri how to associate the rules for how to modify the
 
 Once we do that, Siri could use any one of a number of clever Artificial Intelligence tricks for making an initial guess, and refining it to get a better one. In this case, a "better" guess is a program whose semantics are a closer match to our desired semantic requirements than the last one. Every time Siri's guesses finally converge on the right answer, she'll have **written a program** for us!
 
-In other words, we might not have to teach Siri to code. Maybe, Siri could teach herself. In that case, she would not  just be limited by our understanding of what we could teach her; she could explore new possibilities "on her own". 
+In other words, we might not have to teach Siri to code. Maybe, **Siri could teach herself!** In that case, she would not  just be limited by our understanding of what we could teach her; she could explore new possibilities "on her own". 
 
 She might even end up being able to code better than we can!
 
