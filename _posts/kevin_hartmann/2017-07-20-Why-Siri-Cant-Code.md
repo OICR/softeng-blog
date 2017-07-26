@@ -127,10 +127,10 @@ match the right patterns, and are arranged in a valid way. This is how most of o
 
 But, what if we don't **want** to give up on the dream of semantic analysis? What if I really do want to make Siri or one of her fellow AIs do at least part of my work for me? How can we know which programs we can analyse, and which ones we can't? 
 
-Wait! Wasn't that last question one of the problems we already know
-we can't always solve?! It was? Now what? Our dream of perfect semantic analysis is falling apart!
+**Wait!** Wasn't that last question one of the problems we already know
+we can't always solve?! _It was?_ Now what? Our dream of perfect semantic analysis is falling apart!
 
-#### **Give up on perfection; settle for wonderful!**
+#### **Give up on perfect; settle for wonderful!**
 <image src="{{ site.urlimg }}/kevin_hartmann/hammock2.jpg" /> 
 We know we can't possibly use semantic analysis to answer all possible questions about all possible programs. 
 
@@ -192,9 +192,9 @@ Quick, someone tell Siri!
 ### How do they do it?
 <image src="{{ site.urlimg }}/kevin_hartmann/blueprint.jpg" /> 
 
-Previously, one of the most popular representation for formally expressing and reasoning about the semantics of computer systems has been so-called [_"Hoare Triples"_](https://en.wikipedia.org/wiki/Hoare_logic) (invented by Tony Hoare in 1969), which encode how a piece of code changes the state of the system with three elements: a set of assertions about the state of the system, called the preconditions; the associated code, called the command, and a series of assertions about the new state of the system, called "postconditions".
+Previously, one of the most popular representation for formally expressing and reasoning about the semantics of computer systems has been so-called [_"Hoare Triples"_](https://en.wikipedia.org/wiki/Hoare_logic) (invented by Tony Hoare in 1969), which encode how a piece of code changes the state of the system with three elements: a set of assertions about the state of the system, called the _preconditions_; the associated code, called the _command_, and a series of assertions about the new state of the system, called _postconditions_.
 
-In addition, a logical system, called _Hoare logic_, is widely used for for reasoning about the semantic meaning of Hoare Triples. It consists of a series of initial axioms, together with inference rules for reasoning about various programming language constructs. The difficulty with this system was that it's rules were very specific; they had to describe the effect of a change in terms of it's impact on the entire system, and not just on the elements of the system that were relavent to the rule. 
+In addition, a logical system, called _Hoare logic_, is widely used for for reasoning about the semantic meaning of Hoare Triples. It consists of a series of initial axioms, together with inference rules for reasoning about various programming language constructs. The difficulty with this system was that it's rules were very specific; they had to describe the effect of a change in terms of it's impact on the entire system, and not just on the elements of the system that were relevant to the rule. 
 
 The 𝕂 framework is one of the few successful alternatives to Hoare Logic available today. Here's how it works.
 
@@ -342,13 +342,11 @@ Check out the kcc tool, a drop-in replacement for gcc. It might be slow; but the
 ### Real cross-language compatiblity
 <image src="{{ site.urlimg }}/kevin_hartmann/dolphins.jpg" /> 
 
- Up until now, code has been largely written in one language; and porting code to another language, despite programs to assist automated translation, has always been a tedious and error prone task. Translating the syntax of one language into another is straightforward, but managing the subtle differences in language semantics
-between one langugage and another was what made the task so difficult and error
-prone. 
+ Up until now, a given program has usually been written in a single programming language; and porting part or all of that code to a different programming language, despite programs to assist automated translation, has always been a tedious and error prone task. Translating the syntax of one programming language into another is straightforward, but managing all the subtle differences in programming language semantics is what makes the task so difficult and error prone. 
 
-A successful toolkit for semantic analysis could change all that. When computer can verify that two sections of code have the same semantic meaning, it means that those two sections of code do the same thing, no matter how different they appear, and no matter what language they were written in.  
+A successful toolkit for semantic analysis could change all that. When a computer can verify that two sections of code have the same semantic meaning, it means that those two sections of code do the same thing, no matter how different they appear, and no matter what language they were written in.  
 
-One of the things the people at the 𝕂 framework site have already developed is [A Language-Independent Proof System for Full Program Equivalence](http://fsl.cs.illinois.edu/index.php/A_Language-Independent_Proof_System_for_Full_Program_Equivalence). It demonstrates a formal, mathematical way to prove that two programs do the same thing, no matter what language those programs are written in. It does so by demonstrating that the two programs have are _semantically equivalent_; that is, for some set of semantic behaviour that we are concerned about, the two programs do the same thing! Since that sort of semantic manipulation is exactly what the 𝕂 system is designed to do, I'd be quite surprised if the 𝕂 system isn't can't do that sort of manipulation in the near future. For all I know, it might be able to do it today. 
+One of the things the people at the 𝕂 framework site have already developed is [A Language-Independent Proof System for Full Program Equivalence](http://fsl.cs.illinois.edu/index.php/A_Language-Independent_Proof_System_for_Full_Program_Equivalence). It demonstrates a formal, mathematical algorithm to prove that two programs do the same thing, regardless of what programming languages those programs are written in. It does so by demonstrating that the two programs have are _semantically equivalent_; that is, for some set of semantic behaviour that we are concerned about, the two programs can be mathematically proven to do the same thing! Since that sort of semantic manipulation is exactly what the 𝕂 system is designed to do, I'd be quite surprised if the 𝕂 system isn't can't do that sort of manipulation in the near future. For all I know, it might already be able to do it today! 
 
 ### Smarter compilers
 <image src="{{ site.urlimg }}/kevin_hartmann/tunnel.jpg" /> 
@@ -465,7 +463,7 @@ But then again, it might. We'll only know if we try. And there's good reason to 
 
 Personally, I'm feeling very confident that **one day soon, Siri** _(or some other AI very much like her)_ **can** (and will) **learn to code**.
 
-Semantic Analysis in general, and the 𝕂 framework in particular, just might be the key to making that happen. 
+Semantic Analysis in general, and the 𝕂 framework in particular, might just be the key to making that happen. 
 
 Check it out at [http://www.kframework.org/]()
 
