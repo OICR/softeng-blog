@@ -74,8 +74,7 @@ One thing that our current tools are lacking is an understanding of what compute
 
 We leave it up to the writer of a compiler or interpreter to correctly translate the meaning of a program from it's syntactic inputs into code whose semantic meaning matches that of the programming language we're writing in. This job isn't an easy or an obvious one.
 
-
-If we had tools that were capable of understanding and manipulating the code at these deeper levels of semantic understanding, we could automatically verify properties of programs, and even automatically generate correct compilers don't even exist yet! 
+If we had tools that were capable of understanding and manipulating the code at these deeper levels of semantic understanding, we could automatically verify properties of programs, and even automatically generate correct compilers for languages that don't even exist yet! 
 
 And if we could do that, maybe we could teach Siri (or some other AI) to do that sort of thing, too. Computer Scientists refer to this sort of task as _semantic analysis_. As our AI got really good at this kind of analysis, and could process and manipulate the underlying meaning of the code in useful ways, the tasks that it could perform would become closer and closer to what a human coder could do. At some point, we would probably want to admit that, in some sense, our AI could "understand" the code; in a way that our current programs don't. And once we have an AI that can _understand_ code, an AI that also "knows" how to **write** code is only a small step away.
 
@@ -96,7 +95,7 @@ If it were easy, one of those brilliant Computer Science professors who are doin
 And of course, they're right.
 
 #### **For one thing, it's partly impossible.**
-<image src="{{ site.urlimg }}/kevin_hartmann/frink1.png" /> 
+<image src="{{ site.urlimg }}/kevin_hartmann/frink3.png" /> 
 
 As it turns out, there are a lot of questions in Computer Science that sound easy, but turn out to be impossible. Not merely _"impossibly"_ difficult (as in, _"Gosh, you'd need to be a thousand times smarter than Einstein to figure that one out!"_), but **actually impossible**; that is, mathematically proven not to be solveable, by any means, ever. 
 
