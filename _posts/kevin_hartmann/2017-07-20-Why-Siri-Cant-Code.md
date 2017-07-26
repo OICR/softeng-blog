@@ -67,7 +67,7 @@ Most of the hard part, making sure that the code that our tools produce not only
 typically rely on entire "QA" departments to help us find and fix these flaws; making mistakes is something that just happens. Our tools catch a few of our mistakes; but they miss a lot more of them. That's not an easy problem to fix.
 
 ## Arguing about semantics
-<image src="{{ site.urlimg }}/kevin_hartmann/semantic image 1.gif" /> 
+<image src="{{ site.urlimg }}/kevin_hartmann/semantics2.png" /> 
 
 
 One thing that our current tools are lacking is an understanding of what computer scientists call **_semantics_**; the underlying _meaning_ of what our programs do. Instead, most of our tools focus on **_syntax_**; the _representation_ of our code as patterns of symbols. When a programmer defines a programming language, they typically define the syntax very carefully and explicitly, using a mark-up language for syntax such as [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form); but the language's semantics are usually written as an ad-hoc series of rules written in a human language, such as English, if they are even written down at all.
