@@ -50,21 +50,16 @@ To be fair, to an extent, we already do have certain kinds of programs that can 
 that can generate code for us. While we don't typically think of them as AIs, modern optimizing
 compilers generate machine code for us on a daily basis. They do such a good job that few, if any, modern programmers could compete with them directly by generating the same machine code of equal or better quality "by hand";  and even fewer of us would ever want to try. For this particular task, a computer program is already much better at "generating code" than the majority of its human counterparts.
 
- Vast libraries of existing 
-code let us re-use known solutions to an assortment of problems; and IDEs and syntax checkers help give us hints and assistance; and various syntax checkers and
-proof verifiers already exist, and are getting better.
+ Vast libraries of existing code let us re-use known solutions to an assortment of problems; and IDEs and syntax checkers help give us hints and assistance; and various syntax checkers and proof verifiers already exist, and are getting better.
 
  Isn't that enough?
 
 ### It's not enough; it's never enough!
 <image src="{{ site.urlimg }}/kevin_hartmann/never_enough4.jpg" /> 
 
-For all that they can do, our existing tools take a very limited
-approach to understanding, verifying, or validating our code. Most of them focus on solving specific problems that are known to occur within a given programming language, such as Findbugs for Java, or Valgrind for C. Our tools work, but for the most part, they can't be said to be very "intelligent"; at least, not in the 
-sense of understanding what the code they generate is supposed to do, or how it's supposed to work. 
+For all that they can do, our existing tools take a very limited approach to understanding, verifying, or validating our code. Most of them focus on solving specific problems that are known to occur within a given programming language, such as Findbugs for Java, or Valgrind for C. Our tools work, but for the most part, they can't be said to be very "intelligent"; at least, not in the sense of understanding what the code they generate is supposed to do, or how it's supposed to work. 
 
-Most of the hard part, making sure that the code that our tools produce not only works, but works correctly, and works according to our requirements is left to us, the programmers; and coding errors are so common that we 
-typically rely on entire "QA" departments to help us find and fix these flaws; making mistakes is something that just happens. Our tools catch a few of our mistakes; but they miss a lot more of them. That's not an easy problem to fix.
+Most of the hard part, making sure that the code that our tools produce not only works, but works correctly, and works according to our requirements is left to us, the programmers; and coding errors are so common that we typically rely on entire "QA" departments to help us find and fix these flaws; making mistakes is something that just happens. Our tools catch a few of our mistakes; but they miss a lot more of them. That's not an easy problem to fix.
 
 ## Arguing about semantics
 <image src="{{ site.urlimg }}/kevin_hartmann/semantics2.png" /> 
@@ -121,13 +116,11 @@ So, if we know that we can't always use semantic analysis to understand what a p
 
 Well, we _could_ just ignore the problem, and not try to solve it. After all, it's hard enough for human programmers to understand what a given section of code does; let alone conveying that meaning in terms simple enough for a machine to understand. 
 
-We _could_ continue to interact with our programs by manipulating their syntax; by making sure that all of the symbols in a language
-match the right patterns, and are arranged in a valid way. This is how most of our existing programming tools work, so it's obviously useful.  Syntax highlighters, compilers, symbolic debuggers, anti-pattern detectors, and test suites all continue to function mostly (or completely) at the level of syntax. Sure, they do rely upon a human programmer to check that the meaning of the code and the tests are correct. But, we've come a long way with this approach; so it's obviously working!
+We _could_ continue to interact with our programs by manipulating their syntax; by making sure that all of the symbols in a language match the right patterns, and are arranged in a valid way. This is how most of our existing programming tools work, so it's obviously useful.  Syntax highlighters, compilers, symbolic debuggers, anti-pattern detectors, and test suites all continue to function mostly (or completely) at the level of syntax. Sure, they do rely upon a human programmer to check that the meaning of the code and the tests are correct. But, we've come a long way with this approach; so it's obviously working!
 
 But, what if we don't **want** to give up on the dream of semantic analysis? What if I really do want to make Siri or one of her fellow AIs do at least part of my work for me? How can we know which programs we can analyze, and which ones we can't? 
 
-**Wait!** Wasn't that last question one of the problems we already know
-we can't always solve?! _It was?_ Now what? Our dream of perfect semantic analysis is falling apart!
+**Wait!** Wasn't that last question one of the problems we already know we can't always solve?! _It was?_ Now what? Our dream of perfect semantic analysis is falling apart!
 
 #### **Give up on perfect; settle for wonderful!**
 <image src="{{ site.urlimg }}/kevin_hartmann/hammock2.jpg" /> 
@@ -346,7 +339,19 @@ One of the things the people at the 𝕂 framework site have already developed i
 ### Smarter compilers
 <image src="{{ site.urlimg }}/kevin_hartmann/tunnel.jpg" /> 
 
-With semantic analysis, compilers could get orders of magnitude smarter. Instead of programmers making decisions about which data structures are the best, or which of any number of collections to use to store an object, the compiler could use _semantic analysis_ to pick the best data structure for the job; or even perform run-time optimizations on the fly, choosing the data structures and algorithms on the fly out of a series of provably equivalent choices, making efficient decisions depending upon the nature of the data being processed.
+With semantic analysis, compilers could get orders of magnitude "smarter". 
+
+Today, programmers have to try to guess in advance which data structures and algorithms will be the best choice for a program to use, often when the final system that it will be run on isn't even known, and somehow try to balance the complexity of more "advanced" alternatives against the basic need to write simple, expressive, maintainable code.
+
+Semantically aware compilers could change that. Programmers will simply write the code in the clearest possible way, in order to demonstrate the desired semantics.  Their semantic compiler will then figure out how to optimize the program's internal data structures and algorithms, automatically, from a set of known alternatives, and their relative characteristics. 
+
+The programmer can then automatically generate the best possible program for an explicitly chosen set of alternatives, such as run time performance, space, time, decimal places of accuracy, and so on. Programmers will spend more time considering **what** to do, not _how_. 
+
+One day, semantically aware compilers could even generate programs capable of perform run-time optimizations on the fly, dynamically choosing the best data structures and algorithms based upon the run-time environment, or even based upon specific characteristics of the data set being processed.
+
+Modern optimizing compilers are often (rightly) distrusted by programmers, because they can modify the semantics of the program they optimize without the programmer being aware of the fact that it has happened. With a semantically aware optimizing compiler, programmers will know that no matter how strangely the code has been internally re-arranged or re-written, the underlying behaviour the compiled program will remain semantically equivalent to the program they wrote: and the compiler will guarantee it! 
+
+**That's** the compiler I want to have.
 
 ### Mission critical code that is formally proven to be correct
 <image src="{{ site.urlimg }}/kevin_hartmann/hal2.gif" /> 
