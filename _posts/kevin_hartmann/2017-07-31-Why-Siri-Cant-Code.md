@@ -25,13 +25,13 @@ header:
 
 Ten years ago, I read an article entitled _Why Johnny Can't Code_. I wasn't very interested in the question. At the time, and even more so today, I was much more interested in something else.
 
-You see, I didn't care very much about why our kids could (or couldn't) develop code of the type we used to write when was a young boy, using the same tools that I had used. Instead, what I wanted to know was: _"Why have those tools for writing and managing code have advanced relatively little over the past thirty years?"_
+You see, I didn't care very much about why our kids could (or couldn't) develop code of the type we used to write when I was a young boy, using the same tools that I had used. Instead, what I wanted to know was: _"Why have those tools for writing and managing code advanced relatively little over the past thirty years?"_
 
 As a boy, I often wondered if, when, and how, we could eventually be able to give over the task of writing and managing code to the computers themselves. Today, I still wonder. Why can't computers write code for us?
 
-It's still a good question, I think. Fifty or sixty years ago, when people first starting trying to answer it, the answer was fairly obvious. Researchers knew, back then, that their computers couldn't out-do a human programmer at programming,  because their hardware simply didn't have enough processing power, and no one had done enough research yet on the software side to know if such a thing could be done.
+It's still a good question, I think. Fifty or sixty years ago, when people first started trying to answer it, the answer was fairly obvious. Researchers knew, back then, that their computers couldn't out-do a human programmer at programming,  because their hardware simply didn't have enough processing power, and no one had done enough research yet on the software side to know if such a thing could be done.
 
-Today, that situation has drastically changed. Hardware and software is, without exaggeration, over one trillion times more powerful on modern hardware than it was when Artificial Intelligence research in the 1950s. Modern research into _"artificially intelligent"_ programs, (often called simply _AIs_) has quietly become wildly successful. 
+Today, that situation has drastically changed. Hardware and software is, without exaggeration, over one trillion times more powerful on modern hardware than it was when Artificial Intelligence research began in the 1950s. Modern research into _"artificially intelligent"_ programs, (often called simply _AIs_) has quietly become wildly successful. 
 
 Right now, we have powerful computer programs that have solved problems that researchers in the 1950s weren't even sure could ever be solved by anyone other than a human being. Chess grandmasters have already been beaten by AI programs. Decades ago, computers had already "learned" how to read scanned-in text, and recognize the data within it. These days, our programs are even able to talk, and they're starting to understand speech, too!
 
@@ -48,11 +48,11 @@ Why can't she code?
 
 To be fair, to an extent, we already do have certain kinds of programs that can "code"; or at least,
 that can generate code for us. While we don't typically think of them as AIs, modern optimizing
-compilers generate machine code for us on a daily basis. They do such a good job that few, if any, modern programmers could compete with them directly by generating the same machine code of equal or better quality "by hand";  and even fewer of us would ever want to try. For this particular task, a computer program is already much better at "generating code" than the majority of its human counterparts.
+compilers generate machine code for us on a daily basis. They do such a good job that few, if any, modern programmers could compete with them directly by generating machine code of equal or better quality "by hand";  and even fewer of us would ever want to try. For this particular task, a computer program is already much better at "generating code" than the majority of its human counterparts.
 
- Vast libraries of existing code let us re-use known solutions to an assortment of problems; and IDEs and syntax checkers help give us hints and assistance; and various syntax checkers and proof verifiers already exist, and are getting better.
+Vast libraries of existing code let us re-use known solutions to an assortment of problems; and IDEs and syntax checkers help give us hints and assistance; and various syntax checkers and proof verifiers already exist, and are getting better.
 
- Isn't that enough?
+Isn't that enough?
 
 ### It's not enough; it's never enough!
 <image src="{{ site.urlimg }}/kevin_hartmann/never_enough4.jpg" /> 
@@ -173,7 +173,9 @@ What sort of tools do we get? Well, according to the 𝕂 FAQ, you get "a parser
 
 The 𝕂 framework takes the "roll the dice" approach to semantic analysis; but it tries hard to succeed in all the cases where it **can** succeed. If the designers had instead opted for the more restricting "stack the deck" approach, you would be limited in what kind of semantics you could use 𝕂 to define.
 
-As it is, the sky seems to be the limit for what semantics you can define using 𝕂! Not only can 𝕂 be used to define programming languages, the designers have made it capable of formally defining the semantics of such things as formal logic systems, and type systems, as well. 𝕂 is not only designed to handle the realities of real world programming language designs, the designers explicitly took all of difficult to implement features of modern programming languages, bundled them all together into a language definition called _"Challenge"_; then proceeded to use 𝕂 semantics to define the _Challenge_ language as an example of what their system can do!
+As it is, the sky seems to be the limit for which types of semantics you can describe with the 𝕂 system! While 𝕂 can be used to define programming languages, the designers have also made it powerful enough to model the semantics of abstract mathematical formalisms. For example, you can use 𝕂 to describe the semantics of type systems (such as Lambda Calculus), or even to model entire systems of formal logic!  
+
+But 𝕂 is not just some abstract academic toy. To prove that 𝕂 could handle the complexities of real world programming languages, the designers of 𝕂 invented a new language, called _"Challenge"_, which was deliberately composed of all the "hardest of implement" features of real world programming languages; features like _concurrency_, _non-deterministic programming_, and _continuations_. They then used 𝕂 to define syntax and semantics for this _Challenge_ language. Once that was done, 𝕂 correctly implemented programming language tools for this "challenging to implement" language: and it did so automatically, based only on the language definition itself! 
 
 One of the great things about 𝕂 is the high level of knowledge of the people who work on it.  When you use a software framework, it's always nice to know that the people who wrote it had a good idea of the problem at hand, before they started slinging code. The people who wrote 𝕂 clearly did.
 
