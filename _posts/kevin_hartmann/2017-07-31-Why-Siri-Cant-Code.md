@@ -3,7 +3,7 @@ layout: post
 title:  "Why Siri Can't Code (Yet)"
 breadcrumb: true
 author: kevin_hartmann 
-date: 2017-07-20
+date: 2017-07-31
 categories: kevin_hartmann
 tags:
     - Artificial Intelligence 
