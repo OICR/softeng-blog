@@ -1,2 +1,2 @@
-# incremental does not seam to work
+# incremental does not seem to work
 bundler exec jekyll serve --future
