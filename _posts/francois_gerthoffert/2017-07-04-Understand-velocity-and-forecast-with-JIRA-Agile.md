@@ -110,7 +110,7 @@ Although we might have been consistent in our estimates and might have been coll
  
 # An imperfect solution
  
-The estimates details above are far from being a 100% accurate mean of estimating completion dates, but they do provide the team with trends and number to work with when answering the typical "when will this be ready ?" or "when can we release next ?".
+The estimates details above are far from being a 100% accurate mean of estimating completion dates, but they do provide the team with trends and numbers to work with when answering the typical "when will this be ready ?" or "when can we release next ?".
  
 # Let’s play
  
