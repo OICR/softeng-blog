@@ -1,24 +1,4 @@
-[Settings]
-  ID = "0ecfe7e5-3d16-4368-97a5-4d98781a71f7"
-  Path = "_site"
-
-# Global settings applied to the whole site.
-[build]
-  base    = "gh-pages"
-  publish = "_site/"
-  command = "jekyll build"
-
-# Production context: All deploys to the main
-# repository branch will inherit these settings.
-[context.production]
-  command = "jekyll build"
-
-# Deploy Preview context: All Deploy Previews
-# will inherit these settings.
 [context.deploy-preview]
   command = "jekyll build --future"
-
-# Branch Deploy context: All deploys that are not in
-# an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
   command = "jekyll build --future"
