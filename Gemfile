@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'jekyll', '3.5.1'
 gem 'guard'
 gem 'guard-livereload'
-gem 'kramdown', '1.11.1'
+gem 'kramdown', '1.13.2'
 
 group :jekyll_plugins do
   gem 'jekyll-gist'
