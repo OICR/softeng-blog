@@ -40,8 +40,8 @@ timezone: Canada/Eastern
 # Logo size is 600x80 pixels
 logo: "logo-Ferretti-blog.png"
 
-# Gems
-gems:
+# Plugins
+plugins:
     - jekyll-asciidoc
     - jekyll-gist
     - jekyll-paginate
