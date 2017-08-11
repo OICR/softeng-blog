@@ -26,8 +26,8 @@ sass:
 # Disable when not in production
 google_analytics_tracking_id: false
 
-# Gems
-gems:
+# Plugins
+plugins:
     - jekyll-asciidoc
     - jekyll-gist
     - jekyll-paginate

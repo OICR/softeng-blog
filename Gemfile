@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '3.3.1'
+gem 'jekyll', '3.5.1'
 gem 'guard'
 gem 'guard-livereload'
 gem 'kramdown', '1.11.1'
