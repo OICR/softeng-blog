@@ -10,7 +10,7 @@ tags:
     - Procurement
     - Cloud Infrastructure
 teaser:
-    info: While working on the Cancer Genome Collaboratory project, the team recently finalized procurement of what is likely going to be the last major purchase of storage resources. It will be adding 3,6 PB of raw storage capacity, which should give us with adequate data redundancy and safeguards, around 1 PB of additional storage available to researchers. But more than 3 years into the project, it's also a good time to reflect on our procurement strategy.
+    info: More than 3 years into the project, it's a good time to reflect on our procurement strategy for the Cancer Genome Collaboratory, with a focused on the Storage infrastructure.
     image: francois_gerthoffert/collab-procurement/collab-logo.png
 header:
     version: small
