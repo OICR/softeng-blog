@@ -19,7 +19,7 @@ header:
     icon: icon-blog
 ---
 
-While working on the Cancer Genome Collaboratory project, the team recently finalized procurement of what is likely going to be the last major purchase of storage resources. It will be adding 3,6 PB of raw storage capacity, which should provide us with adequate data redundancy and safeguards, around 1 PB of additional storage available to researchers.
+While working on the Cancer Genome Collaboratory project, the team recently finalized procurement of what is likely going to be the last major purchase of storage resources. It will be adding 3.6 PB of raw storage capacity, which should provide us with adequate data redundancy and safeguards, around 1 PB of additional storage available to researchers.
 
 Today, we are more than 3 years into the project, this milestone is a good opportunity to reflect on our procurement strategy.
 
