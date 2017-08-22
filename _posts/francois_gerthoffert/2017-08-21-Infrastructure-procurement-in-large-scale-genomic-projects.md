@@ -52,7 +52,7 @@ For example, sending the RFI to 15 vendors with the objective of keeping to invi
 
 RFPs are usually used to obtain detailed pricing and conditions from vendors on complex projects. Exact specifications of the components are potentially unknown (or partially known) by the buyer who relies on the Vendor's expertise to identify the most relevant solution.
 
-> I would like to build an OpenStack Compute and Storage cluster capable of storing 6 PB or data and running 1000 Virtual Machines in parallel. The infrastructure should be interconnected with high-performance networking providing at least 10 Gbps connectivity to the servers and 100 Gbps inter-rack connectivity. Storage should rely on 6 to 8 TB SAS drives. Compute servers should be composed of Intel CPUs with 10-14 cores and contain at least 256GB or RAM per server.
+> I would like to build an OpenStack Compute and Storage cluster capable of storing 6 PB of data and running 1000 Virtual Machines in parallel. The infrastructure should be interconnected with high-performance networking providing at least 10 Gbps connectivity to the servers and 100 Gbps inter-rack connectivity. Storage should rely on 6 to 8 TB SAS drives. Compute servers should be composed of Intel CPUs with 10-14 cores and contain at least 256GB or RAM per server.
 
 ## RFQ: Request For Quotation
 
@@ -66,7 +66,7 @@ RFSQs are usually used to pre-select vendors and establish common contractual ag
 
 The initial stage of a RFSQ has similarities with a RFP in the sense that it contains contractual details and, in our situation, it relied on a "simulated" proposal to evaluate vendors. Following the RFSQ, subsequent procurement is executed through multiple RFQ phases.
 
-After award the RFSQ is limited to an initial set of vendors, which which a contract was signed. But at any point in time, we have the flexibility to initiate a RFP and run purchases outside of the RFSQ framework (as long as the RFP is executed following corresponding rules).
+After award the RFSQ is limited to an initial set of vendors, for which a contract was signed. But at any point in time, we have the flexibility to initiate a RFP and run purchases outside of the RFSQ framework (as long as the RFP is executed following corresponding rules).
 
 RFSQ are very common for maintenance activities (such as gardening, electrical work), less for IT Infrastructure projects. It was suggested to us by our procurement department as we were discussing the project's procurement approach.
 
@@ -112,7 +112,7 @@ Until now, we've been running 4 RFQ under this RFSQ framework, and are likely go
 </center>
 
 
-But did our initial strategy worked out, and effectively provided us with more resources per dollar spent ?
+But did our initial strategy worked out, and effectively provided us with more resources per dollar spent?
 
 ## Comparing options
 
@@ -154,10 +154,10 @@ So what could be the recommendations and conclusion of this article ?
 
 If you know upfront that your project will be composed of multiple purchases, identify a procurement strategy and setup a contractual framework before starting. Not having to re-negotiate or re-validate items such as warranty, support details, greatly eases the procurement process.
 
-Don't purchase more storage capacity than required. Considering that transferring petabytes of data takes a long time, and the data to be stored might not yet be available, you might have sufficient time for staggered purchases. Instead, identify your requirements and schedule your purchases accordingly. This will provide the project with better value per dollar spent by benefitting of costs decrease and technological improvements.
+Don't purchase more storage capacity than required. Considering that transferring petabytes of data takes a long time, and the data to be stored might not yet be available, you might have sufficient time for staggered purchases. Instead, identify your requirements and schedule your purchases accordingly. This will provide the project with better value per dollar spent by benefitting of costs decreases and technological improvements.
 
 Watch out for external factors, such as currency exchange rate. Even if they are outside of your control, you might want to try to articulate your strategy around those.
 
-Establish a clear, fair and re-usable evaluation matrix. This will facilitate vendor evaluation and could also be of a great help may a vendor decide to contest an award. This is particularly true in the public sector. Furthermore, in the context of a particular purchase, don't talk to vendors directly before a quote is awarded, let your procurement department handle the communication. This will help prevent disputes coming from vendors. IT is a relatively small ecosystem and it's not rare from vendors to talk to each other or hear rumors and the last thing you want is to have to re-run a quotation process.
+Establish a clear, fair and re-usable evaluation matrix. This will facilitate vendor evaluation and could also be of great help should a vendor decide to contest an award. This is particularly true in the public sector. Furthermore, in the context of a particular purchase, don't talk to vendors directly before a quote is awarded, let your procurement department handle the communication. This will help prevent disputes coming from vendors. IT is a relatively small ecosystem and it's not rare for vendors to talk to each other or hear rumors and the last thing you want is to have to re-run a quotation process.
 
 Finally, don't forget that you are not on your own in the process. Your procurement department has experience running such purchases and although they might not have experience in your particular technical domain, they will be able to walk you through the procurement process, help catch potential errors in your request and ensure communication with vendors follows procurement rules and practices.
