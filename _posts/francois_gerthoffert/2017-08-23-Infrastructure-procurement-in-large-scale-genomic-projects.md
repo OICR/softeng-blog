@@ -3,7 +3,7 @@ layout: post
 title:  "Infrastructure procurement in large-scale genomic projects."
 breadcrumb: true
 author: francois_gerthoffert
-date: 2017-08-21
+date: 2017-08-23
 categories: francois_gerthoffert
 tags:
     - Project Management
