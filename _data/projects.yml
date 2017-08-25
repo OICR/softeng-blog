@@ -13,6 +13,11 @@
   icon: //avatars2.githubusercontent.com/u/7882952
   info: US-based unified data repository that enables data sharing across cancer genomic studies.
 
+- name: Kids First
+  url: //github.com/kids-first/
+  icon: //avatars0.githubusercontent.com/u/29782953?v=4&s=200
+  info: Discover the causes of pediatric cancer and structural birth defects through the use of big data.  
+
 - name: OncoJS
   url: //github.com/oncojs
   icon: //avatars3.githubusercontent.com/u/22945033?v=3&s=200
