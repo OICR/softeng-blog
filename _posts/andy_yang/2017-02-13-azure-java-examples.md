@@ -13,6 +13,7 @@ tags:
 teaser:
     info: Examples in Java for working with Azure Blob Storage
     image: andy_yang/azure/azure-logo.jpg
+    image_size_strategy: cover
 header: 
     version: small
     title: Software Engineering Blog
