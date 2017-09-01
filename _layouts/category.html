@@ -23,7 +23,7 @@ format: club
     </div>
 </div>
 {% endif %}
-<div class="club-page">
+<div class="club-page author-page">
     <div class="row">
         <div class="small-12 columns posts">
           {% unless page.content == '' %}
@@ -31,17 +31,17 @@ format: club
           {% endunless %}
 
           {% for post in author_posts %}
-            {% assign mod = forloop.index | minus: 1 | modulo: 3 %}
+            {% assign mod = forloop.index | minus: 1 | modulo: 1 %}
             {% if mod == 0 or forloop.first %}
               <div class="row" >
             {% endif %}
-            {% include _article_preview.html post=post column_classes='small-12 medium-6 large-4' %} 
-            {% if mod == 2 or forloop.last %}
+            {% include _article_preview.html post=post column_classes='small-12 medium-6 medium-push-3' %} 
+            {% if mod == 0 or forloop.last %}
               </div><!-- /.row -->
             {% endif %}
           {% endfor %}
           <div class="row">
-            <div class="columns">
+            <div class="columns text-center b30">
               {% include _action_buttons.html link='blog' text='View Full Blog' button='right' %}
             </div>
           </div>
