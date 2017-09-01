@@ -220,6 +220,7 @@ nav{
                 background: #FFF;
                 border-radius: 10px;
                 position: relative;
+                z-index: 1;
                 margin-bottom: -50px;
 
                 .club-icon{
@@ -287,9 +288,13 @@ nav{
             }
             .meeting-bg{
                 padding: 4em;
-                margin: 7px -100px 0px;
                 background-position: bottom;
                 background-size: cover;
+                position: absolute;
+                width: 96%;
+                left: 0;
+                top: calc(100% + 30px);
+                transform: scale(1.25);
             }
 
             &.in-club{
