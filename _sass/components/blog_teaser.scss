@@ -41,7 +41,6 @@
     }
     .post-meta {
         display: flex;
-        flex-wrap: wrap;
     }
     .post-author {
         margin-bottom: 0;
@@ -56,22 +55,39 @@
             margin-right: 10px;
         }
     }
+    .author-names {
+        flex-shrink: 1;
+        line-height: 1;
+    }
     .author-name {
         margin-top: 3px;
-        font-weight: 600;
+        font-weight: 500;
         display: inline-block;
     }
+    .author-avatars {
+        margin-right: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .author-avatar {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         overflow: hidden;
         border-radius: 50%;
         display: inline-block;
-        margin-right: 8px;
+        position: relative;
+        border: 2px solid #fff;
+        background: #fff;
+        &:nth-child(1) { z-index: 100; }
+        &:nth-child(2) { z-index: 90; }
+        &:nth-child(3) { z-index: 80; }
+        & + .author-avatar {
+            margin-left: -10px;
+        }
     }
     .date {
-        position: absolute;
-        margin-top: -4px;
         color: rgba(0,0,0,0.5);
         font-size: 12px;
     }

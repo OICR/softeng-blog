@@ -37,7 +37,34 @@
   </a>
   {% assign authors = include.post.author | split: ", " %}
   <div class="post-meta">
-    {% for currentAuthorId in authors %}
+    <div class="author-avatars">
+      {% for currentAuthorId in authors %}
+        {% assign author = site.data.authors[currentAuthorId] %}
+        <div class="author-avatar">
+          <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+            <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div style="
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.2;
+    ">
+      <div class="author-names">
+        {% for currentAuthorId in authors %}
+          {% assign author = site.data.authors[currentAuthorId] %}
+            <a class="author-name" href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+              {{ author.name }}
+            </a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      <div class="date"><strong>{{ include.post.date | date: "%b. %-d, %Y" }}</strong></div>
+    </div>
+    <!-- {% for currentAuthorId in authors %}
       <div class="author">
         {% assign author = site.data.authors[currentAuthorId] %}
         <div class="author-avatar">
@@ -54,6 +81,6 @@
           {% endif %}
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} -->
   </div> <!-- .post-meta -->
 </div>
