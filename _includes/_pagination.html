@@ -1,8 +1,6 @@
 {% for post in paginator.posts%}
 {% assign author = site.data.authors[post.author] %}
       {% assign mod = forloop.index | minus: 1 | modulo: 3 %}
-      <!-- forloop.index: {{ forloop.index }}  -->
-      <!-- mod: {{ mod }}  -->
       {% if mod == 0 or forloop.first %}
         <div class="row" >
       {% endif %}
