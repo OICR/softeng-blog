@@ -1,0 +1,86 @@
+<div class="{{ include.column_classes }} columns b30 article-preview">
+  {% if include.post.teaser %}
+    {% if include.post.teaser.image %}
+      {% assign post_date = post.date | date: '%s' %}
+      {% assign teaser_image_cutoff_date = '2017-08-24 00:00:00 -0400' | date: '%s' %}
+      {% capture default_image_strategy %}{% if post_date < teaser_image_cutoff_date %}contain{% else %}cover{% endif %}{% endcapture %}
+      <a href="{{ site.baseurl }}{{ include.post.url }}">
+        <div
+          class="teaser-image"
+          style="
+            background-image: url('{{site.urlimg}}{{include.post.teaser.image}}');
+            background-size: {% if include.post.teaser.image_size_strategy %}{{ include.post.teaser.image_size_strategy }}{% else %}{{default_image_strategy}}{% endif %};
+          "
+        ></div>
+      </a>
+    {% endif %}
+    {% if include.post.teaser.youtube %}
+      <div class="youtube-player-wrapper">
+        <iframe
+          class="youtube-player"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/{{ include.post.teaser.youtube }}"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    {% endif %}
+  {% endif %}
+  <a href="{{ site.baseurl }}{{ include.post.url }}">
+    <h3 class="post-title">{{ include.post.title }}</h3>
+    {% if include.post.teaser.info %}
+      <p class="post-teaser-text">
+        {{ include.post.teaser.info | strip_html | escape }}
+      </p>
+    {% endif %}
+  </a>
+  {% assign authors = include.post.author | split: ", " %}
+  <div class="post-meta">
+    <div class="author-avatars">
+      {% for currentAuthorId in authors %}
+        {% assign author = site.data.authors[currentAuthorId] %}
+        <div class="author-avatar">
+          <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+            <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div style="
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.2;
+    ">
+      <div class="author-names">
+        {% for currentAuthorId in authors %}
+          {% assign author = site.data.authors[currentAuthorId] %}
+            <a class="author-name" href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+              {{ author.name }}
+            </a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      <div class="date"><strong>{{ include.post.date | date: "%b. %-d, %Y" }}</strong></div>
+    </div>
+    <!-- {% for currentAuthorId in authors %}
+      <div class="author">
+        {% assign author = site.data.authors[currentAuthorId] %}
+        <div class="author-avatar">
+          <a href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+            <img src="{% if author[1].avatar contains 'http' %}{{ author[1].avatar }}{% else %} {{site.urlimg}}avatars/{{author.avatar}} {% endif %}" title="{{ author.name }}"/>
+          </a>
+        </div>
+        <div>
+          <a class="author-name" href="{{ site.baseurl }}/blog/category/{{ currentAuthorId }}">
+            {{ author.name }}
+          </a>
+          {% if forloop.first %}
+            <div class="date"><strong>{{ include.post.date | date: "%b. %-d, %Y" }}</strong></div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %} -->
+  </div> <!-- .post-meta -->
+</div>

@@ -1,0 +1,42 @@
+---
+layout: frontpage
+header:
+    version: full
+    title: Software Engineering Blog
+    caption: We are OICR's passionate team of software engineers, infrastructure specialists and bioinformaticians building tools to empower researchers in their endeavours to elucidate cancer. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.
+    image: header-logo-crop.png
+    page: front
+    class: no-icon
+    buttons:
+        - title: Meet the Team
+          link: "team/"
+        - title: Join the Team
+          link: "careers/"
+permalink: /index.html
+---
+
+<div class="large-12 columns posts t50">
+  <div class="row recent-articles" >
+    {% for post in site.posts limit:2 %}
+      {% include _article_preview.html post=post column_classes='small-12 medium-6' %}
+    {% endfor %}
+  </div>
+  
+    {% for post in site.posts limit:10 offset:2 %}
+      {% assign mod = forloop.index | minus: 1 | modulo: 3 %}
+      <!-- forloop.index: {{ forloop.index }}  -->
+      <!-- mod: {{ mod }}  -->
+      {% if mod == 0 or forloop.first %}
+        <div class="row" >
+      {% endif %}
+      {% include _article_preview.html post=post column_classes='small-12 medium-6 large-4' %} 
+      {% if mod == 2 or forloop.last %}
+        </div><!-- /.row -->
+      {% endif %}
+    {% endfor %}
+  <div class="row">
+    <div class="columns">
+      {% include _action_buttons.html link='blog/page2/' text='More' button='right' %}
+    </div>
+  </div>
+</div>

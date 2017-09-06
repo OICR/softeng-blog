@@ -220,6 +220,7 @@ nav{
                 background: #FFF;
                 border-radius: 10px;
                 position: relative;
+                z-index: 1;
                 margin-bottom: -50px;
 
                 .club-icon{
@@ -287,9 +288,13 @@ nav{
             }
             .meeting-bg{
                 padding: 4em;
-                margin: 7px -100px 0px;
                 background-position: bottom;
                 background-size: cover;
+                position: absolute;
+                width: 96%;
+                left: 0;
+                top: calc(100% + 30px);
+                transform: scale(1.25);
             }
 
             &.in-club{
@@ -577,10 +582,24 @@ nav{
 }
 
 .club-posts-info{
-    background: #eaebf0;
+    background: #FAFAFA;
     h6{
         margin-top: 0.5rem;
         color: #6c708d;
+    }
+}
+
+.author-page {
+    background: #FAFAFA;
+    .article-preview {
+        background: #fff;
+        padding: 15px;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px rgba(0,0,0,.04);
+        border: 1px solid rgba(0,0,0,.09);
+        .teaser-image {
+            border: 0;
+        }
     }
 }
 

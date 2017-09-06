@@ -112,6 +112,11 @@ button, .button         { letter-spacing: 1px; }
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus { background: $grey-1; }
 
 .homepage p { margin: 0; padding: 0; color: $grey-10; }
+.frontpage {
+  .posts .row ~ .row {
+    margin-top: 30px;
+  }
+}
 
 
 
