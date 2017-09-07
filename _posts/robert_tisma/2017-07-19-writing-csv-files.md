@@ -17,6 +17,7 @@ tags:
     - CSV
 teaser:
     info:  A Detailed Example of Writing CSV Files using Different CSV Processing Libraries
+    image: robert_tisma/writing_csv_files/csv_icon.png
 header: 
     version: small
     title: Software Engineering Blog
