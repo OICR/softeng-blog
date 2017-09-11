@@ -20,7 +20,8 @@ bessie_rogel:
   info: Business Analyst who's trying to take on the world one spec/one requirement at a time. I enjoy learning by reverse engineering and practical immersion.  I like to take apart stuff, I just need to learn how to put them back together. Anyone needs extra screws?
   avatar: bessie_rogel.svg
   github:
-
+  is_alumni: true  
+  
 bob_tiernay:
   name: Bob Tiernay
   position: Team Lead
