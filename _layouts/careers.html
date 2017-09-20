@@ -4,30 +4,29 @@ format: careers
 ---
 
 <div class="careers-body">
-    <div class="careers-body-text">
-        <div class="map hide-for-small">
-            <iframe src="https://snazzymaps.com/embed/16784" width="100%" height="100%" style="border:none;"></iframe>
-        </div>
-        <div class="intro">
-            <h2 class="title">{{ page.title }}</h2>
-            {{ page.caption }}
+    <div class="intro">
+        <h2 class="title">{{ page.title }}</h2>
+        {{ page.caption }}
 
-            <table class="careers-table" style="width: 100%">
-                <thead>
-                    <tr>
-                        <th>Current Opportunities</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="spacer"></tr>
-                    {% for posting in site.data.careers %}
-                    <tr>
-                        <td><a class="position" href="{{posting.link}}">{{ posting.position }}</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+        <table class="careers-table" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Current Opportunities</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="spacer"></tr>
+                {% for posting in site.data.careers %}
+                <tr>
+                    <td><a class="position" href="{{posting.link}}">{{ posting.position }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="map hide-for-small">
+        <iframe src="https://snazzymaps.com/embed/16784" width="100%" height="100%" style="border:none;"></iframe>
+        <a class="link-overlay" href="https://www.google.ca/maps/place/Ontario+Institute+for+Cancer+Research/" target="_blank" title="Our office"></a>
     </div>
 </div>
 
