@@ -48,7 +48,7 @@ body.video cite { color: #fff; }
 nav{
     background: #FFF;
     border-bottom: 5px solid #eaebf0;
-    .post & {
+    .post &, .careers & {
         border-bottom: 0;
     }
     padding: 20px  0;
@@ -557,11 +557,52 @@ nav{
     }
 }
 
+.careers {
+    .careers-body {
+        .title {
+            color: rgba(0,0,0,0.9);
+            font-size: 34px;
+            margin-bottom: 40px;
+        }
+        .careers-body-text {
+            display: flex;
+            flex-direction: row;
+            &:after {
+                content: '';
+                flex-grow: 1;
+            }
+        }
+        .map {
+            width: 300px;
+            flex-shrink: 0;
+            flex-grow: 1.5;
+            margin-right: 50px;
+            margin-top: 48px;
+            margin-bottom: 60px;
+            background-color: #f5f5f5;
+            border-top-right-radius: 40%;
+            border-bottom-right-radius: 18px;
+            overflow: hidden;
+        }
+        .intro {
+            color: #222;
+            font-family: $font-family-serif;
+
+            @media #{$medium-up} {
+                max-width: 400px;
+                margin-right: 70px;
+            }
+            @media #{$small-only} {
+                padding: 0 1em;
+            }
+        }
+    }
+}
+
 .join-the-team{
     text-align: center;
     .label{
         padding: 30px 5px;
-        background: #eaebf0;
         border-radius: 25px;
         font-size: 15px;
 

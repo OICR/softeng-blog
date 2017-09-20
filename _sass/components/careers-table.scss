@@ -1,19 +1,32 @@
 table.careers-table{
+    @media #{$large-up} {
+        max-width: 740px;
+    }
     background: transparent;
-    border-bottom: none;
+    border: none;
+    margin-top: 50px;
     margin-bottom: 80px;
-    font-family: $font-family-gotham-bold;
+    font-family: $font-family-sans-serif;
 
     thead{
+        background-color: transparent;
         tr{
             th{
-                color: #6c708d;
+                color: rgba(0,0,0,0.8);
+                font-family: $font-family-sans-serif;
+                font-size: 20px;
+                padding: 0;
             }
         }
     }
 
     a.position{
-        color: #45a7ca;
+        color: #29b5e8;
+        font-weight: 600;
+        font-size: 15px;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     tr.spacer{
@@ -23,7 +36,6 @@ table.careers-table{
         background: transparent;
         td{
             padding: 10px 0 10px 0;
-            border-bottom: 1px solid #EBECF0;
         }
         td:first-child{
             border-bottom: none;   
@@ -33,7 +45,6 @@ table.careers-table{
         }
     }
     tr:first-child{
-        background-color: #EAEBF0;
         margin-bottom: 20px;
     }
 }
