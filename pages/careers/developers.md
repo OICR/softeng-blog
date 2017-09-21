@@ -34,7 +34,9 @@ We are looking for passionate candidates from a wide set of seniority levels  to
  - Build Systems: Maven, webpack
  - Continuous integration: Travis, Jenkins
 
-If selected for a phone/in-person interview, technical (whiteboard) questions will be asked based on your answers to screening questions.
+By the way, are you a space or tab person? The cover letter is also a good spot to declare your love for vim and stand-out from the other candidates.
+
+The interview process will involve in-person interviews with whiteboard questions aimed at challenging your skills and assessing your approach to new and complex problems.
 
 OICR is an inclusive employer dedicated to building a diverse workforce. We encourage applications from all qualified candidates and will accommodate applicants’ needs throughout all stages of the recruitment and selection process. Please advise the Recruiter to ensure your accessibility needs are accommodated throughout this process. Information received relating to accommodation will be addressed confidentially.
 
