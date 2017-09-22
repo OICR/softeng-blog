@@ -20,7 +20,7 @@ header:
 ---
 
 ## Introduction
-This blog is based on the <a href="https://cloudblog.switch.ch/2017/06/26/deploy-kubernetes-on-the-switchengines-openstack-cloud/">blog written by my friend Saverio at SWITCH </a>, but I had to adapt it to work in Collaboratory where we don't have LbaaS, or more than 1 floating IP per project (usually).
+These instructions are based on the <a href="https://cloudblog.switch.ch/2017/06/26/deploy-kubernetes-on-the-switchengines-openstack-cloud/">blog written by my friend Saverio at SWITCH </a>, but I had to adapt it to work in Collaboratory where we don't have LbaaS, or more than 1 floating IP per project (usually).
 
 Collaboratory's Openstack APIs are not accessible outside the environment, so you will have to first provision a VM using the dashboard that will be used as a jumpserver (a c1.micro Ubuntu 16.04 should be enough).
 Make sure you allow SSH access from your source IP address and choose your SSH key when booting the VM, so you can SSH into it later.
@@ -310,14 +310,12 @@ Commercial support is available at
 </html>
 ~~~
 
-Unfortunatelly, without a working LbaaS solution in 
-
 If you want to access the Nginx service from outside Collaboratory, move the floating IP from your jumpserver VM over to the k8s-master VM first:
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Kube/floating_moved.png" />
 </figure>
 
-And create an SSH tunnel:
+And create an SSH tunnel that will send the localhost:9000 traffic over the tunnel to the CLUSTER-IP address 10.99.106.65, port 80.
 
 ~~~bash
 ssh -L 9000:10.99.106.65:80 -i ~/Desktop/demo.pem ubuntu@142.1.177.99
@@ -334,3 +332,7 @@ If you want to cleanly terminate the resources created by the Ansible playbook (
 ~~~bash
 STATE=absent ansible-playbook site.yaml
 ~~~
+
+Kubernetes is a very new technology and fairly complex, so more time is needed to work with it and grasp its usefulness, but I hope this blog will make you give it a try.
+
+
