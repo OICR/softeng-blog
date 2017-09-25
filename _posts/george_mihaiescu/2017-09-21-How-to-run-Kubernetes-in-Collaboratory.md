@@ -45,8 +45,8 @@ sudo pip install python-openstackclient ansible shade
 
 Next, check out the github repo containing the Ansible playbook that will create the VMs where Kubernetes will be installed:
 ~~~bash
-git clone https://github.com/CancerCollaboratory/infra-resources
-cd infra-resources
+git clone https://github.com/CancerCollaboratory/k8s-on-openstack.git
+cd k8s-on-openstack
 ~~~
 
 While logged into Dashboard, collect the info needed to populate the "creds" file that is provided in the git repo.
@@ -96,12 +96,12 @@ After the playbook runs successfully, obtain the private IP of the "k8s-master" 
 </figure>
 
 ~~~bash
-ubuntu@jumpserver:~/infra-resources$ eval "$(ssh-agent -s)"
+ubuntu@jumpserver:~/k8s-on-openstack$ eval "$(ssh-agent -s)"
 Agent pid 13815
-ubuntu@jumpserver:~/infra-resources$ ssh-add -k key
+ubuntu@jumpserver:~/k8s-on-openstack$ ssh-add -k key
 Identity added: key (key)
-ubuntu@jumpserver:~/infra-resources$
-ubuntu@jumpserver:~/infra-resources$ ssh 10.10.0.15
+ubuntu@jumpserver:~/k8s-on-openstack$
+ubuntu@jumpserver:~/k8s-on-openstack$ ssh 10.10.0.15
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-96-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
