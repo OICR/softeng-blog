@@ -51,7 +51,7 @@ relationships conforming to the defined schema. For querying, a DAG DB should be
 lookup for any node by its ID and traverse the graph to retrieve related nodes.
 
 A version controlled DAG DB will add additional capabilities to keep full history of changes made to
-the DAG and allow access to the DAG back in time for every invidivual node and the DAG as a
+the DAG and allow access to the DAG back in time for every individual node and the DAG as a
 whole. In a sense, much like what you can in Git.
 
 In Figure 1, changes in version 2 of the `DAG` include:
@@ -116,7 +116,7 @@ For any given revision of the DAG, we need to know which particular JSON documen
 part of the DAG. This can be achieved by creating a list of unique IDs of every member node of the graph.
 For example, `DAG.2` contains `a1.1`, `b1.2`, `b2.1`, `c1.2`, `c3.1` `d1.1` and `d2.1`. As
 nodes are defined in different types, we may alternatively keep revisions for each node type,
-and then combine all node types to the DAG level. This tiered approach is advantagous as
+and then combine all node types to the DAG level. This tiered approach is advantageous as
 it helps reduce the size of the list and tracks revision at node type level as well. Below is
 what it looks like. For example, `B.2` denotes revision 2 of node type B and its participating
 member nodes include `b1.2` and `b2.1`.
@@ -333,9 +333,9 @@ One thing needs to keep in mind is that although Elasticsearch is scalable, the 
 to scale for very large graph, this is because the number of elements (node IDs) for terms lookup filter
 is not supposed to be very large, tens of thousands may be the upper limit. This is not necessarily a
 show-stopper, proper modeling of the graph schema to partition the data and avoid single large node type
-can effectively address this pontential limitation.
+can effectively address this potential limitation.
 
-Some prototype work should be helpful in order to understand better the chracteristics of this proposed
+Some prototype work should be helpful in order to understand better the characteristics of this proposed
 version controlled DAG DB design. To find out how it turns out, stay tuned for my next blog post on this.
 Until then!
 
