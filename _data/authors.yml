@@ -170,7 +170,8 @@ sid_joshi:
   info: Front-End developer contributing to a good cause little by little everyday. Noob gamer, Learning lad, skilled hiker and developer of this blog.
   avatar: sid_joshi.png
   github: sidsyrus
-
+  is_alumni: true
+  
 shane_wilson:
   name: Shane Wilson
   position: Team Lead
