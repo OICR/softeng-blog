@@ -156,7 +156,7 @@ d07d91d263e0        gcr.io/google_containers/pause-amd64:3.0                 "/p
 1739a990360a        gcr.io/google_containers/pause-amd64:3.0                 "/pause"                 6 hours ago         Up 6 hours                              k8s_POD_etcd-k8s-master_kube-system_9ef6d25e21bb4befeabe4d0e4f72d1ca_0
 ~~~
 
-You can see details about the Kubernetes nodes (VMs managed by Kubernetes where it can orchestrate containers) with various level of details:
+You can see details about the Kubernetes nodes (VMs that have a Kubernetes agent installed allowing Kubernetes to orchestrate containers there) with various levels of detail:
 ~~~bash
 ubuntu@k8s-master:~$ kubectl get nodes
 NAME         STATUS    AGE       VERSION
