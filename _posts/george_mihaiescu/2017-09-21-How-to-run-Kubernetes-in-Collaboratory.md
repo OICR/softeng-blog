@@ -20,7 +20,12 @@ header:
 ---
 
 ## Introduction
-These instructions are based on the <a href="https://cloudblog.switch.ch/2017/06/26/deploy-kubernetes-on-the-switchengines-openstack-cloud/">blog written by my friend Saverio at SWITCH </a>, but I had to adapt it to work in Collaboratory where we don't have LbaaS, or more than 1 floating IP per project (usually).
+Kubernetes is a technology originally developed at Google and later open-sourced that allows container orchestration (deployment, scaling, rolling updates, etc).
+The project is actively developed and it has broad industry support, so it will be present more and more in the devops toolset, which means it is very useful to get familiar with it.
+
+Because Kubernetes has multiple components and installation instructions can be hard to follow or incomplete, I decided to provide here instructions for deploying a Kubernetes cluster easy to follow and verified to work in Collaboratory.
+
+The following instructions are based on the <a href="https://cloudblog.switch.ch/2017/06/26/deploy-kubernetes-on-the-switchengines-openstack-cloud/">blog written by my friend Saverio at SWITCH </a>, but I had to adapt it to work in Collaboratory where we don't have LbaaS, or more than 1 floating IP per project (usually).
 
 Collaboratory's Openstack APIs are not accessible outside the environment, so you will have to first provision a VM using the dashboard that will be used as a jumpserver (a c1.micro Ubuntu 16.04 should be enough).
 Make sure you allow SSH access from your source IP address and choose your SSH key when booting the VM, so you can SSH into it later.
