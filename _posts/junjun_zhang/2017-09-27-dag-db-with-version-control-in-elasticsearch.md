@@ -63,7 +63,7 @@ In Figure 1, changes in version 2 of the `DAG` include:
 
 After all the changes have been applied to the database, a version controlled DAG DB would allow
 us travel back in time, access the DAG as if there were no change made at all. It's also possible to
-retrieve all historic revisions of a particular entity, and find out what exact change had made
+retrieve all historic revisions of a particular node, and find out what exact change had made
 to it at each revision.
 
 If all that sounds like magic to you, or you may think it's going to be too hard to implement
@@ -72,7 +72,7 @@ such a system. Please follow along, let's make the magic happen together.
 ## Model DAG using JSON documents
 
 It's fairly straightforward to represent node as a JSON document, edge 
-as JSON field containing IDs of parent node(s). Two examples given below
+as JSON field containing ID(s) of parent node(s). Two examples given below
 illustrate how `a1` and `d1` may be represented as JSON documents.
 
 {% highlight javascript %}
@@ -144,8 +144,8 @@ All three types of possible change to the DAG are handled as follows:
 
 As you may have noticed all JSON documents in the DAG are completely immutable, they will never
 be deleted or changed once written. This is essentially how Git version control system works under
-the hood. The node JSON docs are like Git's blob objects; the graph member lists for each node type
-are similar to Git's tree objects. 
+the hood. The node JSON docs are like Git blob objects; the graph member lists for each node type
+are similar to Git tree objects.
 
 
 ## Implement it in Elasticsearch
@@ -157,7 +157,7 @@ the curl commands to run on your computer if you have Elasticsearch installed an
 ### Create version 1 of the DAG
 
 We will have two different kinds of Elasticsearch indexes, one for
-data, the other to keep list of graph member nodes' IDs for each revision.
+data, the other to keep list of graph member nodes' ID for each revision.
 
 First create JSON docs for each node in `DAG.1`. Here is an example to create `a1.1`:
 {% highlight bash %}
@@ -183,7 +183,7 @@ curl -XPUT 'localhost:9200/.d.dag.rev.a/A/A.1' -d'
 '
 {% endhighlight %}
 
-Again, the full list of commands is [here](https://gist.githubusercontent.com/junjun-zhang/8362c66d20f48073c644bd02062922c0/raw/c87fc94d2aac87e87e1bc2f0ceda0f4355b73e9f/2_create_graph_member_lists_for_dag_1.sh)
+Again, the full list of commands is [here](https://gist.githubusercontent.com/junjun-zhang/8362c66d20f48073c644bd02062922c0/raw/c87fc94d2aac87e87e1bc2f0ceda0f4355b73e9f/2_create_graph_member_lists_for_dag_1.sh).
 
 Finally, we need to link `DAG.1` to the collection of versioned node types: `["A.1", "B.1", "C.1", "D.1"]`.
 An elegant way to do this in Elasticsearch is to create an index alias with terms lookup
@@ -331,7 +331,7 @@ of arbitrary entity collection) can be exposed as resources with permanent URI.
 
 One thing needs to keep in mind is that although Elasticsearch is scalable, the DAG DB may not be able
 to scale for very large graph, this is because the number of elements (node IDs) for terms lookup filter
-is not supposed to be very large, tens of thousands may be the upper limit. This is not necessarily a
+is not supposed to be very large, tens of thousands per node type may be the upper limit. This is not necessarily a
 show-stopper, proper modeling of the graph schema to partition the data and avoid single large node type
 can effectively address this potential limitation.
 
