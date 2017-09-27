@@ -248,7 +248,6 @@ Please download and run them on your computer.
 
 The last step is to create another index alias: `.d.dag.2`:
 {% highlight bash %}
-# note that we can create another alias call '.d.dag.latest'
 curl -XPOST 'localhost:9200/_aliases' -d '
 {
   "actions": [
@@ -329,7 +328,7 @@ Benefited from the data immutability nature in the design, it's reasonable to ex
 and ease of use for both end users and administrators. Any entity or a group of entities (via creation
 of arbitrary entity collection) can be exposed as resources with permanent URI.
 
-One thing needs to keep in mind is that although Elasticsearch is scalable, the DAG DB may not be able
+One thing needs to keep in mind is that although Elasticsearch is highly scalable, the DAG DB may not be able
 to scale for very large graph, this is because the number of elements (node IDs) for terms lookup filter
 is not supposed to be very large, tens of thousands per node type may be the upper limit. This is not necessarily a
 show-stopper, proper modeling of the graph schema to partition the data and avoid single large node type
