@@ -343,6 +343,11 @@ is not supposed to be very large, tens of thousands per node type may be the upp
 show-stopper, proper modeling of the graph schema to partition the data and avoid single large node type
 can effectively address this potential limitation.
 
+Although most [resiliency issues](https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html)
+have been addressed in Elassticsearch, it is still not officially recommended to use it as
+the primary datastore. However, as the proposed DAG DB is append only, frequent Elasticsearch incremental backup should
+be quick to perform and will help minimizing the risk of data loss.
+
 Some prototype work should be helpful in order to understand better the characteristics of this proposed
 version controlled DAG DB design. To find out how it turns out, stay tuned for my next blog post on this.
 Until then!
