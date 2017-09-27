@@ -45,14 +45,14 @@ The graph as a whole is denoted as `DAG` appended with a revision number, eg, `D
 labelled using its ID appended with a revision number. For example, `a1.1` denotes entity `a1`
 at revision 1. Relationships are represented as arrows pointing from child node to parent node.
 
-At very minimum, we would expect a DAG database records every node and its relationships
-to other nodes, allows changes (update, create and delete) to be made to the nodes and
-relationships conforming to the defined schema. For querying, a DAG DB should be able to
+At a very minimum, we would expect a DAG database to record every node and its relationships
+to other nodes and allow changes (update, create and delete) to be made to the nodes and
+relationships in conformity with the defined schema. For querying, a DAG DB should be able to
 lookup for any node by its ID and traverse the graph to retrieve related nodes.
 
 A version controlled DAG DB will add additional capabilities to keep full history of changes made to
-the DAG and allow access to the DAG back in time for every individual node and the DAG as a
-whole. In a sense, much like what you can in Git.
+the DAG, allowing access to any snapshot of the entire DAG and any revision of individual node.
+In a sense, much like what you can do in Git.
 
 In Figure 1, changes in version 2 of the `DAG` include:
 - updated `b1.1` to `b1.2`
@@ -159,7 +159,7 @@ the curl commands to run on your computer if you have Elasticsearch installed an
 We will have two different kinds of Elasticsearch indexes, one for
 data, the other to keep list of graph member nodes' ID for each revision.
 
-First create JSON docs for each node in `DAG.1`. Here is an example to create `a1.1`:
+First create JSON docs for each node in `DAG.1`. Here shows example curl commands to create `a1.1` and `b1.1`:
 {% highlight bash %}
 # create a1.1, note that we do not need to have _id (a1.1) in the JSON document, the _id is specified in the HTTP request URL as document ID
 # we use '.d.' as namespace prefix to separate out from other indexes unrelated to our work
@@ -169,6 +169,15 @@ curl -XPUT 'localhost:9200/.d.dag.data.a/A/a1.1' -d'
   "id": "a1",
   "p_id": [ ],
   "a_id": [ ],
+  "data": { }
+}
+'
+curl -XPUT 'localhost:9200/.d.dag.data.b/B/b1.1' -d'
+{
+  "type": "B",
+  "id": "b1",
+  "p_id": [ "a1" ],
+  "a_id": [ "a1" ],
   "data": { }
 }
 '
@@ -215,7 +224,7 @@ curl -XPOST 'localhost:9200/_aliases' -d '
 '
 {% endhighlight %}
 
-Version 1 of the DAG can always be access via the alias: `.d.dag.1`.
+Version 1 of the DAG can always be accessible via the alias: `.d.dag.1`.
 
 ### Create version 2 of the DAG
 
@@ -234,7 +243,7 @@ curl -XPUT 'localhost:9200/.d.dag.data.b/B/b1.2' -d'
 '
 {% endhighlight %}
 
-To reflect the change of `b1.1` to `b1.2`, we need to update graph member list for revision
+To reflect the change of `b1.1` to `b1.2`, we need to update graph member list to drop `b1.1` and add `b1.2` for revision
 2 of node type B, ie, `B.2`.
 
 {% highlight bash %}
@@ -272,7 +281,7 @@ curl -XPOST 'localhost:9200/_aliases' -d '
 '
 {% endhighlight %}
 
-We can also create aliases for `dag.latest` to access latest version of the DAG and `dag.all` to
+We can also create aliases for `.d.dag.latest` to access latest version of the DAG and `.d.dag.all` to
 access all nodes including historic revisions. [Here](https://gist.githubusercontent.com/junjun-zhang/8362c66d20f48073c644bd02062922c0/raw/c87fc94d2aac87e87e1bc2f0ceda0f4355b73e9f/5_create_alias_for_dag_2_and_more.sh) are the curl commands.
 
 ## Cool things you can do with version controlled DAG DB
