@@ -3,7 +3,7 @@ layout: post
 title:  "Proof of Concept: Implement Directed Acyclic Graph DB with Version Control using Elasticsearch"
 breadcrumb: true
 author: junjun_zhang
-date: 2017-09-27
+date: 2017-09-28
 categories: junjun_zhang
 tags:
     - Graph database
