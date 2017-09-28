@@ -3,7 +3,7 @@ layout: post
 title:  "How to run Kubernetes in Collaboratory."
 breadcrumb: true
 author: george_mihaiescu
-date: 2017-09-21
+date: 2017-09-28
 categories: george_mihaiescu
 tags:
     - OpenStack
