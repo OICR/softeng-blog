@@ -12,7 +12,7 @@ tags:
     - Elasticsearch
 teaser:
     info: A step-by-step illustration on how Elasticsearch could be used to implement a version controlled directed acyclic graph database.
-    image: junjun_zhang/DagVC.png
+    image: junjun_zhang/DagVC-thumbnail.png
 header:
     version: small
     title: Software Engineering Blog
