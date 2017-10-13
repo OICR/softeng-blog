@@ -26,7 +26,7 @@ This is a tutorial meant to cover from signup to downloads of Cancer data at the
 ## Prerequisites
 * [Obtain DACO approval.](http://icgc.org/daco) This is a Collaboratory prerequisite and all users of the Collaboratory must have DACO approval. DACO handles requests from scientists for access to controlled data from the International Cancer Genome Consortium (ICGC).
 
-* [Request Collaboratory account](http://www.cancercollaboratory.org/services-request-account). The Cancer Genome Collaboratory is the Compute environment and also home to an object storage repository containing hundreds of terabytes of ICGC data. A new & easier signup page is coming soon.
+* [Request Collaboratory account](http://www.cancercollaboratory.org/services-request-account). The Cancer Genome Collaboratory is the Compute environment and also home to an object storage repository containing hundreds of terabytes of ICGC data. A new & easier signup page is coming soon. Upon signup, you will receive your account details via email.
 
 ## Summary of Steps
 1. [Log in to the Collaboratory OpenStack dashboard](#1)
@@ -42,14 +42,12 @@ This is a tutorial meant to cover from signup to downloads of Cancer data at the
 <a id="1"></a>
 ## Step 1: Log in to the Collaboratory OpenStack dashboard
 
-When you sign up for the Collaboratory you will receive some emails once your account is created.
-
-In a browser, go to <https://console.cancercollaboratory.org> and log in using your provided credentials
+In a browser, go to <https://console.cancercollaboratory.org> and log in using your provided credentials received via email during sign up.
 <figure>
     <img id="console-login" src="{{site.urlimg}}jared_baker/day1collab/1-console-login.png" data-featherlight="#console-login" />
 </figure>
 
-The Collaboratory OpenStack dashboard is where you will manage your cloud environment. Creating things like instances (virtual machines, or vm's), volumes (additional storage), security groups (firewall rules), etc.
+The Collaboratory OpenStack dashboard is where you will manage your cloud environment, creating things like instances, volumes (additional storage), and security groups (firewall rules), etc.
 
 <figure>
     <img id="console-summary" src="{{site.urlimg}}jared_baker/day1collab/1-console-summary.png" data-featherlight="#console-summary" />
@@ -86,7 +84,7 @@ You can also view the detail of your keys and see the public key pair which is u
 
 <a id="3"></a>
 ## Step 3: Create an instance
-Instances are Virtual Machines, aka VM's. Let's begin creating a single instance by clicking Launch Instance under the 'Instances' tab. This will launch an instance creation wizard where we will need to provide some additional information before an instance can be created.
+Instances are Virtual Machines, aka VM's. Let's begin creating one by clicking 'Launch Instance' under the 'Instances' tab. This will launch a wizard where we will need to provide some additional information before it can be created.
 
 Provide a useful name to identify the instance by. Leave the count at 1. If we wanted more instances like the one we are creating we could put the number desired here and your instances would be named dynamically. Example, if you instance name was 'my-first-instance' and the count was 3, you would have 3 instances with names 'my-first-instance-1, my-first-instance-2, my-first-instance-3'.
 
