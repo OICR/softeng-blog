@@ -92,6 +92,34 @@
                 // letter-spacing: -.003em;
                 color: rgba(0,0,0,0.8);
             }
+            a {
+                display: inline-block;
+                font-weight: inherit;
+                position: relative;
+                text-decoration: none;
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    background-image: linear-gradient(to bottom,rgba(0,0,0,.65) 50%,rgba(0,0,0,0) 50%);
+                    background-repeat: repeat-x;
+                    background-size: 2px 2px;
+                    background-position: 0 1.26em;
+                    transition: 0.1s transform;
+                    transform-origin: center calc(100% - 7px);
+                    transform: scaleY(1);
+                }
+                &:hover {
+                    border-bottom: 0;
+                    &:after {
+                        transform: scaleY(1.5);
+                    }
+                }
+            }
         }
 
         a {
