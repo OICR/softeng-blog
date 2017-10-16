@@ -110,7 +110,7 @@ Select a Network for your instance to communicate on. New projects already have 
     <img id="instance-networks" src="{{site.urlimg}}jared_baker/day1collab/3-instance-networks.png" data-featherlight="#instance-networks"/>
 </figure>
 
-Security groups are the firewall for an instance. They define what can and cant go to/from your instance over the network. Choose the default security group for now as we will modify this later on.
+Security groups are the firewall for an instance. They define what can and can't go to/from your instance over the network. Choose the default security group for now as we will modify this later on.
 
 <figure>
     <img id="instance-secgroups" src="{{site.urlimg}}jared_baker/day1collab/3-instance-secgroups.png" data-featherlight="#instance-secgroups"/>
