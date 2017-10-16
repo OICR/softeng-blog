@@ -21,7 +21,7 @@ header:
 ---
 
 ## Introduction
-This is a tutorial meant to cover from signup to downloads of Cancer data at the Cancer Genome Collaboratory. Cancer researchers looking to perform analysis at the Collaboratory will need to do a number of things before they can start their analysis. I will walk you through each step to help get you on your way!
+This is a tutorial meant to cover the steps required to get from signup to downloading of Cancer data at the Cancer Genome Collaboratory. Cancer researchers looking to perform analysis at the Collaboratory will need to do a number of things before they can start their analysis. I will walk you through each step to help get you on your way!
 
 ## Prerequisites
 * [Obtain DACO approval.](http://icgc.org/daco) This is a Collaboratory prerequisite and all users of the Collaboratory must have DACO approval. DACO handles requests from scientists for access to controlled data from the International Cancer Genome Consortium (ICGC).
@@ -30,7 +30,7 @@ This is a tutorial meant to cover from signup to downloads of Cancer data at the
 
 ## Summary of Steps
 1. [Log in to the Collaboratory OpenStack dashboard](#1)
-2. [Create a key pair](#2)
+2. [Create a SSH key pair](#2)
 3. [Create an instance](#3)
 4. [Assign a floating IP](#4)
 5. [Allow SSH access to the instance](#5)
@@ -54,7 +54,7 @@ The Collaboratory OpenStack dashboard is where you will manage your cloud enviro
 </figure>
 
 <a id="2"></a>
-## Step 2: Create a key pair
+## Step 2: Create a SSH key pair
 Before creating any instances you will need to define a key pair which will be used to authenticate you when you SSH to your instances. Give your key a meaningful name and click 'Create Key Pair'.
 
 <figure>
@@ -76,7 +76,7 @@ You can create and manage your keys from the Access & Security tab.
     <img id="key-list" src="{{site.urlimg}}jared_baker/day1collab/2-key-list.png" data-featherlight="#key-list" />
 </figure>
 
-You can also view the detail of your keys and see the public key pair which is used on the instances you create and stored in the Collaboratory.
+You can also view the detail of your keys and see the public key pair which is used on the instances you created and stored in the Collaboratory.
 
 <figure>
     <img id="key-detail" src="{{site.urlimg}}jared_baker/day1collab/2-key-detail.png" data-featherlight="#key-detail" />
@@ -86,19 +86,19 @@ You can also view the detail of your keys and see the public key pair which is u
 ## Step 3: Create an instance
 Instances are Virtual Machines, aka VM's. Let's begin creating one by clicking 'Launch Instance' under the 'Instances' tab. This will launch a wizard where we will need to provide some additional information before it can be created.
 
-Provide a useful name to identify the instance by. Leave the count at 1. If we wanted more instances like the one we are creating we could put the number desired here and your instances would be named dynamically. Example, if you instance name was 'my-first-instance' and the count was 3, you would have 3 instances with names 'my-first-instance-1, my-first-instance-2, my-first-instance-3'.
+Provide a useful name to identify the instance by. Leave the count at 1. If we wanted more instances like the one we are creating we could put the number desired here and your instances would be named dynamically. Example, if our instance name was 'my-first-instance' and the count was 3, we would have 3 instances with names 'my-first-instance-1, my-first-instance-2, my-first-instance-3'.
 
 <figure>
     <img id="instance-name" src="{{site.urlimg}}jared_baker/day1collab/3-instance-name.png" data-featherlight="#instance-name" />
 </figure>
 
-The Source tab is where you will choose the Operating System that your instance will run. Ensure that your boot source is **'Image'** and not 'Volume' and that 'Create New Volume' is set to **'No'** This will make sure that your instance is provisioned correctly and will use the local disk of the underlying compute host. An instance backed by a Volume will have lower disk I/O performance and will incur extra charges.
+The Source tab is where you will choose the Operating System that your instance will run. Ensure that the boot source is **'Image'** and not 'Volume' and that 'Create New Volume' is set to **'No'**. This will make sure that the instance is provisioned correctly and will use the local disk of the underlying compute host. An instance backed by a Volume will have lower disk I/O performance and will incur extra charges.
 
 <figure>
     <img id="instance-source" src="{{site.urlimg}}jared_baker/day1collab/3-instance-source.png" data-featherlight="#instance-source"/>
 </figure>
 
-Instances in the Collaboratory come in different *flavours*. Flavours are what defines the specifications (# of CPU, RAM, and local disk space) of the instance. Choose a flavour to meet your computing needs.
+Instances in the Collaboratory come in different *flavours*. Flavours are what defines the specifications (# of CPU, RAM, and local disk space) of the instance. Choose an appropriate flavour to meet your computing needs while keeping in mind that you will have to terminate the instance and recreate it with a different flavour if you need a smaller or larger flavour. One other option would be to take a snapshot and start a new instance from it, but the flavour of the instance started from a snapshot cannot be smaller than the flavour of the instance initially being snapshotted.
 
 <figure>
     <img id="instance-flavor" src="{{site.urlimg}}jared_baker/day1collab/3-instance-flavor.png" data-featherlight="#instance-flavor" />
@@ -110,7 +110,7 @@ Select a Network for your instance to communicate on. New projects already have 
     <img id="instance-networks" src="{{site.urlimg}}jared_baker/day1collab/3-instance-networks.png" data-featherlight="#instance-networks"/>
 </figure>
 
-Security groups the firewall for your instance. They define what can and cant go to/from your Instance over the network. Choose the default security group for now as we will modify this later on.
+Security groups are the firewall for an instance. They define what can and cant go to/from your instance over the network. Choose the default security group for now as we will modify this later on.
 
 <figure>
     <img id="instance-secgroups" src="{{site.urlimg}}jared_baker/day1collab/3-instance-secgroups.png" data-featherlight="#instance-secgroups"/>
@@ -165,7 +165,7 @@ It's time to SSH to your instance.
 You will need:
 - The floating IP address of the instance
 - Your SSH private key (the .pem downloaded in step 2)
-- The username, which is standardized based on what OS/Image used (ubuntu, centos, debian)
+- The username, which is standardized based on what OS/Image used (ubuntu, centos, debian). Usernames can be viewed in the image description.
 
 ~~~bash
 ssh -i <key.pem> <username>@<floating-ip-address>
@@ -223,7 +223,16 @@ First obtain or generate your token by logging in to the [The ICGC Data Portal](
     <img id="icgc-tokenlist" rc="{{site.urlimg}}jared_baker/day1collab/8-icgc-tokenlist.png" data-featherlight="#icgc-tokenlist" />
 </figure>
 
-Copy your token ID and paste it in to the accessToken line in 'application.properties' in the 'conf' directory of the icgc-storage client. Save and exit!
+Copy your token ID and paste it in to the accessToken line in 'application.properties' in the 'conf' directory of the icgc-storage client. Additionally, for improved download performance you can increase the amount of memory and CPU available to the application. If your instance has 8 cores and 48 GB of RAM then use the following:
+
+~~~bash
+transport.memory=6
+transport.parallel=7
+~~~
+
+This will allow 7 parallel download streams with each using 6 GB of RAM to improve the download speed.
+
+Save and exit!
 
 <figure>
     <img id="icgc-appprop" src="{{site.urlimg}}jared_baker/day1collab/8-icgc-appprop.png" data-featherlight="#icgc-appprop" />
@@ -232,7 +241,7 @@ Copy your token ID and paste it in to the accessToken line in 'application.prope
 <a id="9"></a>
 ## Step 9: Download ICGC data using icgc-storage-client
 
-Using the [ICGC data portal](https://dcc.icgc.org) find the data of interest, ensuring its available in the Collaboratory using the built in filtering and copy the object ID
+Using the [ICGC data portal](https://dcc.icgc.org) find the data of interest, ensuring it's available in the Collaboratory using the built in filtering and copy the object ID
 
 <figure>
     <img id="icgc-copyid" src="{{site.urlimg}}jared_baker/day1collab/9-icgc-copyid.png" data-featherlight="#icgc-copyid" />
