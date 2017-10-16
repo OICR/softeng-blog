@@ -110,7 +110,7 @@ Select a Network for your instance to communicate on. New projects already have 
     <img id="instance-networks" src="{{site.urlimg}}jared_baker/day1collab/3-instance-networks.png" data-featherlight="#instance-networks"/>
 </figure>
 
-Security groups are the firewall for an instance. They define what can and can't go to/from your instance over the network. Choose the default security group for now as we will modify this later on.
+Security groups are the firewall for an instance. They define what can and can'grt go to/from your instance over the network. Choose the default security group for now as we will modify this later on.
 
 <figure>
     <img id="instance-secgroups" src="{{site.urlimg}}jared_baker/day1collab/3-instance-secgroups.png" data-featherlight="#instance-secgroups"/>
@@ -176,7 +176,7 @@ For Windows + Putty users, you will need to convert the .pem to .ppk. See instru
 
 <a id="7"></a>
 ## Step 7: Install icgc-storage-client
-The ICGC storage client is an application that allows you to download ICGC data from Collaboratory's protected object storage. Its available as a stand alone client or docker container. [More detailed instructions here](http://docs.icgc.org/cloud/guide/#installation)
+The ICGC storage client is an application that allows you to download ICGC data from Collaboratory's protected object storage. It's available as a stand alone client or docker container. [More detailed instructions here](http://docs.icgc.org/cloud/guide/#installation)
 
 First, install the prerequisite java packages on your instance
 
