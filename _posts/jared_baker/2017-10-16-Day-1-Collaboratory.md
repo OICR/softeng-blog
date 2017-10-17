@@ -3,7 +3,7 @@ layout: post
 title:  "Day 1 as a Collaboratory User"
 breadcrumb: true
 author: jared_baker
-date: 2017-10-20
+date: 2017-10-16
 categories: jared_baker
 tags:
     - OpenStack
