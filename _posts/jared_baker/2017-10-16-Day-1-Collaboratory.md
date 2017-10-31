@@ -68,7 +68,7 @@ The key is downloaded by your browser as \<key-name>.pem. Make sure to restrict 
 chmod 600 collaboratory-key.pem
 ~~~
 
-Note, if you are on Windows and use Putty you will need to convert your .pem to .ppk.  [Follow these instructions](https://github.com/davidheijkamp/docs/wiki/Howto:-Creating-and-using-OpenStack---SSH-keypairs-on-Windows)
+Note, if you are on Windows and use Putty you will need to convert your .pem to .ppk.  [Follow these instructions](https://github.com/jmimico/openstack-docs/wiki/Convert-.pem-to-.ppk-SSH-key)
 
 You can create and manage your keys from the Access & Security tab.
 
