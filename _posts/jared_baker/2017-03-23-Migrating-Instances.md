@@ -34,13 +34,13 @@ In large environments with tens or hundreds of servers, migrating instances arou
 Here in the Collaboratory we do make use of the migration functionality but in a case by case basis and not typically for instances running CPU intensive workloads.
 
 #### Official documentation
-* [Openstack admin guide on migrations](https://docs.openstack.org/admin-guide/cli-nova-migrate.html)
-* [Openstack admin guide on live migration](https://docs.openstack.org/admin-guide/compute-live-migration-usage.html)
-* [Openstack configuring guide on migrations](https://docs.openstack.org/admin-guide/compute-configuring-migrations.html)
+* [Openstack admin guide on migrations](https://docs.openstack.org/nova/pike/admin/migration.html)
+* [Openstack admin guide on live migration](https://docs.openstack.org/nova/pike/admin/live-migration-usage.html)
+* [Openstack configuring guide on migrations](https://docs.openstack.org/nova/pike/admin/configuring-migrations.html)
 * [KVM Migration](https://www.linux-kvm.org/page/Migration)
 
 #### Prerequisites
-* [Enable SSH between compute nodes](https://docs.openstack.org/admin-guide/cli-nova-migrate-cfg-ssh.html#clinovamigratecfgssh)
+* [Enable SSH between compute nodes](https://docs.openstack.org/nova/pike/admin/ssh-configuration.html)
 
 ## Migration types
 * Cold Migration
