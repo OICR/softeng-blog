@@ -185,6 +185,7 @@ shane_wilson:
   info: Software Architect with a passion for making tools that make developers' lives easier. Functional Programming geek. Facebook OSS fanboy (React, Relay, ReasonML).
   avatar: shane_wilson.png
   github: shanewilson
+  is_alumni: true  
 
 vincent_ferretti:
   name: Vincent Ferretti
