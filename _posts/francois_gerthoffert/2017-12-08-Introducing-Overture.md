@@ -18,7 +18,7 @@ header:
     icon: icon-blog
 ---
 
-Today we are introducing [Overture](https://www.overture.bio) as our collection of open, composable and extendable components for data science in the cloud. Although only introduced today, its inception started as a concept months ago as we were receiving requests from various organizations for guidance on how to run some of the [ICGC](https://dcc.icgc.org/) components in their own environment, with their own data or with a mirror of ICGC data.
+Today we are introducing [Overture](https://www.overture.bio) as our collection of open, composable and extendable components for data science in the cloud. Although only introduced today, its inception started as a concept, months ago, as we were receiving requests from various organizations for guidance on how to run some of the [ICGC](https://dcc.icgc.org/) components in their own environment, with their own data or with a mirror of ICGC data.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/overture-logo.png" />
