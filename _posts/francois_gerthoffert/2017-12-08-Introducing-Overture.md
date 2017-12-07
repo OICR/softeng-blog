@@ -25,7 +25,7 @@ Today we are introducing [Overture](https://www.overture.bio) as our collection 
 </figure>
 
 As internal discussions progressed on documenting our ICGC tools in the perspective of them being used outside of the team, we started to better structure our open-source
- repositories, we also created an ICGC Github organization, to separate tools specific to our data portals from re-usable tools. But we soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [Genomic Data Commons](https://gdc.cancer.gov/), Kids-First), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons. And more than that, some of those components were already built and mature. Using years of experience operating the ICGC Data Coordination Centre, we learnt from our mistakes, optimized the implementation and overall built very robust and scalable components for our field.
+ repositories and created an ICGC Github organization, to separate tools specific to our data portal from reusable tools. We soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [Genomic Data Commons](https://gdc.cancer.gov/), Kids-First), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons. And more than that, some of those components were already built and mature. Using years of experience operating the ICGC Data Coordination Centre, we learnt from our mistakes, optimized implementations and overall built very robust and scalable components for our field.
 
 # Our projects
 
@@ -44,14 +44,14 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Architecture diagram for Song and Score (Metadata and file storage components)</figcaption>
 </figure>
 
-* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and the API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. The scale of the project provided us with some level of flexibility for innovation, that would have been slightly more challenging with the ICGC. So GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
+* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and the API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. The scale of the project provided us with some level of flexibility for innovation, that could have been slightly more challenging with the ICGC due to the size of the codebase. GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oncogrid.jpg" />
     <figcaption>Oncogrid, an OncoJS component shared between GDC and ICGC</figcaption>
 </figure>
 
-* On Kids-First (no website yet), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components cohabiting with features more traditional of a genomic data portal (file repository, various entity pages...).
+* On Kids-First (no website yet), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components cohabiting with features more traditional of a genomic data portal (file repository, various entity pages...) with features more common on social media platforms.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oicr-softeng.jpg" />
