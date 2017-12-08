@@ -95,4 +95,4 @@ There are currently 6 components part of Overture, more will come shortly.
 
 You can learn more on our website: [https://www.overture.bio](https://www.overture.bio) and of course on Github:  [https://github.com/overture-stack](https://github.com/overture-stack)
 
-PS: GDC is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/). Kids-First is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/), [CNHS](https://childrensnational.org/), [OHSU](https://www.ohsu.edu/xd/) and [SevenBridges](https://www.sevenbridges.com/)
+_PS: GDC is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/). Kids-First is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/), [CNHS](https://childrensnational.org/), [OHSU](https://www.ohsu.edu/xd/) and [SevenBridges](https://www.sevenbridges.com/)_
