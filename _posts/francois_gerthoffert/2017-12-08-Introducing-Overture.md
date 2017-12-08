@@ -25,7 +25,7 @@ Today we are introducing [Overture](https://www.overture.bio) -- our collection 
 </figure>
 
 As internal discussions progressed on documenting our ICGC tools in the perspective of them being used outside of the team, we started to better structure our open-source repositories and created an ICGC Github organization to separate tools specific to our data portal from reusable tools.
-We soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [Genomic Data Commons](https://gdc.cancer.gov/), Kids-First, and more to come), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons.
+We soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [NCI-Genomic Data Commons](https://gdc.cancer.gov/), [Kids First DRC](https://d3b.center/kidsfirst/), and more to come), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons.
 And more than that, some of those components were already built and mature. Using years of experience operating the ICGC Data Coordination Centre, we learnt from our mistakes, optimized implementations and overall built very robust and scalable components for our field.
 
 # Our projects
@@ -52,7 +52,7 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Oncogrid, an OncoJS component shared between GDC and ICGC</figcaption>
 </figure>
 
-* On [Kids-First](https://d3b.center/kidsfirst/), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components, with features more traditional of a genomic data portal (file repository, various entity pages...) cohabiting with features more common on social media platforms.
+* On [Kids First](https://d3b.center/kidsfirst/), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components, with features more traditional of a genomic data portal (file repository, various entity pages...) cohabiting with features more common on social media platforms.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oicr-softeng.jpg" />
@@ -95,4 +95,4 @@ Some components are already part of Overture, more will come shortly.
 
 You can learn more on our website: [https://www.overture.bio](https://www.overture.bio) and of course on Github:  [https://github.com/overture-stack](https://github.com/overture-stack)
 
-_PS: GDC is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/). Kids-First is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/), [CNHS](https://childrensnational.org/), [OHSU](https://www.ohsu.edu/xd/) and [SevenBridges](https://www.sevenbridges.com/)_
+_PS: GDC is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/). Kids First is a joint effort with the [Children Hospital of Philadelphia](https://d3b.center/kidsfirst/), [University of Chicago](https://cdis.uchicago.edu/), [CNHS](https://childrensnational.org/), [OHSU](https://www.ohsu.edu/xd/) and [SevenBridges](https://www.sevenbridges.com/)_
