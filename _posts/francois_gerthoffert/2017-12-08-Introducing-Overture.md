@@ -24,13 +24,14 @@ Today we are introducing [Overture](https://www.overture.bio) -- our collection 
     <img src="{{site.urlimg}}francois_gerthoffert/overture-logo.png" />
 </figure>
 
-As internal discussions progressed on documenting our ICGC tools in the perspective of them being used outside of the team, we started to better structure our open-source
- repositories and created an ICGC Github organization, to separate tools specific to our data portal from reusable tools. We soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [Genomic Data Commons](https://gdc.cancer.gov/), Kids-First), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons. And more than that, some of those components were already built and mature. Using years of experience operating the ICGC Data Coordination Centre, we learnt from our mistakes, optimized implementations and overall built very robust and scalable components for our field.
+As internal discussions progressed on documenting our ICGC tools in the perspective of them being used outside of the team, we started to better structure our open-source repositories and created an ICGC Github organization to separate tools specific to our data portal from reusable tools.
+We soon realized this was not enough, that we were, with all our projects ([ICGC-DCC](https://dcc.icgc.org/), [Collaboratory](http://cancercollaboratory.org/), [Genomic Data Commons](https://gdc.cancer.gov/), Kids-First, and more to come), in a privileged position to understand, design, implement and deploy components spanning the entire field of genomic data commons.
+And more than that, some of those components were already built and mature. Using years of experience operating the ICGC Data Coordination Centre, we learnt from our mistakes, optimized implementations and overall built very robust and scalable components for our field.
 
 # Our projects
 
 To better understand why we are in a privileged situation with [Overture](https://www.overture.bio), it's worth detailing the scope of our main projects:
-* On [Cancer Gernome Collaboratory](http://cancercollaboratory.org/) our team is building a cloud environment from scratch, including purchasing hardware, designing and operating the infrastructure (running OpenStack and Ceph), operating a [mirror of the ICGC Dataset](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) and researching possible ways of implementing a cost recovery model. To do all of this, we are using off-the-shelf tools (OpenStack, Ceph, Zabbix, ...), but also building our own when such tools didn't exist.
+* On [Cancer Gernome Collaboratory](http://cancercollaboratory.org/) our team is building a cloud environment from scratch. This includes purchasing hardware, designing and operating the infrastructure (running OpenStack and Ceph), operating a [mirror of the ICGC Dataset](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) with its related toolset and researching possible ways of implementing a cost recovery model. To do all of this, we are using off-the-shelf tools (OpenStack, Ceph, Zabbix, ...), but also building our own when such tools don't exist.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/collab-racks.png" />
@@ -44,7 +45,7 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Architecture diagram for Song and Score (Metadata and file storage components)</figcaption>
 </figure>
 
-* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and the API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. The scale of the project provided us with some level of flexibility for innovation, that could have been slightly more challenging with the ICGC due to the size of the codebase. GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
+* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. The scale of the project provided us with flexibility for innovation, something that could have been slightly more challenging with the ICGC due to the size of the codebase. GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oncogrid.jpg" />
@@ -62,7 +63,7 @@ To better understand why we are in a privileged situation with [Overture](https:
 
 As you might guess from the above, we try as much as possible to share expertise and components between our team and projects. But some of them were (and are still)  opinionated to the way our team operate and to the specificities of our projects.
 
-That's where Overture start to play a role, by detaching our components from specific projects and "forcing" us to implement them in a reusable fashion, not only by us but also by anyone facing the same challenge.
+That's where Overture start to play a role, by detaching our components from specific projects embedding them under the "Overture" umbrella, it will "force" us to implement them in a reusable fashion. Our projects will become users of Overture at a level similar (although slightly privileged, as you can guess) than any external user.
 
 # Four categories of components
 
@@ -74,15 +75,17 @@ Detailed on Overture's Website, we divided the components in four categories:
 
 # Where do we stand today ?
 
-We ensured our most recent components (ego, song, persona) are implemented in a reusable fashion and would be from the get-go aligned with Overture goals. We will progressively transition and document existing components (such as SCORE, our storage/data transfer solution) into the project. Ensuring all components within the Overture family retain a level of cohesion in their implementation and documentation.
+We are still at the beginning of the adventure, our most recent components (ego, song, persona) were implemented in a reusable fashion and would be from the get-go aligned with Overture goals.
+We will progressively iterate, transition and document existing components (such as SCORE, our storage/data transfer solution) into Overture. Ensuring all of the components retain a level of cohesion in their implementation and documentation.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/overture-github.png" />
     <figcaption>Overture organization on GitHub</figcaption>
 </figure>
 
+We released an initial version of the Overture.bio website, to list the components already in Overture or will soon be imported. The website is still in its early stages, but should give a good overall picture on what Overture is. Each of the component will be further detailed and have their own page on the website, with instructions to get started quickly.
 
-We are still early in the process, but today is a good time to publish it.
+We are still early in the process, but today is a good time for an initial announcement.
 
 # Next ?
 
