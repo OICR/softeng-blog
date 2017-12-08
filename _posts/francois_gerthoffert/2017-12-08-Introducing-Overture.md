@@ -63,7 +63,7 @@ To better understand why we are in a privileged situation with [Overture](https:
 
 As you might guess from the above, we try as much as possible to share expertise and components between our team and projects. But some of them were (and are still)  opinionated to the way our team operate and to the specificities of our projects.
 
-That's where Overture start to play a role, by detaching our components from specific projects embedding them under the "Overture" umbrella, it will "force" us to implement them in a reusable fashion. Our projects will become users of Overture at a level similar (although slightly privileged, as you can guess) than any external user.
+That's where Overture start to play a role, detaching our components from specific projects and  embedding them under the "Overture" umbrella will encourage us to implement them in a reusable fashion. Our projects will become users of Overture at a level similar (although slightly privileged, as you can guess) than any external user.
 
 # Four categories of components
 
@@ -75,7 +75,7 @@ Detailed on Overture's Website, we divided the components in four categories:
 
 # Where do we stand today ?
 
-We are still at the beginning of the adventure, our most recent components (ego, song, persona) were implemented in a reusable fashion and would be from the get-go aligned with Overture goals.
+We are still at the beginning of the adventure. Our most recent components (ego, song, persona) were implemented in a reusable fashion and would be from the get-go aligned with Overture goals.
 We will progressively iterate, transition and document existing components (such as SCORE, our storage/data transfer solution) into Overture. Ensuring all of the components retain a level of cohesion in their implementation and documentation.
 
 <figure>
