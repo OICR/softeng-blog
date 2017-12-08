@@ -52,7 +52,7 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Oncogrid, an OncoJS component shared between GDC and ICGC</figcaption>
 </figure>
 
-* On [Kids-First](https://d3b.center/kidsfirst/), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components cohabiting with features more traditional of a genomic data portal (file repository, various entity pages...) with features more common on social media platforms.
+* On [Kids-First](https://d3b.center/kidsfirst/), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components, with features more traditional of a genomic data portal (file repository, various entity pages...) cohabiting with features more common on social media platforms.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oicr-softeng.jpg" />
@@ -63,7 +63,7 @@ To better understand why we are in a privileged situation with [Overture](https:
 
 As you might guess from the above, we try as much as possible to share expertise and components between our team and projects. But some of them were (and are still)  opinionated to the way our team operate and to the specificities of our projects.
 
-That's where Overture start to play a role, detaching our components from specific projects and  embedding them under the "Overture" umbrella will encourage us to implement them in a reusable fashion. Our projects will become users of Overture at a level similar (although slightly privileged, as you can guess) than any external user.
+That's where Overture start to play a role, detaching our components from specific projects and embedding them under the "Overture" umbrella will encourage us to implement them in a reusable fashion. Our projects will become users of Overture at a level similar (although slightly privileged, as you can guess) than any external user.
 
 # Four categories of components
 
@@ -91,7 +91,7 @@ We are still early in the process, but today is a good time for an initial annou
 
 Openness is, and will remain, at the core of Overture. we will progressively transition our project management tools (i.e. Jira) to a public platform (i.e. GitHub issue) to give everyone a vision on our implementation roadmap and priorities. We also welcome external contributions to enhance the tools, get external input and overall make the components better.
 
-There are currently 6 components part of Overture, more will come shortly.  
+Some components are already part of Overture, more will come shortly.  
 
 You can learn more on our website: [https://www.overture.bio](https://www.overture.bio) and of course on Github:  [https://github.com/overture-stack](https://github.com/overture-stack)
 
