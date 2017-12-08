@@ -83,7 +83,7 @@ We will progressively iterate, transition and document existing components (such
     <figcaption>Overture organization on GitHub</figcaption>
 </figure>
 
-We released an initial version of the Overture.bio website, to list the components already in Overture or will soon be imported. The website is still in its early stages, but should give a good overall picture on what Overture is. Each of the component will be further detailed and have their own page on the website, with instructions to get started quickly.
+We released an initial version of the Overture.bio website, listing the components already in Overture or that will soon be ported over. The website is still in its early stages, but should give a good overall picture on what Overture is. Each of the component will be further detailed and have their own page on the website, with instructions to get started quickly.
 
 We are still early in the process, but today is a good time for an initial announcement.
 
