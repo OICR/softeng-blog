@@ -67,7 +67,7 @@ That's where Overture start to play a role, detaching our components from specif
 
 # Four categories of components
 
-Detailed on Overture's Website, we divided the components in four categories:
+Detailed on Overture's website, we divided the components in four categories:
 * __Operate__: Components focused on the operations of a cloud environment and its tools. Currently focused on infrastructure, it will extend to more, such as admin UIs.
 * __Transfer & Store__: Securely transferring and storing data can be complex, tools in this category will be dedicated to topics such as authentication, authorization, download, upload, transfer management.
 * __Do Science__: Once the environment is in operation, tools in this section will be focused on actually running analysis or workflows on the data. From running a Jupyter notebook on ICGC data to distributed computing on genomic files.
