@@ -52,7 +52,7 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Oncogrid, an OncoJS component shared between GDC and ICGC</figcaption>
 </figure>
 
-* On Kids-First (no website yet), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components cohabiting with features more traditional of a genomic data portal (file repository, various entity pages...) with features more common on social media platforms.
+* On [Kids-First](https://d3b.center/kidsfirst/), we are building upon our experience with the 3 above-mentioned projects, but are faced with a new and exciting challenge, catering not only for researchers and field experts but also for patients and their families. This involves the creation of new components cohabiting with features more traditional of a genomic data portal (file repository, various entity pages...) with features more common on social media platforms.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oicr-softeng.jpg" />
@@ -94,3 +94,5 @@ Openness is, and will remain, at the core of Overture. we will progressively tra
 There are currently 6 components part of Overture, more will come shortly.  
 
 You can learn more on our website: [https://www.overture.bio](https://www.overture.bio) and of course on Github:  [https://github.com/overture-stack](https://github.com/overture-stack)
+
+PS: GDC is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/). Kids-First is a joint effort with the [University of Chicago](https://cdis.uchicago.edu/), [CNHS](https://childrensnational.org/), [OHSU](https://www.ohsu.edu/xd/) and [SevenBridges](https://www.sevenbridges.com/)
