@@ -45,7 +45,7 @@ To better understand why we are in a privileged situation with [Overture](https:
     <figcaption>Architecture diagram for Song and Score (Metadata and file storage components)</figcaption>
 </figure>
 
-* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. The scale of the project provided us with flexibility for innovation, something that could have been slightly more challenging with the ICGC due to the size of the codebase. GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
+* On [Genomic Data Commons](https://gdc.cancer.gov/), we are building the front ends and part of the (GraphQL) API of this large scale project. The GDC allowed us to start a UI from scratch, improving on lessons learnt from the ICGC. The portal and API went through many iterations, migrating from AngularJS to React and from a REST API to GraphQL. Starting from scratch provided us with flexibility for innovation, something that could have been slightly more challenging with the ICGC due to the size of the codebase. GDC was also the opportunity to start [OncoJS](https://github.com/oncojs) to share efforts on visualization components between our projects (a first step towards Overture).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/oncogrid.jpg" />
