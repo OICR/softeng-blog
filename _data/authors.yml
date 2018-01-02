@@ -13,13 +13,6 @@ brice_aminou:
   avatar: brice_aminou.png
   github: baminou
 
-chang_wang:
-  name: Chang Wang
-  position: Frontend Architect
-  info: JavaScript Junkie • Pragmatic Perfectionist • Discount-steak Devotee
-  avatar: chang_wang.svg
-  github: cheapsteak
-
 christine_yu:
   name: Christine Yu
   position: Software Developer
@@ -168,6 +161,14 @@ bob_tiernay:
   info: A software architect with a passion for the craft of software engineering, always eager to learn and apply new technologies to difficult problems in order to solve them in the most efficient and collaborative ways possible.
   avatar: bob_tiernay.svg
   github: btiernay
+  is_alumni: true
+
+chang_wang:
+  name: Chang Wang
+  position: Frontend Architect
+  info: JavaScript Junkie • Pragmatic Perfectionist • Discount-steak Devotee
+  avatar: chang_wang.svg
+  github: cheapsteak
   is_alumni: true
 
 chen_chen:
