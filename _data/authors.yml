@@ -6,6 +6,13 @@ alex_wilmer:
   avatar: alex_wilmer.png
   github: alex-wilmer
 
+alex_lepsa:
+  name: Alex Lepsa
+  position: Software Developer
+  info: Polyglot software developer working across the full-stack spectrum. Prefers back-end over front-end, spaces never tabs, Ethereum > Bitcoin, dogs not cats. If not coding can usually be found gaming, 'scending routes at the crag, or paddling for OmNomNom DBC.
+  avatar: alex_lepsa.svg
+  github: lepsalex
+
 brice_aminou:
   name: Brice Aminou
   position: Bioinformatician
