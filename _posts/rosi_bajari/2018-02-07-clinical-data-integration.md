@@ -9,7 +9,7 @@ tags:
     - ICGC
     - data portal
 teaser:
-    info: In February 2018, we integrated new features focuing on clinical annotatino of variants into the ICGC data portal.  Here, we will explore some of those features and how they can be used by researchers! 
+    info: In February 2018, we integrated new features focusing on clinical annotatino of variants into the ICGC data portal.  Here, we will explore some of those features and how they can be used by researchers! 
     image: rosi_bajari/clinical/post_thumb.png
 header:
     version: small
