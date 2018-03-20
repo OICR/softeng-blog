@@ -45,4 +45,84 @@ public int saveStudy(@PathVariable("studyId") String studyId, @RequestHeader(val
 }
 ```
 
-You can think of the @PreAuthorize as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request/response chain.
+You can think of the @PreAuthorize as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request/response chain. For this project we will be using profiles in order to have both the existing "legacy" configuration, and our new "jwt" configuration, co-existing with the ability to switch between them by setting the default loaded profile as an include of the "secure" profile in our `application.yml`.
+
+```
+spring.profiles: secure
+spring:
+  profiles:
+    include: [jwt]
+```
+
+Let's take a look at what is inside our new `MethodSecurityConfig` class, which is what provides the `studySecurity` method to the @PreAuthorize annotation.
+
+
+```
+@Profile("jwt")
+@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
+
+    @Autowired
+    private ApplicationContext context;
+
+    @Override
+    protected MethodSecurityExpressionHandler createExpressionHandler() {
+        OAuth2MethodSecurityExpressionHandler handler = new OAuth2MethodSecurityExpressionHandler();
+        handler.setApplicationContext(context);
+        return handler;
+    }
+
+    @Bean
+    public StudyJWTStrategy studySecurity() {
+        return new StudyJWTStrategy();
+    }
+
+}
+```
+
+Since both the new JWT based method security configuration as well as the legacy configuration both provide the `studySecurity()` method, we can easily switch between the two very easily. Next, let's take a look at the `StudyJWTStrategy` class where we define our strategy and the details of how we verify a token.
+
+```
+@Slf4j
+@Component
+@Profile("jwt")
+public class StudyJWTStrategy implements StudyStrategyInterface {
+
+    @Value("${auth.server.prefix}")
+    protected String scopePrefix;
+
+    @Value("${auth.server.suffix}")
+    protected String scopeSuffix;
+
+    public boolean authorize(@NonNull Authentication authentication, @NonNull final String studyId) {
+        log.info("Checking authorization with study id {}", studyId);
+
+        val details = (OAuth2AuthenticationDetails) authentication.getDetails();
+        val user = (JWTUser) details.getDecodedDetails();
+
+        return verify(user, studyId);
+    }
+
+    boolean verify(JWTUser user, String studyId) {
+        final val roles = user.getRoles();
+        val check = roles.stream().filter(s -> isGranted(s, studyId)).collect(toList());
+        return !check.isEmpty();
+    }
+
+    private boolean isGranted(String tokenScope, String studyId) {
+        log.info("Checking JWT's scope '{}', server's scopePrefix='{}', studyId '{}', scopeSuffix='{}'",
+                tokenScope, scopePrefix, studyId, scopeSuffix);
+        return getSystemScope().equals(tokenScope) || getEndUserScope(studyId).equals(tokenScope); //short-circuit
+    }
+
+    private String getEndUserScope(String studyId) {
+        return DOT.join(scopePrefix, studyId.toUpperCase(), scopeSuffix);
+    }
+
+    private String getSystemScope() {
+        return DOT.join(scopePrefix, scopeSuffix);
+    }
+}
+```
