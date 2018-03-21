@@ -11,7 +11,7 @@ tags:
     - Docker 
     - ansible 
 teaser:
-    info: "or, How I Stopped Worrying and Dockerized Jupyterhub" 
+    info: "or, How I Learned To Stop Worrying and Dockerized Jupyterhub" 
     image: kevin_hartmann/jupiter.jpg
 header:
     version: small
@@ -132,7 +132,14 @@ We have a similar set-up for the notebook environment:
 - *www_custom*: A directory containing the web related changes for to the **notebook** python module
 
 # In Summary
+<image src="{{ site.urlimg }}/kevin_hartmann/calculator.jpg" /> 
 
-We use run ansible, which creates a virtual machine, which runs a build script, which creates a docker network, multiple docker images, and a docker volume, copies the data from the docker image into the volume, run docker-compose to run jupyterhub, which launches jupyter notebooks with the volume for the conda distribution mount on /opt, which lets our users enjoy the fun of Jupyter notebooks without all of the hassle of setting up Jupyterhub. 
+We use Docker to run Jupyterhub so that we can abstract away specific details bout about how Jupyerhub is being run, like where the SSL keys are located, or which url to use for the authentication service. 
+
+That way, we can deploy Jupyterhub anywhere, just by tweaking the environment we run it in, and specifically, we can run it locally in development mode before deploying it onto our production servers. 
+
+We use ansible to take care of the details of setting up a virtual machine, setting up users and permissions, setting up environment variables with passwords and access tokens that docker will use to run, and so on... 
+
+We use multiple docker images, and a docker volume, copies the data from the docker image into the volume, run docker-compose to run jupyterhub, which launches jupyter notebooks with the volume for the conda distribution mount on /opt, which lets our users enjoy the fun of Jupyter notebooks without all of the hassle of setting up Jupyterhub. 
 
 And now you know how to do all that, too! 
