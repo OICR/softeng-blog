@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Quick Kubernetes installation."
+title:  "Scripted Kubernetes installation with dasboard and monitoring."
 breadcrumb: true
 author: george_mihaiescu
-date: 2018-03-13
+date: 2018-03-21
 categories: george_mihaiescu
 tags:
     - OpenStack
