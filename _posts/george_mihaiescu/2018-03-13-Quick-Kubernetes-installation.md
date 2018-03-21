@@ -317,3 +317,17 @@ If everything went fine, after a few minutes the Kubernetes dashboard should sho
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/new-nodes.png" />
 </figure>
+
+You can SSH into the Kubernetes master node and execute commands:
+<figure>
+    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubectl.png" />
+</figure>
+
+If you later need to add more Kubelet nodes, but the **joining** token expired, you should first become root on the master node and run the following command to generate a new joining token:  
+**kubeadm token create --print-join-command --ttl 24h**
+
+<figure>
+    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/gen_token.png" />
+</figure>
+
+
