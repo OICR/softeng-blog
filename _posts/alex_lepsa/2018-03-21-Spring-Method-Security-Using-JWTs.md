@@ -18,9 +18,9 @@ header:
     icon: icon-blog
 ---
 
-Much has been writing about integrating JWT's into spring security, and in fact Pivotal has included more and more first-class support for JWT's in their recent releases. That said, one thing that seemed to be missing was how to stitch JWT's into an existing application that was using the @PreAuthorize annotation for fine-grain access control. We will be referencing our [SONG](https://www.overture.bio/song) application from [Overture](https://www.overture.bio/).
+Much has been written about integrating JWT's into spring security, and in fact Pivotal has included more and more first-class support for JWT's in their recent releases. That said, one thing that seems to be missing is a summary on how to stitch JWT's into an existing application using the `@PreAuthorize` annotation for fine-grain access control. We will be referencing our [SONG](https://www.overture.bio/song) application from [Overture](https://www.overture.bio/).
 
-### The Problem ###
+# Enter SONG, the hero we need #
 
 SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. This is an existing, in production, application that we want to update to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) which takes care of authenticating our user and then passes us a JWT we can verify and extract permissions from.
 
@@ -33,7 +33,7 @@ If we take a quick look at our swagger output we'll see that studies are at the 
   </figure>
 </center>
 
-With this in mind, let's take a look at how we are currently securing study endpoints. Looking at the `StudyController` in the  `org.icgc.dcc.song.server.controller` package, we see the @PreAuthorize annotation (among others) used to secure the create action.
+With this in mind, let's take a look at how we are currently securing study endpoints. Looking at the `StudyController` in the  `org.icgc.dcc.song.server.controller` package, we see the `@PreAuthorize` annotation (among others) used to secure the create action.
 
 ```
 @ApiOperation(value = "CreateStudy", notes = "Creates a new study")
@@ -45,7 +45,11 @@ public int saveStudy(@PathVariable("studyId") String studyId, @RequestHeader(val
 }
 ```
 
-You can think of the @PreAuthorize as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request/response chain. For this project we will be using profiles in order to have both the existing "legacy" configuration, and our new "jwt" configuration, co-existing with the ability to switch between them by setting the default loaded profile as an include of the "secure" profile in our `application.yml`.
+You can think of the `@PreAuthorize` annotation as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request/response chain. Once a request has been authenticated, the Authentication object extracted from the request (and in our case the studyId) is passed to this intermediary method to be evaluated more specifically for the application.
+
+# The Setup: Profiles and Configs FTW #
+
+For this project we will be using profiles in order to have both the existing "legacy" configuration, and our new "jwt" configuration, co-existing with the ability to switch between them by setting the default loaded profile as an include of the "secure" profile in our `application.yml`.
 
 ```
 spring.profiles: secure
@@ -54,7 +58,7 @@ spring:
     include: [jwt]
 ```
 
-Let's take a look at what is inside our new `MethodSecurityConfig` class, which is what provides the `studySecurity` method to the @PreAuthorize annotation.
+Let's take a look at what is inside our new `MethodSecurityConfig` class, which is what provides the `studySecurity` method to the `@PreAuthorize` annotation.
 
 
 ```
@@ -82,7 +86,11 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 }
 ```
 
-Since both the new JWT based method security configuration as well as the legacy configuration both provide the `studySecurity()` method, we can easily switch between the two very easily. Next, let's take a look at the `StudyJWTStrategy` class where we define our strategy and the details of how we verify a token.
+Since both the new JWT based method security configuration as well as the legacy configuration both provide the `studySecurity()` method, we can easily switch between the two very easily.
+
+# The Meat (or Tofu) of the Solution #
+
+Now that we have our configs updated to use the new JWT strategy, let's take a look at the `StudyJWTStrategy` class where we define our strategy and the details of how we verify a token.
 
 ```
 @Slf4j
@@ -126,3 +134,5 @@ public class StudyJWTStrategy implements StudyStrategyInterface {
     }
 }
 ```
+
+There are a few things going on here so let's walk through this file. First we have a couple member variables that are instantiated auto-magically, these dictate the prefix and postfix required in the extracted user role and are configurable in `applcation.yml`. Next we have the main authorize method that is what eventually get's called from the `@PreAuthorize` annotation, it extracts the authentication details (which you'll notice is `OAuth2AuthenticationDetails` - more on that later), converts to a `JWTUser` object (more on that too later) and finally returns the result of the verify method. Verify is pretty straightforward, it checks the roles the `JWTUser` possesses against what is constructed as the required role given the studyId, scopePrefix, and scopeSuffix.
