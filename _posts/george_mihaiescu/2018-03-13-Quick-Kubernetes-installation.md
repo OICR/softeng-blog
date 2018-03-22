@@ -27,7 +27,9 @@ Step 3: Start using Kubernetes.
 
 ## Introduction
 
-In the previous blog [How-to-run-Kubernetes-in-Collaboratory](http://softeng.oicr.on.ca/george_mihaiescu/2017/09/28/How-to-run-Kubernetes-in-Collaboratory/) I described how Kubernetes can be deployed using Ansible, but in this blog I will show how you can use cloud-init to accomplish the same goal while also adding the Kubernetes dashboard and monitoring.  
+In the previous blog [How-to-run-Kubernetes-in-Collaboratory](http://softeng.oicr.on.ca/george_mihaiescu/2017/09/28/How-to-run-Kubernetes-in-Collaboratory/) I described how Kubernetes can be deployed using Ansible.
+
+In this blog I will show how you can use cloud-init to accomplish the same goal while also adding the Kubernetes dashboard and monitoring.  
 This blog post will not cover making Kubernetes highly available, as it's a more advanced topic reserved for a future blog post.
 
 Kubernetes has a server-client architecture, with two main types of servers:
