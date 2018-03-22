@@ -41,12 +41,12 @@ First, go to the "Network, Security Group" tab and create a new security group c
 Add a rule allowing access to all TCP ports from your source IP address (you can find your address by visiting [https://www.whatismyip.com/](https://www.whatismyip.com/).
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/sec_rule.png" />
+<img id="sec_rule" src="{{site.urlimg}}george_mihaiescu/Kubernetes/sec_rule.png" data-featherlight="#sec_rule" />
 </figure>
 
 Then go to the "Compute, Key Pairs" tab and create an SSH key if you don't have one already:
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/key_pair.png" />
+<img id="key_pair" src="{{site.urlimg}}george_mihaiescu/Kubernetes/key_pair.png" data-featherlight="#key_pair" />
 </figure>
 
 
@@ -191,7 +191,7 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 After the instance has started, visit the "Log" tab and click on the "View Full Log" on the top-right side. 
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/log.png" />
+<img id="log" src="{{site.urlimg}}george_mihaiescu/Kubernetes/log.png" data-featherlight="#log" />
 </figure>
 
 Scroll to the end of the file and refresh the page every minute until you see a line showing that the cloud-init script execution finished, e.g.
@@ -213,44 +213,44 @@ kubeadm join --token 123091.73f18d0e3afcd54b 172.16.16.15:6443 --discovery-token
 Associate a floating IP address to your instance so you can reach it in your browser:
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/floating.png" />
+<img id="floating" src="{{site.urlimg}}george_mihaiescu/Kubernetes/floating.png" data-featherlight="#floating" />
 </figure>
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/floating2.png" />
+<img id="floating2" src="{{site.urlimg}}george_mihaiescu/Kubernetes/floating2.png" data-featherlight="#floating2" />
 </figure>
 
 
 In order to see the Grafana dashboard that was provisioned by the script, visit **http://floatingIP:port**, where floating IP is the public address you allocated to your Kubernetes master node, and the Grafana port is displayed in the instance's **console log** (example below):
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/console.png" />
+<img id="console" src="{{site.urlimg}}george_mihaiescu/Kubernetes/console.png" data-featherlight="#console" />
 </figure>
 
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/Grafana_UI.png" />
+<img id="Grafana_UI" src="{{site.urlimg}}george_mihaiescu/Kubernetes/Grafana_UI.png" data-featherlight="#Grafana_UI" />
 </figure>
 
 In order to see the Kubernetes dashboard that was provisioned by the script, visit **https://floatingIP:port**, where floating IP is the public address you allocated to your Kubernetes master node, and the Kubernetes dashboard allocated port is displayed in the instance's **console log** (example below):
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubernetes_dashboard.png" />
+<img id="kubernetes_dashboard" src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubernetes_dashboard.png" data-featherlight="#kubernetes_dashboard" />
 </figure>
 
 When you visit that page, the browser will prompt you because the SSL cert is self-signed, but you'll have to go ahead and accept it.  
 Use the **Token** authentication method and paste the **token** you can find in the **console log**:
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/token.png" />
+<img id="token" src="{{site.urlimg}}george_mihaiescu/Kubernetes/token.png" data-featherlight="#token" />
 </figure>
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/token_init.png" />
+<img id="token_init" src="{{site.urlimg}}george_mihaiescu/Kubernetes/token_init.png" data-featherlight="#token_init" />
 </figure>
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/dashboard.png" />
+<img id="dashboard" src="{{site.urlimg}}george_mihaiescu/Kubernetes/dashboard.png" data-featherlight="#dashboard" />
 </figure>
 
 ---
@@ -266,7 +266,7 @@ Make sure the flavor you choose is large enough to accommodate whatever producti
 
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/join.png" />
+<img id="join" src="{{site.urlimg}}george_mihaiescu/Kubernetes/join.png" data-featherlight="#join" />
 </figure>
 
 Dump this script in the Use the following "cloud-init" script while starting the VM(s):
@@ -320,7 +320,7 @@ If everything went fine, after a few minutes the Kubernetes dashboard should sho
 
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/new-nodes.png" />
+<img id="new-nodes" src="{{site.urlimg}}george_mihaiescu/Kubernetes/new-nodes.png" data-featherlight="#new-nodes" />
 </figure>
 
 You can SSH into the Kubernetes master node and execute Kubectl commands while logged in as the user "ubuntu":
@@ -333,14 +333,14 @@ kubectl get deployments
 
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubectl.png" />
+<img id="kubectl" src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubectl.png" data-featherlight="#kubectl" />
 </figure>
 
 If you later need to add more Kubelet nodes, but the **joining** token expired, you should first become root on the master node and run the following command to generate a new joining token:  
 **kubeadm token create --print-join-command --ttl 24h**
 
 <figure>
-    <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/gen_token.png" />
+<img id="gen_token" src="{{site.urlimg}}george_mihaiescu/Kubernetes/gen_token.png" data-featherlight="#gen_token" />
 </figure>
 
 
