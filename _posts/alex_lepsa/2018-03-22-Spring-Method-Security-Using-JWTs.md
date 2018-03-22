@@ -22,7 +22,7 @@ Much has been written about integrating JWT's into spring security, and in fact 
 
 # Enter SONG, the hero we need #
 
-SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. This is an existing, in production, application that we want to update to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) which takes care of authenticating our user and then passes us a JWT we can verify and extract permissions from.
+SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. This is an existing, in production, application that we want to update to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) service which takes care of authenticating our user and then passes us a JWT we can then use to verify the users' permissions.
 
 If we take a quick look at our swagger output we'll see that studies are at the center of this application, and further digging into the existing security strategy will uncover that authorization is evaluated using scopes tied to a particular study.
 
@@ -45,11 +45,11 @@ public int saveStudy(@PathVariable("studyId") String studyId, @RequestHeader(val
 }
 ```
 
-You can think of the `@PreAuthorize` annotation as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request/response chain. Once a request has been authenticated, the Authentication object extracted from the request (and in our case the studyId) is passed to this intermediary method to be evaluated more specifically for the application.
+You can think of the `@PreAuthorize` annotation as a sort of middle-ware that allows us to define our own configurable security strategy that spring security will inject in it's request handler chain. Once a request has been authenticated, the Authentication object extracted from the request (and in our case the studyId) is passed to this intermediary method to be evaluated, either allowing or denying access to the resource.
 
 # The Setup: POM's, Profiles, and Configs FTW #
 
-There are a couple dependencies we will need above and beyond the usual `spring-boot-starter-security`, make sure your project has the following dependencies (your version of each may vary) ...
+There are a couple dependencies we will need above and beyond the usual `spring-boot-starter-security`, make sure your project has the following dependencies (your version for each may vary) ...
 
 ### Spring ###
 ```
@@ -75,10 +75,9 @@ There are a couple dependencies we will need above and beyond the usual `spring-
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
 </dependency>
-
 ```
 
-For this project we will be using profiles in order to have both the existing "legacy" configuration, and our new "jwt" configuration, co-existing with the ability to switch between them by setting the default loaded profile as an include of the "secure" profile in our `application.yml`.
+For this project we will be using profiles in order to have both the existing "legacy" configuration and our new "jwt" configuration co-exist with the ability to switch between them by setting the default loaded profile as an include of the "secure" profile in our `application.yml`.
 
 ```
 spring.profiles: secure
@@ -168,7 +167,7 @@ There are a few things going on here so let's walk through this file. First we h
 
 # OAuth2Authentication == JWTAuthentication ?  #
 
-At this point you may have noticed that our `authorize` method already has access to `Autentication` and that it is being seen the same as the OAuth2 authentication object in the legacy implementation. To achieve this we had to update our `SecurityConfig`, configuring a JWT token store and converter, and adding a `addFilterBefore()` in our http chain within the `configure(HttpSecurity http)` method.
+At this point you may have noticed that our `authorize` method already has access to `Autentication`, and that it is being treated just like the OAuth2 authentication in our legacy implementation. This is because in order for this whole thing to work, we are converting the JWT token in the request to an OAuth2 compatible token. This means that we have to update our `SecurityConfig` (backing up and tagging the old one as legacy), configuring a JWT token store and converter, and finally adding a `addFilterBefore()` in our http chain within the `configure(HttpSecurity http)` method.
 
 ```
 @Configuration
@@ -249,7 +248,7 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 }
 ```
 
-Spring security's OAuth2 package provides both `JwtTokenStore` and `JwtAccessTokenConverter` classes, which in addition to our own `JWTTokenConverter` class, more on that shortly, are used to override the default `configure()` method where we provide our own `DefaultTokenServices` object that uses a `JwtTokenStore` which in turn is initialized using our implementation of a `JwtAccessTokenConverter` in `JWTTokenConverter`. Our implementation reaches out to our EGO service and get's the public key used to verify the a tokens authenticity but your implementation can store that key in any manner you please, for example in `application.yml` similar to how we store the public key endpoint for EGO.
+Spring security's OAuth2 package provides both `JwtTokenStore` and `JwtAccessTokenConverter` classes, which in addition to our own `JWTTokenConverter` class (more on that shortly) are used to override the default `configure()` method. That is where we provide our own `DefaultTokenServices` object that uses a `JwtTokenStore`, which in turn is initialized using our implementation of a `JwtAccessTokenConverter` via our `JWTTokenConverter` class. Our implementation reaches out to an EGO service in order to retrieve the public key used to verify the user request JWT authenticity. While this is our approach, your implementation can store the public key in any manner you please, for example in `application.yml` similar to how we store the public key endpoint for EGO.
 
 ```
 @Slf4j
@@ -326,7 +325,7 @@ public class JWTUser {
 }
 ```
 
-This class is the object representation of the JWT. We are using a couple [lombok](https://projectlombok.org/) annotation here to drastically reduce the boiler plate required in writing a simple data class, auto-magically generating getters and setters along with a few other nice things. Below is the `TypeUtils` class for reference, it's just a utility class we use that may or may not be of use to your project.
+This class is the object representation of the JWT we are expecting in the request. We are using a couple [lombok](https://projectlombok.org/) annotation here to drastically reduce the boiler plate required in writing a simple data class, auto-magically generating getters and setters along with a few other nice things. Below is the `TypeUtils` class for reference, it's just a utility class we use that may or may not be of use to your project.
 
 ```
 public class TypeUtils {
