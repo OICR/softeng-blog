@@ -66,9 +66,12 @@ Finally, deploy a Ubuntu 16.04 based instance with a flavor of your choice.
 </figure>
 
 
-Select the SSH key that you created before hand and add the "default" security group and "All_TCP_access". The "default" security group is needed so the Kubernetes master can reach to the Kubernetes workers and the "All_TCP_access" is needed so you can access the Kubernetes dashboard and Grafana UI on the dynamic allocated TCP ports.
+Select the SSH key that you created beforehand, add the "default" security group and "All_TCP_access"
+- the "default" security group is needed so the Kubernetes master can reach to the Kubernetes workers 
+- the "All_TCP_access" is needed so you can access the Kubernetes dashboard and Grafana UI on the dynamic allocated TCP ports
 
-You also need to select the network your project should have already created.
+You will also need to select the network automatically created for your project.
+
 
 In the "Customization Script" tab, paste the following script that installs Kubernetes.
 
@@ -191,7 +194,7 @@ After the instance has started, visit the "Log" tab and click on the "View Full 
     <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/log.png" />
 </figure>
 
-Scroll to the end of the file and refresh the page every minute or so until you see a line showing that the cloud-init script execution finished, e.g.
+Scroll to the end of the file and refresh the page every minute until you see a line showing that the cloud-init script execution finished, e.g.
 
 **[  241.915134] cloud-init[1286]: Cloud-init v. 17.1 finished at Thu, 01 Mar 2018 20:47:01 +0000. Datasource DataSourceOpenStack [net,ver=2].  Up 241.90 seconds**
 
@@ -266,7 +269,7 @@ Make sure the flavor you choose is large enough to accommodate whatever producti
     <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/join.png" />
 </figure>
 
-Dump this script in the Use the following cloud-init script while starting the VM(s):
+Dump this script in the Use the following "cloud-init" script while starting the VM(s):
 When starting the new instance(s) to be used as worker node(s), in the "Customization Script" tab, paste the following script that installs **kubelet**.
 
 
@@ -320,7 +323,15 @@ If everything went fine, after a few minutes the Kubernetes dashboard should sho
     <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/new-nodes.png" />
 </figure>
 
-You can SSH into the Kubernetes master node and execute commands:
+You can SSH into the Kubernetes master node and execute Kubectl commands while logged in as the user "ubuntu":
+~~~bash
+kubectl get nodes
+kubectl get pods
+kubectl get services
+kubectl get deployments
+~~~
+
+
 <figure>
     <img src="{{site.urlimg}}george_mihaiescu/Kubernetes/kubectl.png" />
 </figure>
