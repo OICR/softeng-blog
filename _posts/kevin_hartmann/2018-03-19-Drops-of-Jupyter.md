@@ -153,21 +153,21 @@ We have a similar set-up for the notebook environment:
 
 <image src="{{ site.urlimg }}/kevin_hartmann/oops.jpg" /> 
 
-What were the issues that I had to address when setting up JupyterHub on our systems? As usual, most of them came down to issues of documentation.
+What were the issues that I had to address when setting up JupyterHub on our systems? As usual, most of them came down to issues of documentation, specifically, with the JupyterHub python configuration -- which, as I've said, is a program, and not just a data file. 
 
-For example, the "HubIp" field should *not* be set to an IP address. Instead, we need to set it to the **hostname** that the Jupyter Notebook server will use to contact the JupyterHub server across the Docker internal network.
+For example, we don't set the field "JupyterHub.hub_ip" to an IP address. Instead, we set it to a **hostname**, one that the Jupyter Notebook server will use to contact the JupyterHub server across the Docker internal network.
 
-That's easy enough, once we know what to do: we launch our Docker container with *docker* compose, create a service called *hub* to launch our Dockerized JupyterHub, and set the "HubIp" field to *hub*. The docker-compose command then automatically handles setting up the DNS networking within the internal Docker network we've define. 
+That's easy enough, once we know what to do: we launch our Docker container with *docker* compose, create a service called *hub* to launch our Dockerized JupyterHub, and set the "JupyerHub.hub_ip" field to "*hub*". The *docker-compose* command then automatically handles setting up the DNS networking within the internal Docker network we've define. 
 
-Next, we have to allow the Docker containers than run our Jupyter Notebook to acccess our our Doccker internal network, too. So, we configure our JupyterHub server to launch our notebooks with the same Docker networking options that we've got in our docker-compose configuration, and we're done.
+Next, we have to allow the Docker containers than run our Jupyter Notebook to acccess our our Doccker internal network, too. So, we configure our JupyterHub server to launch our notebooks with the same Docker networking options that we've got in our *docker-compose* configuration, and we're done.
 
 But, wait! How do we know what to put in for the Jupyter Notebook IP address and port numbers? Good question! Fortunately for us, we don't need to answer it!  
 
 As it turns out, we can just omit those configuration settings entirely, and leave the internal IP networking set to 'true'. After that, the Jupyterhub system figures everything out for us. 
 
-I also ran into an issue with the names of Docker volumes: our OAuth modules let our users log in using their Google email addresses as usernames; but Docker volumes can't have an '@' symbol, and email addresses always have one, so the volume creation step always failed. Once again, what worked was omitting the setting entirely; the default volume name includes the username with all special characters escaped properly. 
+I also ran into an issue with the names of Docker volumes. Our OAuth modules let our users log in using their Google email addresses as usernames. Docker volumes can't have an '@' symbol in their names. When I tried to set the name of the volume based on username, the '@' symbol always caused the volume creation step to fail. Once again, what worked was omitting the setting entirely; the default volume name includes the username, but with all special characters escaped nicely. 
 
-The moral of the story? When trying to configure a complex piece of software, try to use the default settings whenever possible. They're usually (but not always) the most well-tested part of the codebase, because they're the ones that people use the most!
+The moral of the story? *When trying to configure a complex piece of software, try to use the default settings whenever possible.* They're usually (but not always) the most well-tested part of the codebase, because they're the ones that people use the most!
 
 # In Summary...
 <image src="{{ site.urlimg }}/kevin_hartmann/calculator.jpg" /> 
@@ -183,8 +183,6 @@ We use two Docker images for each Jupyter service to keep our build times fast. 
 We keep our local customizations and web content separate from the base JupyterHub Docker images, and we use environment variables to pass in changes to our configuration files. 
 
 We launch everything with *docker-compose*, build everything with *ansible*, and runa simple shell script that to set up all our Docker networks, volumes, and images. Thanks to ansible, we can tear down our entire virtual machine, and rebuild it from scratch, all with a single *ansible-playbook* command.
-
-For more information on the technologies mentioned in this blog post, see the links section below. 
 
 So, now you, too, know how to spin up a a JupyterHub service on a Cloud Computing cluster! Aren't you glad you read this post? 
 
