@@ -3,7 +3,7 @@ layout: post
 title:  "Using JWT's with Spring Security's @PreAuthorize annotation for method specific security"
 breadcrumb: true
 author: alex_lepsa
-date: 2018-03-21
+date: 2018-03-22
 categories: alex_lepsa
 tags:
     - Spring Security
