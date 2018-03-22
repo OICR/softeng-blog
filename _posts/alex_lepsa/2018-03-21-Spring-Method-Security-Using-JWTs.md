@@ -340,4 +340,4 @@ public class TypeUtils {
 
 With that we conclude this summary of our approach to integrating JWT's into spring security's `@PreAuthorize` annotation, if you've taken a different approach or have any additional question don't hesitate to reach out in the comments below.
 
-You can view this project and all its source code on [Github](https://github.com/overture-stack/SONG)
+You can view this project and all its source code on [Github](https://github.com/overture-stack/SONG).
