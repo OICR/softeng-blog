@@ -44,7 +44,7 @@ With the right python modules, Jupyter Notebooks can even produce charts, graphs
 
 **JupyterHub** is a server for Jupyter Notebooks that handles things like multiple users, security, and authentication. In our configuration, each user gets access to their own private Jupyter Notebooks, and each user's code is run inside their own virtual machine using [Docker](https://www.docker.com) 
 
-To get started, we decided to run JupyterHub on a single virtual machine within our cloud; as an easy way to give researchers a chance to get started using our data and our systems, to learn, and to experiment. 
+To get started, we decided to run JupyterHub on a single virtual machine within the Cancer Collaboratory. That way, we can give researchers a chance to get started using our data and our systems, to learn, and to experiment -- with no system to configure or administer, no huge datasets to download, and no programs to download. All they need is DACO approval (legal permission to access the research data), and a web browser: we'll set up JupyterHub to do the rest!
 
 Since our service will be hosted on a virtual machine inside an [OpenStack](https://www.openstack.org/) cluster, we naturally want to be able to re-build the whole thing from scratch should the need arise, without having to work too hard at it. We use [*Ansible*](https://www.ansible.com/) for automation of these sorts of things, so I created an Ansible playbook to set up the virtual machine, and set up **JupyterHub** to run as a [*Docker*](https://www.docker.com) container within the virtual machine.
 
@@ -53,7 +53,7 @@ Since our service will be hosted on a virtual machine inside an [OpenStack](http
 
 ### In which, our hero customizes an Ansible playbook 
 
-I set up an *Ansible* playbook with these four tasks: 
+I set up an ansible playbook with these four tasks: 
 
 1. Create the virtual machine using OpenStack
 2. Ensure that the virtual machine is running python (so Ansible can run)
@@ -151,7 +151,7 @@ We have a similar set-up for the notebook environment:
 
 # What could possibly go wrong?
 
-<image src="{{ site.urlimg }}/kevin_hartmann/bridge.jpg" /> 
+<image src="{{ site.urlimg }}/kevin_hartmann/pogo1.jpg" /> 
 
 What were the issues that I had to address when setting up JupyterHub on our systems? As usual, most of them came down to issues of documentation.
 
