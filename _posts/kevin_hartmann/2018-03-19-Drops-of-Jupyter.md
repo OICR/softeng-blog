@@ -151,7 +151,7 @@ We have a similar set-up for the notebook environment:
 
 # What could possibly go wrong?
 
-<image src="{{ site.urlimg }}/kevin_hartmann/pogo1.jpg" /> 
+<image src="{{ site.urlimg }}/kevin_hartmann/oops.jpg" /> 
 
 What were the issues that I had to address when setting up JupyterHub on our systems? As usual, most of them came down to issues of documentation.
 
