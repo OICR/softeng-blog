@@ -46,22 +46,22 @@ With the right python modules, Jupyter Notebooks can even produce charts, graphs
 
 To get started, we decided to run JupyterHub on a single virtual machine within the Cancer Collaboratory. That way, we can give researchers a chance to get started using our data and our systems, to learn, and to experiment -- with no system to configure or administer, no huge datasets to download, and no programs to download. All they need is DACO approval (legal permission to access the research data), and a web browser: we'll set up JupyterHub to do the rest!
 
-Since our service will be hosted on a virtual machine inside an [OpenStack](https://www.openstack.org/) cluster, we naturally want to be able to re-build the whole thing from scratch should the need arise, without having to work too hard at it. We use [*Ansible*](https://www.ansible.com/) for automation of these sorts of things, so I created an Ansible playbook to set up the virtual machine, and set up **JupyterHub** to run as a [*Docker*](https://www.docker.com) container within the virtual machine.
+Since our service will be hosted on a virtual machine inside an [OpenStack](https://www.openstack.org/) cluster, we naturally want to be able to re-build the whole thing from scratch should the need arise, without having to work too hard at it. We use [*ansible*](https://www.ansible.com/) for automation of these sorts of things, so I created an ansible playbook to set up the virtual machine, and set up **JupyterHub** to run as a [*Docker*](https://www.docker.com) container within the virtual machine.
 
 # The play's the thing...
 <image class="foo" src="{{ site.urlimg }}/kevin_hartmann/yorick.jpg" width="50%" /> 
 
-### In which, our hero customizes an Ansible playbook 
+### In which, our hero customizes an ansible playbook 
 
 I set up an ansible playbook with these four tasks: 
 
 1. Create the virtual machine using OpenStack
-2. Ensure that the virtual machine is running python (so Ansible can run)
+2. Ensure that the virtual machine is running python (so ansible can run)
 3. Create the users and permissions on the virtual machine 
 **and**
 4. Set up the JupyterHub server
 
-In order to accomplish these four tasks, I created the following five Ansible roles:
+In order to accomplish these four tasks, I created the following five ansible roles:
 
 1. **OpenStack:** Accomplishes the OpenStack setup task
 2. **users**: Creates the users and groups necessary to run Docker, and the JupyterHub service itself.
@@ -71,13 +71,13 @@ In order to accomplish these four tasks, I created the following five Ansible ro
 
 ### If at first you don't succeed... 
 
-Each step in our Ansible playbook is designed to be re-run if a play fails to complete for any reason. There can be a lot of different steps to configure, but we keep things organized by putting all of that configuration information into two files that do only one thing: set Ansible variables.
+Each step in our ansible playbook is designed to be re-run if a play fails to complete for any reason. There can be a lot of different steps to configure, but we keep things organized by putting all of that configuration information into two files that do only one thing: set ansible variables.
 
 One set-up file holds public information, and gets checked into the public repository. The second file is added to the .gitignore file; it contains all of the passwords, SSL certificates, secret keys and other details that should be kept private.
 
 All of the settings are in one place, so changes are fast and easy.
 
-For example, I was able to demo a new prototype version of our system on the same (production) server that was running our old code -- by changing the username of the service, and the port number, I could safely deploy our Ansible script, confident in the knowledge that the new service would not interfere with the old one.
+For example, I was able to demo a new prototype version of our system on the same (production) server that was running our old code -- by changing the username of the service, and the port number, I could safely deploy our ansible script, confident in the knowledge that the new service would not interfere with the old one.
 
 ## You've got to keep 'em separated... 
 
@@ -133,10 +133,10 @@ Our set up for our *hub* directory looks like this:
   - *Dockerfile.JupyterHub-core*: This Dockerfile builds our base image, which contains the base JupyterHub installation, oauthenticator, and Dockerspawner.
   - *Dockerfile.custom*: This Dockerfile is based upon JupyterHub-core, but isolates our customizations from the base system. Because Docker caches previously built images, re-building this image is fast and easy.  
   - *JupyterHub_config.py*: One of the reasons that some people find JupyterHub difficult to install is because JupyterHub's configuration file is actually a Python script. This is great for people who know Python; but less great for people who don't. I customized our JupyterHub configuration script so that if an environment variable called DEV_MODE is set, JupyterHub will run a dummy authenticator that always succeeds, instead of the normal Oauth and DACO authentication steps.
-  - *secrets*: This directory is where Ansible places a copy of the SSL certifications created by certbot. If we're running in DEV_MODE, this directory can be empty.
+  - *secrets*: This directory is where ansible places a copy of the SSL certifications created by certbot. If we're running in DEV_MODE, this directory can be empty.
   - *auth_daco*: A directory that holds our python code for our DACO authentication, we have one more directory
   - *environment*: Environment variables used to configure JupyterHub
-  - *oath.env*: An environment variable configuration file containing our OAuth secret keys. Ansible will set this up for us when we deploy a real run; if we're running in DEV_MODE, this file can be empty.
+  - *oath.env*: An environment variable configuration file containing our OAuth secret keys. ansible will set this up for us when we deploy a real run; if we're running in DEV_MODE, this file can be empty.
   - *www_custom*: The directory which stores our changes to the base JupyterHub web page look and feel. Our Docker image copies this code in, over-writing existing data files in the **JupyterHub** python module 
   - *dshell*:  A command which gives you a root shell inside the running JupyterHub Docker container, so that you can make modifications to the server look and feel at run-time, and see the changes immediately, and decide which ones to keep. To make this process easier, we also mount a local directory called "share", so that we can copy web related files to/from the JupyterHub container, so it's relatively easy to make changes to the look and feel of the JupyterHub container.
 
@@ -144,8 +144,8 @@ Our set up for our *hub* directory looks like this:
 
 We have a similar set-up for the notebook environment:
 
-- Dockerfile.create-volume: Installs the complete *anaconda* compilation of python libraries, plus other any python modules that we want to mount with our /opt volume, such as our icgc-python module or our web_page customizations to the notebook python module  
-- Dockerfile.notebook: Adds in our custom changes to the minimal JupyterHub notebook, as well as adding in our ICGC specific code for downloading files from our cloud (ICGC-GET), and the Oracle JVM that it depends upon
+- *Dockerfile.create-volume*: Installs the complete *anaconda* compilation of python libraries, plus other any python modules that we want to mount with our /opt volume, such as our icgc-python module or our web_page customizations to the notebook python module  
+- *Dockerfile.notebook*: Adds in our custom changes to the minimal JupyterHub notebook, as well as adding in our ICGC specific code for downloading files from our cloud (ICGC-GET), and the Oracle JVM that it depends upon
 - *demo.ipynb*: The demonstration notebook that we want to add into our notebook image, so our end users can dive in right away,and start exploring our system and it's services
 - *www_custom*: A directory containing the web related changes for to the **notebook** python module
 
@@ -155,32 +155,34 @@ We have a similar set-up for the notebook environment:
 
 What were the issues that I had to address when setting up JupyterHub on our systems? As usual, most of them came down to issues of documentation.
 
-For example, I originally made the mistake of trying to set the "HubIp" field to an IP address, reasoning to myself that it should an IP address that the JupyterHub service could reference itself from. The IP address "127.0.0.1" (the local host address) was an obvious choice; but it didn't work, because that's not what the "HubIp" field is for. 
+For example, the "HubIp" field should *not* be set to an IP address. Instead, we need to set it to the **hostname** that the Jupyter Notebook server will use to contact the JupyterHub server across the Docker internal network.
 
-The "HubIp" field should *not* be set to an IP address; but rather, an internal **hostname** that the Jupyter Notebook server can use to contact the JupyterHub server across the Docker internal network! 
+That's easy enough, once we know what to do: we launch our Docker container with *docker* compose, create a service called *hub* to launch our Dockerized JupyterHub, and set the "HubIp" field to *hub*. The docker-compose command then automatically handles setting up the DNS networking within the internal Docker network we've define. 
 
-That's easy enough: we set it to *hub*, which is the name of our JupyterHub service in our docker-compose configuration file. Our *docker-compose* command takes care of the rest for us. It automatically create DNS entry over the Docker network that we've specified: so the hostname *hub* will point to the IP of whichever Docker container is running our JupyterHub service. Now, all we have to do is ensure the Docker container that our Jupyter Notebook is running can access also our Doccker internal network. So, we configure our JupyterHub server to launch our notebooks with the right Docker networking options, and we're done.
+Next, we have to allow the Docker containers than run our Jupyter Notebook to acccess our our Doccker internal network, too. So, we configure our JupyterHub server to launch our notebooks with the same Docker networking options that we've got in our docker-compose configuration, and we're done.
 
-But, what do we set the Jupyter Notebook IP address and port number to? After struggling with the issue, I found that the simplest answer is "We don't!" We just omit those configuration settings entirely, and set the internal IP networking setting to 'true'. After that, the Jupyterhub system defaults work fine on their own, and figure everything out for us.
+But, wait! How do we know what to put in for the Jupyter Notebook IP address and port numbers? Good question! Fortunately for us, we don't need to answer it!  
 
-I also had an issue with the names of Docker volumes: our OAuth modules let our users log in using their Google email addresses as usernames; but Docker volumes can't have an '@' symbol, so things kept failing. Once again, what worked was omitting the setting entirely; the default volume name includes the username with all special characters escaped properly. 
+As it turns out, we can just omit those configuration settings entirely, and leave the internal IP networking set to 'true'. After that, the Jupyterhub system figures everything out for us. 
+
+I also ran into an issue with the names of Docker volumes: our OAuth modules let our users log in using their Google email addresses as usernames; but Docker volumes can't have an '@' symbol, and email addresses always have one, so the volume creation step always failed. Once again, what worked was omitting the setting entirely; the default volume name includes the username with all special characters escaped properly. 
 
 The moral of the story? When trying to configure a complex piece of software, try to use the default settings whenever possible. They're usually (but not always) the most well-tested part of the codebase, because they're the ones that people use the most!
 
 # In Summary...
 <image src="{{ site.urlimg }}/kevin_hartmann/calculator.jpg" /> 
 
-We use Docker to run JupyterHub so that we can abstract away specific details bout about how JupyterHub is being run, like where the SSL keys are located, or which url to use for the authentication service. We set up JupyterHub to talk to the Jupyter Notebooks across an internal Docker network; and persist state for the JupyterHub service and the individual notebooks in individual Docker volumes so that all our Docker containers will survive a reboot intact.
+We use **Docker** to run **JupyterHub** so that we can abstract away specific details bout about how JupyterHub is being run, like where the SSL keys are located, or which url to use for the authentication service. We set up JupyterHub to talk to the **Jupyter Notebooks** across an internal Docker network; and persist state for the JupyterHub service and the individual notebooks in individual Docker volumes so that all our Docker containers will survive a reboot intact.
 
 This way, we can deploy JupyterHub anywhere, just by tweaking the environment we run it in, and specifically, we can run it locally in development mode before deploying it onto our production servers. 
 
-We use Ansible to take care of the details of setting up a virtual machine, setting up users and permissions, setting up environment variables with passwords and access tokens that Docker will use to run, and so on... 
+We use **ansible** to take care of the details of setting up a virtual machine, setting up users and permissions, setting up environment variables with passwords and access tokens that Docker will use to run, and so on... 
 
-We use two Docker images for each Jupyter service to keep our build times fast. We use the JupyterHub's default Docker image, the one with all of the biology themed Python modules bundled by Anaconda. Because that image is very big, we copy the contents we care about onto single Docker volume; and share that volume in read-only mode with all of our Jupyter Notebook users. 
+We use two Docker images for each Jupyter service to keep our build times fast. We use the JupyterHub's default Docker image, the one with all of the biology themed Python modules bundled by **Anaconda**. Because that image is very big, we copy the contents we care about onto single Docker volume; and share that volume in read-only mode with all of our Jupyter Notebook users. 
 
 We keep our local customizations and web content separate from the base JupyterHub Docker images, and we use environment variables to pass in changes to our configuration files. 
 
-We launch everything with docker-compose, build everything with Ansible, and runa simple shell script that to set up all our Docker networks, volumes, and images. Thanks to Ansible, we can tear down our entire virtual machine, and rebuild it from scratch, all with a single *Ansible-playbook* command.
+We launch everything with *docker-compose*, build everything with *ansible*, and runa simple shell script that to set up all our Docker networks, volumes, and images. Thanks to ansible, we can tear down our entire virtual machine, and rebuild it from scratch, all with a single *ansible-playbook* command.
 
 For more information on the technologies mentioned in this blog post, see the links section below. 
 
@@ -188,7 +190,7 @@ So, now you, too, know how to spin up a a JupyterHub service on a Cloud Computin
 
 ### References 
 
-Here's a list of links to technologies mentioned in the article:
+Here's a list of links to the technologies and organizations mentioned in the article:
 
 - [Ansible](https://www.ansible.com/) 
 - [Anconda](https://www.anaconda.com/distribution/) 
@@ -200,4 +202,4 @@ Here's a list of links to technologies mentioned in the article:
 - [JupyterHub](http://jupyterhub.readthedocs.io/en/latest/) 
 - [OpenStack](https://www.openstack.org/) 
 
-And last, but not least: if you want to see the full details of what I did, and how I did it, you can find my full source code [https://github.com/overture-stack/Jupyter](https://github.com/overture-stack/Jupyter)
+And last, but not least: if you want to see the full details of what I did, and how I did it, you can everything [here](https://github.com/overture-stack/Jupyter)
