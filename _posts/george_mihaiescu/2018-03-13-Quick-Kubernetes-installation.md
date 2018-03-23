@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Scripted Kubernetes installation with dasboard and monitoring."
+title:  "Scripted Kubernetes installation with dashboard and monitoring."
 breadcrumb: true
 author: george_mihaiescu
 date: 2018-03-21
