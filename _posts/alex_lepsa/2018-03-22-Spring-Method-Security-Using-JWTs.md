@@ -18,11 +18,11 @@ header:
     icon: icon-blog 
 ---
 
-Much has been written about integrating JWT's into spring security, and in fact Pivotal has included more and more first-class support for JWT's in their recent releases. That said, one thing that seems to be missing is a summary on how to stitch JWT's into an existing application using the `@PreAuthorize` annotation for fine-grain access control. We will be referencing our [SONG](https://www.overture.bio/song) application from [Overture](https://www.overture.bio/).
+Much has been written about integrating JWT's into spring security, and in fact Pivotal has included more and more first-class support for JWT's in their recent releases. That said, one thing that seems to be missing is a summary on how to stitch JWT's into an existing application using the `@PreAuthorize` annotation for fine-grain access control. In this blog post, we will be referencing our [SONG](https://www.overture.bio/song) application from [Overture](https://www.overture.bio/).
 
 # Enter SONG, the hero we need #
 
-SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. This is an existing, in production, application that we want to update to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) service which takes care of authenticating our user and then passes us a JWT we can then use to verify the users' permissions.
+SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. SONG is an existing, in production, application that we are updating in order to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) service which takes care of authenticating our user and then passes us a JWT we can then use to verify the users' permissions.
 
 If we take a quick look at our swagger output we'll see that studies are at the center of this application, and further digging into the existing security strategy will uncover that authorization is evaluated using scopes tied to a particular study.
 
@@ -163,7 +163,13 @@ public class StudyJWTStrategy implements StudyStrategyInterface {
 }
 ```
 
-There are a few things going on here so let's walk through this file. First we have a couple member variables that are instantiated auto-magically, these dictate the prefix and postfix required in the extracted user role and are configurable in `applcation.yml`, this is our approach from the original OAuth2 scopes strategy that we (at least for now) are porting over to the JWT strategy. Next we have the main authorize method that is what eventually get's called from the `@PreAuthorize` annotation, it extracts the authentication details (which you'll notice is `OAuth2AuthenticationDetails` - more on that later), converts to a `JWTUser` object (more on that too later) and finally returns the result of the verify method. Verify is pretty straightforward, it checks the roles the `JWTUser` possesses against what is constructed as the required role given the studyId, scopePrefix, and scopeSuffix.
+There are a few things going on here so let's walk through this file:
+
+First we have a couple member variables that are instantiated auto-magically, these dictate the prefix and postfix required in the extracted user role and are configurable in `applcation.yml`, this is our approach from the original OAuth2 scopes strategy that we (at least for now) are porting over to the JWT strategy.
+
+Next we have the main authorize method that is what eventually get's called from the `@PreAuthorize` annotation, it extracts the authentication details (which you'll notice is `OAuth2AuthenticationDetails` - more on that later), converts to a `JWTUser` object (more on that too later), and finally returns the result of the verify method.
+
+Verify is pretty straightforward, it checks the roles the `JWTUser` possesses against what is constructed as the required role given the studyId, scopePrefix, and scopeSuffix.
 
 # OAuth2Authentication == JWTAuthentication ?  #
 
