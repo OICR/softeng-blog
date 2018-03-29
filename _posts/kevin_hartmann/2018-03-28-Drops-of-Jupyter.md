@@ -200,4 +200,4 @@ Here's a list of links to the technologies and organizations mentioned in the ar
 - [JupyterHub](http://jupyterhub.readthedocs.io/en/latest/) 
 - [OpenStack](https://www.openstack.org/) 
 
-And last, but not least: if you want to see the full details of what I did, and how I did it, you can everything [here](https://github.com/overture-stack/Jupyter)
+And last, but not least: if you want to see the full details of what I did, and how I did it, you can find everything [here](https://github.com/overture-stack/Jupyter)
