@@ -3,7 +3,7 @@ layout: post
 title:  "Drops of Jupyter..."
 breadcrumb: true
 author: kevin_hartmann 
-date: 2018-03-19
+date: 2018-03-28
 categories: kevin_hartmann
 tags:
     - JupyterHub 
