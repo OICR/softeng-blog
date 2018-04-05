@@ -3,7 +3,7 @@ layout: post
 title:  "Let's Encrypt the Collaboratory"
 breadcrumb: true
 author: jared_baker
-date: 2018-05-04
+date: 2018-04-05
 categories: jared_baker
 tags:
     - Lets Encrypt
