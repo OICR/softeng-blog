@@ -21,10 +21,10 @@ header:
     icon: icon-blog
 ---
 ## Introduction
-OICR runs the Cancer Genome Collaboratory, a cloud environment designed for cancer research and composed of open source software. The Collaboratory has many web applications that need to be secured with SSL and has done so traditionally with long life paid certificates from various trusted Certificate Authorities (Digicert, etc). We would purchase certificates from a trusted CA ($$$) then use a combination of Ansible and scp to distribute the certificates every couple years to the various systems that need them.
+OICR runs the Cancer Genome Collaboratory, a self-service cloud environment designed for cancer research. The Collaboratory has many web applications that need to be secured with SSL and has done so with long life paid certificates from various traditional Certificate Authorities (Digicert, etc). We would purchase certificates from a traditional CA ($$$) then use a combination of Ansible and scp to distribute the certificates every couple years to the various systems that need them.
 
 ## Enter Let's Encrypt
-Let's Encrypt is a certificate authority that provides free self-serve 90-day SSL certificates along with an automated challenge-response protocol called Automated Certificate Management Environment (ACME) to perform certificate issues and renewals. There are many ACME clients available for almost every platform.
+[Let's Encrypt](https://letsencrypt.org) is a certificate authority that provides free self-serve 90-day SSL certificates along with an automated challenge-response protocol called Automated Certificate Management Environment (ACME) to perform certificate issues and renewals. There are many ACME clients available for almost every platform. Let's Encrypt has broad community support and a technical advisory board consisting of members from Akamai, Cisco, Google, Mozilla etc. All major browsers recognize Let's Encrypt's certificate chain of trust.
 
 ## Let's Encrypt Prerequisites
 In order to take advantage of Let's Encrypt, you will need the following:
@@ -33,10 +33,10 @@ In order to take advantage of Let's Encrypt, you will need the following:
 * A valid A record pointing to the IP address of the server requiring a SSL certificate
 
 ## Collaboratory requirements
-* ECDSA certificates for our high performance object storage gateway
-* Wildcard certificates for operational simplicity
+* [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) certificates for our high performance object storage gateway
+* [Wildcard](https://en.wikipedia.org/wiki/Wildcard_certificate) certificates for operational simplicity
 * Automated certificate renewal, distribution and service reloads
-* AWS Route 53 support for ACME challenges
+* [Amazon Route 53](https://en.wikipedia.org/wiki/Amazon_Route_53) support for ACME challenges
 
 At the time of writing, not all ACME clients supported ECDSA, wildcard certificates or Route 53 support but acme.sh did, so that was the main reason for us using acme.sh. Requirement for the DNS ACME challenge was because the server we are using to issue & renew certificates already has services running on port 80 & 443 so it was much more convenient to leverage the API from Route 53.
 
@@ -144,7 +144,7 @@ For non-Zabbix users here is a [web based alternative](https://certificatemonito
 
 
 ## Future improvements
-Even though we use the backup:yes Ansible copy feature I would still like to figure out a way to stagger the distribution of renewed certificates in the case a bad cert is propagated to many sites causing widespread SSL warnings.
+Even though we use the 'backup:yes' Ansible copy feature I would still like to figure out a way to stagger the distribution of renewed certificates in the case a bad cert is propagated to many sites causing widespread SSL warnings.
 
 ## References
 * [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_Encrypt)
