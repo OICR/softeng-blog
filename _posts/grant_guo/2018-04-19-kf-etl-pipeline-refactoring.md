@@ -1,6 +1,6 @@
 --
 layout: post
-title:  "Introducing the Kids-First ETL"
+title:  "Prorammable Pipeline in Kids-First ETL"
 breadcrumb: true
 author: grant_guo
 date: 2018-04-19
@@ -8,8 +8,8 @@ categories: grant_guo
 tags:
     - Functional Programming(FP), Scala
 teaser:
-    info: An introduction of how to apply Scala's functional programming features to the Kids-First ETL
-    image: function.png
+    info: Refactored Kids-First ETL to make the Pipeline programmable
+    image: grant_guo/watch_gears.jpg
 header:
     version: small
     title: Software Engineering Blog
@@ -17,9 +17,6 @@ header:
     icon: icon-blog
 ---
 
-<figure>
-    <img src="{{site.urlimg}}grant_guo/watch_gears.jpg" />
-</figure>
 ## Forword
 
 In my previous post [Introducing the Kids-First ETL](http://softeng.oicr.on.ca/grant_guo/2018/03/19/kf-etl/), I mentioned:
