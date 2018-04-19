@@ -9,7 +9,7 @@ tags:
     - Functional Programming(FP), Scala
 teaser:
     info: Refactored Kids-First ETL to make the Pipeline programmable
-    image: grant_guo/watch_gears.jpg
+    image: watch_gears.jpg
 header:
     version: small
     title: Software Engineering Blog
