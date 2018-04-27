@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Prorammable Pipeline in Kids-First ETL"
+title:  "Programmable Pipeline in Kids-First ETL"
 breadcrumb: true
 author: grant_guo
 date: 2018-04-19
@@ -59,11 +59,10 @@ object Pipeline {
 
 The main issue of the above implementation is **lack of flexibility**. 
 
-Consider the following facts:
+Either ```andThen(...)``` or ```Function.chain(...)``` only handles the linear function calls, so every index has its own subroutine. Although they could perform the similar logic and share the same set of Processors, these subroutines still have to be defined independently，and the shared Processors have to be called explicitly in each subroutine.
 
-* Either ```andThen(...)``` or ```Function.chain(...)``` only handles the linear function calls, so every index has its own subroutine. Although they could perform the similar logic and share the same set of Processors, these subroutines still have to be defined independently，and the shared Processors have to be called explicitly in each subroutine.
-* The semantics of ```andThen(...)``` or ```Function.chain(...)``` is not rich. For example, the ```FileCentric``` and ```ParticipantCentric``` subroutes run in sequence, however logically the two indices are independent of each other, so at least the two Processors ```FileCentricProcessor``` and ```ParticipantProcessor``` could be executed in parallel. In this case, Java/Scala's concurrent primitives or APIs should be introduced to program the concurrency. As more and more these kinds of control logic are added, the whole application will become the monolith and much more difficult to extend
-* These control logic is reusable, but doesn't generate any new data or make the ```Pipeline``` transition to a new state, instead they organize the ```Processor```s to achieve the goal
+The semantics of ```andThen(...)``` or ```Function.chain(...)``` is not rich. For example, the ```FileCentric``` and ```ParticipantCentric``` subroutes run in sequence, however logically the two indices are independent of each other, so at least the two Processors ```FileCentricProcessor``` and ```ParticipantProcessor``` could be executed in parallel. In this case, Java/Scala's concurrent primitives or APIs should be introduced to program the concurrency. These control logic doesn't generate any new data or make the ```Pipeline``` transition to a new state, instead they just organize ```Processor```(s) to execute. As more and more these kinds of control logic are added, the whole application will become the monolith and much more difficult to extend
+
 
 ## Refactor the Pipeline
 
@@ -88,7 +87,7 @@ trait Pipeline[T] {
 }
 ```
 
-The ```Pipeline```  is a parameterized Scala trait. The type parameter defines what data type the ```Pipeline``` holds. Transformation functions(```map```, ```combine```, ```merge``` and more in the future, I call them ```operator```) take ```Processor```(s) as input and coordinate the execution of them. By design, the ```Pipeline``` is late evaluated, which means the execution of operators doesn't compute any values, instead abstract function ```run()``` does. Each operator returns another ```Pipeline``` instance, which makes function call chain possible. The operators make the ```Pipleline``` look like a finite state machine(FSM), and the whole function call chain forms a directed acyclic graph(DAG). 
+The ```Pipeline```  is a parameterized Scala [trait](https://docs.scala-lang.org/tour/traits.html). The type parameter defines what data type the ```Pipeline``` holds. Transformation functions(```map```, ```combine```, ```merge``` and more in the future, I call them ```operator```) take ```Processor```(s) as input and coordinate the execution of them. By design, the ```Pipeline``` is late evaluated, which means the execution of operators doesn't compute any values, instead abstract function ```run()``` does. Each operator returns another ```Pipeline``` instance, which makes function call chain possible. The operators make the ```Pipleline``` look like a finite state machine(FSM), and the whole function call chain forms a directed acyclic graph(DAG). 
 
 The ```Pipeline``` has the companion object, defined as the following:
 
@@ -111,9 +110,10 @@ object Pipeline {
 
 The functions defined in the companion object are also operators, serve like the static functions in the Java world, and they could be used as the starting point of a pipeline.
 
-Now let's investigate the operators a little bit deeper
+Now let's investigate the operators a little bit deeper.
 
-Each operator has its own semantics of how the ```Processor```(s) are executed, for exmaple:
+Each operator has its own semantics of how the ```Processor```(s) are executed, 
+for exmaple:
 * ```map``` takes one ```Processor``` to convert the instance of ```T``` into ```A```
 * ```combine``` applies the two ```Processor```(s) to the instance of ```T``` respectively in parallel, and return a tuple of ```A1``` and ```A2```
 * ```merge``` applies the two ```Processor```(s) to the instance of ```T``` respectively in parallel. Instead of return a tuple, it applies another merge function to the tuple
