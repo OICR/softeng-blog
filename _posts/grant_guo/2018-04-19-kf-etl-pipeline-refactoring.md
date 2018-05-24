@@ -3,7 +3,7 @@ layout: post
 title:  "Programmable Pipeline in Kids-First ETL"
 breadcrumb: true
 author: grant_guo
-date: 2018-04-19
+date: 2018-05-24
 categories: grant_guo
 tags:
     - Functional Programming(FP), Scala
