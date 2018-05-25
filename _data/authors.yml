@@ -83,13 +83,7 @@ jared_baker:
   avatar: jared_baker.svg
   github:
 
-jeffrey_burt:
-  name: Jeffrey Burt
-  position: Software Developer
-  info: Toronto based Front end developer who loves to make things. From handcrafted furniture to modern web apps he takes pride in learning from every experience and approaching problems in new ways.
-  avatar: jeffrey_burt.svg
-  github: jephuff
-  is_alumni: true  
+
 
 junjun_zhang:
   name: Junjun Zhang
@@ -112,13 +106,7 @@ linda_xiang:
   avatar: linda_xiang.svg
   github: lindaxiang
 
-phuong-my_do:
-  name: Phuong-My Do
-  position: Business Analyst
-  info: Business Analyst who loves negotiating requirements with Software Engineers and Bioinformaticians to make a better world.
-  avatar: phuong-my_do.png
-  github: phuongmy
-  is_alumni: true
+
   
 rahul_verma:
   name: Rahul Verma
@@ -187,6 +175,22 @@ chen_chen:
   avatar: chen_chen.png
   github: Chen2x
   is_alumni: true  
+
+jeffrey_burt:
+  name: Jeffrey Burt
+  position: Software Developer
+  info: Toronto based Front end developer who loves to make things. From handcrafted furniture to modern web apps he takes pride in learning from every experience and approaching problems in new ways.
+  avatar: jeffrey_burt.svg
+  github: jephuff
+  is_alumni: true  
+
+phuong-my_do:
+  name: Phuong-My Do
+  position: Business Analyst
+  info: Business Analyst who loves negotiating requirements with Software Engineers and Bioinformaticians to make a better world.
+  avatar: phuong-my_do.png
+  github: phuongmy
+  is_alumni: true
 
 shane_wilson:
   name: Shane Wilson
