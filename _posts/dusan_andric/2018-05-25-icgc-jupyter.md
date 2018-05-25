@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JupyterHub in ICGC"
+title:  "Jupyter in ICGC"
 breadcrumb: true
 author: dusan_andric
 date: 2018-05-25
@@ -44,6 +44,8 @@ Users can get to Jupyter by either visiting the following URL directly in their 
 </figure>
 
 ## Technology
+
+For a detailed description of all the moving pieces that went into this, please check out [Kevin](http://softeng.oicr.on.ca/blog/category/kevin_hartmann)'s excellent [blog post](http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/) on the technical aspects of deploying JupyterHub.
 
 The main driving project behind our ability to deploy this new feature is JupyterHub. JupyterHub itself is a bundle of three main technologies (tornado, node-http-proxy, jupyter) which allows notebook servers to be provisioned on a per user or session basis. 
 
