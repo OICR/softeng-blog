@@ -30,7 +30,7 @@ christine_yu:
 denis_yuen:
   name: Denis Yuen
   position: Software Developer
-  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.   
+  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
   avatar: denis_yuen.svg
   github: denis-yuen
 
@@ -106,8 +106,13 @@ linda_xiang:
   avatar: linda_xiang.svg
   github: lindaxiang
 
+minh_ha:
+  name: Minh Ha
+  position: Software developer
+  info: Javascript enthusiast, constantly looking to explore the ever-expanding limit of web technologies. When I am not coding, playing guitar, or working out, I fill my time with running workshops and helping aspired developers.
+  avatar: minh_ha.png
+  github: hlminh2000
 
-  
 rahul_verma:
   name: Rahul Verma
   position: Senior Software Developer
@@ -125,7 +130,7 @@ robert_tisma:
 rosi_bajari:
   name: Rosi Bajari
   position: Technical Business Analyst
-  info: Business analyst with a bioinformatics background.  Enjoys unhealthy amounts of coffee, games, and coming up with ideas to solve very complex problems.         
+  info: Business analyst with a bioinformatics background.  Enjoys unhealthy amounts of coffee, games, and coming up with ideas to solve very complex problems.
   avatar: rosi_bajari.png
   github: rosibaj
 
@@ -150,7 +155,7 @@ bessie_rogel:
   info: Business Analyst who's trying to take on the world one spec/one requirement at a time. I enjoy learning by reverse engineering and practical immersion.  I like to take apart stuff, I just need to learn how to put them back together. Anyone needs extra screws?
   avatar: bessie_rogel.svg
   github:
-  is_alumni: true  
+  is_alumni: true
 
 bob_tiernay:
   name: Bob Tiernay
@@ -171,10 +176,10 @@ chang_wang:
 chen_chen:
   name: Chen Chen
   position: Bioinformatics Coop
-  info: Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud. 
+  info: Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud.
   avatar: chen_chen.png
   github: Chen2x
-  is_alumni: true  
+  is_alumni: true
 
 jeffrey_burt:
   name: Jeffrey Burt
@@ -182,7 +187,7 @@ jeffrey_burt:
   info: Toronto based Front end developer who loves to make things. From handcrafted furniture to modern web apps he takes pride in learning from every experience and approaching problems in new ways.
   avatar: jeffrey_burt.svg
   github: jephuff
-  is_alumni: true  
+  is_alumni: true
 
 phuong-my_do:
   name: Phuong-My Do
@@ -198,7 +203,7 @@ shane_wilson:
   info: Software Architect with a passion for making tools that make developers' lives easier. Functional Programming geek. Facebook OSS fanboy (React, Relay, ReasonML).
   avatar: shane_wilson.png
   github: shanewilson
-  is_alumni: true  
+  is_alumni: true
 
 sid_joshi:
   name: Sid Joshi
@@ -215,4 +220,3 @@ vitalii_slobodianyk:
   avatar: vitalii_slobodianyk.svg
   github: slovit
   is_alumni: true
-
