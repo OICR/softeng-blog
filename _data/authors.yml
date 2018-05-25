@@ -89,6 +89,7 @@ jeffrey_burt:
   info: Toronto based Front end developer who loves to make things. From handcrafted furniture to modern web apps he takes pride in learning from every experience and approaching problems in new ways.
   avatar: jeffrey_burt.svg
   github: jephuff
+  is_alumni: true  
 
 junjun_zhang:
   name: Junjun Zhang
@@ -117,7 +118,8 @@ phuong-my_do:
   info: Business Analyst who loves negotiating requirements with Software Engineers and Bioinformaticians to make a better world.
   avatar: phuong-my_do.png
   github: phuongmy
-
+  is_alumni: true
+  
 rahul_verma:
   name: Rahul Verma
   position: Senior Software Developer
