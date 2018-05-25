@@ -14,7 +14,7 @@ tags:
     - Overture
 teaser:
     info: The ICGC Data Portal gets a new analysis tool! 
-    image: dusan_andric/jupyter/icgc_jupyter.png
+    image: dusan_andric/jupyter/jupyter.png
 header: 
     version: small
     title: Software Engineering Blog
