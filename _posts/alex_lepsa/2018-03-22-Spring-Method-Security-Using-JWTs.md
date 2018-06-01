@@ -22,7 +22,7 @@ Much has been written about integrating JWT's into spring security, and in fact 
 
 # Enter SONG, the hero we need #
 
-SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. SONG is an existing, in production, application that we are updating in order to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) service which takes care of authenticating our user and then passes us a JWT we can then use to verify the users' permissions.
+SONG is an open source system for validating and tracking meta-data about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access. SONG is an existing, in production, application that we are updating in order to authorize users in a stateless manner using JWT's. In our case we already have a JWT provider in our [EGO](https://github.com/overture-stack/ego) service which takes care of authenticating our user and then passes us a JWT we can then use to verify the user's permissions.
 
 If we take a quick look at our swagger output we'll see that studies are at the center of this application, and further digging into the existing security strategy will uncover that authorization is evaluated using scopes tied to a particular study.
 
