@@ -3,7 +3,7 @@ layout: post
 title:  "Testcontainers FTW (a really big win)"
 breadcrumb: true
 author: alex_lepsa
-date: 2018-06-05
+date: 2018-06-04
 categories: alex_lepsa
 tags:
     - Spring Data
