@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Testcontainers FTW (a really really big win)"
+title:  "Testcontainers FTW (a really big win)"
 breadcrumb: true
 author: alex_lepsa
 date: 2018-06-05
