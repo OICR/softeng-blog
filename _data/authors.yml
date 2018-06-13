@@ -1,11 +1,4 @@
 # Author details
-alex_wilmer:
-  name: Alex Wilmer
-  position: Software Developer
-  info: Passionate JavaScript developer focusing on excellent user experiences and well maintained code. He loves to make animations, synthesizers and anything that makes the web more fun. When not coding, he’s running workshops and teaching others.
-  avatar: alex_wilmer.png
-  github: alex-wilmer
-
 alex_lepsa:
   name: Alex Lepsa
   position: Software Developer
@@ -147,6 +140,14 @@ vincent_ferretti:
   info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
   avatar: vincent_ferretti.svg
   github: vferretti
+
+alex_wilmer:
+  name: Alex Wilmer
+  position: Software Developer
+  info: Passionate JavaScript developer focusing on excellent user experiences and well maintained code. He loves to make animations, synthesizers and anything that makes the web more fun. When not coding, he’s running workshops and teaching others.
+  avatar: alex_wilmer.png
+  github: alex-wilmer
+  is_alumni: true  
 
 andy_yang:
   name: Andy Yang
