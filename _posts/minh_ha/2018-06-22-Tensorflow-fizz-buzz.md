@@ -24,13 +24,13 @@ header:
 # Introduction
 
 If you have been remotely involved in the tech industry, you must have been
-hearing about the rise of AI and Machine Learning (ML) at every corner you turn to.
+hearing about the rise of AI and Machine Learning (ML) at every corner.
 The mix of excitement in the potential of what it can do, together with the fear
 of the AI overlord, has been keeping many of us developers up at night.
 So when google announced the release of the long-waited [TensorFlow.js](https://js.tensorflow.org/)
 (a Javascript implementation of their ever popular machine learning library), I gave myself no
 choice but to dive right in and solve one of the software world's most infamous
-problem: **Fizz buzz!**
+problem: [**Fizz buzz!**](https://en.wikipedia.org/wiki/Fizz_buzz)
 
 ### tl;dr
 * Disclaimer 1: half way through working on the problem, I realized the same idea
@@ -133,7 +133,15 @@ The process for doing something like this can be summarized as:
      fizzBuzzModel.add(tf.layers.dense({ units: 1, activation: "softmax" }));
    ```
    This represents a neural net with 1 input, 2 hidden layers of 10 neurons each, and
-   finally one output.
+   finally one output. Internally, each neuron is responsible for a very simple
+   task: take a weighted average of the values from all neurons in the previous
+   layer, apply the __activation function (`activation`)__ on the value, and pass
+   the result on to every neuron on the next layer. During training, the neurons
+   will readjust these weights so that the ultimate output of the model is as close
+   as possible to the output we have provided the model with. [`"relu"`](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)) 
+   and (`"softmax"`)[https://en.wikipedia.org/wiki/Softmax_function] are
+   two of many activation functions that are commonly used.
+
 
    _(For a more in-depth explanation of neural networks with some code, I highly
    recommend [this Youtube series](https://www.youtube.com/watch?v=XJ7HLz9VYz0))_
