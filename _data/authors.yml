@@ -83,7 +83,12 @@ jared_baker:
   avatar: jared_baker.svg
   github:
 
-
+jon_eubank:
+  name: Jon Eubank
+  position: Senior Software Developer
+  info: Full-stack developer who survived an education in "nanotechnology engineering" before escaping to the wonderful world of software. Practitioner of java, python, and java-script; dabbling in the dark arts of dev-ops, soccer, and Go/Baduk.
+  avatar: jon_eubank.svg
+  github: joneubank
 
 junjun_zhang:
   name: Junjun Zhang
