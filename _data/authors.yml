@@ -69,6 +69,13 @@ hardeep_nahal:
   avatar: hardeep_nahal.svg
   github:
 
+henry_zhao:
+  name: Henry Zhao
+  position: Software Developer
+  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs. 
+  avatar: henry_zhao.svg
+  github: yuanhengzhao
+
 ivan_borozan:
   name: Ivan Borozan
   position: Scientific Associate
@@ -228,9 +235,3 @@ vitalii_slobodianyk:
   avatar: vitalii_slobodianyk.svg
   github: slovit
   is_alumni: true
-henry_zhao:
-  name: Henry Zhao
-  position: Software Developer
-  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs. 
-  avatar: henry_zhao.svg
-  github: yuanhengzhao
