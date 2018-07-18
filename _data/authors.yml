@@ -110,6 +110,13 @@ kevin_hartmann:
   info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
   avatar: kevin_hartmann.png
   github: KevinFHartmann
+  
+kim_cullion:
+  name: Kim Cullion
+  position: Senior UX/UI Designer
+  info: Detail oriented designer who loves creating user friendly tools that help people in some way. Likes to balance functionality with creativity, while basing design decisions on data, user scenarios and business goals. Enjoys drawing, volleyball, puns, improv and live music.
+  avatar: kim_cullion.svg
+  github: kcullion
 
 linda_xiang:
   name: Linda Xiang
