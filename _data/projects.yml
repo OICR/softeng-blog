@@ -24,7 +24,7 @@
 
 - name: Human Cancer Models Initiative
   url: //github.com/nci-hcmi-catalog/portal
-  siteurl: //portal.kidsfirstdrc.org/join
+  siteurl: //ocg.cancer.gov/programs/HCMI
   icon: //avatars3.githubusercontent.com/u/36712222?s=200&v=4
   info: A data portal for human tumor-derived culture models with associated genomic and clinical data.
   
