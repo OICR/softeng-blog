@@ -24,9 +24,6 @@ header:
         <span class="author-info project-info">{{ project.info }}</span>
         <div class="grid-item-links author-links project-links">
           <div class="">
-            <a class="author-blogs project-blogs" href="{{ site.baseurl }}/blog/{{ author[1].name }}">Blog Posts »</a>
-          </div>
-          <div class="">
             <a class="author-github project-github" href="{{ project.url }}"><i class="fa fa-github"></i> GitHub</a>
           </div>
         </div>
