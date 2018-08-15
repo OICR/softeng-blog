@@ -15,10 +15,10 @@ header:
       <div class="author project row">
         <div>
           <div class="small-3 columns">
-            <img src="{{project.icon}}" title="{{ project.name }}"/>
+             <a class="site-url" href="{{ project.siteurl }}" target="_blank"><img src="{{project.icon}}" title="{{ project.name }}"/></a>
           </div>
           <div class="small-9 columns">
-            <p class="author-name project-name">{{ project.name }}</p>
+            <p class="author-name project-name"><a class="site-url" href="{{ project.siteurl }}" target="_blank">{{ project.name }}</a></p>
           </div>
         </div>
         <span class="author-info project-info">{{ project.info }}</span>
