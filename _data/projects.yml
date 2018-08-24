@@ -1,39 +1,53 @@
 - name: ICGC-DCC
   url: //github.com/icgc-dcc
+  siteurl: //dcc.icgc.org
   icon: //avatars2.githubusercontent.com/u/1508638
   info: The ICGC Data Coordination Center software infrastructure including the ICGC data portal (dcc.icgc.org)
 
 - name: Cancer Genome Collaboratory
   url: //github.com/CancerCollaboratory
+  siteurl: //cancercollaboratory.org
   icon: //avatars1.githubusercontent.com/u/10966125
   info: ICGC cloud compute & storage cluster enhanced with custom-built software.
 
 - name: NCI Genomic Data Commons
   url: //github.com/NCI-GDC
+  siteurl: //portal.gdc.cancer.gov
   icon: //avatars2.githubusercontent.com/u/7882952
   info: US-based unified data repository that enables data sharing across cancer genomic studies.
 
 - name: Kids First
   url: //github.com/kids-first/
+  siteurl: //portal.kidsfirstdrc.org/join
   icon: //avatars0.githubusercontent.com/u/29782953?v=4&s=200
   info: Discover the causes of pediatric cancer and structural birth defects through the use of big data.  
 
+- name: Human Cancer Models Initiative
+  url: //github.com/nci-hcmi-catalog/portal
+  siteurl: //ocg.cancer.gov/programs/HCMI
+  icon: //avatars3.githubusercontent.com/u/36712222?s=200&v=4
+  info: A data portal for human tumor-derived culture models with associated genomic and clinical data.
+  
+- name: Overture
+  url: //github.com/overture-stack
+  siteurl: //overture.bio
+  icon: //avatars0.githubusercontent.com/u/32498250?s=200&v=4
+  info: A collection of open-source, extendable solutions for big-data genomic science.
+
 - name: OncoJS
   url: //github.com/oncojs
+  siteurl: //github.com/oncojs
   icon: //avatars3.githubusercontent.com/u/22945033?v=3&s=200
-  info: Javascript visualizations for cancer analytics
-
-- name: KnitJS
-  url: //github.com/knitjs
-  icon: //avatars2.githubusercontent.com/u/23062221?v=3&s=200
-  info: Javascript development tools
+  info: Javascript visualizations for cancer analytics.
 
 - name: OBiBa
   url: //github.com/obiba
+  siteurl: //obiba.org
   icon: //avatars2.githubusercontent.com/u/2547522?v=3&s=200
-  info: Data management software for epidemiological studies
+  info: Data management software for epidemiological studies.
 
 - name: Dockstore
   url: //github.com/ga4gh/dockstore
+  siteurl: //dockstore.org
   icon: //avatars1.githubusercontent.com/u/25392449?v=3&s=200
-  info: An open platform for sharing Docker-based tools described with the Common Workflow Language used by the GA4GH
+  info: An open platform for sharing Docker-based tools described with the Common Workflow Language used by the GA4GH.
