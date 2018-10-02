@@ -22,27 +22,27 @@ header:
 
 Over the past year, we’ve been moving most of our projects away from Jira, in favor of GitHub issues. This blog post will go over the reasons why and lessons we learnt along the way.
 
-It all started with an opportunity. As we were launching an entirely new project [Kids-First](https://kidsfirstdrc.org/) our teams started discussions around the project management tool to be used during implementation. Some of our objectives, in looking at new approaches, were to see how to reinforce integration between stories and actual software code, make developers’ life easier, while still providing management with adequate planning and reporting features.
+It all started with an opportunity. As we were launching an entirely new project, [Kids-First](https://kidsfirstdrc.org/), our teams started discussions around the project management tool to be used during implementation. Some of our objectives, in looking at new approaches, were to see how to reinforce integration between stories and actual software code, make developers’ life easier and provide management with adequate planning and reporting features.
 
 # What’s wrong with Jira ?
 
-Let’s get this straight from the beginning, there is nothing inherently wrong with Jira, it is a great platform (I said it !) with a wide feature-set and an extensive ecosystem of third party tools.
+Let’s get this straight from the beginning, there is nothing inherently wrong with Jira, it is a great platform (I said it!) with a wide feature-set and an extensive ecosystem of third party tools.
 
-So why be in favor of transitioning away from Jira ?
+So why be in favor of transitioning away from Jira?
 
 # Jira, protect me from myself
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/jira-workflow.png" />
-    <figcaption>Workflows can get complicated !</figcaption>
+    <figcaption>Workflows can get complicated!</figcaption>
 </figure>
 
 In my opinion, one of the the biggest challenges with Jira is also one of its strength: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
-Want to prevent an issue from moving to the next stage if testing hasn’t been documented ? Sure, no problem. Require 2 reviewers before a ticket can be completed ? Of course. And the list goes on.
+Want to prevent an issue from moving to the next stage if testing hasn’t been documented? Sure, no problem. Require 2 reviewers before a ticket can be completed? Of course. And the list goes on.
 
-The challenge with a complex workflow is that it easily gets in the way of the development team, in particular around exceptions during burst period. For example on one of our project we required documentation instructions to be written for stories. It makes sense, right ? Now if we look back at the 6,000 issues we have on this particular project, only 175 were populated with actual documentation instructions, most of which were just links to pull requests. Not the most successful workflow rule !
+The challenge with a complex workflow is that it easily gets in the way of the development team, in particular around exceptions during burst period. For example, on one of our projects we required documentation instructions to be written for stories. It makes sense, right ? Now if we look back at the 6,000 issues we have on this particular project, only 175 were populated with actual documentation instructions, most of which were just links to pull requests. Not the most successful workflow rule!
 
-GitHub on the other end, simply doesn’t allow for advanced workflow customizations. Issues can move freely between statuses, with no possibility to add validations steps at the issue level. This gives much more freedom to the team but also helps entrust all team members. It may take a few reminders at the beginning (please don’t forget to estimate unplanned urgent issues), but it’s definitely worthwhile.
+GitHub on the other hand, simply doesn’t allow for advanced workflow customizations. Issues can move freely between statuses, with no possibility to add validations steps at the issue level. This gives much more freedom to the team but also helps entrust all team members. It may take a few reminders at the beginning (please don’t forget to estimate unplanned urgent issues), but it’s definitely worthwhile.
 
 # Jira for Open-Source projects
 
@@ -60,7 +60,7 @@ GitHub provides features for [project management](https://github.com/features/pr
 
 Although you can use a GitHub project board across multiple repositories of the same organization, GitHub projects does not allow for cross-organization boards, which is a definite no-go in our context.
 
-We have one GitHub organization for [Overtuer](http://www.overture.bio/) and one organization per project. Project-specific implementation go into the project organization (for example: ICGC, Kids-First, HCMI), reusable components go into the Overture organization.
+We have one GitHub organization for [Overture](http://www.overture.bio/) and one organization per project. Project-specific implementation go into the project organization (for example: ICGC, Kids-First, HCMI), reusable components go into the Overture organization.
 Each scrum team uses its own Agile scrum board, and the lack of cross-organizational project boards would definitely be a blocker (more on that later).
 
 <figure>
@@ -70,11 +70,11 @@ Each scrum team uses its own Agile scrum board, and the lack of cross-organizati
 
 ## Story Points
 
-GitHub doesn’t have a dedicated field to store Story Points, neither provide metrics around those (velocity & burndown in particular). A workaround for points recording is to use Labels but there are no build-in tools for charting.
+GitHub doesn’t have a dedicated field to store Story Points, neither does it provide metrics around those (velocity & burndown in particular). A workaround for points recording is to use Labels but there are no built-in tools for charting.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/github-points.png" />
-    <figcaption>Can you spot points ?</figcaption>
+    <figcaption>Can you spot points?</figcaption>
 </figure>
 
 ## No Issues Hierarchy
@@ -89,7 +89,7 @@ The recommended approach when working with GitHub issues is as follow:
 
 ## Labels Management
 
-Labels are managed at the repository level, and although Labels can easily be created at any point in time in the interface, there is no provided feature to ensure their consistency across repositories and organizations.
+Labels are managed at the repository level on GitHub, and although Labels can easily be created at any point in time in the interface, there is no provided feature to ensure their consistency across repositories and organizations.
 So it’s easy to end up with different colors for the same label, labels with a similar but different name, …
 
 <figure>
@@ -97,7 +97,10 @@ So it’s easy to end up with different colors for the same label, labels with a
     <figcaption>Some labels inconsistencies across our repositories</figcaption>
 </figure>
 
+Having the option for defining labels at the Organization level would be a nice addition.
+
 ## Sprints
+
 Milestones are the recommended approach to manage sprints with GitHub, with one small caveat though, there is no start-date for milestones (only end date).
 It’s not a huge deal, but a slight annoyance as you cannot precisely determine the beginning of a sprint to get its burndown.
 
@@ -106,16 +109,35 @@ It’s not a huge deal, but a slight annoyance as you cannot precisely determine
     <figcaption>Milestone creation in GitHub</figcaption>
 </figure>
 
+## Links between issues
+
+<figure>
+    <img src="{{site.urlimg}}francois_gerthoffert/jira-github/issue-link.png" />
+    <figcaption>In GitHub, an issue link burried in less critical events</figcaption>
+</figure>
+
+Although GitHub makes it very easy to reference other issues from a another one, there is no automatically built summarized view as you would have in Jira. Users either have to scroll through a potentially long list of issue's events or manually add those links into the issue's description (but in that case it doesn't show state).
+
+<figure>
+    <img src="{{site.urlimg}}francois_gerthoffert/jira-github/jira-links.png" />
+    <figcaption>Jira's summarized view of issue links</figcaption>
+</figure>
+
 ## I miss JQL though
 
 Jira has its own internal query language called [JQL](https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-764478330.html), sadly there is nothing as powerful available in GitHub ecosystem.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/issues-search.png" />
-    <figcaption>GitHub issues search</figcaption>
+    <figcaption>GitHub's issues search</figcaption>
 </figure>
 
-# GitHub very extensive API
+## Attachments
+
+Oh and one last limitation with GitHub issues, uploading images works great, but that's the only type of file that can be attached to an issue. I know some people who really miss their CSV/TSV attachments.
+
+# GitHub's very extensive API
+
 But GitHub played it very smart by providing 2 very extensive APIs ([v3 using REST](https://developer.github.com/v3/) , [v4 using GraphQL](https://developer.github.com/v4/)), their [associated libraries](https://developer.github.com/v3/libraries/) and a live instance of [GraphiQL](https://developer.github.com/v4/explorer/) making it extremely simple to extend GitHub functionality to cover particular use cases.
 
 <figure>
@@ -123,9 +145,10 @@ But GitHub played it very smart by providing 2 very extensive APIs ([v3 using RE
     <figcaption>How many issues in Arranger ?</figcaption>
 </figure>
 
-GitHub provides a strong foundation, and open the door to third party vendors to extend their core functionalities, encouraging an ecosystem of applications to grow alongside (we’ll see how this plays with Microsoft joining the game).
+GitHub provides a strong foundation, and opens the door to third party vendors to extend their core functionalities, encouraging an ecosystem of applications to grow alongside (we’ll see how this plays with Microsoft joining the game).
 
 # Third party apps to the rescue
+
 This is a good point to start introducing third party solutions (such as Zenhub, Waffle.io), which, by wrapping metadata around GitHub issues, extend functionalities towards Agile and project management.
 
 <figure>
@@ -153,24 +176,25 @@ Let’s assume one wants to build an app, that will go through all the issues to
 
 Furthermore, someone from the general public navigating our repositories on GitHub would not be able to see any of this, sometime valuable, metadata.
 
-So is this dependency to third party platforms something we have to live with, or is there a better option ?
+So is this dependency to third party platforms something we have to live with, or is there a better option?
 
-# Solution ?
+# Solution?
 
 Understandably, GitHub cannot cover for all possible business needs with their API, and it’s of course preferable to have a strong and stable API instead something unstable with a ton of options.
 
-But does this call for a schema-less user-defined JSON info field directly attached to an issue node in GitHub database ? That would be a great improvement allowing third party apps to store most of their metadata there.
+But does this call for a schema-less user-defined JSON info field directly attached to an issue node in GitHub database? That would be a great improvement allowing third party apps to store most of their metadata there.
 
 # Conclusion
+
 At the moment there isn’t an ideal tool. We are ok (I’m not going to say happy, because of the issues above) with a mix between third party apps and native GitHub, but I’m looking at ways to bring more into core GitHub issues (through labels for example) to limit the above-mentioned long-run dependency.
 
 From a project manager point of view, I like the approach and simplicity of it (less is more). In a way, it’s simplicity brings it much closer to a traditional “post-it” Agile board. Most of the key metrics are there and it’s ease of access for our users makes it a great solution for the time being.
 
 We constantly adjust our Agile methodology & tools to best fit our needs, so with no doubts thing will change in the future, but for the time being this is an efficient and workable setup.
 
-# Conclusion bis, so GitHub or Jira for my project ?
+# Conclusion bis, so GitHub or Jira for my project?
 
-Both solutions are perfectly fine and mostly depends of your use case. If you need strict control in your workflow, Jira is probably your best bet. If you want flexibility while giving your team a sense of ownership towards their workflow, then GitHub issues is a great option.
+Both solutions are perfectly fine and mostly depends on your use case. If you need strict control in your workflow, Jira is probably your best bet. If you want flexibility while giving your team a sense of ownership towards their workflow, then GitHub issues is a great option.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/jira-meme.png" />
@@ -183,3 +207,5 @@ Both solutions are perfectly fine and mostly depends of your use case. If you ne
 </figure>
 
 I don’t have an answer for you, but hopefully this blog post would have helped identifying what would work best for you.
+
+_PS: Thanks to Rosi and Solomon for their input while writing this blog post._
