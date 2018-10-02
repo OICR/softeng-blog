@@ -22,11 +22,11 @@ header:
 
 Over the past year, we’ve been moving most of our projects away from Jira, in favor of GitHub issues. This blog post will go over the reasons why and lessons we learnt along the way.
 
-It all started with an opportunity. As we were launching an entirely new project [Kids-First](https://kidsfirstdrc.org/) our teams started discussions around the project management tool to be used during implementation. Some of our objective, in looking at new approaches, was to see how to reinforce integration between stories and actual software code, make developers’ life easier, while still providing management with adequate planning and reporting features.
+It all started with an opportunity. As we were launching an entirely new project [Kids-First](https://kidsfirstdrc.org/) our teams started discussions around the project management tool to be used during implementation. Some of our objectives, in looking at new approaches, were to see how to reinforce integration between stories and actual software code, make developers’ life easier, while still providing management with adequate planning and reporting features.
 
 # What’s wrong with Jira ?
 
-Let’s get this straight from the beginning, there is nothing inherently wrong with Jira, it is a great tool (I said it !) with a wide feature-set and an extensive ecosystem of third party tools.
+Let’s get this straight from the beginning, there is nothing inherently wrong with Jira, it is a great platform (I said it !) with a wide feature-set and an extensive ecosystem of third party tools.
 
 So why be in favor of transitioning away from Jira ?
 
@@ -37,7 +37,7 @@ So why be in favor of transitioning away from Jira ?
     <figcaption>Workflows can get complicated !</figcaption>
 </figure>
 
-In my opinion, one of the the strongest challenges with Jira is actually what can also be its strength in other situations: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
+In my opinion, one of the the strongest challenges with Jira is also one of its strength in other situations: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
 Want to prevent an issue from moving to the next stage if testing hasn’t been documented ? Sure, no problem. Require 2 reviewers before a ticket can be completed ? Of course. And the list goes on.
 
 The challenge with a complex workflow is that it easily gets in the way of the development team, in particular around exceptions during burst period. For example on one of our project we required documentation instructions to be written for stories. It makes sense, right ? Now if we look back at the 6,000 issues we have on this particular project, only 175 were populated with actual documentation instructions, most of which were just links to pull requests. Not the most successful workflow rule !
