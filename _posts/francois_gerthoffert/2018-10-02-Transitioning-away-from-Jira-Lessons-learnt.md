@@ -60,7 +60,7 @@ GitHub provides features for [project management](https://github.com/features/pr
 
 Although you can use a GitHub project board across multiple repositories of the same organization, GitHub projects does not allow for cross-organization boards, which is a definite no-go in our context.
 
-We have one GitHub organization for {overture} and one organization per project. Project-specific implementation go into the project organization (for example: ICGC, Kids-First, HCMI), reusable components go into the Overture organization.
+We have one GitHub organization for [Overtuer](http://www.overture.bio/) and one organization per project. Project-specific implementation go into the project organization (for example: ICGC, Kids-First, HCMI), reusable components go into the Overture organization.
 Each scrum team uses its own Agile scrum board, and the lack of cross-organizational project boards would definitely be a blocker (more on that later).
 
 <figure>
@@ -70,7 +70,7 @@ Each scrum team uses its own Agile scrum board, and the lack of cross-organizati
 
 ## Story Points
 
-GitHub doesn’t have a dedicated field to store Story Points, neither provide metrics around those (velocity & burndown in particular). But a workaround for points recording is still possible using Labels but nothing is available for charting.
+GitHub doesn’t have a dedicated field to store Story Points, neither provide metrics around those (velocity & burndown in particular). A workaround for points recording is to use Labels but there are no build-in tools for charting.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/github-points.png" />
@@ -108,7 +108,7 @@ It’s not a huge deal, but a slight annoyance as you cannot precisely determine
 
 ## I miss JQL though
 
-Jira has its own internal query language called [JQL] (https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-764478330.html), sadly there is nothing as powerful available in GitHub ecosystem.
+Jira has its own internal query language called [JQL](https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-764478330.html), sadly there is nothing as powerful available in GitHub ecosystem.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/issues-search.png" />
@@ -159,10 +159,10 @@ So is this dependency to third party platforms something we have to live with, o
 
 Understandably, GitHub cannot cover for all possible business needs with their API, and it’s of course preferable to have a strong and stable API instead something unstable with a ton of options.
 
-But does this call for a schema-less user-defined JSON info field directly attached to an issue node in GitHub database ? That would be a great improvement allowing third party apps to store most of their metadata there instead of on third party platforms.
+But does this call for a schema-less user-defined JSON info field directly attached to an issue node in GitHub database ? That would be a great improvement allowing third party apps to store most of their metadata there.
 
 # Conclusion
-At the moment there isn’t an ideal tool. We are ok (I’m not going to say happy, because of the issues above) with a mix between third party apps and native GitHub, but I’m looking at ways to bring more into core GitHub issues (through labels) to limit the above-mentioned long-run dependency.
+At the moment there isn’t an ideal tool. We are ok (I’m not going to say happy, because of the issues above) with a mix between third party apps and native GitHub, but I’m looking at ways to bring more into core GitHub issues (through labels for example) to limit the above-mentioned long-run dependency.
 
 From a project manager point of view, I like the approach and simplicity of it (less is more). In a way, it’s simplicity brings it much closer to a traditional “post-it” Agile board. Most of the key metrics are there and it’s ease of access for our users makes it a great solution for the time being.
 
