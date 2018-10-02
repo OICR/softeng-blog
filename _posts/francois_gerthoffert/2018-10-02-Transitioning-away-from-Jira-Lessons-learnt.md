@@ -12,7 +12,7 @@ tags:
     - GitHub
 teaser:
     info: Over the past year, we’ve been moving most of our projects away from Jira, in favor of GitHub issues. This blog post will go over the reasons why and lessons we learnt along the way.
-    image: francois_gerthoffert/overture-logo.png
+    image: francois_gerthoffert/jira-github/blog-header.png
 header:
     version: small
     title: Software Engineering Blog
