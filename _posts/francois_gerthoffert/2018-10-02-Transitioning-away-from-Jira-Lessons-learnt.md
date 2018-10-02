@@ -37,7 +37,7 @@ So why be in favor of transitioning away from Jira ?
     <figcaption>Workflows can get complicated !</figcaption>
 </figure>
 
-In my opinion, one of the the strongest challenges with Jira is also one of its strength in other situations: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
+In my opinion, one of the the biggest challenges with Jira is also one of its strength: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
 Want to prevent an issue from moving to the next stage if testing hasn’t been documented ? Sure, no problem. Require 2 reviewers before a ticket can be completed ? Of course. And the list goes on.
 
 The challenge with a complex workflow is that it easily gets in the way of the development team, in particular around exceptions during burst period. For example on one of our project we required documentation instructions to be written for stories. It makes sense, right ? Now if we look back at the 6,000 issues we have on this particular project, only 175 were populated with actual documentation instructions, most of which were just links to pull requests. Not the most successful workflow rule !
@@ -54,7 +54,7 @@ Plus, with GitHub, you get access to GitHub extensive infrastructure, extensive 
 
 # Are GitHub issues the ideal solution ?
 
-Although GitHub provides features for [project management](https://github.com/features/project-management/) out of the box, we quickly realized those would not be sufficient for our needs.
+GitHub provides features for [project management](https://github.com/features/project-management/) out of the box but we quickly realized those would not be sufficient for our needs.
 
 ## Cross-organizations project boards
 
