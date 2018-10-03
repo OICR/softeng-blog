@@ -116,7 +116,7 @@ It’s not a huge deal, but a slight annoyance as you cannot precisely determine
     <figcaption>In GitHub, an issue link burried in less critical events</figcaption>
 </figure>
 
-Although GitHub makes it very easy to reference other issues from a another one, there is no automatically built summarized view as you would have in Jira. Users either have to scroll through a potentially long list of issue's events or manually add those links into the issue's description (but in that case it doesn't show state).
+Although GitHub makes it very easy to link issues together, there is no summarized view (as in Jira). Users either have to scroll through a potentially long list of issue's events or manually add those links into the issue's description (but in that case, not showing its state).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/jira-links.png" />
