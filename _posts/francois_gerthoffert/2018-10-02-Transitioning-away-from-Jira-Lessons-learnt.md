@@ -172,7 +172,7 @@ Both [ZenHub](https://github.com/ZenHubIO/API) and [Waffle.io](https://docs.waff
 Let’s assume one wants to build an app, that will go through all the issues to collect their individual Story Points in order to build metrics, things get slightly challenging:
 
 * ZenHub has an API rate limit of 100 requests per minute to the API with no bulk means of collecting points, it has to be done for each individual issue. Kids-First + Overture account for 2,000+ issues over less than a year. An initial load will be pretty lengthy.
-* Waffle.io is very unclear about their API usage, and the API has been labelled “private alpha test”. For the first few months I was able to bulk GET the data since our projects were open and waffle didn’t have restrictions on those (this was closed down in September). But the major challenge is individual archived issues cannot be accessed after 30 days (https://help.waffle.io/faq/done-column-closing-issues/can-i-viewed-my-archived-issues), so all individual historical Story Points are basically gone, sigh …
+* Waffle.io is very unclear about their API usage, and the API has been labelled “private alpha test”. For the first few months I was able to bulk GET the data since our projects were open and waffle didn’t have restrictions on those (this was closed down in September). But the major challenge is [individual archived issues cannot be accessed after 30 days](https://help.waffle.io/faq/done-column-closing-issues/can-i-viewed-my-archived-issues), so all individual historical Story Points are basically gone, sigh …
 
 Furthermore, someone from the general public navigating our repositories on GitHub would not be able to see any of this, sometime valuable, metadata.
 
