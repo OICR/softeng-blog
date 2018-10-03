@@ -163,7 +163,7 @@ Over the past few months we’ve been using the two platforms mentioned above. Z
     <figcaption>Running sprint in Overture's Waffle board</figcaption>
 </figure>
 
-So while using those, things started to get a bit challenging as I wanted to dive a bit more into velocity metrics and forecasting (see my related post on Jira velocity).
+So while using those, things started to get a bit challenging as I wanted to dive a bit more into velocity metrics and forecasting (see [my related post on Jira velocity](https://softeng.oicr.on.ca/francois_gerthoffert/2017/07/04/Understand-velocity-and-forecast-with-JIRA-Agile/)).
 
 # Accessing Agile metadata
 
