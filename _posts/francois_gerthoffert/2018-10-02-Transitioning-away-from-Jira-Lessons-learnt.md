@@ -134,7 +134,7 @@ Jira has its own internal query language called [JQL](https://confluence.atlassi
 
 ## Attachments
 
-Oh and one last limitation with GitHub issues, uploading images works great, but that's the only type of file that can be attached to an issue. I know some people who really miss their CSV/TSV attachments.
+Oh! and one last caveat with GitHub issues, uploading images works great, but that's the only type of file that can be attached to an issue. I know some people who really miss their CSV/TSV attachments.
 
 # GitHub's very extensive API
 
