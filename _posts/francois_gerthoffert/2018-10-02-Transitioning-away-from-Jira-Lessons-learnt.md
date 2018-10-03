@@ -61,7 +61,7 @@ GitHub provides features for [project management](https://github.com/features/pr
 Although you can use a GitHub project board across multiple repositories of the same organization, GitHub projects does not allow for cross-organization boards, which is a definite no-go in our context.
 
 We have one GitHub organization for [Overture](http://www.overture.bio/) and one organization per project. Project-specific implementation go into the project organization (for example: ICGC, Kids-First, HCMI), reusable components go into the Overture organization.
-Each scrum team uses its own Agile scrum board, and the lack of cross-organizational project boards would definitely be a blocker (more on that later).
+Each scrum team (one per project) uses its own Agile scrum board, and the lack of cross-organizational project boards would definitely be a blocker (more on that later).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/github-overture.png" />
