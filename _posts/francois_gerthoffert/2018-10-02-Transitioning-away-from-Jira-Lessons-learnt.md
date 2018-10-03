@@ -50,7 +50,7 @@ When developing an open source project, it might be nice to give full visibility
 
 Although Jira can be configured for Public Access, over the past years, GitHub progressively became the de-facto platform (with GitLab and BitBucket on a smaller scale) for open source projects. Being the platform of choice for most developers, selecting GitHub for a project is one less hurdle to receiving contributions from the general public.
 
-Plus, with GitHub, you get access to GitHub extensive infrastructure, extensive API (more on that in another blog post) and third party tools.
+Plus, with GitHub, you get access to GitHub extensive infrastructure & API (more on that in another blog post) and third party tools.
 
 # Are GitHub issues the ideal solution ?
 
