@@ -206,6 +206,6 @@ Both solutions are perfectly fine and mostly depends on your use case. If you ne
     <figcaption>or GitHub ?</figcaption>
 </figure>
 
-I don’t have an answer for you, but hopefully this blog post would have helped identifying what would work best for you.
+I don’t have an answer for you, but hopefully this blog post would have helped identifying what might work best for you.
 
 _PS: Thanks to Rosi and Solomon for their input while writing this blog post._
