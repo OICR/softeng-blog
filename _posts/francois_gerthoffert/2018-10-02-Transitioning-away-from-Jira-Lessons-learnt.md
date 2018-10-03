@@ -34,7 +34,7 @@ So why be in favor of transitioning away from Jira?
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/jira-github/jira-workflow.png" />
-    <figcaption>Workflows can get complicated!</figcaption>
+    <figcaption>Workflows can get complicated! (and yes, I'm the one to blame on this one)</figcaption>
 </figure>
 
 In my opinion, one of the the biggest challenges with Jira is also one of its strength: Jira offers a lot of possibilities for customization. Trust me, it’s very easy to fall in the trap of wanting to configure all the nitty gritty details of one team’s operation.
