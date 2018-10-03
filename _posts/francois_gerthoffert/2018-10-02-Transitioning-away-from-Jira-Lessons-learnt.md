@@ -79,7 +79,7 @@ GitHub doesn’t have a dedicated field to store Story Points, neither does it p
 
 ## No Issues Hierarchy
 
-GitHub doesn’t make it obvious how to have the traditional Epic -> Story -> SubTask hierarchy.
+GitHub doesn’t make the traditional Epic -> Story -> SubTask hierarchy obvious.
 
 The recommended approach when working with GitHub issues is as follow:
 
