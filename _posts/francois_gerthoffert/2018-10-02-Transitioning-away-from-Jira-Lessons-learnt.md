@@ -192,7 +192,7 @@ From a project manager point of view, I like the approach and simplicity of it (
 
 We constantly adjust our Agile methodology & tools to best fit our needs, so with no doubts thing will change in the future, but for the time being this is an efficient and workable setup.
 
-# Conclusion bis, so GitHub or Jira for my project?
+# So GitHub or Jira for my project?
 
 Both solutions are perfectly fine and mostly depends on your use case. If you need strict control in your workflow, Jira is probably your best bet. If you want flexibility while giving your team a sense of ownership towards their workflow, then GitHub issues is a great option.
 
