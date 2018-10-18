@@ -39,7 +39,7 @@ Which brings me to the core of the article. As part of being agile we collect me
 
 # Agility in agile vs traditional metrics
 
-One of the most traditional metric in agile project management is velocity, it helps visualize how the team is operating and improves future planning. But traditional Agile tools have, in my opinion, a strong limitation in the way they can account for changes in a team’s operation.
+One of the most traditional metric in agile project management is velocity, it helps visualizing a team's delivery pace and facilitates future planning. But traditional Agile tools have, in my opinion, a strong limitation in the way they can account for changes in a team’s operation.
 
 Have your sprints always all had exactly the same number of business days with the exact same number of team members?
 
