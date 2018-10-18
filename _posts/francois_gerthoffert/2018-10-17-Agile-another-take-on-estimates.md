@@ -3,7 +3,7 @@ layout: post
 title:  "Agile in research - Another take on metrics and estimates"
 breadcrumb: true
 author: francois_gerthoffert
-date: 2018-10-02
+date: 2018-10-17
 categories: francois_gerthoffert
 tags:
     - Software
@@ -11,7 +11,7 @@ tags:
     - Story Points
     - Rolling Average
 teaser:
-    info: Can Data help tell the story of a team? And how, by understanding its story, can a team become better at foreseeing its future?
+    info: Can data help tell the story of a team? And how, by understanding its story, can a team become better at foreseeing its future?
     image: francois_gerthoffert/agile-estimates/weekly-velocity.png
 header:
     version: small
@@ -47,7 +47,7 @@ Of course not, but usually those metrics are often either bound to one single sp
 
 # Short term estimates using rolling average
 
-In my opinion, the best option is to drop the concept of sprint in velocity calculation and focus on a rolling average (I like having a window of 4 weeks), as it essentially lessens the impact of edge cases and events (vacations, sick days, variation of sprint duration).
+In my opinion, the best option is to drop the concept of sprint in velocity calculations and focus on a rolling average (I like having a window of 4 weeks), as it essentially lessens the impact of edge cases and events (vacations, sick days, variation of sprint duration).
 
 Let’s discuss around an hypothetical example, assuming we are currently in week 10, doing planning for the next sprint.
 
@@ -84,7 +84,7 @@ Let’s continue on the above exercise, your team sized a set of features reques
 
 # Likeliness of sprint’s scope completion
 
-Then is also becomes an interesting tool during a sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being planned for a given sprint.
+It also becomes an interesting tool during a sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being planned for a given sprint.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/kf-metrics.png" />
@@ -106,7 +106,7 @@ We can also look at the velocity for another team’s sprint, who resumed work a
     <figcaption>Metrics during a sprint (ICGC)</figcaption>
 </figure>
 
-Is being in a 2 weeks sprint but have an estimate to completion of 16 working days an issue ? Well actually it is not, this is why:
+Is being in a 2 weeks sprint, but have an estimate to completion of 16 working days an issue? Well actually it is not, this is why:
 
 * Looking at the past 4 weeks, delivery should take 16 days
 * Looking at the past 8 weeks, delivery should take 26 days
@@ -117,7 +117,7 @@ The team is ramping up, it’s delivery pace is progressively accelerating, and 
 
 # Let’s keep playing with numbers
 
-Now an interesting experiment. If we are able to calculate the team’s velocity, the system can also get a sense of each individual team member’s velocity. What if we ask a developer to temporarily join the team for this sprint ?
+Now an interesting experiment. If we are able to calculate the team’s velocity, the system can also get a sense of each individual team member’s velocity. What if we ask a developer to temporarily join the team for this sprint?
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/time-to-completion.png" />
