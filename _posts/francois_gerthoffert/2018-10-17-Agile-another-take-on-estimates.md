@@ -32,7 +32,7 @@ For us, operating with limited resources means a need for a very tight cohesion 
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/dilbert.png" />
-    <figcaption>Credit dilbert.com</figcaption>
+    <figcaption>Credits dilbert.com</figcaption>
 </figure>
 
 Which brings me to the core of the article. As part of being agile we collect metrics: how can those metrics serve the team?
@@ -53,7 +53,6 @@ Let’s discuss around an hypothetical example, assuming we are currently in wee
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/rolling-example.png" />
-    <figcaption>Example dataset</figcaption>
 </figure>
 
 We know, by looking at both velocity metrics (individual weeks and rolling average), that:
@@ -73,18 +72,20 @@ In the above example, this team should be able to complete up to 60 points (mayb
     <figcaption>A real-world example (Kids-First)</figcaption>
 </figure>
 
-And what do you think will happen to the team’s velocity over this coming end-of-year vacations period? Or for the next major release? Looking at the team history definitely helps in assessing what can be completed in the future.
+What do you think will happen to the team’s velocity over this coming end-of-year vacations period? Or for the next major release? Looking at the team history definitely helps in assessing what can be completed in the future.
 
 # How likely are we going to deliver a set of features by a set release date?
 
 
-This technique is useful, not only in sprint planning, but also to estimate the amount of time necessary to complete activities in your backlog.
+This technique is useful, not only in sprint planning, but also in estimating the amount of time necessary to complete a set of activities in your backlog.
 
-Let’s continue on the above exercise, your team sized a set of features requested, yesterday, by a key stakeholder for a demo planned in 4 weeks. This backlog of activities account for about 180 points (plus unknowns), your current rolling average is at 30 points per week. How likely are you going to deliver all of this on-time? Can the above can help you determine your course of actions?
+Let’s continue on the above exercise, your team sized a set of features requested yesterday by a key stakeholder, for a demo planned in 4 weeks. This backlog of activities account for about 180 points (plus unknowns), your current rolling average is at 30 points per week.
+
+How likely are you going to deliver all of this on-time? Can the above can help you determine your course of actions?
 
 # Likeliness of sprint’s scope completion
 
-It also becomes an interesting tool during a sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being planned for a given sprint.
+It also becomes an interesting tool during a sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being added in a given sprint.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/kf-metrics.png" />
@@ -95,9 +96,9 @@ The diagram on the left represent velocity (top: weekly, bottom: rolling average
 
 More than only estimating how many days is needed to complete a sprint, it also gives us an indication that this team is, currently, fairly stable in its delivery pace:
 
-* Looking at the past 4 weeks, delivery should take 6 days
-* Looking at the past 8 weeks, delivery should take 5 days
-* Looking at the past 12 weeks, delivery should take 7 days
+* Looking at the past 4 weeks' velocity, delivery should take 6 days
+* Looking at the past 8 weeks' velocity, delivery should take 5 days
+* Looking at the past 12 weeks' velocity, delivery should take 7 days
 
 We can also look at the velocity for another team’s sprint, who resumed work a project recently.
 
@@ -106,18 +107,21 @@ We can also look at the velocity for another team’s sprint, who resumed work a
     <figcaption>Metrics during a sprint (ICGC)</figcaption>
 </figure>
 
-Is being in a 2 weeks sprint, but have an estimate to completion of 16 working days an issue? Well actually it is not, this is why:
+Is being in a 2 weeks sprint, but having an estimate to completion of 16 working days an issue? Well actually it might not be and here is why:
 
-* Looking at the past 4 weeks, delivery should take 16 days
-* Looking at the past 8 weeks, delivery should take 26 days
-* Looking at the past 12 weeks, delivery should take 35 days
+* Looking at the past 4 weeks' velocity, delivery should take 16 days
+* Looking at the past 8 weeks' velocity, delivery should take 26 days
+* Looking at the past 12 weeks' velocity, delivery should take 35 days
 
-The team is ramping up, it’s delivery pace is progressively accelerating, and there are strong chances the velocity will keep increasing, until reaching a plateau corresponding to the team’s optimal velocity.
+The team is ramping up! Its delivery pace is progressively accelerating, and there are strong chances the velocity will keep increasing, until reaching a plateau corresponding to the team’s optimal velocity.
 
+So what would have been a challenging situation for the first example (Kids-First), is not in this particular context.
 
 # Let’s keep playing with numbers
 
-Now an interesting experiment. If we are able to calculate the team’s velocity, the system can also get a sense of each individual team member’s velocity. What if we ask a developer to temporarily join the team for this sprint?
+Now an interesting experiment. If we are able to calculate the team’s velocity, the system can also get a sense of each individual team member’s velocity.
+
+What if we ask a developer to temporarily join the team for this sprint?
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/time-to-completion.png" />
@@ -128,7 +132,7 @@ It brings the estimated time to completion down to 9 days. Does it mean this new
 
 But it is far from being useless. This tells us, that even by adding this developer to the team, it is unlikely that the team will be done in less than 9 days.
 
-To be more accurate, the above assumption doesn’t account for the team team’s increase in delivery pace mentioned earlier. So since the team is accelerating (with the plateau unknown at this time) and we are bringing an additional developer, there is a chance to complete in 9 days.
+_Note: To be more accurate, the above assumption doesn’t account for the team team’s increase in delivery pace mentioned earlier. So since the team is accelerating (with the plateau unknown at this time) and we are bringing an additional developer, there would be a chance to complete in 9 days or less._
 
 # Not an accurate method if taken alone
 
@@ -140,4 +144,4 @@ Which angle will you be taking, should you be reading those numbers as “likely
 
 I sometime find the various reporting metrics provided by traditional agile tools too inflexible (not agile enough?) in the insight they give into a team’s operation. Understandably a tool cannot cover for every possible use cases, they need to remain adaptable enough to multiple use cases, but still, I’m convinced there is still a good margin for improvement.
 
-PS: Yes, Jira does calculate rolling averages in its [control chart](https://confluence.atlassian.com/jirasoftwareserver079/control-chart-950290877.html), but focused on individual tickets.
+_PS: Yes, Jira does calculate rolling averages in its [control chart](https://confluence.atlassian.com/jirasoftwareserver079/control-chart-950290877.html), but focused on individual tickets._
