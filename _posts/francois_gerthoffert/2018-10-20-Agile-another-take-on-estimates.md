@@ -3,7 +3,7 @@ layout: post
 title:  "Agile in research - Another take on metrics and estimates"
 breadcrumb: true
 author: francois_gerthoffert
-date: 2018-10-17
+date: 2018-10-20
 categories: francois_gerthoffert
 tags:
     - Software
