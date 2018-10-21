@@ -85,7 +85,7 @@ How likely are you going to deliver all of this on-time? Can the above can help 
 
 # Likeliness of sprint’s scope completion
 
-It also becomes an interesting tool during a sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being added in a given sprint.
+It also becomes an interesting tool during sprint planning, as you can automatically calculate your likeliness of completion based on what is progressively being added in a future sprint.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/agile-estimates/kf-metrics.png" />
