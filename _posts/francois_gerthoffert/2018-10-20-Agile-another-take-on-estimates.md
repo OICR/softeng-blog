@@ -20,7 +20,7 @@ header:
     icon: icon-blog
 ---
 
-Can Data help tell the story of a team? And how, by understanding its story, can a team become better at foreseeing its future?
+Can data help tell the story of a team? And how, by understanding its story, can a team become better at foreseeing its future?
 
 # Some context
 
