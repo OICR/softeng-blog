@@ -27,13 +27,6 @@ brice_aminou:
   avatar: brice_aminou.png
   github: baminou
 
-christine_yu:
-  name: Christine Yu
-  position: Software Developer
-  info: Software developer navigating the weird, wacky and ever changing world of JavaScript. Dreads winding bobbins, will eat dessert for dinner.
-  avatar: christine_yu.svg
-  github: cy
-
 denis_yuen:
   name: Denis Yuen
   position: Software Developer
@@ -207,6 +200,14 @@ chen_chen:
   avatar: chen_chen.png
   github: Chen2x
   is_alumni: true
+
+christine_yu:
+  name: Christine Yu
+  position: Software Developer
+  info: Software developer navigating the weird, wacky and ever changing world of JavaScript. Dreads winding bobbins, will eat dessert for dinner.
+  avatar: christine_yu.svg
+  github: cy
+  is_alumni: true  
 
 grant_guo:
   name: Grant Guo
