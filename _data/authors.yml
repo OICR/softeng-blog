@@ -2,7 +2,7 @@
 alex_lepsa:
   name: Alex Lepsa
   position: Software Developer
-  info: Polyglot software developer working across the full-stack spectrum. Prefers back-end over front-end, spaces never tabs, Ethereum > Bitcoin, dogs not cats. If not coding can usually be found gaming, 'scending routes at the crag, or paddling for OmNomNom DBC.
+  info: "Polyglot software developer working across the full-stack spectrum. Prefers back-end over front-end, spaces never tabs, Ethereum > Bitcoin, dogs not cats. If not coding can usually be found gaming, 'scending routes at the crag, or paddling for OmNomNom DBC."
   avatar: alex_lepsa.svg
   github: lepsalex
 
@@ -153,6 +153,13 @@ vincent_ferretti:
   avatar: vincent_ferretti.svg
   github: vferretti
 
+xu_deng:
+  name: Xu Deng
+  position: Developer / DevOps
+  info: Technology enthusiast. Read lots of fantacy books and perhaps live in a fantasy.
+  avatar: xu_deng.svg
+  github: d8660091
+
 alex_wilmer:
   name: Alex Wilmer
   position: Software Developer
@@ -196,7 +203,7 @@ chang_wang:
 chen_chen:
   name: Chen Chen
   position: Bioinformatics Coop
-  info: Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud.
+  info: "Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud."
   avatar: chen_chen.png
   github: Chen2x
   is_alumni: true
