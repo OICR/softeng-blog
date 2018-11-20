@@ -6,6 +6,13 @@ alex_lepsa:
   avatar: alex_lepsa.svg
   github: lepsalex
 
+aleks_pejovic:
+  name: Aleks Pejovic
+  position: Technical Business Analyst
+  info: "Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast."
+  avatar: aleks_pejovic.svg
+  github: alekspejovic
+
 ann_catton:
   name: Ann Catton
   position: Software Developer
@@ -65,7 +72,7 @@ hardeep_nahal:
 henry_zhao:
   name: Henry Zhao
   position: Software Developer
-  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs. 
+  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
   avatar: henry_zhao.svg
   github: yuanhengzhao
 
@@ -103,7 +110,7 @@ kevin_hartmann:
   info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
   avatar: kevin_hartmann.png
   github: KevinFHartmann
-  
+
 kim_cullion:
   name: Kim Cullion
   position: Senior UX/UI Designer
@@ -166,7 +173,7 @@ alex_wilmer:
   info: Passionate JavaScript developer focusing on excellent user experiences and well maintained code. He loves to make animations, synthesizers and anything that makes the web more fun. When not coding, he’s running workshops and teaching others.
   avatar: alex_wilmer.png
   github: alex-wilmer
-  is_alumni: true  
+  is_alumni: true
 
 andy_yang:
   name: Andy Yang
@@ -214,7 +221,7 @@ christine_yu:
   info: Software developer navigating the weird, wacky and ever changing world of JavaScript. Dreads winding bobbins, will eat dessert for dinner.
   avatar: christine_yu.svg
   github: cy
-  is_alumni: true  
+  is_alumni: true
 
 grant_guo:
   name: Grant Guo
@@ -222,7 +229,7 @@ grant_guo:
   info: Passionate back-end developer interested in applying distributed data computation software to domains, forever curious about new things.
   avatar: grant_guo.png
   github: grant_guo
-  is_alumni: true  
+  is_alumni: true
 
 jeffrey_burt:
   name: Jeffrey Burt
