@@ -152,7 +152,7 @@ Late in to the project we started to get ceph health warnings, complaining that 
 [mon]
   mon compact on start = true
 ~~~
-This wasnt much of an issue since we had allocated 100GB to the partition where the monmap was stored but did result to us looking in to migrating to the monmap backend to Luminous' default of 'rocksdb' which apparently handles data migration events like failures much better.
+This wasn't much of an issue since we had allocated 100GB to the partition where the monmap was stored but did result to us looking in to migrating to the monmap backend to Luminous' default of 'rocksdb' which apparently handles data migration events like failures much better.
 
 To find out if your monmap is leveldb or rocksdb, do the following
 ~~~bash
@@ -160,7 +160,7 @@ To find out if your monmap is leveldb or rocksdb, do the following
 leveldb
 ~~~
 
-Currently the only way to migrate from leveldb to rocksdb is to remove/add your mons. For example if you have 3 mons you could deploy a temporary 4th mon and then remove/add your original 3 mons and then retire the 4th mon. Alternatively you can temporarily reduce yo
+Currently the only way to migrate from leveldb to rocksdb is to remove/add your mons. For example if you have 3 mons you could deploy a temporary 4th mon and then remove/add your original 3 mons and then retire the 4th mon. 
 
 ## Future improvements
 - Ceph monmap backend change to rocksdb
