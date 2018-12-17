@@ -133,6 +133,8 @@ With 37 storage nodes to migrate and each one needing to drain, convert, fill, w
     <img id="tracking" src="{{site.urlimg}}jared_baker/bluestore/tracking.png" data-featherlight="#tracking" />
 </figure>
 
+You can duplicate the [spreadsheet we used](https://drive.google.com/open?id=1JGelH9rBvajrYoXTkbDln6uANjsXxtj5jsZcmEVmq5U) and make it your own
+
 
 ## How long did it take?
 We started the migration near the end of July 2018 and finished in early September. During this migration period the cluster was still in production and we recorded the following statistics:
