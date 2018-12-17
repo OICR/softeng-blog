@@ -58,7 +58,7 @@ For example, to drain OSD's 720 to 755 we would run:
 for i in $(seq 720 755); do ceph osd crush reweight osd.$i 0; done
 ~~~
 
-When the draining is complete you can check Ceph's health (ceph -s) to confirm if it is done draining the data. You can also use 'ceph osd df tree' to see how much data the disks still have to transfer off. Our storage nodes took on average 24 hours per server to drain.
+When the draining is complete you can check Ceph's health (ceph -s) to confirm if it is done draining the data. You can also use 'ceph osd df tree' to see how much data the disks still have to transfer off. Our storage nodes took on average 24 hours per server to drain. Depending on your OSD disk type and load on the cluster this metric could vary a lot.
 
 ### Converting the OSD to Bluestore
 Follow these steps to safely retire the OSD and bring it back as Bluestore.
