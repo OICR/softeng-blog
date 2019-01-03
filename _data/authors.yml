@@ -153,13 +153,6 @@ rosi_bajari:
   avatar: rosi_bajari.png
   github: rosibaj
 
-vincent_ferretti:
-  name: Vincent Ferretti
-  position: Principal Investigator
-  info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
-  avatar: vincent_ferretti.svg
-  github: vferretti
-
 xu_deng:
   name: Xu Deng
   position: Developer / DevOps
@@ -269,4 +262,12 @@ vitalii_slobodianyk:
   info: Big Data developer who always wants to improve software performance, reliability and maintainability. Prefers extensive code coverage over debugging.
   avatar: vitalii_slobodianyk.svg
   github: slovit
+  is_alumni: true
+
+vincent_ferretti:
+  name: Vincent Ferretti
+  position: Principal Investigator
+  info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
+  avatar: vincent_ferretti.svg
+  github: vferretti
   is_alumni: true
