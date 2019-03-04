@@ -73,9 +73,9 @@ As you can see, 5 issues are in an incorrect state and worth further investigati
 
 ## Assembling a team
 
-__Note of caution__: _The elements detailed below only works for teams, used at working together with a similar process, and should only be considered as one of the possible metrics (or as a starting point), but shouldn't be considered as an accurate metric._
+__Note of caution__: _The elements detailed below only works for teams used at working together with a similar process, and should only be considered as one of the possible metrics (or as a starting point), but shouldn't be considered an accurate metric._
 
-Let’s imagine you are assembling a scrum team for a major deliverable, how could you get a sense of their potential velocity at the start of the initiative, until the velocity stabilizes?
+Let’s imagine you are assembling a scrum team for a new product, how could you get a sense of their potential velocity at the start of the initiative, until the velocity stabilizes?
 
 Well, you can simply assemble their past velocity.
 
