@@ -229,7 +229,7 @@ So what deductions can we make from last week’s metrics?
 * Only 92 tickets were actually assigned to a milestone, out of which 60 were bugs
 * Out of the 330 tickets, 161 were closed in less than a day
 
-Sadly, ZenCrepes doesn’t support (yet) filtering by empty labels or empty assignees, it would have been interesting to learn more about unassigned closed tickets in a milestone.
+Sadly, ZenCrepes doesn’t support (yet) filtering by empty label or by empty assignee, it would have been interesting to learn more about unassigned closed tickets in a milestone.
 
 We can also take a look at past releases, for example, to look at a release burndown.
 
