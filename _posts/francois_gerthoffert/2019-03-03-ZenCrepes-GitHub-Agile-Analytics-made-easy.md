@@ -231,9 +231,7 @@ So what deductions can we make from last week’s metrics?
 
 Sadly, ZenCrepes doesn’t support (yet) filtering by empty label or by empty assignee, it would have been interesting to learn more about unassigned closed tickets in a milestone.
 
-We can also take a look at past releases, for example, to look at a release burndown.
-
-You can get an idea of the number of issues contained in the release, when the first and last issues were closed, what is the release burndown.... 
+We can also take a look at a past release and its release burndown.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-feb2019.png" />
