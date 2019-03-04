@@ -19,7 +19,7 @@ header:
     icon: icon-blog
 ---
 
-Approximately a year ago, our team transitioned away from Jira to GitHub for our ticketing system, bringing our source code and project management in the same place. A few months back, I wrote a [blog post detailing this transition](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/02/Transitioning-away-from-Jira-Lessons-learnt/) and another one giving some [insights about some Agile metrics that could be used for team](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/20/Agile-another-take-on-estimates/) management, in particular in the context of research. 
+Approximately a year ago, our team transitioned away from Jira to GitHub for our ticketing system, bringing our source code and project management in the same place. A few months back, I wrote a [blog post detailing this transition](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/02/Transitioning-away-from-Jira-Lessons-learnt/) and another one giving some [insights about some Agile metrics that could be used for team management](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/20/Agile-another-take-on-estimates/), in particular in the context of research. 
 
 Both articles contained screenshots from an “unknown tool” and now is the right time to start introducing ZenCrepes (bonus points for those who guess where the name is coming from), a personal project I’ve been spending evenings on for the past few months to provide Agile analytics and management across GitHub organizations & repositories.
 
@@ -57,10 +57,9 @@ Using faceted search users can build queries to filter down on elements being an
     <figcaption>List view in the Issues tab</figcaption>
 </figure>
 
-The list view contains the list of all issues resulting from the query. Clicking on the issue opens it in GitHub for further investigations/modifications.
+The list view contains all issues resulting from the query and clicking on the issue opens it in GitHub for further investigations/modifications.
 
-Two more tabs (Velocity & Burndown) are also available to view those metrics over the entire duration of the project.
-
+Two more tabs (Velocity and Burndown) are also available to view those metrics over the entire duration of the project.
 
 ## Find the odd status
 
@@ -71,11 +70,9 @@ Do we have any issues, part of closed milestones, which are still open? This sho
     <figcaption>Something to investigate</figcaption>
 </figure>
 
-So out of the ~3500 issues, 5 are in an incorrect state and worth further investigations. Those were last updated almost a year ago, likely forgotten by their team.
-
+As you can see, 5 issues are in an incorrect state and worth further investigations. Those were last updated almost a year ago, likely forgotten by their team.
 
 ## Assembling a team
-
 
 __Note of caution__: _The elements detailed below only works for teams, used at working together with a similar process, and should only be considered as one of the possible metrics (or as a starting point), but shouldn't be considered as an accurate metric._
 
