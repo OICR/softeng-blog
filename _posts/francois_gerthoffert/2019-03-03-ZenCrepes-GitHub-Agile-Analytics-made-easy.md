@@ -19,7 +19,7 @@ header:
     icon: icon-blog
 ---
 
-Approximately a year ago, our team transitioned away from Jira to GitHub for our ticketing system, bringing our source code and project management in the same place. A few months back, I wrote a [blog post detailing this transition](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/02/Transitioning-away-from-Jira-Lessons-learnt/) and another one giving some [insights about some Agile metrics that could be used for team management](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/20/Agile-another-take-on-estimates/), in particular in the context of research. 
+Approximately a year ago, our team transitioned away from Jira to GitHub for our ticketing system, bringing our source code and project management in the same place. A few months back, I wrote a [blog post detailing this transition](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/02/Transitioning-away-from-Jira-Lessons-learnt/) and another one giving some insights about some [Agile metrics that could be used for team management](https://softeng.oicr.on.ca/francois_gerthoffert/2018/10/20/Agile-another-take-on-estimates/), in particular in the context of research. 
 
 Both articles contained screenshots from an “unknown tool” and now is the right time to start introducing ZenCrepes (bonus points for those who guess where the name is coming from), a personal project I’ve been spending evenings on for the past few months to provide Agile analytics and management across GitHub organizations & repositories.
 
