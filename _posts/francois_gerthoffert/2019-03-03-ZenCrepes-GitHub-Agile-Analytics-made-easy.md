@@ -81,8 +81,7 @@ Well, you can simply assemble their past velocity.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/report-and-search-velocity.png" />
-    <figcaption>Rob, Dusan and Minh’s joint weekly velocity over the past year
-</figcaption>
+    <figcaption>Rob, Dusan and Minh’s joint weekly velocity over the past year</figcaption>
 </figure>
 
 This is probably a very controversial statement to make. Those metrics are truly useful when used as part of a large amount of data, the more you narrow down your criteria, the less trustworthy it will be as it becomes more prone to variability (See [Statistical Regularity](https://en.wikipedia.org/wiki/Statistical_regularity)). 
