@@ -216,7 +216,7 @@ But for now, let's continue with some (~42k) of the issues from Microsoft vscode
 
 As you can see, Microsoft's current velocity is at an impressive 327 closed tickets per week!
 
-Now, if we want to take a closer look at what’s being completed, let’s focus on last week and its 330 tickets.
+Now, if we want to take a closer look at what’s being completed we can focus on last week and its 330 tickets.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-lastweek.png" />
