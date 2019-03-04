@@ -259,23 +259,23 @@ This app is built using [Meteor](https://www.meteor.com/) and [React](https://re
 
 ZenCrepes pulls data about issues, labels, and milestones from GitHub and stores all of the content in [Minimongo](https://github.com/mWater/minimongo), a client-side in-memory mongodb implementation. 
 
-Communication with GitHub is a mix of the GraphQL v4 API and the REST v3 API. GraphQL is a very convenient way of querying for data, but has limited support for mutations. On the contrary, the v3 API is very complete. 
-One slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things ZenCrepes first mutates the data through the REST API, then pull the updated content through the GraphQL API instead of parsing data from the response of the first REST call.
+Communication with GitHub is a mix of the GraphQL v4 API and the REST v3 API. GraphQL is a very convenient way of querying for data, but GitHub has limited support for mutations. On the contrary, the v3 API is very complete. 
+One slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things, ZenCrepes first mutates the data through the REST API, then pull the updated content through the GraphQL API instead of parsing data from the response of the first REST call, it's one call more expensive but does simplify the code.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/graphql-explorer.png" />
     <figcaption>I learned about GraphQL using GitHub’s GraphQL explorer (GraphiQL</figcaption>
 </figure>
 
-Issues and milestones are fetched from the latest to oldest, this allows ZenCrepes to only fetch recent changes. The first load takes the longest, subsequent calls only need to fetch the updated nodes. 
+Issues and milestones are fetched from latest to oldest, this allows ZenCrepes to only fetch recent changes. The first load takes the longest, subsequent calls only need to fetch the updated nodes. 
 
 From there, all metrics are computed in-browser.
 
 ## Philosophy
 
-The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub's data model without dependencies to external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
+The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub's data model without any dependency to external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
  
-Making this application client-side only was a good way to ensure limit the possibility to add dependencies, but it might not be a sustainable model due to the UX challenges it creates around refreshing data.
+Making this application client-side only was a good way to limit the possibility to create dependencies, but it might not be a sustainable model, in particular due to the UX challenges it creates around refreshing data.
 
 Aside from refreshing data, there are also a couple of elements I’m not super happy with, for example, using points requires specifically formatted labels, same for the agile board (although ZenCrepes will be moving towards support for GitHub projects). 
 
@@ -283,14 +283,10 @@ Aside from refreshing data, there are also a couple of elements I’m not super 
 
 I am honestly not sure yet how the app will evolve from there. The initial reason for building ZenCrepes was to give me a better view over GitHub issues and I feel it reached that point and is now a usable tool.
 
-During the process, lots of shortcuts were taken (for example, ZenCrepes doesn’t have tests), many parts of the code can and should be optimized and there has been literally no effort spent on styling.
+But during the process, lots of shortcuts were taken (for example, ZenCrepes doesn’t have tests), many parts of the code can and should be optimized and there has been literally no effort spent on styling.
 
 So what could be next? ZenCrepes is Open-Source and it would be great to receive external contributions, to progressively move from a one-person app, to a platform built by a community. 
 
 # Conclusion
 
 ZenCrepes is available at [https://zencrepes.io](https://zencrepes.io), its sources are available on GitHub at [https://github.com/zencrepes/zencrepes](https://github.com/zencrepes/zencrepes).
-
-That’s it for today, this was also my last article on this blog, created in October 2016. After 4 and a half years at OICR, working alongside [great people](https://softeng.oicr.on.ca/team/), the time has come for me to begin a new adventure.
-
-Goodbye everyone.
