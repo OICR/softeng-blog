@@ -196,7 +196,9 @@ Microsoft made the headlines sometime back when it became [one of the most activ
 
 ### About vscode
 
-First, don’t try to load vscode, Microsoft has a “LOT” of issues in their repository, and by a lot I mean ~64,000 of them as of today, this would definitely stretch the capabilities of ZenCrepes in-browser minimongo database, and is actually taking a toll on GitHub's own APIs, seeing the unknown errors received when loading the data (even from the first few calls). ZenCrepes doesn’t load more than 100 nodes at a time, so seeing GitHub’s public API to choke on this is interesting (not related to stress created by ZenCrepes, but rather by the volume of data itself).
+First, don’t try to load vscode, Microsoft has a “LOT” of issues in their repository, and by a lot I mean ~64,000 of them as of today. This would definitely stretch the capabilities of ZenCrepes in-browser minimongo database, and is actually taking a toll on GitHub's own APIs, seeing the unknown errors received when loading the data (even from the first few calls). 
+
+ZenCrepes doesn’t load more than [100 nodes at a time](https://developer.github.com/v4/guides/resource-limitations/), so seeing GitHub’s public API to choke on this is interesting (not related to stress created by ZenCrepes, but rather by the volume of data itself).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-error.png" />
@@ -205,14 +207,14 @@ First, don’t try to load vscode, Microsoft has a “LOT” of issues in their 
 
 Instead, I would suggest instead to try with a slightly less popular repository, for example, “azuredatastudio” and its ~2700 issues.
 
-But for now, let's continue with ~42k issues from Microsoft vscode's data, which I managed to load on a Sunday.
+But for now, let's continue some (~42k) of the issues from Microsoft vscode's data, which I managed to load on a Sunday.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-metrics.png" />
     <figcaption>Metrics for vscode</figcaption>
 </figure>
 
-Yes, you are reading this properly, Microsoft's current velocity is at an impressive 327 closed tickets per week!
+As you can see, Microsoft's current velocity is at an impressive 327 closed tickets per week!
 
 Now, if we want to take a closer look at what’s being completed, let’s focus on last week and its 330 tickets.
 
@@ -227,7 +229,7 @@ So what deductions can we make from last week’s metrics?
 * Only 92 tickets were actually assigned to a milestone, out of which 60 were bugs
 * Out of the 330 tickets, 161 were closed in less than a day
 
-Sadly, ZenCrepes doesn’t support (yet) filtering by empty labels or empty assignees, it would have been interesting to see where there are unassigned closed tickets in a milestone.
+Sadly, ZenCrepes doesn’t support (yet) filtering by empty labels or empty assignees, it would have been interesting to learn more about unassigned closed tickets in a milestone.
 
 We can also take a look at past releases, for example, to look at a release burndown.
 
@@ -264,7 +266,8 @@ This app is built using [Meteor](https://www.meteor.com/) and [React](https://re
 
 ZenCrepes pulls data about issues, labels, and milestones from GitHub and stores all of the content in [Minimongo](https://github.com/mWater/minimongo), a client-side in-memory mongodb implementation. 
 
-Communication with GitHub is a mix of their GraphQL v4 API and their REST v3 API. GraphQL is a very convenient way of querying for data, but has limited support for mutations. On the contrary, the v3 API is very complete. One slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things, ZenCrepes, after mutation data through the REST API will fetch data through the GraphQL API instead of parsing the response of the REST call.
+Communication with GitHub is a mix of the GraphQL v4 API and the REST v3 API. GraphQL is a very convenient way of querying for data, but has limited support for mutations. On the contrary, the v3 API is very complete. 
+One slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things ZenCrepes first mutates the data through the REST API, then pull the updated content through the GraphQL API instead of parsing data from the response of the first REST call.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/graphql-explorer.png" />
@@ -277,17 +280,17 @@ From there, all metrics are computed in-browser.
 
 ## Philosophy
 
-The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub's data model with no external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
+The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub's data model without dependencies to external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
  
-Making this application client-side only was a good way to ensure no dependencies were created but it might not be a sustainable model, due to the UX challenges it creates around refreshing data.
+Making this application client-side only was a good way to ensure limit the possibility to add dependencies, but it might not be a sustainable model due to the UX challenges it creates around refreshing data.
 
-Aside from refreshing data, there are also a couple of elements I’m not super happy with, for example, points using points requires specifically formatted labels, same for the agile board (although ZenCrepes will be moving towards support for GitHub projects). 
+Aside from refreshing data, there are also a couple of elements I’m not super happy with, for example, using points requires specifically formatted labels, same for the agile board (although ZenCrepes will be moving towards support for GitHub projects). 
 
 # What’s next?
 
 I am honestly not sure yet how the app will evolve from there. The initial reason for building ZenCrepes was to give me a better view over GitHub issues and I feel it reached that point and is now a usable tool.
 
-But during the process, lots of shortcuts were taken (for example, ZenCrepes doesn’t have tests), many parts of the code can and should be optimized and there has been literally no effort spent on styling.
+During the process, lots of shortcuts were taken (for example, ZenCrepes doesn’t have tests), many parts of the code can and should be optimized and there has been literally no effort spent on styling.
 
 So what could be next? ZenCrepes is Open-Source and it would be great to receive external contributions, to progressively move from a one-person app, to a platform built by a community. 
 
