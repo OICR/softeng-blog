@@ -198,12 +198,12 @@ Microsoft made the headlines sometime back when it became [one of the most activ
 
 First, don’t try to load vscode, Microsoft has a “LOT” of issues in their repository, and by a lot I mean ~64,000 of them as of today. This would definitely stretch the capabilities of ZenCrepes in-browser minimongo database, and is actually taking a toll on GitHub's own APIs, seeing the unknown errors received when loading the data (even from the first few calls). 
 
-ZenCrepes doesn’t load more than [100 nodes at a time](https://developer.github.com/v4/guides/resource-limitations/), so seeing GitHub’s public API to choke on this is interesting (not related to stress created by ZenCrepes, but rather by the volume of data itself).
-
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-error.png" />
     <figcaption>Error while fetching vscode data</figcaption>
 </figure>
+
+ZenCrepes doesn’t load more than [100 nodes at a time](https://developer.github.com/v4/guides/resource-limitations/) and GitHub's API is most likely struggling due to the large volume of issues in the repository itself.
 
 Instead, I would suggest instead to try with a slightly less popular repository, for example, “azuredatastudio” and its ~2700 issues.
 
