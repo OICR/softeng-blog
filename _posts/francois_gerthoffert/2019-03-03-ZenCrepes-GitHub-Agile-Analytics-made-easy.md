@@ -35,11 +35,10 @@ ZenCrepes was created to address this limitation, by providing the missing cross
 
 # Key Features
 
-It focuses on three primary objectives:
+ZenCrepes focuses on three primary objectives:
 * __Report and search__: Quickly find relevant issues based on selected criteria (faceted search). For example, “List open defects assigned to John or Max in rock or paper repos” or “Display the team's overall velocity on paper and scissor repos”.
 * __Scrum operation__: Provide one scrum view to identify the amount of work left in a sprint, estimate completion based on past velocity, review repartition of open issues (by repo, by labels, by assignees).
 * __Consistency__: Ensure labels and milestones are consistent across multiple organizations and repositories, clean-up when necessary.
-
 
 # Report and search
 
