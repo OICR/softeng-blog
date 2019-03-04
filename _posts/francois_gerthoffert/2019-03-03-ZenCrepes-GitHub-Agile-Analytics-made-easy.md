@@ -207,7 +207,7 @@ ZenCrepes doesn’t load more than [100 nodes at a time](https://developer.githu
 
 Instead, I would suggest instead to try with a slightly less popular repository, for example, “azuredatastudio” and its ~2700 issues.
 
-But for now, let's continue some (~42k) of the issues from Microsoft vscode's data, which I managed to load on a Sunday.
+But for now, let's continue with some (~42k) of the issues from Microsoft vscode's data, which I managed to load on a Sunday.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-metrics.png" />
