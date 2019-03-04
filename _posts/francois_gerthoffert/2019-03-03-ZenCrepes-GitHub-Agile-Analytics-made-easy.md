@@ -29,7 +29,7 @@ In an ideal (naive?) world, one product would have one source code repository an
 
 But more and more agile teams span multiple repositories or even multiple organizations. In our case, our scrum teams are frequently using two organizations, one for [Overture.bio](https://github.com/overture-stack/) containing our reusable components used across multiple projects and one for each of our projects such as [ICGC-DCC](https://github.com/icgc-dcc/), [Kids-First](https://github.com/kids-first), [HCMI](https://github.com/nci-hcmi-catalog/)... 
 
-As soon as you begin operating on more than one repository, there is a lack of tools to facilitate management at an organization level or even across organizations. GitHub Projects at an organization level are limited to 5 repositories per project, labels and milestones are unique per repositories... 
+As soon as you begin operating on more than one repository, there is a lack of tools to facilitate management at an organization level or even across organizations. GitHub Projects at an organization level are limited to 5 repositories per project, labels and milestones are unique per repository... 
 
 ZenCrepes was created to address this limitation, by providing the missing cross-org & cross-repos view.
 
@@ -43,7 +43,7 @@ It focuses on three primary objectives:
 
 # Report and search
 
-For those familiar with our portals, no need to search long to understand where the inspiration is coming from for the “Issues” view (no pie charts though!).
+For those familiar with our portals ([ICGC-DCC](https://dcc.icgc.org/search) for example), no need to search long to understand where the inspiration is coming from for the “Issues” view (no pie charts though!).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/report-and-search.png" />
@@ -93,7 +93,7 @@ This is probably a very controversial statement to make. Those metrics are truly
 
 But it gives us a starting point, indications that can be used to get a sense of initial velocity for this newly assembled team. In a sense, not a precise metric, but better than no metric at all.
 
-For example, if I was to take the chart above, I would be tempted to use 10 points/week as a starting point. So for a first 2 weeks sprint, it is probable that the team will deliver up to 20 points, fairly unlikely the would deliver more than 30, quite likely they would deliver more than 15. Makes sense? Again not an accurate prediction, but some insights usable during sprint planning (better than no metrics at all).
+For example, if I was to take the chart above, I would be tempted to use 10 points/week as a starting point. So for a first 2-weeks sprint, it is probable that the team will deliver up to 20 points, fairly unlikely the would deliver more than 30, quite likely they would deliver more than 15. Make sense? Again not an accurate prediction, but some insights usable during sprint planning (better than no metrics at all).
 
 ## And More...
 
@@ -114,7 +114,7 @@ This view provides quick insight on how much work has been completed, what is th
 
 ## How have we been doing?
 
-Burndown and velocity charts provide a view on how the team has been doing on the short term (the sprint’s burndown) and what was the team’s velocity on the long run (velocity over the past 16 weeks). 
+Burndown and velocity charts provide a view on how the team has been doing in the short term (the sprint’s burndown) and what was the team’s velocity on the long run (velocity over the past 16 weeks). 
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/scrum-notes.png" />
@@ -152,14 +152,14 @@ All of those being available in the same view, it’s easy to scroll up and down
 
 As you might have figured out, it is challenging to manage labels and milestones across multiple organizations and repositories in GitHub.
 
-Those two views have been created to assist in the bulk creation, modification or deletion of labels and milestones.
+These two views have been created to assist in the bulk creation, modification or deletion of labels and milestones.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/labels-view.png" />
     <figcaption>Labels view</figcaption>
 </figure>
 
-In the above screenshot, the “bug”, “invalid”, “help wanted” label have different labels colors. “Help wanted” in particular has only 1 repository with a different color.
+In the above screenshot, the “bug”, “invalid”, “help wanted” labels have different labels colors. “Help wanted” in particular has only 1 repository with a different color.
 
 <figure style="width: 320px">
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/labels-colors.png"/>
@@ -179,7 +179,7 @@ The challenge for ZenCrepes when operating with GitHub data is that there are no
 
 Before any bulk update, ZenCrepes fetches the latest version of the node and will “refuse” to push the bulk change if any of the nodes was modified since the last time the node was loaded locally. This prevents overwriting changes by mistake.
 
-Finally, ZenCrepes will also verify the user’s permission against the repository. Of course, I cannot update the label’s color into one of Microsoft public repositories. 
+Finally, ZenCrepes will also verify the user’s permission against the repository. Of course, I cannot update the label’s color into one of Microsoft's public repositories. 
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/review-changes.png" />
