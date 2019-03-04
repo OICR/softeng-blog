@@ -293,6 +293,8 @@ So what could be next? ZenCrepes is Open-Source and it would be great to receive
 
 # Conclusion
 
+ZenCrepes is available at [https://zencrepes.io](https://zencrepes.io), its source is available on GitHub at [https://github.com/zencrepes/zencrepes](https://github.com/zencrepes/zencrepes).
+
 That’s it for today, this was also my last article on this blog, created in October 2016. After 4 and a half years at OICR, working alongside [great people](https://softeng.oicr.on.ca/team/), the time has come for me to begin a new adventure.
 
 Goodbye everyone.
