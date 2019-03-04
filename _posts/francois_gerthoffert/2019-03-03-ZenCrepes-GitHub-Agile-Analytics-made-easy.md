@@ -192,11 +192,11 @@ When public GitHub repositories are configured to authorize fetching of data (mo
 
 ## Microsoft Issues
 
-Microsoft made the headlines sometime back when it became one of the most active Open Source projects on GitHub or when it actually acquired GitHub. But have you been curious to dive a bit into how Microsoft operates its teams?
+Microsoft made the headlines sometime back when it became [one of the most active Open Source projects on GitHub](https://visualstudiomagazine.com/articles/2018/10/17/octoverse-2018.aspx) or when it actually acquired GitHub. But have you been curious to dive a bit into how Microsoft operates its teams?
 
 ### About vscode
 
-First, don’t try to load vscode, Microsoft has a “LOT” of issues in their repository, and by a lot I mean ~64,000 of them as of today, this would definitely stretch the capabilities of ZenCrepes in-browser minimongo database, and is actually taking a toll on GitHub own API’s, seeing the unknown errors received when loading the data (even from the first few calls). ZenCrepes doesn’t load more than 100 nodes at a time, so for GitHub’s public API to choke on this, is an interesting thing to see (not related to stress created by ZenCrepes, but rather by the data itself).
+First, don’t try to load vscode, Microsoft has a “LOT” of issues in their repository, and by a lot I mean ~64,000 of them as of today, this would definitely stretch the capabilities of ZenCrepes in-browser minimongo database, and is actually taking a toll on GitHub's own APIs, seeing the unknown errors received when loading the data (even from the first few calls). ZenCrepes doesn’t load more than 100 nodes at a time, so seeing GitHub’s public API to choke on this is interesting (not related to stress created by ZenCrepes, but rather by the volume of data itself).
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-error.png" />
@@ -205,7 +205,7 @@ First, don’t try to load vscode, Microsoft has a “LOT” of issues in their 
 
 Instead, I would suggest instead to try with a slightly less popular repository, for example, “azuredatastudio” and its ~2700 issues.
 
-But for now, let's continue with ~42k issues from Microsoft vscode's data, which I manage to load on a Sunday.
+But for now, let's continue with ~42k issues from Microsoft vscode's data, which I managed to load on a Sunday.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/vscode-metrics.png" />
@@ -227,7 +227,7 @@ So what deductions can we make from last week’s metrics?
 * Only 92 tickets were actually assigned to a milestone, out of which 60 were bugs
 * Out of the 330 tickets, 161 were closed in less than a day
 
-Sadly, ZenCrepes doesn’t support (yet) filtering by empty labels or empty assignees, it would have been interested to see where there are unassigned closed tickets in a milestone.
+Sadly, ZenCrepes doesn’t support (yet) filtering by empty labels or empty assignees, it would have been interesting to see where there are unassigned closed tickets in a milestone.
 
 We can also take a look at past releases, for example, to look at a release burndown.
 
@@ -247,7 +247,7 @@ Have you been wondering how JetBrains labels are configured across all their pub
     <figcaption>Different colors for JetBrains labels</figcaption>
 </figure>
 
-Interesting isn’t it? Look at the slight variations of red or green for “bug” and “help wanted” or the strong difference in colors for the “feature” label. Interestingly, for some reason, GitHub update from time to time the colors of the default labels, so even if you were to always stick with the default, you’d notice slight inconsistency over time.
+Interesting isn’t it? Look at the slight variations of red or green for “bug” and “help wanted” or the strong difference in colors for the “feature” label. Interestingly, for some reason, GitHub updates from time to time the colors of the default labels, so even if you were to always stick with the default, you’d notice slight inconsistency over time.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/jetbrains-labels-features.png" />
@@ -264,7 +264,7 @@ This app is built using [Meteor](https://www.meteor.com/) and [React](https://re
 
 ZenCrepes pulls data about issues, labels, and milestones from GitHub and stores all of the content in [Minimongo](https://github.com/mWater/minimongo), a client-side in-memory mongodb implementation. 
 
-Communication with GitHub is a mix of their GraphQL v4 API and their REST v3 API. GraphQL is a very convenient way of querying for data, but has limited support for mutations. On the contrary, the v3 API is very complete. On slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things, ZenCrepes, after mutation data through the REST API will fetch data through the GraphQL API instead of parsing the response of the REST call.
+Communication with GitHub is a mix of their GraphQL v4 API and their REST v3 API. GraphQL is a very convenient way of querying for data, but has limited support for mutations. On the contrary, the v3 API is very complete. One slight challenge for ZenCrepes is that the model between the two is not exactly the same. To simplify things, ZenCrepes, after mutation data through the REST API will fetch data through the GraphQL API instead of parsing the response of the REST call.
 
 <figure>
     <img src="{{site.urlimg}}francois_gerthoffert/zencrepes/graphql-explorer.png" />
@@ -273,11 +273,11 @@ Communication with GitHub is a mix of their GraphQL v4 API and their REST v3 API
 
 Issues and milestones are fetched from the latest to oldest, this allows ZenCrepes to only fetch recent changes. The first load takes the longest, subsequent calls only need to fetch the updated nodes. 
 
-From there, everything all metrics are computed in-browser.
+From there, all metrics are computed in-browser.
 
 ## Philosophy
 
-The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub data model with no external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
+The entire point, from the very beginning of ZenCrepes development, was not to create another tool with a mix between secret sauce and GitHub data. I wanted to base the entire application over GitHub's data model with no external data. The point was not to create another Agile tool, but to provide a solution to some of GitHub limitations when dealing with Agile project management.
  
 Making this application client-side only was a good way to ensure no dependencies were created but it might not be a sustainable model, due to the UX challenges it creates around refreshing data.
 
@@ -298,4 +298,3 @@ ZenCrepes is available at [https://zencrepes.io](https://zencrepes.io), its sour
 That’s it for today, this was also my last article on this blog, created in October 2016. After 4 and a half years at OICR, working alongside [great people](https://softeng.oicr.on.ca/team/), the time has come for me to begin a new adventure.
 
 Goodbye everyone.
-
