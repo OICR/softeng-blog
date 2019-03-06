@@ -1,11 +1,4 @@
 # Author details
-alex_lepsa:
-  name: Alex Lepsa
-  position: Software Developer
-  info: "Polyglot software developer working across the full-stack spectrum. Prefers back-end over front-end, spaces never tabs, Ethereum > Bitcoin, dogs not cats. If not coding can usually be found gaming, 'scending routes at the crag, or paddling for OmNomNom DBC."
-  avatar: alex_lepsa.svg
-  github: lepsalex
-
 aleks_pejovic:
   name: Aleks Pejovic
   position: Technical Business Analyst
@@ -159,6 +152,14 @@ xu_deng:
   info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
   avatar: xu_deng.svg
   github: d8660091
+
+alex_lepsa:
+  name: Alex Lepsa
+  position: Software Developer
+  info: "Polyglot software developer working across the full-stack spectrum. Prefers back-end over front-end, spaces never tabs, Ethereum > Bitcoin, dogs not cats. If not coding can usually be found gaming, 'scending routes at the crag, or paddling for OmNomNom DBC."
+  avatar: alex_lepsa.svg
+  github: lepsalex
+  is_alumni: true
 
 alex_wilmer:
   name: Alex Wilmer
