@@ -49,6 +49,12 @@ There are a lot of WebGL libraries for data visualization. I will use [stardust]
 
 First install stardust:
 
+`npm install stardust-core` <br />
+
+`npm install stardust-webgl`
+
+Add stardust package:
+
 ```javascript
 import Stardust from 'stardust-core';
 import 'stardust-webgl';
@@ -165,123 +171,7 @@ And here is performance:
 
 As a result, grid in stardust is 2 times faster than oncogrid in scripting and 500 times faster in rendering. Here is my implementation code.
 
-```javascript
-import Stardust from 'stardust-core';
-import 'stardust-webgl';
-import * as d3 from 'd3';
-export default class GridVisualization {
-  constructor(container) {
-    this._container = container;
-    this._canvas = d3.select(container).append('canvas');
-    this._canvasNode = this._canvas.node();
-    this._svg = d3.select(container).append('svg');
-    this._svgAxis = this._svg.append('g').classed('axis', true);
-
-    let platform = Stardust.platform('webgl-2d', this._canvasNode, 1500, 600);
-
-    this._platform = platform;
-    var rectMark = Stardust.mark.rect();
-    var rects = Stardust.mark.create(rectMark, this._platform);
-    var circleMark = Stardust.mark.circle();
-    var circles = Stardust.mark.create(circleMark, this._platform);
-    this._marks = {
-      rects: rects,
-      circles: circles,
-    };
-    this._canvasNode.onmousemove = e => {
-      let bounds = this._canvasNode.getBoundingClientRect();
-      var x = e.clientX - bounds.left;
-      var y = e.clientY - bounds.top;
-      var pos = { x: x, y: y };
-      var p = this._platform.getPickingPixel(x * 2, y * 2);
-      var circles2 = Stardust.mark.create(circleMark, this._platform);
-      var remove = document.getElementById('Div1');
-      if (remove) remove.parentNode.removeChild(remove);
-      if (p) {
-        this._platform.clear();
-        this._marks.rects.render();
-        this._marks.circles.render();
-        circles2.attr('center', d => [7 * d.x + 23, 7 * d.y + 23]);
-        circles2.attr('radius', 2);
-        circles2.attr('color', [1, 0, 0, 1]);
-        circles2.data([p[0]._data[p[1]]]);
-        circles2.render();
-        var t1 = new ToolTip(
-          this._canvasNode,
-          { x: x, y: y, w: 10, h: 10 },
-          'x:' + x + ' y:' + y,
-          100,
-          1000
-        );
-        t1.check(e);
-      } else {
-        circles2.data([]);
-        circles2.render();
-      }
-    };
-    this._canvasNode.onmousedown = e => {
-      let bounds = this._canvasNode.getBoundingClientRect();
-      var x = e.clientX - bounds.left;
-      var y = e.clientY - bounds.top;
-      var pos = { x: x, y: y };
-      window.open().document.write(JSON.stringify(pos));
-    };
-  }
-  addTooltips() {}
-  // if data looks like this: data = [{ x: 16, y: 1 }, { x: 2, y: 3 }, {x: 4, y: 7}] and width is 20;
-  // chartData will look like this: chartData = [{p1: [], p2: []}, {p1: [], p2: []}, {p1:[], p2: []}]
-  setChartData(data, rowCount, colCount, height, width) {
-    console.log('rect data size', data.filter(d => d.show).length);
-
-    let chartData = data.filter(d => d.show).map(d => ({
-      p1: [
-        (width / rowCount + 1) * d.x + 20,
-        (height / colCount + 1) * d.y + 20,
-      ],
-      p2: [
-        (width / rowCount + 1) * d.x + 20 + width / rowCount,
-        (height / colCount + 1) * d.y + 20 + height / colCount,
-      ],
-    }));
-    return chartData;
-  }
-  rendered() {
-    var rectData = [];
-    for (var i = 0; i < 250; i++) {
-      for (var j = 0; j < 100; j++) {
-        var random_boolean = Math.random() >= 0.6;
-        rectData.push({ x: i, y: j, show: random_boolean });
-      }
-    }
-    var circleData = [];
-    for (var i = 0; i < 250; i++) {
-      for (var j = 0; j < 100; j++) {
-        var random_boolean = Math.random() >= 0.6;
-        circleData.push({ x: i, y: j, show: random_boolean });
-      }
-    }
-    circleData = circleData.filter(d => d.show);
-    this._marks.rects.attr('p1', d => d['p1']);
-    this._marks.rects.attr('p2', d => d['p2']);
-    this._marks.rects.attr('color', d => [0, 254, 127, 1]);
-    this._marks.rects.data(this.setChartData(rectData, 250, 100, 600, 1500));
-    this._marks.rects.render();
-
-    this._marks.circles.attr('center', d => [7 * d.x + 23, 7 * d.y + 23]);
-    this._marks.circles.attr('radius', 2);
-    this._marks.circles.attr('color', [0, 0, 0, 1]);
-    this._marks.circles.data(circleData);
-    this._marks.circles.render();
-    this._platform.beginPicking(
-      this._canvasNode.width,
-      this._canvasNode.height
-    );
-    this._marks.rects.render();
-    this._marks.circles.render();
-    this._platform.endPicking();
-  }
-}
-```
+<script async src="//jsfiddle.net/yuanhengzhao/x1mq5bgc/embed/"></script>
 
 ### Conclusion
 
