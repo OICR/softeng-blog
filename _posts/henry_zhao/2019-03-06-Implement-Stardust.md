@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Accelerate data visualization with WebGL Platform Stardust'
+title: 'Accelerate data visualization with Stardust, a WebGL Platform'
 breadcrumb: true
 author: henry_zhao
 date: 2019-03-06
@@ -23,26 +23,27 @@ header:
 
 # Introduction
 
-Genomic data is huge and messy. In order to provide researchers a powerful data analysis&management platform, what we present data is the most popular data processing library, d3. It has a wealth of tools that can use svg to portray and manipulate data patterns to the greatest extent possible with different ranges and different forms of pie chart, histograms charts and human figures. For example:
+Genomic data is huge and disorganized. To provide researchers a powerful data analysis & management platform, we traditionally use d3, a popular data processing library. It has a wealth of tools that can use SVG to portray and manipulate data patterns.
+For example, GDC's human figure was implemented in d3:
 
 <image src="{{ site.urlimg }}/henry_zhao/human_body.png" />
 
-However, when the data set is too big(larger than 10000 node), there will an inevitable DOM operation bottleneck. It makes me think about what kind of tools can improve or even replace d3 to be able to visualize data faster.
-So first we should know what is svg and why it has bottleneck.
+However, when the data set is too big(larger than 10000 nodes), there will be an inevitable DOM operation bottleneck. It makes me think about what kind of tools can improve or even replace d3 to be able to visualize data faster.
+So first we should understand what SVG is, and what are the possible causes of a bottleneck.
 
 ### SVG
 
-SVG is a vector graphic format—based on XML and is used to display a variety of graphics on the Web and other environments. Since SVG are defined in XML, every SVG element is appended to the DOM which is big cost(It is the reason that reactjs use virtual DOM to avoid DOM operation).
+SVG is a vector graphic format, based on XML, and is is used to display a variety of graphics on the Web and other environments. Since SVG are defined in XML, every SVG element is appended to the DOM which is big performance cost(It is the reason that reactjs use virtual DOM to avoid DOM operation).
 
 ### WebGL
 
-There is a potential way to replace svg which is WebGl. WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES2.0 that can be used in HTML5 canvas elements. It provides local computing resources API to accelerate the rendering of the graphics and avoids massive operations of DOM. Therefore, it is naturally suitable for large data manipulation.
+There is a potential way to replace SVG which is WebGL. WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES2.0 that can be used in HTML5 canvas elements. It provides local computing resources API to accelerate the rendering of the graphics and avoids massive operations of DOM. Therefore, it is naturally suitable for large data manipulation.
 
 [WebGL Example](https://webglsamples.org/)
 
 <image src="{{ site.urlimg }}/henry_zhao/webgl_building.gif" />
 
-There are a lot of WebGL libraries for data visualization. I will use stardust[stardust](https://stardustjs.github.io/) as an example to demonstrate how to implement it.
+There are a lot of WebGL libraries for data visualization. I will use [stardust](https://stardustjs.github.io/) as an example to demonstrate how to implement it.
 
 ### Stardust
 
@@ -146,7 +147,7 @@ In general, Stardust has all the basic functionality of d3.
 
 ### Performance
 
-To demonstrate the performance of stardust, I will mock up oncogrid features in GDC portal. The purpose of oncogrid is to demonstrate the mutation pattern between genes and patients. In the gif, There are less than 10,000 data points in the grid.
+To demonstrate the performance of stardust, I will mock up oncogrid features in GDC portal. The purpose of oncogrid is to demonstrate the mutation pattern between genes and patients. In the gif, there are less than 10,000 data points in the grid.
 
 [Oncogrid](https://portal.gdc.cancer.gov/exploration?searchTableTab=oncogrid)
 
@@ -284,4 +285,4 @@ export default class GridVisualization {
 
 ### Conclusion
 
-Although my implementation doesn't cover many real scenarios, there is no doubt that stardust has a better rendering performance than d3. A fully replacement of d3 will never happen in a real world due to the all the powerful components d3 provided and the advantages of svg in event handling. D3 are also a good complementary for Stardust(WebGL). A mix of the two in applications is recommended by the creator of Stardust: d3 being used to render a scatterplot’s axes and handle interactions such as range selections, but Stardust used to render and animate the points.
+Although my implementation doesn't cover many real scenarios, there is no doubt that stardust has a better rendering performance than d3. Nevertheless, Stardust doesn't aim at replacing d3, but more at improving performance in rendering and animating points. The creator of Stardust actually recommends d3 being used to render a scatterplot’s axes and handle interactions such as range selections, but Stardust used to render and animate the points.
