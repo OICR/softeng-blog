@@ -33,7 +33,7 @@ So first we should understand what SVG is, and what are the possible causes of a
 
 ### SVG
 
-SVG is a vector graphic format, based on XML, and is is used to display a variety of graphics on the Web and other environments. Since SVG are defined in XML, every SVG element is appended to the DOM which is big performance cost(It is the reason that reactjs use virtual DOM to avoid DOM operation).
+SVG is a vector graphic format, based on XML, and is is used to display a variety of graphics on the Web and other environments. Since SVG are defined in XML, every SVG element is appended to the DOM which is big performance cost. To be noticed, this performance issue is the reason that reactjs use virtual DOM to avoid DOM operations.
 
 ### WebGL
 
