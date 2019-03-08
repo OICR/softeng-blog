@@ -23,7 +23,7 @@ header:
 
 # Introduction
 
-Genomic data is huge and disorganized. To provide researchers a powerful data analysis & management platform, we traditionally use d3, a popular data processing library. It has a wealth of tools that can use SVG to portray and manipulate data patterns.
+Genomic data is huge and, to the non specialist, its complex inner structure can feel overwhelming. To provide researchers a powerful data analysis & management platform, we traditionally use d3, a popular data processing library. It has a wealth of tools that can use SVG to portray and manipulate data patterns.
 For example, GDC's human figure was implemented in d3:
 
 <image src="{{ site.urlimg }}/henry_zhao/human_body.png" />
