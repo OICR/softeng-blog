@@ -147,6 +147,8 @@ We now had all the data we needed for our new ui features. As a bonus, we now ha
 
 The introspection system provides many more tools to interact with GraphQL servers; we are using just one facet. We will certainly be taking advantage of this particular feature wherever else we can use this type of documentation on the Portal. It is a simple and elegant solution that will keep us up-to-date with the index, and remove the need to maintain a secondary resource. And, it’s a brilliant tool for exploring any GraphQL schema with which you may find yourself working.
 
+[H/T to Alex Lepsa for the introspection intro!]
+
 ### More info
 
 [From GraphQL](https://graphql.org/learn/introspection/){:target="\_blank"} <br />
