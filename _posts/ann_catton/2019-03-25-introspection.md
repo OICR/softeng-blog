@@ -11,8 +11,8 @@ tags:
   - introspection
 teaser:
   info: Using GraphQL introspective queries to explore your schema
-  <!-- image: ann_catton/introspection/something.png -->
-  <!-- image_size_strategy: cover -->
+  image: ann_catton/introspection/hugo.png
+  image_size_strategy: cover
 header:
   version: small
   title: Software Engineering Blog
