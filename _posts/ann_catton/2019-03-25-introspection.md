@@ -3,7 +3,7 @@ layout: post
 title: "Tell Me About Yourself, GraphQL"
 breadcrumb: true
 author: ann_catton
-date: 2019-03-25
+date: 2019-03-28
 categories: ann_catton
 tags:
   - graphql
@@ -113,7 +113,7 @@ Depending on your schema, you may need to add more levels of nesting to your que
 }
 ```
 
-However, the result didn’t go very far down the tree; what was under `"Case"` was mostly metadata fields, and we didn’t find a lot of the fields we were looking for from the models. We dug around some more, trying instead more specific types from our clinical data, such as `"Treatment"` and `"Diagnosis"`. I thought we'd hit the jackpot with this one; it returned a lot of data that _looked_ like what we needed - a good list of fields with their descriptions and types, without a lot of metadata fields we didn’t need. But comparing the results to our models, we soon discovered this was coming from our [data dictionary](https://github.com/NCI-GDC/gdcdictionary/tree/develop/gdcdictionary/schemas){:target="\_blank"}, and had more fields than what was in the index. We’d end up with a different version of the same issue. We needed to query a type that had its source in our case index.
+However, the result didn’t go very far down the tree; what was under `"Case"` was mostly metadata fields, and we didn’t find a lot of the fields we were looking for from the models. We dug around some more, trying instead more specific types from our clinical data, such as `"Treatment"` and `"Diagnosis"`. I thought we'd hit the jackpot with this one; it returned a lot of data that _looked_ like what we needed - a good list of fields with their descriptions and types, without metadata fields we didn’t need. But comparing the results to our models, we soon discovered this was coming from our [data dictionary](https://github.com/NCI-GDC/gdcdictionary/tree/develop/gdcdictionary/schemas){:target="\_blank"}, and had more fields than what was in the index. We’d end up with a different version of the same issue. We needed to query a type that had its source in our case index.
 
 Admittedly the process was a little trial-and-error (made a lot easier with GraphiQL), but eventually we arrived at `"ExploreCases"`. This query gave us a list of all the fields we were expecting from our case_centric model, with their associated descriptions and types.
 
@@ -143,7 +143,7 @@ An example field from the response:
 }
 ```
 
-This was all the field data we needed for our new ui features. As a bonus, we now have a better idea of where some of our data is coming from - it was certainly surprising to find it was not all coming from our Elasticsearch models, as I had expected. And best of all, we have a strategy to integrate new clinical types that haven’t yet been indexed. By querying the schema itself, we’ll be able to pick them up as they are added.
+This was all the field data we needed for our new UI features. As a bonus, we now have a better idea of where some of our data is coming from - it was certainly surprising to find it was not all coming from our Elasticsearch models, as I had expected. And best of all, we have a strategy to integrate new clinical types that haven’t yet been indexed. By querying the schema itself, we’ll be able to pick them up as they are added.
 
 The introspection system provides many more tools to interact with GraphQL servers; we are using just one facet. We will certainly be taking advantage of this particular feature wherever else we can use this type of documentation on the Portal. It is a simple and elegant solution that will keep us up-to-date with the index, and remove the need to maintain a secondary resource. And, it’s a brilliant tool for exploring any GraphQL schema with which you may find yourself working.
 
