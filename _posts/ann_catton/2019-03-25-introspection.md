@@ -20,6 +20,11 @@ header:
   icon: icon-blog
 ---
 
+<figure>
+<img src="{{site.urlimg}}ann_catton/introspection/hugo.png" />
+<figcaption>Hugo is feeling introspective</figcaption>
+</figure>
+
 We will be introducing a few new features to the [GDC Data Portal](https://portal.gdc.cancer.gov/){:target="\_blank"} in the coming months, centering around our clinical data. Currently, we provide a list of clinical fields users can query in our Explore feature. For our development team, these fields come from a static source that has been difficult to keep up-to-date with what is in our Elasticsearch index, and implementing the new features seemed like a good opportunity to improve on this. What we needed was simple: a list of relevant clinical fields from our index, their data type, and a brief description of each for users to reference in the Portal. As it turns out, GraphQL has a clever tool for just such a requirement: [Introspection](https://github.com/facebook/graphql/blob/master/spec/Section%204%20--%20Introspection.md#introspection){:target="\_blank"}.
 
 I didn’t know about introspection queries, although I’d unknowingly been using them with the Docs feature of [GraphiQL](https://electronjs.org/apps/graphiql){:target="\_blank"}, a fantastic tool for working with GraphQL servers that was especially helpful here.
