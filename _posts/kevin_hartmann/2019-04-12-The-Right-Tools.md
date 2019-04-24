@@ -36,9 +36,9 @@ I've written software a long time now, and over that time, I've come to apprecia
 
 The best tools make the job they do look easy; and they often become so much a part of your development style that it's easy to simply take them for granted -- until you stop to look back, and wonder how you would solve a problem without them. 
 
-## Introducing the IntelliJ Toolbox
+## Introducing the JetBrains Toolbox
 
-For me, the entire IntelliJ Toolbox has become one of those toolkits: whether
+For me, the entire JetBrains Toolbox has become one of those toolkits: whether
 I'm writing code in Java, Python, or just editing a JSON file, they just make life easier. A whole host of stupid errors and tedious mistakes that I can (and do) make (typos, mis-spellings, case errors, missing quotes, formatting) 
 just go away: if something isn't right, my tools show me what's wrong, where,
 and offers suggestions for how to fix it for me -- so that I can focus on writing the code I want to write, instead of wasting time on side issues, like syntax or code style. 
@@ -58,7 +58,7 @@ Everything just works; which is exactly what I want from the tools that I rely o
 
 I get more work done when my IDE does it for, especially when it does it without getting in my way when I don't want it to. PyCharm manages both at once, which was as unexpected as it is delightful. I keep waiting for the other shoe to drop... but it never does.
 
-## IntelliJ Idea
+## IntelliJ IDEA
 
 IntelliJ has all of the typical editing and formatting capabilities you might expect, and more: including the ability to format code according to a company wide standard. I don't waste time worrying about whether my code is aligned properly; I just click "Reformat", and suddenly, I have one less problem to worry about. 
 
