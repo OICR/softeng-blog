@@ -44,4 +44,4 @@ OICR is an inclusive employer dedicated to building a diverse workforce. We enco
 
 The Ontario Institute for Cancer Research thanks all applicants. However, only those under consideration will be contacted.
 
-To send us your resume, click on the "Apply" button at [the bottom of this page](https://www.recruitingsite.com/csbsites/oicr/JobDescription.asp?JobNumber=811543) or reach out to Francois on [Overture's slack](http://slack.overture.bio/).
+To send us your resume, click on the "Apply" button at [the bottom of this page](https://www.recruitingsite.com/csbsites/oicr/JobDescription.asp?JobNumber=811543) or reach out to Robert on [Overture's slack](http://slack.overture.bio/).
