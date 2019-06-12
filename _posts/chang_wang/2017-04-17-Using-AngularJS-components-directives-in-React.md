@@ -145,7 +145,7 @@ It's always a difficult decision on whether, when, and how to migrate from a fra
 
 If you've read this far, consider following me on [Medium](https://medium.com/@cheapsteak/latest) or tweet at me [@CheapSteak](https://twitter.com/CheapSteak)  
 
-You might also be interested in my article on [Migrating a legacy frontend build system to Webpack](http://softeng.oicr.on.ca/chang_wang/2017/01/03/Legacy-Build-Tool-Migration/) and [Quick and Dirty tricks for debugging Javascript](https://medium.com/@cheapsteak/quick-and-dirty-tricks-for-debugging-javascript-d0e911c3afa), or perhaps [Animations with ReactTransitionGroup](https://medium.com/p/animations-with-reacttransitiongroup-4972ad7da286)
+You might also be interested in my article on [Migrating a legacy frontend build system to Webpack](https://softeng.oicr.on.ca/chang_wang/2017/01/03/Legacy-Build-Tool-Migration/) and [Quick and Dirty tricks for debugging Javascript](https://medium.com/@cheapsteak/quick-and-dirty-tricks-for-debugging-javascript-d0e911c3afa), or perhaps [Animations with ReactTransitionGroup](https://medium.com/p/animations-with-reacttransitiongroup-4972ad7da286)
 
 Thanks to [Ben Hare](https://twitter.com/hare_ben), [Dusan Andric](https://twitter.com/andricDu), [Jeffrey Burt](https://twitter.com/jephuff) and [Francois Gerthoffert](https://twitter.com/fgerthoffert) for proofreading and feedback 😄
 

@@ -1,10 +1,10 @@
 - name: GitHub
-  url: http://github.com/icgc-dcc
+  url: https://github.com/icgc-dcc
   class: icon-github
   title: Github
 
 - name: YouTube
-  url: http://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA
+  url: https://www.youtube.com/channel/UCW0UtYI_uaXRsham7fgyaUA
   class: icon-youtube
   title: YouTube
 
@@ -14,7 +14,7 @@
   title: Twitter
 
 # - name: Mixcloud
-#   url: http://www.mixcloud.com/phlow/
+#   url: https://www.mixcloud.com/phlow/
 #   class: icon-cloud
 #   title: "Mixe, was sonst?"
 
@@ -24,22 +24,22 @@
 #   title: "YouTube Google+"
 
 # - name: Facebook
-#   url: http://www.facebook.com/
+#   url: https://www.facebook.com/
 #   class: icon-facebook
 #   title: ""
 
 # - name: Soundcloud
-#   url: http://soundcloud.com/
+#   url: https://soundcloud.com/
 #   class: icon-soundcloud
 #   title: ""
 
 # - name: Instagram
-#   url: http://instagram.com/
+#   url: https://instagram.com/
 #   class: icon-instagram
 #   title: ""
 
 # - name: Pinterest
-#   url: http://www.pinterest.com/
+#   url: https://www.pinterest.com/
 #   class: icon-pinterest
 #   title: ""
 
