@@ -17,7 +17,7 @@ sh serve.sh
 For livereload, in a separate terminal, run
 
 ```
-guard
+bundle exec guard
 ```
 
 ## Contributing
