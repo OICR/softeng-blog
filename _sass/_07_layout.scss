@@ -695,7 +695,7 @@ nav{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        @media #{$medium-up} {
+        @media #{$large-up} {
             flex-direction: row;
             .oicr-info{
                 margin-left: 30px;
@@ -706,9 +706,9 @@ nav{
             margin-top: auto;
             margin-bottom: auto;
             display: flex;
-            flex-direction: row;
-            @media #{$small-only} {
-                flex-direction: column;
+            flex-direction: column;
+            @media #{$large-up} {
+                flex-direction: row;
             }
             align-items: center;
 
@@ -717,7 +717,7 @@ nav{
                 font-size: 10px;
                 color: $footer-color;
 
-                @media #{$medium-up} {
+                @media #{$large-up} {
                     &:not(:last-child):not(.oicr-logo){
                         &:after {
                             content: '/';
@@ -726,8 +726,9 @@ nav{
                         }
                     }
                 }
-                @media #{$small-only} {
-                    margin-bottom: 12px;
+                margin-bottom: 12px;
+                @media #{$large-up} {
+                    margin-bottom: 0;
                 }
                 
                 a{
