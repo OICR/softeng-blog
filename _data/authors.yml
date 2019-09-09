@@ -1,10 +1,4 @@
 # Author details
-aleks_pejovic:
-  name: Aleks Pejovic
-  position: Technical Business Analyst
-  info: "Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast."
-  avatar: aleks_pejovic.svg
-  github: alekspejovic\
 
 alex_lepsa:
   name: Alex Lepsa
@@ -27,40 +21,12 @@ brandon_chan:
   avatar: brandon_chan.svg
   github: b-f-chan
 
-brice_aminou:
-  name: Brice Aminou
-  position: Bioinformatician
-  info: Bioinformatician passionate by the application of software engineering on biological data, I am always learning about new concepts and technologies. Curiosity is my philosophy.
-  avatar: brice_aminou.png
-  github: baminou
-
-denis_yuen:
-  name: Denis Yuen
-  position: Software Developer
-  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
-  avatar: denis_yuen.svg
-  github: denis-yuen
-
 dusan_andric:
   name: Dusan Andric
   position: Team Lead
   info: Software Architect and a full-stack software developer who enjoys tackling all manner of problems. Has a passion and history working in scientific and healthcare related fields. Will yell about the importance of testing. Loves dogs.
   avatar: dusan_andric.png
   github: andricDu
-
-francois_gerthoffert:
-  name: Francois Gerthoffert
-  position: Project Manager
-  info: Passionate project manager, diehard curious and solutions finder. Enjoy learning and experiencing new things, from rollerblading to Niagara falls to making his own furniture. Did I hear someone talking about cheese ?
-  avatar: francois_gerthoffert.svg
-  github: fgerthoffert
-
-george_mihaiescu:
-  name: George Mihaiescu
-  position: Cloud Architect
-  info: Cloud architect who knows his way around storage, virtualization, networking, security and new design patterns. Enjoys working on performance enhancing problems and proud of making a difference in cancer research.
-  avatar: george_mihaiescu.svg
-  github: gmihaiescu
 
 hardeep_nahal:
   name: Hardeep Nahal
@@ -75,13 +41,6 @@ henry_zhao:
   info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
   avatar: henry_zhao.svg
   github: yuanhengzhao
-
-ivan_borozan:
-  name: Ivan Borozan
-  position: Scientific Associate
-  info: Theoretical physicist working in the fields of computational biology, bioinformatics and biostatistics. Current research projects include computational pathogen sequence identification in whole genome and transcriptome samples, information theory applications for biological sequence analysis, pancancer genome analysis, metagenomics.
-  avatar: ivan_borozan.svg
-  github: iborozan
 
 jared_baker:
   name: Jared Baker
@@ -139,13 +98,6 @@ minh_ha:
   avatar: minh_ha.png
   github: hlminh2000
 
-rahul_verma:
-  name: Rahul Verma
-  position: Senior Software Developer
-  info: Software developer with love for many languages. Passionate for a good design. Always looking for various ways to decompose a complex problem and taking a stab at it in the quickest possible way.
-  avatar: rahul_verma.png
-  github: ra-ver
-
 robert_tisma:
   name: Robert Tisma
   position: Senior Software Developer
@@ -166,6 +118,14 @@ xu_deng:
   info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
   avatar: xu_deng.svg
   github: d8660091
+
+aleks_pejovic:
+  name: Aleks Pejovic
+  position: Technical Business Analyst
+  info: "Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast."
+  avatar: aleks_pejovic.svg
+  github: alekspejovic
+  is_alumni: true
 
 alex_wilmer:
   name: Alex Wilmer
@@ -199,6 +159,14 @@ bob_tiernay:
   github: btiernay
   is_alumni: true
 
+brice_aminou:
+  name: Brice Aminou
+  position: Bioinformatician
+  info: Bioinformatician passionate by the application of software engineering on biological data, I am always learning about new concepts and technologies. Curiosity is my philosophy.
+  avatar: brice_aminou.png
+  github: baminou
+  is_alumni: true
+
 chang_wang:
   name: Chang Wang
   position: Frontend Architect
@@ -223,12 +191,44 @@ christine_yu:
   github: cy
   is_alumni: true
 
+denis_yuen:
+  name: Denis Yuen
+  position: Software Developer
+  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
+  avatar: denis_yuen.svg
+  github: denis-yuen
+  is_alumni: true
+
+francois_gerthoffert:
+  name: Francois Gerthoffert
+  position: Project Manager
+  info: Passionate project manager, diehard curious and solutions finder. Enjoy learning and experiencing new things, from rollerblading to Niagara falls to making his own furniture. Did I hear someone talking about cheese ?
+  avatar: francois_gerthoffert.svg
+  github: fgerthoffert
+  is_alumni: true
+
+george_mihaiescu:
+  name: George Mihaiescu
+  position: Cloud Architect
+  info: Cloud architect who knows his way around storage, virtualization, networking, security and new design patterns. Enjoys working on performance enhancing problems and proud of making a difference in cancer research.
+  avatar: george_mihaiescu.svg
+  github: gmihaiescu
+  is_alumni: true
+
 grant_guo:
   name: Grant Guo
   position: Senior Software Developer
   info: Passionate back-end developer interested in applying distributed data computation software to domains, forever curious about new things.
   avatar: grant_guo.png
   github: grant_guo
+  is_alumni: true
+
+ivan_borozan:
+  name: Ivan Borozan
+  position: Scientific Associate
+  info: Theoretical physicist working in the fields of computational biology, bioinformatics and biostatistics. Current research projects include computational pathogen sequence identification in whole genome and transcriptome samples, information theory applications for biological sequence analysis, pancancer genome analysis, metagenomics.
+  avatar: ivan_borozan.svg
+  github: iborozan
   is_alumni: true
 
 jeffrey_burt:
@@ -245,6 +245,14 @@ phuong-my_do:
   info: Business Analyst who loves negotiating requirements with Software Engineers and Bioinformaticians to make a better world.
   avatar: phuong-my_do.png
   github: phuongmy
+  is_alumni: true
+
+rahul_verma:
+  name: Rahul Verma
+  position: Senior Software Developer
+  info: Software developer with love for many languages. Passionate for a good design. Always looking for various ways to decompose a complex problem and taking a stab at it in the quickest possible way.
+  avatar: rahul_verma.png
+  github: ra-ver
   is_alumni: true
 
 shane_wilson:
