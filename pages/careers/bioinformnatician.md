@@ -20,7 +20,7 @@ For example, if requested to implement new online visualization tools for some g
 * Demonstrate and explain the feature to the team (technical) and stakeholders (high-level);
 * Prepare technical specifications and wireframes for software developers.
 
-We are looking for a talented individual with a passion for big data, data mining and visualization. If you are passionate about the field and want to become part of a team building complex environments from the ground up, just get in touch. Want to learn more about our team and projects ? Check out: http://softeng.oicr.on.ca/.
+We are looking for a talented individual with a passion for big data, data mining and visualization. If you are passionate about the field and want to become part of a team building complex environments from the ground up, just get in touch. Want to learn more about our team and projects ? Check out: https://softeng.oicr.on.ca/.
 
 If selected for a phone/in-person interview, technical (whiteboard) questions will be asked based on your profile.
 
