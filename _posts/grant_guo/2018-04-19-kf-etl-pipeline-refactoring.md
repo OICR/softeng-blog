@@ -19,7 +19,7 @@ header:
 
 ## Forword
 
-In my previous post [Introducing the Kids-First ETL](http://softeng.oicr.on.ca/grant_guo/2018/03/19/kf-etl/), I mentioned:
+In my previous post [Introducing the Kids-First ETL](https://softeng.oicr.on.ca/grant_guo/2018/03/19/kf-etl/), I mentioned:
 
 > A nice future enhacement would be to **make the Pipeline programmable by defining operators** within Pipeline that accept Processor(s) as input and determine how to execute the Processor(s)
 

@@ -21,19 +21,12 @@ permalink: /index.html
       {% include _article_preview.html post=post column_classes='small-12 medium-6' %}
     {% endfor %}
   </div>
-  
+  <div class="row" style="display: flex; flex-wrap: wrap;">
     {% for post in site.posts limit:10 offset:2 %}
       {% assign mod = forloop.index | minus: 1 | modulo: 3 %}
-      <!-- forloop.index: {{ forloop.index }}  -->
-      <!-- mod: {{ mod }}  -->
-      {% if mod == 0 or forloop.first %}
-        <div class="row" >
-      {% endif %}
       {% include _article_preview.html post=post column_classes='small-12 medium-6 large-4' %} 
-      {% if mod == 2 or forloop.last %}
-        </div><!-- /.row -->
-      {% endif %}
     {% endfor %}
+  </div>
   <div class="row">
     <div class="columns">
       {% include _action_buttons.html link='blog/page2/' text='More' button='right' %}
