@@ -142,7 +142,7 @@
         .post-author {
             a {
                 color: #777;
-                font-family: serif;
+                font-family: $font-family-serif;
                 font-size: 21px;
             }
         }
@@ -263,4 +263,8 @@
             text-align: right;
         }
     }
+}
+
+#disqus_thread {
+    padding: 0 20px;
 }

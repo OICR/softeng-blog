@@ -1,7 +1,7 @@
     <footer class="bg-grau">
       <div id="footer">
         <div class="row">
-          <div class="footer-content small-12">
+          <div class="footer-content medium-12">
             <ul class="no-bullet large-8 columns">
                 {% for navigation_item in site.data.navigation %}
                   {% if navigation_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
