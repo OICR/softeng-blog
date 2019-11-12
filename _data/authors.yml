@@ -63,6 +63,13 @@ jared_baker:
   avatar: jared_baker.svg
   github:
 
+jaser_uddin:
+  name: Jaser Uddin
+  position: Software Developer
+  info: Developer working across the full stack. Quick learner and creative problem solver. Can always be found playing music or video games when not coding.
+  avatar: jaser_uddin.svg
+  github: jaserud
+
 jon_eubank:
   name: Jon Eubank
   position: Senior Software Developer
