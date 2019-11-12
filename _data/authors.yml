@@ -20,7 +20,14 @@ ann_catton:
   info: Front end developer who likes to dip her toes in back end code. Loves solving puzzles and making things. Adores large format cameras. Still wants to be an archaeologist.
   avatar: ann_catton.svg
   github: anncatton
-
+  
+bashar_allabadi:
+  name: Bashar Allabadi 
+  position: Software Engineer
+  info: Simple, yet detail and process oriented individual, likes being challenged to design, implement and take ownership of the work. Interested in large scale cloud native architectures & machine learning. Also enjoys cooking, nutrition, weight lifting and basketball.
+  avatar: bashar_allabadi.svg
+  github: blabadi
+  
 brandon_chan:
   name: Brandon Chan
   position: Business Analyst
