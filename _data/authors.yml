@@ -56,13 +56,6 @@ hardeep_nahal:
   avatar: hardeep_nahal.svg
   github:
 
-henry_zhao:
-  name: Henry Zhao
-  position: Software Developer
-  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
-  avatar: henry_zhao.svg
-  github: yuanhengzhao
-
 jared_baker:
   name: Jared Baker
   position: Cloud Specialist
@@ -146,13 +139,6 @@ touhidul_mridha:
   info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
   avatar: touhidul_mridha.png
   github: touhidulmridha
-
-xu_deng:
-  name: Xu Deng
-  position: Developer / DevOps
-  info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
-  avatar: xu_deng.svg
-  github: d8660091
 
 aleks_pejovic:
   name: Aleks Pejovic
@@ -249,6 +235,14 @@ grant_guo:
   avatar: grant_guo.png
   github: grant_guo
   is_alumni: true
+  
+henry_zhao:
+  name: Henry Zhao
+  position: Software Developer
+  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
+  avatar: henry_zhao.svg
+  github: yuanhengzhao
+  is_alumni: true
 
 ivan_borozan:
   name: Ivan Borozan
@@ -312,4 +306,12 @@ vincent_ferretti:
   info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
   avatar: vincent_ferretti.svg
   github: vferretti
+  is_alumni: true
+  
+xu_deng:
+  name: Xu Deng
+  position: Developer / DevOps
+  info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
+  avatar: xu_deng.svg
+  github: d8660091
   is_alumni: true
