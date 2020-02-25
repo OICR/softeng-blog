@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Customize the Toolbar in React-Plotly.js"
+title:  "How to Customize the Modebar in React-Plotly.js"
 breadcrumb: true
 author: sam_rich
 date: 2020-02-23
