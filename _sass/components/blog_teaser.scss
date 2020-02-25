@@ -46,6 +46,16 @@
         margin-bottom: 0;
         font-size: 14px;
     }
+    .post-tags {
+        margin-top: 15px;
+        * {
+            font-size: 12px;
+            color: #7fa5d2;
+        }
+        a:hover {
+            border-bottom: 2px solid;
+        }
+    }
     .author {
         display: flex;
         flex-direction: row;
