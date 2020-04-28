@@ -52,6 +52,29 @@ import Plotly from 'plotly.js/lib/index-basic';
 Next, modifying the `<Plot />` element. Use [Plotly.js's `onInitialized` method](https://github.com/plotly/React-Plotly.js/#basic-props) to get the `graphDiv` (the DOM node where the plot is displayed).
 
 ```js
+// hiding the modebar in this example
+const config = {
+  displayModeBar: false,
+  showlogo: false,
+};
+
+const data = [
+  {
+    x: [1, 2, 3],
+    y: [2, 6, 3],
+    type: 'scatter',
+    mode: 'lines+markers',
+    marker: { color: 'red' }
+  },
+  { type: 'bar', x: [1, 2, 3], y: [2, 5, 3] }
+];
+
+const layout = {
+  width: 320,
+  height: 240,
+  title: 'A Fancy Plot',
+};
+
 export default class CustomPlotlyModeBar extends React.Component {
   state = { graphDiv: null };
 
@@ -64,19 +87,9 @@ export default class CustomPlotlyModeBar extends React.Component {
       <>
         {/* quickstart example from React-Plotly.js */}
         <Plot
-          // hiding the modebar in this example
-          {% raw %}config={{ displayModeBar: false, showlogo: false }}{% endraw %}
-          data={[
-            {
-              x: [1, 2, 3],
-              y: [2, 6, 3],
-              type: 'scatter',
-              mode: 'lines+markers',
-              marker: { color: 'red' }
-            },
-            { type: 'bar', x: [1, 2, 3], y: [2, 5, 3] }
-          ]}
-          {% raw %}layout={{ width: 320, height: 240, title: 'A Fancy Plot' }}{% endraw %}
+          config={config}
+          data={data}
+          layout={layout}
           onInitialized={this.onInitialized}
         />
       </>
@@ -124,9 +137,11 @@ Voila! You should be able to zoom in and out using these buttons. This can be re
 
 ## Next steps: Using Plotly.js methods to make new buttons
 
-Besides copying existing Plotly.js buttons, we can also tap into other functionality.
+Besides copying existing Plotly.js buttons, we can also tap into other functionality: in this case, using Plotly.js methods to make custom buttons for download and reset.
 
-By default, Plotly's `toImage` modebar button only offers downloads in a single image format. Thankfully, `downloadImage()` is [exposed as a Plotly.js method](https://github.com/plotly/plotly.js/blob/master/src/components/modebar/buttons.js#L73).
+### Download button
+
+In Plotly.js's default modebar, the download button is called `toImage`. By default, that button only offers downloads in a single image format. Thankfully, `downloadImage()` is [exposed as a Plotly.js method](https://github.com/plotly/plotly.js/blob/master/src/components/modebar/buttons.js#L73) and we can use it to make download buttons with different options.
 
 Here are buttons for downloading PNG and SVG images:
 
@@ -134,7 +149,7 @@ Here are buttons for downloading PNG and SVG images:
 <button
   data-format="png"
   data-name="downloadImage"
-  data-scale="3" // scale PNGs to 3x so they print clearly
+  data-scale="3" // scale PNGs to 3x, so they print clearly
   onClick={this.handleButtonClick}
 >
   Download PNG
@@ -142,14 +157,14 @@ Here are buttons for downloading PNG and SVG images:
 <button
   data-format="svg"
   data-name="downloadImage"
-  data-scale="1"
+  data-scale="1" // keep SVGs at 1x scale, because they can be resized
   onClick={this.handleButtonClick}
 >
   Download SVG
 </button>
 ```
 
-Lastly, the click handler needs to be updated to call `Plotly.downloadImage()` and pass in options.
+Also, the click handler needs to be updated to call `Plotly.downloadImage()` and pass in options.
 
 ```js
 handleButtonClick = e => {
@@ -164,6 +179,29 @@ handleButtonClick = e => {
     ModeBarButtons[name].click(graphDiv, e);
   }
 };
+```
+
+### Reset button
+
+Plotly.js's default `reset` button only resets the plot axes. There's [a `react` method that will do a hard reset](https://plotly.com/javascript/plotlyjs-function-reference/#plotlyreact) and reload the visualization, but there's no button for it in the standard modebar.
+
+The button:
+
+```js
+<button
+  data-name="react"
+  onClick={this.handleButtonClick}
+>
+  Reset
+</button>
+```
+
+Update the `handleButtonClick` handler:
+
+```js
+else if (name === 'react') {
+  Plotly.react(graphDiv, data, layout);
+}
 ```
 
 ## Demo
