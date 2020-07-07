@@ -140,12 +140,12 @@ rosi_bajari:
   avatar: rosi_bajari.png
   github: rosibaj
 
-touhidul_mridha:
-  name: Touhidul Mridha
-  position: Technical Business Analyst
-  info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
-  avatar: touhidul_mridha.png
-  github: touhidulmridha
+sam_rich:
+  name: Sam Rich
+  position: Software Developer
+  info: Front end developer & staunch advocate for bringing your dog to work.
+  avatar: sam_rich.svg
+  github: samrichca
 
 xu_deng:
   name: Xu Deng
@@ -296,6 +296,14 @@ sid_joshi:
   info: Front-End developer contributing to a good cause little by little everyday. Noob gamer, Learning lad, skilled hiker and developer of this blog.
   avatar: sid_joshi.png
   github: sidsyrus
+  is_alumni: true
+
+touhidul_mridha:
+  name: Touhidul Mridha
+  position: Technical Business Analyst
+  info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
+  avatar: touhidul_mridha.png
+  github: touhidulmridha
   is_alumni: true
 
 vitalii_slobodianyk:

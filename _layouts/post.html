@@ -32,7 +32,7 @@ header:
         <span class="pr10">
           <strong>
           {% for tag in page.tags %}
-            {{ tag }}
+            <a href="{{ site.baseurl }}/blog/tags/#{{ tag | slugify }}">{{ tag }}</a>
             {% unless forloop.last %}
             /
             {% endunless %}
