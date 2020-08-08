@@ -19,16 +19,17 @@ header:
   icon: icon-blog
 ---
 
-> "Initial commit" - Dušan Andrić, April 1 2019
-
-This was the first commit in a repo titled `argo-platform`. "Initial commit" are words with strong power towards us developers. At the time, I was working on The Kids First Data Portal (KF), it was my first project with the team, the project that introduced me to distributed microservice systems. Like any "first projects", many lessons were learned, things that I picked up that stuck with me til today, as well as mistakes that I learned not to repeat. KF was coming to an end, and I could not resist the gravity of "Initial commit". Here was a blank canvas, a chance to put all the lessons to test. So on the same day, I pushed a batch of commits that includes "sets up server and some test schema stitching". This was the foundation of what is today the [platform-api](https://github.com/icgc-argo/platform-api) repo, the front-door to everything the ICGC Argo Platform's backend has to offer. This is what lead to it.
-
 # TLDR:
 
-- If you have a messy UI, maybe your API can use a change.
+- A strong API can help improve the UI significantly.
 - The right use of GraphQL significantly reduced our UI complexity.
 - Apollo client removed the need to manage back-end data in UI application code.
-- We should write future
+- Our setup has limitations, but the cost has been justifiable by the benefits.
+- In future services we should investigate GraphQL service behind the gateway.
+
+>     "Initial commit" - Dušan Andrić, April 1 2019
+
+This was the first commit in a repo titled `argo-platform`. "Initial commit" are words with strong power towards us developers. At the time, I was working on The Kids First Data Portal (KF), it was my first project with the team, the project that introduced me to distributed microservice systems. Like any "first projects", many lessons were learned, things that I picked up that stuck with me til today, as well as mistakes that I learned not to repeat. KF was coming to an end, and I could not resist the gravity of "Initial commit". Here was a blank canvas, a chance to put all the lessons to test. So on the same day, I pushed a batch of commits that includes "sets up server and some test schema stitching". This was the foundation of what is today the [platform-api](https://github.com/icgc-argo/platform-api) repo, the front-door to everything the ICGC Argo Platform's backend has to offer. This is what lead to it.
 
 I mostly worked on the front-end of KF. Being the first time I built a production React web project, I did not fully anticipate the complexities of a web app with so many back-end interactions. The apps I was used to building in my previous role were complex educational games, with intricate multi-touch gestures and scorring algorithms, but they only ever had to make a handful of API calls. I thought I knew React, but the code I found myself writing felt different from my expectation for a React app. We had layers and layers of containers to manage data, some of which were coming from the back-end, others are transformed / combination of them with local states.
 
@@ -76,4 +77,14 @@ Ultimately this removed the need for us to manage back-end data in the UI as app
 
 With backend data no longer needed to be managed by our application code, we found the remaining state management need to be too little to justify a large tool. For our products at least, it's very rare (or impossible) to find a feature that needs to be persisted globally while the user is on the site, but gone once they leave. Since all back-end data and side effect are handled by Apollo at the framework level, everything else can be managed with local state like our past preference. Freed from maintaning duplicate implementation and constant refactoring to integrate individual features, we could invest our front-end development effort into the [@icgc-argo/uikit](https://www.npmjs.com/package/@icgc-argo/uikit) library.
 
-Today we are also writing more services in GraphQL. The Argo Platform is a big but not the only piece of the ICGC Argo project. Our Regional Data Processing Center (RDPC) system has been in development in parallel with the Platform, and have been seeing wide adoption of GraphQL as well, to solve a very different problem. The RDPC team has been experimenting with GraphQL services behind their gateway layer as well, something that I would love to see adopted in our future Platform services.
+# Is it perfect?
+
+**NO.**
+
+Because the Gateway is another layer that sits between the UI and the underlying microservices, some effort needs to be spent in exposing the underlying services' functionalities through the Gateway. For a developer of a microservice who needs to expose the service's functionality to the UI, this can feel like duplication of effort. This is especially true when the underlying services have a non-GraphQL interface, which means a naive Gateway implementation is mostly boiler-plate code that calls the upstream service to transform the result into a GraphQL schema. This is indeed the kind of boiler plate code that we sould like to avoid.
+
+However, without this layer, the UI developer would have had to do similar work in the UI. And from our past experience above, we would prefer that to not be the case. Regardless of who handles exposing the underlying service through the gateway, the extra friction is justified by having a place to handle cross-cutting concerns that can be consumed by future applications. We are accustomed to thinking about the UI as one big application, but it can also be thought of as a collection of multiple applications that is bundled together in one place, hence the benefit outweights the cost here.
+
+The benefit is especially visible for third-party API integration. Recently, a different team has reached out to us about integrating with our JIRA Help Desk. Because we have already done the integration work in our GraphQL Gateway, we could share the integration with them directly by simply pointing them to our public Gateway. Because GraphQL provides a strongly typed schema where every request is validated against, we can be confident that their usage of our API is naturally consistent with what we expect, with minimal documentation.
+
+There are ways to mitigate the boiler plate code problem too. Today we are also writing more services in GraphQL. The Argo Platform is not the only piece of the ICGC Argo project. Our Regional Data Processing Center (RDPC) system has been in development in parallel with the Platform, and have seen wide GraphQL adoption as well, to solve a similar technical but very different business problem. Here the RDPC team has been experimenting with GraphQL services behind their gateway layer, allowing the gateway layer to be a direct proxy of the underlying service, while retaining the ability to resolve cross-cutting concerns through Apollo Federation. This approach is not without some operational challenges and some unknowns, but is something that can prove useful for the Platform as well.
