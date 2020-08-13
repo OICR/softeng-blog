@@ -10,6 +10,7 @@ tags:
   - Graphql
   - Apollo
   - Architecture
+  - Opinion
 teaser:
   info: The history that took us here
   image: minh_ha/argo_gateway/argo_gql.png
@@ -30,6 +31,7 @@ header:
 - Apollo client removed the need to manage back-end data in UI application code.
 - Our setup has limitations, but the cost has been justifiable by the benefits.
 - In future services we should investigate GraphQL service behind the gateway.
+- Some final JS nerd thoughts at the end 😛
 
 >     "Initial commit" - Dušan Andrić, April 1 2019
 
@@ -45,23 +47,19 @@ React's limitation at the time also called for complex patterns like [HOCs](http
 
 Once this question was asked, we took a step back and looked at the whole system. This was KF's architecture diagram at the time:
 
-...
+<image src="{{ site.urlimg }}/minh_ha/argo_gateway/KF-Portal-OICR.png" />
 
-Simplifying on the above, we arrived at this high-level picture:
+Focusing on the "Portal UI" section, we basically have something like so:
 
 <image src="{{ site.urlimg }}/minh_ha/argo_gateway/old_system.png" />
 
-Have you ever called a business's customer service department, who gave you some information and a different number to call the billing department, only to be given another number to call the product department for the rest of your request?... Hopefully not, because most business should be more coordinated than that. But different government agencies maybe? Regardless, this isn't a pleasant experience. And that's what I felt like developing against our microservices.
-
-The problem was multiplied by the number of developers working on different features, and the number of "independent" features there were...
+While this looked simple at first glance, it is not quite so straightforward. You might have experienced calling a business, or a government agency's service desk, who gave you some information and a different number to call the billing department, only to be given another number to call the product department... This is complex enough on your own, now imagine doing this in a team, where you and your co-worker are both calling the same departments independently, over and over. So in practice, we had something like this:
 
 <image src="{{ site.urlimg }}/minh_ha/argo_gateway/old_system_reality.png" />
 
-We followed a strong process of code review for every PR. But we were also operating over a period of high turnover in the team. To suggest meaningful code changes, it is not enough to be an expert of the framework or language at hand, but also requires knowledge about the specific codebase being reviewed. In fact, one might argue the later is more important. So how could a reviewer know if a certain piece of information has already been made available to the UI somewhere else, if he was not involved in the implementation of that same feature somewhere else?
+Many features required complex wrangling of data from multiple backend services. And because business logic tends to be used in multiple places, there were multiple implementations of the same flow, resulting in duplicated work. Overtime, this took away from our frontend team's ability to focus on solving problems that are unique to the frontend, such as consistent design, responsiveness and accessibility.
 
-Many features required complex wrangling of data from multiple backend services. And because business logic tends to be used in multiple places, there were multiple implemntations of the same flow, resulting in duplicated work. Overall, this took away from our frontend team's ability to focus on solving problems that are unique to the frontend, such as consistent design, responsiveness and accessibility.
-
-So we searched for ways to remove the burden of managing cross-cutting concern from the UI, and arrived here:
+So we searched for ways to remove the burden of managing back-end data from the UI, and arrived here:
 
 <image src="{{ site.urlimg }}/minh_ha/argo_gateway/with_gateway.png" />
 
@@ -73,11 +71,11 @@ So before any design was made, before we even knew what our product needed to do
 
 Not very different from the last diagram above actually. Although the gateway has been extended to include a few REST endpoints, these are really used for special purposes, such as non-JSON data. Our microservices continue to sit behind our Gateway API. The underlying services are free to have whatever interface they may choose (we currently currently have a few REST services, with one gRPC service). The GraphQL layer offers a place to implement any logic with cross-cutting concern and resolve and relationship between data managed by different services. We have chosen Apollo as our Graphql backend framework, for its large community support as well as Javascript being a de facto language that enables our front-end developers to contribute (although we have since migrated to Typescript for new developement).
 
-The more dramatic change happened on the fron-end. Here, we have once again opted for Apollo. While Apollo was not the only option technically (since any GraphQL client, or none would have done), we chose it for its large community support.
+The more dramatic change happened on the front-end. Here, we have once again opted for Apollo. While Apollo was not the only option technically (since any GraphQL client, or none would have done), we chose it for its large community support.
 
 It was not without skepticism at first to rely on Apollo's cache store given the earlier reliance on local state. But we gave Apollo Client a try, and were pleasant to find that the cache store did not result in any of the problem that we feared. By designing our API to automatically return the new data that was written after a write event (a **"mutation"** in GraphQL language), our cache update was automatically handled by the Apollo Client. Because the cache store was global, any change that resulted from a mutation done by one component would automatically reflect in the rest of the UI, without a need for any side effect management solution.
 
-Ultimately this removed the need for us to manage back-end data in the UI as application state entirely. We were no longer faced with the dillema of whether some data needed to be in a global store or pulled down by the local component. Data requirements of each component could be collocated with the rendering logic without risking big refactors down the road. Data update can happen automatically without any boiler plate code to write. We get the best of both worlds when it comes to developer experience. Once we mentally think of the Apollo cache store for what it is (a dumb cache store, rather than a smart application state store), then backend data was no longer something our application code had to manage.
+Ultimately this removed the need for us to manage back-end data in the UI as application state entirely. We were no longer faced with the dilemma between global vs local state. Data requirements of each component could be collocated with the rendering logic without risking big refactors down the road. Data update can happen automatically without any boiler plate code to write. We get the best of both worlds when it comes to developer experience. Once we mentally think of the Apollo cache store for what it is (a dumb cache store, rather than a smart application state store), then backend data was no longer something our application code had to manage.
 
 With backend data no longer needed to be managed by our application code, we found the remaining state management need to be too little to justify a large tool. For our products at least, it's very rare (or impossible) to find a feature that needs to be persisted globally while the user is on the site, but gone once they leave. Since all back-end data and side effect are handled by Apollo at the framework level, everything else can be managed with local state like our past preference. Freed from maintaning duplicate implementation and constant refactoring to integrate individual features, we could invest our front-end development effort into the [@icgc-argo/uikit](https://www.npmjs.com/package/@icgc-argo/uikit) library.
 
@@ -85,10 +83,22 @@ With backend data no longer needed to be managed by our application code, we fou
 
 **NO.**
 
-Because the Gateway is another layer that sits between the UI and the underlying microservices, some effort needs to be spent in exposing the underlying services' functionalities through the Gateway. For a developer of a microservice who needs to expose the service's functionality to the UI, this can feel like duplication of effort. This is especially true when the underlying services have a non-GraphQL interface, which means a naive Gateway implementation is mostly boiler-plate code that calls the upstream service to transform the result into a GraphQL schema. This is indeed the kind of boiler plate code that we sould like to avoid.
+Because the Gateway is another layer that sits between the UI and the underlying microservices, some effort needs to be spent in exposing the underlying services' functionalities through the Gateway. For a developer of a microservice who needs to expose the service's functionality to the UI, this can feel like duplication of effort. This is especially true when the underlying services have a non-GraphQL interface, which means a naive Gateway implementation is mostly boiler-plate code that calls the upstream service and return the result. This is indeed the kind of boiler plate code that we should like to avoid.
 
-However, without this layer, the UI developer would have had to do similar work in the UI. And from our past experience above, we would prefer that to not be the case. Regardless of who handles exposing the underlying service through the gateway, the extra friction is justified by having a place to handle cross-cutting concerns that can be consumed by future applications. We are accustomed to thinking about the UI as one big application, but it can also be thought of as a collection of multiple applications that is bundled together in one place, hence the benefit outweights the cost here.
+However, without this layer, the same work would have had to be done in the UI, and we would risk repeating our past mistakes. Another less apparent benefit which I believe we gained, is the ability to surface this work in our planning, where the separation forces us to plan for an explicit step for integrating any new service/feature into the existing system.
 
-The benefit is especially visible for third-party API integration. Recently, a different team has reached out to us about integrating with our JIRA Help Desk. Because we have already done the integration work in our GraphQL Gateway, we could share the integration with them directly by simply pointing them to our public Gateway. Because GraphQL provides a strongly typed schema where every request is validated against, we can be confident that their usage of our API is naturally consistent with what we expect, with minimal documentation.
+Reusability is another benefit, especially visible for third-party API integration. Recently, a different team has reached out to us about integrating with our JIRA Help Desk. Because we have already done the integration work in our GraphQL Gateway, we could share the integration with them directly by simply pointing them to our public Gateway. Because GraphQL provides a strongly typed schema where every request is validated against, we can be confident that their usage of our API is naturally consistent with what we expect, with minimal documentation.
 
 There are ways to mitigate the boiler plate code problem too. Today we are also writing more services in GraphQL. The Argo Platform is not the only piece of the ICGC Argo project. Our Regional Data Processing Center (RDPC) system has been in development in parallel with the Platform, and have seen wide GraphQL adoption as well, to solve a similar technical but very different business problem. Here the RDPC team has been experimenting with GraphQL services behind their gateway layer, allowing the gateway layer to be a direct proxy of the underlying service, while retaining the ability to resolve cross-cutting concerns through Apollo Federation. This approach is not without some operational challenges and some unknowns, but is something that can prove useful for the Platform as well.
+
+# JS nerd bonus opinion
+
+So, does that mean we never need Redux ever again? **NO!**
+
+(For the uninitiated, Redux is a "state management library". In short it provides a central place to store all of the data your front-end app needs, so you only need to update data in one place and have every part of your app automatically updated).
+
+It so happens that the only truly global state that our front-end apps need to manage are data retrieved from a back-end. Once that is taken care of, the rest are mostly very ephemeral states.
+
+This might also be true for the vast majority of web apps out there. However, when this is not the case, Redux is still a very attractive option. Imagine, a test-taking program that needs to run off-line and transmit test results only when there is network availability, a survey app for collecting data in the fields where no network is available, and maybe even the app I am using to write this post right now (VScode), etc... could be benefiting from a strong application state management system like Redux.
+
+In a world where SpaceX's Crew Dragon UI is built with Javascript, the traditional web (or earth for that matter 😛) is no longer the only place our favorite tools may find themselves in. It is ever more important for us to stay up-to-date and critically select the right tool for the right job.
