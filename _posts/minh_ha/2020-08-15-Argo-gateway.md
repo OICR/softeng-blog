@@ -12,7 +12,7 @@ tags:
   - Architecture
   - Opinion
 teaser:
-  info: The history that took us here
+  info: The history of Argo Gateway
   image: minh_ha/argo_gateway/argo_gql.png
 header:
   version: small
@@ -33,6 +33,8 @@ header:
 - In future services we should investigate GraphQL service behind the gateway.
 - Some final JS nerd thoughts at the end 😛
 
+# So...
+
 >     "Initial commit" - Dušan Andrić, April 1 2019
 
 This was the first commit in a repo titled `argo-platform`. "Initial commit" are words with strong power towards us developers. At the time, I was working on The Kids First Data Portal (KF), it was my first project with the team, the project that introduced me to distributed microservice systems. Like any "first projects", many lessons were learned, things that I picked up that stuck with me til today, as well as mistakes that I learned not to repeat. KF was coming to an end, and I could not resist the gravity of "Initial commit". Here was a blank canvas, a chance to put all the lessons to test. So on the same day, I pushed a batch of commits that includes "sets up server and some test schema stitching". This was the foundation of what is today the [platform-api](https://github.com/icgc-argo/platform-api) repo, the front-door to everything the [ICGC Argo Platform](https://platform.icgc-argo.org/)'s backend has to offer. This is what lead to it.
@@ -45,7 +47,7 @@ But the over-reliance on local state created vertical silos and made later horiz
 
 React's limitation at the time also called for complex patterns like [HOCs](https://reactjs.org/docs/higher-order-components.html) and [Render Props](https://reactjs.org/docs/render-props.html), which added to the complexity. With multiple developers rotating in and out of different features, we found ourselves with duplicated implmentations and buggy code. This took away much of our ability to focus on solving problems that were unique to the UI, resulting in inconsistent implementations and strange bugs. It was not clear to us how we got there, until we asked the question: Why was there so much business logic in the UI to begin with?
 
-Once this question was asked, we took a step back and looked at the whole system. This was KF's architecture diagram at the time:
+Once this question was asked, we took a step back and looked at the whole system. This was KF's architecture diagram at the time (Thank you [Rosi](/blog/category/rosi_bajari) for finding this from our archive!):
 
 <image src="{{ site.urlimg }}/minh_ha/argo_gateway/KF-Portal-OICR.png" />
 
@@ -73,11 +75,11 @@ Not very different from the last diagram above actually. Although the gateway ha
 
 The more dramatic change happened on the front-end. Here, we have once again opted for Apollo. While Apollo was not the only option technically (since any GraphQL client, or none would have done), we chose it for its large community support.
 
-It was not without skepticism at first to rely on Apollo's cache store given the earlier reliance on local state. But we gave Apollo Client a try, and were pleasant to find that the cache store did not result in any of the problem that we feared. By designing our API to automatically return the new data that was written after a write event (a **"mutation"** in GraphQL language), our cache update was automatically handled by the Apollo Client. Because the cache store was global, any change that resulted from a mutation done by one component would automatically reflect in the rest of the UI, without a need for any side effect management solution.
+It was not without skepticism at first to rely on Apollo's cache store given the earlier reliance on local state. But we gave Apollo Client a try, and were pleasant to find that the cache store did not result in any of the problem that we feared. By designing our API to automatically return the new data that was written after a write event (a **"mutation"** in GraphQL language), our cache update was automatically handled by the Apollo Client. Because the cache store was global, any change that resulted from a mutation done by one component would automatically reflect in the rest of the UI, without any additional code from our application to manage this update.
 
 Ultimately this removed the need for us to manage back-end data in the UI as application state entirely. We were no longer faced with the dilemma between global vs local state. Data requirements of each component could be collocated with the rendering logic without risking big refactors down the road. Data update can happen automatically without any boiler plate code to write. We get the best of both worlds when it comes to developer experience. Once we mentally think of the Apollo cache store for what it is (a dumb cache store, rather than a smart application state store), then backend data was no longer something our application code had to manage.
 
-With backend data no longer needed to be managed by our application code, we found the remaining state management need to be too little to justify a large tool. For our products at least, it's very rare (or impossible) to find a feature that needs to be persisted globally while the user is on the site, but gone once they leave. Since all back-end data and side effect are handled by Apollo at the framework level, everything else can be managed with local state like our past preference. Freed from maintaning duplicate implementation and constant refactoring to integrate individual features, we could invest our front-end development effort into the [@icgc-argo/uikit](https://www.npmjs.com/package/@icgc-argo/uikit) library.
+With backend data no longer needed to be managed by our application code, we found the remaining state management need to be too little to justify a large tool. For our products at least, it's very rare to find a feature that needs to be persisted globally while the user is on the site, but gone once they leave. Since all back-end data and side effect are handled by Apollo at the framework level, everything else can be managed with simple local states. Freed from maintaning duplicate implementation and constant refactoring to integrate individual features, we could invest our front-end development effort into the [@icgc-argo/uikit](https://www.npmjs.com/package/@icgc-argo/uikit) library.
 
 # Is it perfect?
 
@@ -85,7 +87,7 @@ With backend data no longer needed to be managed by our application code, we fou
 
 Because the Gateway is another layer that sits between the UI and the underlying microservices, some effort needs to be spent in exposing the underlying services' functionalities through the Gateway. For a developer of a microservice who needs to expose the service's functionality to the UI, this can feel like duplication of effort. This is especially true when the underlying services have a non-GraphQL interface, which means a naive Gateway implementation is mostly boiler-plate code that calls the upstream service and return the result. This is indeed the kind of boiler plate code that we should like to avoid.
 
-However, without this layer, the same work would have had to be done in the UI, and we would risk repeating our past mistakes. Another less apparent benefit which I believe we gained, is the ability to surface this work in our planning, where the separation forces us to plan for an explicit step for integrating any new service/feature into the existing system.
+However, without this layer, the same work would have had to be done in the UI, and we would risk repeating our past mistakes. Another less apparent benefit which I believe we gained, is the ability to surface this work in our planning, where the separation forces us to plan for an explicit step for integrating any new service/feature into the existing system. This is a case where the architecture influenced the way we worked, I believe for the better.
 
 Reusability is another benefit, especially visible for third-party API integration. Recently, a different team has reached out to us about integrating with our JIRA Help Desk. Because we have already done the integration work in our GraphQL Gateway, we could share the integration with them directly by simply pointing them to our public Gateway. Because GraphQL provides a strongly typed schema where every request is validated against, we can be confident that their usage of our API is naturally consistent with what we expect, with minimal documentation.
 
