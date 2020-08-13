@@ -20,14 +20,14 @@ ann_catton:
   info: Front end developer who likes to dip her toes in back end code. Loves solving puzzles and making things. Adores large format cameras. Still wants to be an archaeologist.
   avatar: ann_catton.svg
   github: anncatton
-  
+
 bashar_allabadi:
-  name: Bashar Allabadi 
+  name: Bashar Allabadi
   position: Software Engineer
   info: Simple, yet detail and process oriented individual, likes being challenged to design, implement and take ownership of the work. Interested in large scale cloud native architectures & machine learning. Also enjoys cooking, nutrition, weight lifting and basketball.
   avatar: bashar_allabadi.svg
   github: blabadi
-  
+
 brandon_chan:
   name: Brandon Chan
   position: Business Analyst
@@ -97,6 +97,7 @@ kevin_hartmann:
   info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
   avatar: kevin_hartmann.png
   github: KevinFHartmann
+  is_alumni: true
 
 kim_cullion:
   name: Kim Cullion
@@ -139,6 +140,7 @@ touhidul_mridha:
   info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
   avatar: touhidul_mridha.png
   github: touhidulmridha
+  is_alumni: true
 
 aleks_pejovic:
   name: Aleks Pejovic
@@ -235,7 +237,7 @@ grant_guo:
   avatar: grant_guo.png
   github: grant_guo
   is_alumni: true
-  
+
 henry_zhao:
   name: Henry Zhao
   position: Software Developer
@@ -307,7 +309,7 @@ vincent_ferretti:
   avatar: vincent_ferretti.svg
   github: vferretti
   is_alumni: true
-  
+
 xu_deng:
   name: Xu Deng
   position: Developer / DevOps
