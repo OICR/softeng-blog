@@ -1,6 +1,7 @@
 _site
 .sass-cache
 .jekyll-metadata
-.DS_Store
 /.vscode
 .history
+.env
+*DS_Store
