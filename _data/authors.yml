@@ -91,14 +91,6 @@ justin_richardsson:
   avatar: justin_richardsson.png
   github: caravinci
 
-kevin_hartmann:
-  name: Kevin Hartmann
-  position: Senior Software Developer
-  info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
-  avatar: kevin_hartmann.png
-  github: KevinFHartmann
-  is_alumni: true
-
 kim_cullion:
   name: Kim Cullion
   position: Senior UX/UI Designer
@@ -133,14 +125,6 @@ rosi_bajari:
   info: Business analyst with a bioinformatics background.  Enjoys unhealthy amounts of coffee, games, and coming up with ideas to solve very complex problems.
   avatar: rosi_bajari.png
   github: rosibaj
-
-touhidul_mridha:
-  name: Touhidul Mridha
-  position: Technical Business Analyst
-  info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
-  avatar: touhidul_mridha.png
-  github: touhidulmridha
-  is_alumni: true
 
 aleks_pejovic:
   name: Aleks Pejovic
@@ -262,6 +246,14 @@ jeffrey_burt:
   github: jephuff
   is_alumni: true
 
+kevin_hartmann:
+  name: Kevin Hartmann
+  position: Senior Software Developer
+  info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
+  avatar: kevin_hartmann.png
+  github: KevinFHartmann
+  is_alumni: true
+
 phuong-my_do:
   name: Phuong-My Do
   position: Business Analyst
@@ -292,6 +284,14 @@ sid_joshi:
   info: Front-End developer contributing to a good cause little by little everyday. Noob gamer, Learning lad, skilled hiker and developer of this blog.
   avatar: sid_joshi.png
   github: sidsyrus
+  is_alumni: true
+
+touhidul_mridha:
+  name: Touhidul Mridha
+  position: Technical Business Analyst
+  info: Business Analyst with science and technology background. Has a passion for requirements elicitation, problem solving, solution proposals, board games, health and fitness.
+  avatar: touhidul_mridha.png
+  github: touhidulmridha
   is_alumni: true
 
 vitalii_slobodianyk:
