@@ -52,7 +52,7 @@ I ordered my RPi4 kit from [CanaKit](https://www.canakit.com/) and as time went 
 
 Knowing that night vision capabilities were essential, I made sure to order a Pi Camera that did not have an infrared filter as well as some IR emitting diodes.  
 
-Once I connected it all together, I validate the functionality of the night vision with a simple python script that utilized the picamera API to serve a mjpg stream over HTTP. You can find an example on how to do this [here](https://picamera.readthedocs.io/en/release-1.13/recipes2.html#web-streaming).
+Once I connected it all together, I validated the functionality of the night vision with a simple python script that utilized the picamera API to serve a mjpg stream over HTTP. You can find an example on how to do this [here](https://picamera.readthedocs.io/en/release-1.13/recipes2.html#web-streaming).
 
 <figure>
     <img src="{{site.urlimg}}dusan_andric/bombolone/pi-connected.png" />
@@ -61,7 +61,7 @@ Once I connected it all together, I validate the functionality of the night visi
 
 ## Software
 
-Now that I had the hardware assembled, I wanted to see how far I could stretch the python script. I left the script running, accessibly by local network for a time. I quickly ran into stability issues. The HTTP access to the stream would become unresponsive when multiple clients would be left streaming, for example, the phones of two ever concerned parents. The python process itself also seemed to leak memory over time, not that was an issue with 4GB of RAM on the RPi4.
+Now that I had the hardware assembled, I wanted to see how far I could stretch the python script. I left the script running, accessible by local network for a time. I quickly ran into stability issues. The HTTP access to the stream would become unresponsive when multiple clients would be left streaming, for example, the phones of two ever concerned parents. The python process itself also seemed to leak memory over time, not that was an issue with 4GB of RAM on the RPi4.
 
 ### Learning new tricks
 
