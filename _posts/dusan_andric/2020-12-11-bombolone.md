@@ -159,7 +159,7 @@ I solved this problem by deploying a VM in a local data center with which I woul
 
 ## Satisfaction?
 
-I’m happy, but more importantly, my wife is also satisfied with the solution. It works, its stable, we can see our baby snoozing from our phones.  
+I’m happy, but more importantly, my wife is also satisfied with the solution. It works, it is stable, and we can see our baby snoozing from our phones.  
 
 After a few months of use, there was some moving of furniture and I damaged the IR emitting diodes causing the night vision to no longer work. Replacing these for a few dollars was much better than spending potentially hundreds on a new camera module for a commercial solution. If you were keeping tally up to this point, I have now addressed all my original problems that sent me down this path.
 
