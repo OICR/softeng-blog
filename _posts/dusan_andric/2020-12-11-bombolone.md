@@ -128,7 +128,7 @@ Being able to do this cross-compilation easily was one of the benefits of decoup
     <figcaption>The package manager for rust is called Cargo.</figcaption>
 </figure>
 
-For the UI, I quickly wrote a small single page application in Typescript and React. My main requirements for the UI were for it be able to scan QR Codes for login, for which I found a react component for, and for it to have a dark background so opening it doesn’t illuminate my whole condo.
+For the UI, I quickly wrote a small single page application in Typescript and React. My main requirements for the UI were for it be able to scan QR Codes for login and for it to have a dark background so opening it doesn’t illuminate my whole condo.
 
 I ended up using an off the shelf QR Reader component I found on npm. It worked well enough though sometimes it had issues reading the QR Code from my terminal under certain colour themes.
 
