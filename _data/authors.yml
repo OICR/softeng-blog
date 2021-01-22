@@ -20,14 +20,14 @@ ann_catton:
   info: Front end developer who likes to dip her toes in back end code. Loves solving puzzles and making things. Adores large format cameras. Still wants to be an archaeologist.
   avatar: ann_catton.svg
   github: anncatton
-  
+
 bashar_allabadi:
-  name: Bashar Allabadi 
+  name: Bashar Allabadi
   position: Software Engineer
   info: Simple, yet detail and process oriented individual, likes being challenged to design, implement and take ownership of the work. Interested in large scale cloud native architectures & machine learning. Also enjoys cooking, nutrition, weight lifting and basketball.
   avatar: bashar_allabadi.svg
   github: blabadi
-  
+
 brandon_chan:
   name: Brandon Chan
   position: Business Analyst
@@ -55,13 +55,6 @@ hardeep_nahal:
   info: Bioinformatician who enjoys making sense of complicated data. Background in both bioinformatics and molecular biology with a strong desire to help cancer researchers tackle difficult problems. Strong appetite for knowledge and skittles.
   avatar: hardeep_nahal.svg
   github:
-
-henry_zhao:
-  name: Henry Zhao
-  position: Software Developer
-  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
-  avatar: henry_zhao.svg
-  github: yuanhengzhao
 
 jared_baker:
   name: Jared Baker
@@ -98,13 +91,6 @@ justin_richardsson:
   avatar: justin_richardsson.png
   github: caravinci
 
-kevin_hartmann:
-  name: Kevin Hartmann
-  position: Senior Software Developer
-  info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
-  avatar: kevin_hartmann.png
-  github: KevinFHartmann
-
 kim_cullion:
   name: Kim Cullion
   position: Senior UX/UI Designer
@@ -125,6 +111,7 @@ minh_ha:
   info: Javascript enthusiast, constantly looking to explore the ever-expanding limit of web technologies. When I am not coding, playing guitar, or working out, I fill my time with running workshops and helping aspired developers.
   avatar: minh_ha.png
   github: hlminh2000
+  is_alumni: true
 
 robert_tisma:
   name: Robert Tisma
@@ -143,21 +130,14 @@ rosi_bajari:
 sam_rich:
   name: Sam Rich
   position: Software Developer
-  info: Front end developer & staunch advocate for bringing your dog to work.
+  info: Front-end developer with a design background, wishes we could bring our dogs to work.
   avatar: sam_rich.svg
   github: samrichca
-
-xu_deng:
-  name: Xu Deng
-  position: Developer / DevOps
-  info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
-  avatar: xu_deng.svg
-  github: d8660091
 
 aleks_pejovic:
   name: Aleks Pejovic
   position: Technical Business Analyst
-  info: "Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast."
+  info: 'Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast.'
   avatar: aleks_pejovic.svg
   github: alekspejovic
   is_alumni: true
@@ -250,6 +230,14 @@ grant_guo:
   github: grant_guo
   is_alumni: true
 
+henry_zhao:
+  name: Henry Zhao
+  position: Software Developer
+  info: Software Developer working in both front-end and back-end. Love dogs, basketball, movies and fixing bugs.
+  avatar: henry_zhao.svg
+  github: yuanhengzhao
+  is_alumni: true
+
 ivan_borozan:
   name: Ivan Borozan
   position: Scientific Associate
@@ -264,6 +252,14 @@ jeffrey_burt:
   info: Toronto based Front end developer who loves to make things. From handcrafted furniture to modern web apps he takes pride in learning from every experience and approaching problems in new ways.
   avatar: jeffrey_burt.svg
   github: jephuff
+  is_alumni: true
+
+kevin_hartmann:
+  name: Kevin Hartmann
+  position: Senior Software Developer
+  info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
+  avatar: kevin_hartmann.png
+  github: KevinFHartmann
   is_alumni: true
 
 phuong-my_do:
@@ -320,4 +316,12 @@ vincent_ferretti:
   info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
   avatar: vincent_ferretti.svg
   github: vferretti
+  is_alumni: true
+
+xu_deng:
+  name: Xu Deng
+  position: Developer / DevOps
+  info: Technology enthusiast. Read lots of fantasy books and perhaps live in a fantasy.
+  avatar: xu_deng.svg
+  github: d8660091
   is_alumni: true
