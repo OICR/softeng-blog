@@ -38,8 +38,8 @@ brandon_chan:
 ciaran_schutte:
   name: Ciarán Schütte
   position: Software Developer
-  info: Ever-curious business analyst who enjoys spec’ing out systems, asking nosy questions, and delivering great products.  Wholly appreciates reading, writing, baseball, and retro video games.
-  avatar:
+  info:
+  avatar: ciaran_schutte.svg
   github: ciaranschutte
 
 denis_yuen:
