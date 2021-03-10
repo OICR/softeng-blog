@@ -1,4 +1,0 @@
-[context.deploy-preview]
-  command = "jekyll build --future"
-[context.branch-deploy]
-  command = "jekyll build --future"
