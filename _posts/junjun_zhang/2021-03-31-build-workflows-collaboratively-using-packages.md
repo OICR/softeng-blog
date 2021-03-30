@@ -25,7 +25,7 @@ Recent advances in bioinformatics workflow development solutions, such as *[Next
 *[WDL](https://openwdl.org)* and *[CWL](https://www.commonwl.org)* mostly focus on
 addressing challenges in reproducibility, portability and transparency. It has been
 a great success. However, the support for workflow code reuse and sharing is significantly
-falling behind, preventing the community from adopting the widely practiced
+falling behind, preventing the community from adopting the widely practised
 *Don’t Repeat Yourself (DRY)* principle.
 
 
@@ -51,7 +51,8 @@ Software code reuse is nothing new, general purpose programming languages suppor
 code externally written as dependencies, which take the form as packages, libraries or
 modules depending on the language. In this post we use the term *package*.
 
-In order to share packages conveniently and reliably, usually these three things required
+<a name="prerequisites"></a>
+In order to share packages conveniently and reliably, usually these three things are required
 to happen:
 1. release the package with a version so that it has a stable reference.
 2. bundle all artifacts of a package into an archive format for easy retrieval, typically
@@ -76,16 +77,16 @@ the examples used in this post are based on Nextflow. However, the ideas should 
 other workflow languages.
 
 Here I use an example to demonstrate what we did to create a tool package and import it into the
-workflow script. The tool package is called `payload-gen-variant-calling`, [here](https://github.com/icgc-argo/data-processing-utility-tools/releases/tag/payload-gen-variant-calling.0.3.6.0)
+workflow script. A tool package is called `payload-gen-variant-calling`, [here](https://github.com/icgc-argo/data-processing-utility-tools/releases/tag/payload-gen-variant-calling.0.3.6.0)
 is release `0.3.6.0` of the package. This tool generates metadata JSON associated with variant calling,
 it’s needed in all of our three variant calling workflows. It makes perfect sense to write the code
 once and import it wherever needed.
 
-As shown below, we created the package release as a normal GitHub release with a special version
+As shown below in the table, we created the package release as a normal GitHub release with a special version
 tag pattern: `<pkg_name>.<pkg_version>`. The release tag serves as a stable reference to the
 package; the package code is a single file, no need to create a tarball; the code is directly
 downloadable from GitHub (which sort of serves as a package registry) as raw content with a
-stable URL. All three items mentioned earlier as prerequisites are fulfilled, so the package is
+stable URL. All three items mentioned earlier as [prerequisites](#prerequisites) are fulfilled, so the package is
 released and ready to be imported.
 
 |  Artifact  |  Content URL  |
@@ -112,10 +113,10 @@ using these packages as building blocks.
 As pointed out in [this article](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Package_management#what_exactly_is_a_package_manager),
 to use software packages one may not need a *package manager*, which was what we did to get started.
 However, comparing to doing everything manually, a package manager can streamline and automate a long
-list of activities (mostly chores), ranging from template generation, automated build to testing etc,
-resulting in improved productivity and reliability.
+list of activities (mostly chores), ranging from template generation, automated build, testing to releasing etc,
+resulting in greatly improved productivity and reliability.
 
-Equipped with successful experience of our modular approach for workflow code packaging, from the
+Equipped with the successful experience of our modular approach for workflow code packaging, from the
 beginning of 2021 we started to create our own *WorkFlow Package Manager - WFPM*.
 
 A command line interface (CLI) tool called *WFPM CLI* is developed to provide assistance throughout
