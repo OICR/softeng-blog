@@ -24,21 +24,22 @@ header:
 Recent advances in bioinformatics workflow development solutions, such as *[Nextflow](https://www.nextflow.io)*,
 *[WDL](https://openwdl.org)* and *[CWL](https://www.commonwl.org)* mostly focus on
 addressing challenges in reproducibility, portability and transparency. It has been
-a great success. However, the support for workflow code reuse and sharing is significantly
-falling behind, preventing the community from adopting the widely practised
+a great success. However, support for workflow code reuse and sharing is significantly
+lagging behind, which prevents the community from adopting the widely practised
 *Don’t Repeat Yourself (DRY)* principle.
 
 
 ## Our solution
 
 ### Introduction
-To address the aforementioned limitations, the International Cancer Genome Consortium
+To address the aforementioned limitations and other issues, the International Cancer Genome Consortium
 Accelerating Research in Genomic Oncology (*[ICGC ARGO](https://www.icgc-argo.org)*) has
-been experimenting with a modular approach for over a year. It has established a set of
+experimented with a modular approach over a year ago. ARGO has since established a set of
 best practices promoting five principles: *reproducibility*, *portability*, *composability*,
-*findability* and *testability*. For *composability*, the code of workflow steps are to
-be written in a self-contained and well tested packages that can later be imported
-into a workflow codebase. ARGO has successfully utilized the approach in the development
+*findability* and *testability*. Directly related to code reuse is *composability*,
+for that the code for workflow steps are to
+be written in self-contained and well tested packages that can later be imported
+into a workflow codebase. We have successfully utilized the approach in the development
 of four production workflows. Not only can we reuse packages across multiple workflows
 with code residing in different repositories, but also make it possible for anyone in the
 bioinformatics community to reuse them as part of their own workflows. This would
@@ -59,7 +60,8 @@ to happen:
    a tarball is sufficient.
 3. a place to host the packages, usually this is referred as a package registry.
 
-To support these, Python has *[PyPI](https://pypi.org)*, JavaScript has *[npm](https://www.npmjs.com)* etc.
+To support these, general purpose languages have got a wide range of tools, such as package managers,
+dedicated package registries etc. For example, Python's *[PyPI](https://pypi.org)*, JavaScript's *[npm](https://www.npmjs.com)* etc.
 Unfortunately, when we started to design the code reuse approach in workflow development, none
 of these existed for workflow languages. The good news was that some GitHub supported features
 could be used to support what’s needed. More on this in just a bit.
@@ -86,7 +88,8 @@ As shown below in the table, we created the package release as a normal GitHub r
 tag pattern: `<pkg_name>.<pkg_version>`. The release tag serves as a stable reference to the
 package; the package code is a single file, no need to create a tarball; the code is directly
 downloadable from GitHub (which sort of serves as a package registry) as raw content with a
-stable URL. All three items mentioned earlier as [prerequisites](#prerequisites) are fulfilled, so the package is
+stable URL. All [three items](#prerequisites) mentioned earlier as prerequisites are fulfilled
+via features supported by GitHub, so the package is
 released and ready to be imported.
 
 |  Artifact  |  Content URL  |
@@ -97,9 +100,9 @@ released and ready to be imported.
 
 
 On the importing workflow side, the import statement is straightforward,
-[this](https://github.com/icgc-argo/gatk-mutect2-variant-calling/blob/4.1.8.0-2.0/gatk-mutect2-variant-calling/main.nf#L239) is how it looks like in the *GATK Mutect2* workflow. Since Nextflow only imports from local
-files, the package file needs to be downloaded beforehand and checked into the workflow Git repo.
-This is also desirable as it makes the workflow code entirely self-contained. The package
+[this](https://github.com/icgc-argo/gatk-mutect2-variant-calling/blob/4.1.8.0-2.0/gatk-mutect2-variant-calling/main.nf#L239) is how it looks like in *GATK Mutect2* workflow. Since Nextflow only imports from local
+files, the package file needs to be installed (downloaded and added to the correct location) beforehand and checked into the workflow Git repo.
+This is also desirable as it makes the workflow code entirely self-contained. Package
 installation is done by running a simple
 [Python script](https://github.com/icgc-argo/gatk-mutect2-variant-calling/blob/4.1.8.0-2.0/scripts/install-modules.py).
 
@@ -116,8 +119,9 @@ However, comparing to doing everything manually, a package manager can streamlin
 list of activities (mostly chores), ranging from template generation, automated build, testing to releasing etc,
 resulting in greatly improved productivity and reliability.
 
-Equipped with the successful experience of our modular approach for workflow code packaging, from the
-beginning of 2021 we started to create our own *WorkFlow Package Manager - WFPM*.
+Equipped with the successful experience of our modular approach for workflow code packaging and a
+lot of inspiration by *npm* - JavaScript's package manager, from the
+beginning of 2021 we started to develop our own WorkFlow Package Manager - *WFPM*.
 
 A command line interface (CLI) tool called *WFPM CLI* is developed to provide assistance throughout
 the entire workflow development life cycle, ensuring conformation to the established ARGO best
@@ -132,7 +136,7 @@ Workflow developers can freely import packages as dependencies to build new work
 turn are also packages that can be released and imported by others. Common software engineering
 practices such as CI testing, code review and release management can be seamlessly accommodated in
 the process. Once a new version of a package is released, it is locked down with hash codes of the
-Git commit and release assets (package tarball and metadata in the `pkg-release.json`), so that the
+Git commit and release assets (package tarball and metadata in `pkg-release.json`), so that the
 package becomes immutable and permanently available at GitHub. This provides ultimate reproducibility
 and guarantees the package can be reliably imported by others.
 
@@ -145,7 +149,8 @@ something amazing, together, with simple *LEGO Bricks* as illustrated below.
 
 <figure>
     <img src="{{site.urlimg}}junjun_zhang/build-together.png" />
-    <figcaption>Build something amazing, together!</figcaption>
+    <figcaption>Build something amazing, together!
+    <p align="right" style="font-size:80%;">Photo credit: <a href="https://www.torontograndprixtourist.com/2018/11/mystery-lego-mural-at-union-station.html" target="_blank">Toronto Grand Prix Tourist Blog</a></p></figcaption>
 </figure>
 
 
