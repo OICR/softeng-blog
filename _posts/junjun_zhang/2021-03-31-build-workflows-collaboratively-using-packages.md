@@ -107,7 +107,7 @@ installation is done by running a simple
 [Python script](https://github.com/icgc-argo/gatk-mutect2-variant-calling/blob/4.1.8.0-2.0/scripts/install-modules.py).
 
 After experimenting and prototyping for a couple of months, we were satisfied with the approach
-and started to use it to develop the ARGO production workflows. Up to the time of writing, about
+and started to use it to develop the ARGO production workflows. By the end of 2020, about
 50 packages have been developed and released independently. Four workflows have been developed
 using these packages as building blocks.
 
@@ -115,7 +115,7 @@ using these packages as building blocks.
 
 As pointed out in [this article](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Package_management#what_exactly_is_a_package_manager),
 to use software packages one may not need a *package manager*, which was what we did to get started.
-However, comparing to doing everything manually, a package manager can streamline and automate a long
+However, compared to doing everything manually, a package manager can streamline and automate a long
 list of activities (mostly chores), ranging from template generation, automated build, testing to releasing etc,
 resulting in greatly improved productivity and reliability.
 
@@ -127,9 +127,9 @@ A command line interface (CLI) tool called *WFPM CLI* is developed to provide as
 the entire workflow development life cycle, ensuring conformation to the established ARGO best
 practices. It starts with auto-generated templates which include starter workflow code, code for
 testing, and GitHub Actions code for automated continuous integration (CI) and continuous delivery
-(CD). As part of the release process, package artifacts (scripts, configuration, test fixtures etc.)
+(CD). As part of the release process, package artifacts (such as scripts, configuration, test fixtures etc.)
 are bundled together in a tarball and made available as a release asset. This addresses the
-previous limitation of one single file package, it makes it possible to create a multiple-step
+previous limitation of one single file package, consequently it makes it possible to create a multiple-step
 workflow as an importable subworkflow package.
 
 Workflow developers can freely import packages as dependencies to build new workflows, which in
@@ -140,12 +140,32 @@ Git commit and release assets (package tarball and metadata in `pkg-release.json
 package becomes immutable and permanently available at GitHub. This provides ultimate reproducibility
 and guarantees the package can be reliably imported by others.
 
+With the assistance from *WFPM CLI*, the fifth ARGO workflow for generating open access somatic
+variants from raw calls was recently developed. The new workflow is composed of four packages,
+including the workflow itself totaling five packages as shown below.
+
+| Package type | Package release |  Package URI  |
+|--------------|-----------------|---------------|
+| workflow     | [0.1.0](https://github.com/icgc-argo/open-access-variant-filtering/releases/tag/open-access-variant-filtering-wf.v0.1.0) | github.com/icgc-argo/open-access-variant-filtering/open-access-variant-filtering-wf@0.1.0 |
+| tool         | [0.1.0](https://github.com/icgc-argo/variant-calling-tools/releases/tag/variant-filter.v0.1.0) | github.com/icgc-argo/variant-calling-tools/variant-filter@0.1.0                           |
+| tool         | [0.1.0](https://github.com/icgc-argo/data-processing-utility-tools/releases/tag/payload-gen-variant-processing.v0.1.0) | github.com/icgc-argo/data-processing-utility-tools/payload-gen-variant-processing@0.1.0   |
+| tool         | [1.0.0](https://github.com/icgc-argo/data-processing-utility-tools/releases/tag/cleanup-workdir.v1.0.0) | github.com/icgc-argo/data-processing-utility-tools/cleanup-workdir@1.0.0                  |
+| function     | [1.0.0](https://github.com/icgc-argo/data-processing-utility-tools/releases/tag/helper-functions.v1.0.0) | github.com/icgc-argo/data-processing-utility-tools/helper-functions@1.0.0                 |
+
 
 ## Conclusion
 
-We expect *WFPM CLI* to significantly lower the barriers to adopt the *DRY* principle and promote
-collaborative workflow development within the ARGO community and beyond. Similar to building
-something amazing, together, with simple *LEGO Bricks* as illustrated below.
+As proven in our experience, proper workflow code packaging is the essential first step towards
+enabling code reuse and sharing. In essence, the approach we have taken is similar to
+a scaled down version of *[npm](https://docs.npmjs.com/packages-and-modules)*. Most noticeably,
+we don't need a centralized package registry. Released *WFPM* packages can be hosted at online
+source version control systems, such as GitHub, GitLab etc.
+
+With features, such as template generation, automated testing, package releasing, package
+installation etc, offered by the *WFPM CLI* tool, we expect *WFPM CLI* to significantly lower
+the barriers to adopt the *DRY* principle avoiding code duplication, promote sharing
+packages and developing workflows collaboratively within the ARGO community and beyond. Similar
+to building something amazing, together, with simple *LEGO Bricks* as illustrated below.
 
 <figure>
     <img src="{{site.urlimg}}junjun_zhang/build-together.png" />
