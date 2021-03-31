@@ -23,7 +23,7 @@ header:
 
 ## Background
 
-We started the ICGC ARGO project (https://platform.icgc-argo.org/) in mid 2019, and it's still on going. so it's relatively new project and the team decided to adopt and use Kubernetes (https://kubernetes.io/) for the first time. 
+We started the ICGC ARGO project (https://platform.icgc-argo.org/) in mid 2019, and it's still on going. So it's a relatively new project and the team decided to adopt and use Kubernetes (https://kubernetes.io/) for the first time. 
 
 Kuberenetes is a very powerful and the defacto container orchestration tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challanges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to create, update and manage to communuicate with K8s on how we want to deploy, scale, control storage and conenct our containers together and monitor their needs and health.
 
@@ -33,7 +33,7 @@ For examples on our charts, you can visit this Repostiory: https://github.com/ov
 
 ## Using Helm
 
-Helm is another abstraction layer and comes with a learning curve, not necessarily steep one, but still there are few gotchas 
+Helm is another abstraction layer and comes with a learning curve, not necessarily a steep one, but still there are a few gotchas 
 To use helm as deployment tool for charts we needed to:
 - Have a Helm tool script.
 - Create charts and host them:
@@ -54,7 +54,7 @@ after that you need to start customizing the chart files to get what you need.
 - understand each template and how it will get it's values
 
 ### YAML is not Typed
-Remember YAML is not typed but if you pass an string where integer is expected like ports for example, on deployment time you will get a cryptic error from K8s unfortunately the errors are hard to read so keep this in mind when providing values and debugging issues related to types.
+Remember YAML is not typed, but if you pass an string where an integer is expected like ports for example, on deployment time you will get a cryptic error from K8s unfortunately the errors are hard to read so keep this in mind when providing values and debugging issues related to types.
 
 ### Bundled Charts
 Helm allows you to specify dependencies of your chart and it will bundle those together, this approach has Pros and Cons, but usually I'd say we try to avoid it because if the charts diverge during their life time in terms of operation it can become hard to maintain, so make sure you are aware of the impact of bundling the charts as dependencies, and only do it when needed.
@@ -62,7 +62,7 @@ Helm allows you to specify dependencies of your chart and it will bundle those t
 #### Stateful charts 
 An example of a case where we bundled charts and learned that it was bad, is when we bundled postgres db with our microservices charts, although it's more convenient to deploy them in one shot, it became harder to maintain.
 
-Stateful applications like DBs have different than stateless applications (microservices):
+Stateful applications like DBs have different requirements than stateless applications (microservices):
     - they need storage and storage managment and migrations before deleting a release. 
     - they also store data like passwords in their storage and since it's insecure to keep these values plain in the helm files, we had to resort to `--reuse-values` which also affected our stateless service
     - they don't need frequent updates as microservice, usually stateful sets are 3rd party charts that are stable and rarely touched
@@ -111,7 +111,7 @@ We started creating a chart per service but after sometime it was clear that for
 So I introduced a generic chart called Stateless-svc (https://github.com/icgc-argo/charts/tree/master/stateless-svc) and it allows users to configure and customize it through providing the values file. This allows us to:
 
 - enforce common practices like labeling, security, adding extra common resources without having to go over all charts
-- maintain only 1 chart for many microservices. no need to create new chart for every new service which cuts the time to get up and running.
+- maintain only 1 chart for many microservices. There is no need to create a new chart for every new service which cuts the time to get up and running.
 - easier to automate and build processes around since there are no special cases.
 - consistency in configuring charts and estabilishing conventions.
 
@@ -119,7 +119,7 @@ Some charts are more complicated and may not fit in a generic chart, However, fo
 
 
 ### Secrets Management
-At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with vault because it basically provides a much rich solution when it comes to secrets management and storage like policies, and different storage backends, etc.
+At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with Vault (https://www.hashicorp.com/products/vault) because it basically provides a richer solution when it comes to secrets management and storage like policies, and different storage backends, etc.
 
 Now that said, reflecting on it, Vault does have challanges to maintain and add new services, so it's worth taking the time to decide to make the jump or just use K8s secrets, because Helm does make it easier to replicate secrets across environments without a lot of manual work, however it's important to do it in an automation friendly manner and avoid using `--reuse-values` (see below why).
 
