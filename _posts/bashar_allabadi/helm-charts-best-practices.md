@@ -12,7 +12,7 @@ tags:
     - Best Practice
 teaser:
     info: Team's experience with helm, and the lessons we learnd 
-    image: bashar_allabadi/Helm.png
+    image: bashar_allabadi/helm.svg
 header:
     version: small
     title: Software Engineering Blog
