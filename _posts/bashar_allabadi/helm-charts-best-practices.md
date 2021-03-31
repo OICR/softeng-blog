@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Helm for Kuberenetes, Lessons Learned"
@@ -20,6 +19,7 @@ header:
     image: header-logo-crop.png
     icon: icon-blog
 ---
+
 
 ## Background
 
