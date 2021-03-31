@@ -147,5 +147,97 @@ example: `helm upgrade ego -f values/qa/values.yaml overture/ego`
 
 ## Automating Deployments
 ### Jenkins Pipelines
+In our JenkinsFile in each service we have a job call to the deploylment job that deploys the service to a specific K8s namespace, the deployment job is basically a parameterized script that eventually runs a `helm upgrade` command, example: https://github.com/overture-stack/ego/blob/develop/Jenkinsfile 
+
+```
+        stage('Deploy to Overture QA') {
+            when {
+                  branch "develop"
+            }
+			steps {
+				build(job: "/Overture.bio/provision/helm", parameters: [
+						[$class: 'StringParameterValue', name: 'OVERTURE_ENV', value: 'qa' ],
+						[$class: 'StringParameterValue', name: 'OVERTURE_CHART_NAME', value: 'ego'],
+						[$class: 'StringParameterValue', name: 'OVERTURE_RELEASE_NAME', value: 'ego'],
+						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_CHART_VERSION', value: '2.5.0'],
+						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_REPO_URL', value: "https://overture-stack.github.io/charts-server/"],
+						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_REUSE_VALUES', value: "false" ],
+						[$class: 'StringParameterValue', name: 'OVERTURE_ARGS_LINE', value: "--set-string image.tag=${commit}" ]
+				])
+			}
+        }
+````
+and this job pulls down the git repository where the helm values files are and executs the helm command:
+
+```
+def releaseName = env.OVERTURE_RELEASE_NAME
+def deployTo = env.OVERTURE_ENV
+def chartName = env.OVERTURE_CHART_NAME
+def helmRepoUrl = env.OVERTURE_HELM_REPO_URL
+def helmRepoName = 'the_repo'
+def chartVersion = env.OVERTURE_HELM_CHART_VERSION
+def dryRun = env.OVERTURE_HELM_DRY_RUN == 'true' ? '--dry-run' : ''
+def reuseValues = env.OVERTURE_HELM_REUSE_VALUES == 'true' ? '--reuse-values': ''
+def versionArg = chartVersion == null || chartVersion == '' ? '' : "--version $chartVersion"
+def argsLine = env.OVERTURE_ARGS_LINE == null ? '' : env.OVERTURE_ARGS_LINE
+
+def nameSpace = ""
+switch ( deployTo ) {
+  case "staging":
+    nameSpace = "overture-$deployTo"
+    break
+  case "qa":
+    nameSpace = "overture-$deployTo"
+    break
+  default:
+    nameSpace = "-"
+}
+
+def command = """helm upgrade $releaseName \\
+  --install \\
+  --namespace=$nameSpace \\
+  $helmRepoName/$chartName \\
+  $versionArg \\
+  -f helm/$releaseName/$deployTo/values.yml ${dryRun} ${reuseValues} ${argsLine}
+"""
+
+pipeline {
+    agent {
+        kubernetes {
+            label 'provision-executor'
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: helm
+    image: alpine/helm:3.0.2
+    command:
+    - cat
+    tty: true
+"""
+        }
+    }
+        
+    stages {
+      stage('Deploy') {
+        steps {
+          container('helm') {
+            sh 'env'
+            sh "helm ls --namespace=$nameSpace"
+            sh "helm repo add $helmRepoName $helmRepoUrl"
+            sh """$command"""
+          }
+        }
+      }
+    }
+}
+
+```
+
 ### Terraform 
+Our charts repository specially 3rd party chart is not recorded anywhere, same for the chart version, we are now relying on jenkins parameters to provide these, also trying to know everything needs deployment requires looking around the git repository, my collegue Dusan, worked on enahncing and automating helm releases with Terraform but that will be a topic for another blog.
+
+
+Thanks for reading ! Happy Helming
 
