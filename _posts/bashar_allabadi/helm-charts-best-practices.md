@@ -106,10 +106,12 @@ there are different approaches to do this with helm:
 My experience is that the 2nd approach is easier to maintain and has less overhead because env vars are added and removed often and in the second way there is no need to change anything in the chart itself, it is dynamic enough do that.
 
 ### Chart per service vs Common chart
-We started creating a chart per service but after sometime it was clear that for the majority of microservices they all looked the same, regardless of the technology of the service, the charts looked the same. So I introduced a generic chart called Stateless-svc and it allows users to configure and customize it only through providing the values file. This allows us to:
+We started creating a chart per service but after sometime it was clear that for the majority of microservices they all looked the same, regardless of the technology of the service, the charts looked the same. 
+
+So I introduced a generic chart called Stateless-svc (https://github.com/icgc-argo/charts/tree/master/stateless-svc) and it allows users to configure and customize it through providing the values file. This allows us to:
 
 - enforce common practices like labeling, security, adding extra common resources without having to go over all charts
-- maintain only 1 chart for many microservices.
+- maintain only 1 chart for many microservices. no need to create new chart for every new service which cuts the time to get up and running.
 - easier to automate and build processes around since there are no special cases.
 - consistency in configuring charts and estabilishing conventions.
 
@@ -117,22 +119,31 @@ Some charts are more complicated and may not fit in a generic chart, However, fo
 
 
 ### Secrets Management
+At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with vault because it basically provides a much rich solution when it comes to secrets management and storage like policies, and different storage backends, etc.
 
-### Operator Pattern
+Now that said, reflecting on it, Vault does have challanges to mantain and add new services, so it's worth taking the time to decide to make the jump or just use K8s secrets, because Helm does make it easier to replicate secrets across environments without alot of manual work, however it's important to do it in an automation friendly manner and avoid using `--reuse-values` (see below why).
 
-### Security
-#### Non root containers
+
+### 3rd Party Charts
+#### Chart quality 
+Not all charts, even official ones are well written, charts authoring can be simple, but to get a production ready and high quality chart, take the time to research and consider:
+- Allows Secure configurations (running containers without root).
+- Allows adding extra secrets, extra Environment values etc, all these will make customizing much easier.
+- Maintianability, look for charts that are well maintained and widely used.
+- Reliabile, some stateful charts use volumes instead of properly using Stateful sets, which can result in data loss if the helm release gets deleted.
+
+#### Operator Charts
+Operator pattern is very powerful and much more suitable for production operations than satetful set charts, it's much easier to manage application and it abstracts many of the network details in a good way, check Prometheus opreator chart for example.
 
 ### Chart version vs App version
-
+Another challange we face is now we have another version to maintain, which is the chart version, in our release process we have to record the chart version that needs to be released if changes occured to the chart, which is not hard but is an extra thing to worry about. This is why keeping charts as generic as possible is a good thing to avoid the need to update it very often for small app related changes.
 
 
 ## Deploying Charts
-### Auto deploy (aka Continuous deployment)
-### Manual deploy 
-### Helm Reuse-values 
-### 
-
+### Helm values 
+When you deploy a chart you usually need to override the default values to fit your needs and there are two ways to do it either inline or using values files.
+to keep things organized and keep thing well tracked in source control we have a git repository with all the values files for each environment and that way when we run helm commands we can direct it to the right values files per chart.  
+example: `helm upgrade ego -f values/qa/values.yaml overture/ego` 
 
 ## Automating Deployments
 ### Jenkins Pipelines
