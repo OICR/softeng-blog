@@ -25,9 +25,9 @@ header:
 
 We started the ICGC ARGO project (https://platform.icgc-argo.org/) in mid 2019, and it's still on going. so it's relatively new project and the team decided to adopt and use Kubernetes (https://kubernetes.io/) for the first time. 
 
-Kuberenetes is a very powerful and the defacto container orcherstrator tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challanges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to create, update and manage to communuicate with K8s on how we want to deploy, scale, control storage and conenct our containers together and monitor their needs and health.
+Kuberenetes is a very powerful and the defacto container orchestration tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challanges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to create, update and manage to communuicate with K8s on how we want to deploy, scale, control storage and conenct our containers together and monitor their needs and health.
 
-to easily author and maintain these Resource files, which are in YAML, K8s has a package manager, called Helm (https://helm.sh/). Helm is the defacto package manager for K8s and is widely adopted by the indudstry. Briefly, what Helm does is to allow users to create templated YAML files and provide a way to render these templates based on a set of values so that we can reuse these resources and package them in one coherent self contained package (called Chart) and it communicates with K8s APIs to deploy these resrouces after rendering the templates with the provided values (a Release) and gives the users the ability to track the history of their release.
+to easily author and maintain these Resource files, which are in YAML, K8s has a package manager, called Helm (https://helm.sh/). Helm is the defacto package manager for K8s and is widely adopted by the indudstry. Briefly, what Helm does is to allow users to create templated YAML files and provide a way to render these templates based on a set of values so that we can reuse these resources and package them in one coherent self contained package (called Chart) and it communicates with K8s APIs to deploy these resources after rendering the templates with the provided values (a Release) and gives the users the ability to track the history of their release.
 
 For examples on our charts, you can visit this Repostiory: https://github.com/overture-stack/helm-charts
 
@@ -57,7 +57,7 @@ after that you need to start customizing the chart files to get what you need.
 Remember YAML is not typed but if you pass an string where integer is expected like ports for example, on deployment time you will get a cryptic error from K8s unfortunately the errors are hard to read so keep this in mind when providing values and debugging issues related to types.
 
 ### Bundled Charts
-Helm allows you to specifiy dependencies of your chart and it will bundle those together, this approach has Pros and Cons, but usually I'd say we try to avoid it because if the charts diverge during their life time in terms of operation it can become hard to maintain, so make sure you are aware of the impact of bundling the charts as dependencies, and only do it when needed.
+Helm allows you to specify dependencies of your chart and it will bundle those together, this approach has Pros and Cons, but usually I'd say we try to avoid it because if the charts diverge during their life time in terms of operation it can become hard to maintain, so make sure you are aware of the impact of bundling the charts as dependencies, and only do it when needed.
 
 #### Stateful charts 
 An example of a case where we bundled charts and learned that it was bad, is when we bundled postgres db with our microservices charts, although it's more convenient to deploy them in one shot, it became harder to maintain.
@@ -115,13 +115,13 @@ So I introduced a generic chart called Stateless-svc (https://github.com/icgc-ar
 - easier to automate and build processes around since there are no special cases.
 - consistency in configuring charts and estabilishing conventions.
 
-Some charts are more complicated and may not fit in a generic chart, However, for the majority of services, it will save you alot of time.
+Some charts are more complicated and may not fit in a generic chart, However, for the majority of services, it will save you a lot of time.
 
 
 ### Secrets Management
 At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with vault because it basically provides a much rich solution when it comes to secrets management and storage like policies, and different storage backends, etc.
 
-Now that said, reflecting on it, Vault does have challanges to mantain and add new services, so it's worth taking the time to decide to make the jump or just use K8s secrets, because Helm does make it easier to replicate secrets across environments without alot of manual work, however it's important to do it in an automation friendly manner and avoid using `--reuse-values` (see below why).
+Now that said, reflecting on it, Vault does have challanges to maintain and add new services, so it's worth taking the time to decide to make the jump or just use K8s secrets, because Helm does make it easier to replicate secrets across environments without a lot of manual work, however it's important to do it in an automation friendly manner and avoid using `--reuse-values` (see below why).
 
 
 ### 3rd Party Charts
@@ -238,7 +238,7 @@ spec:
 ```
 
 ### Terraform 
-Our charts repository specially 3rd party chart is not recorded anywhere, same for the chart version, we are now relying on jenkins parameters to provide these, also trying to know everything needs deployment requires looking around the git repository, my collegue Dusan, worked on enahncing and automating helm releases with Terraform but that will be a topic for another blog.
+Our charts repository specially 3rd party chart is not recorded anywhere, same for the chart version, we are now relying on jenkins parameters to provide these, also trying to know everything needs deployment requires looking around the git repository, my colleague Dusan, worked on enahncing and automating helm releases with Terraform but that will be a topic for another blog.
 
 
 Thanks for reading ! Happy Helming
