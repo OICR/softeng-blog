@@ -132,6 +132,8 @@ Not all charts, even official ones are well written, charts authoring can be sim
 - Maintianability, look for charts that are well maintained and widely used.
 - Reliabile, some stateful charts use volumes instead of properly using Stateful sets, which can result in data loss if the helm release gets deleted.
 
+Example on this is using postgres chart from the helm stable repository vs Bitnami chart, the Bitnami chart has higher quality and is a better fit for produciton environments and they allow secure configurations out of the box.
+
 #### Operator Charts
 Operator pattern is very powerful and much more suitable for production operations than satetful set charts, it's much easier to manage application and it abstracts many of the network details in a good way, check Prometheus opreator chart for example.
 
