@@ -40,7 +40,7 @@ best practices promoting five principles: *reproducibility*, *portability*, *com
 for that the code for workflow steps are to
 be written in self-contained and well tested packages that can later be imported
 into a workflow codebase. We have successfully utilized the approach in the development
-of four production workflows. Not only can we reuse packages across multiple workflows
+of five production workflows. Not only can we reuse packages across multiple workflows
 with code residing in different repositories, but also make it possible for anyone in the
 bioinformatics community to reuse them as part of their own workflows. This would
 ultimately allow ARGO workflows to be developed collaboratively by its members from
@@ -52,9 +52,9 @@ Software code reuse is nothing new, general purpose programming languages suppor
 code externally written as dependencies, which take the form as packages, libraries or
 modules depending on the language. In this post we use the term *package*.
 
-<a name="prerequisites"></a>
 In order to share packages conveniently and reliably, usually these three things are required
 to happen:
+<a name="prerequisites"></a>
 1. release the package with a version so that it has a stable reference.
 2. bundle all artifacts of a package into an archive format for easy retrieval, typically
    a tarball is sufficient.
@@ -165,7 +165,7 @@ With features, such as template generation, automated testing, package releasing
 installation etc, offered by the *WFPM CLI* tool, we expect *WFPM CLI* to significantly lower
 the barriers to adopt the *DRY* principle avoiding code duplication, promote sharing
 packages and developing workflows collaboratively within the ARGO community and beyond. Similar
-to building something amazing, together, with simple *LEGO Bricks* as illustrated below.
+to building something amazing, **together**, with simple *LEGO Bricks* as illustrated below.
 
 <figure>
     <img src="{{site.urlimg}}junjun_zhang/build-together.png" />
