@@ -73,7 +73,7 @@ Stateful applications like DBs have different requirements than stateless applic
 So in summary their operations are different from stateless services.
 
 ### Passing Application configurations
-To pass application configuration, we use Environment variables as recommended by the 12 factor application principles (https://12factor.net/) 
+To pass application configuration, we use Environment variables as recommended by the [12 factor application principles](https://12factor.net/) 
 there are different approaches to do this with helm:
 - You can add your env vars as an array in the deployment file itself 
 ```
@@ -111,7 +111,7 @@ My experience is that the 2nd approach is easier to maintain and has less overhe
 ### Chart per service vs Common chart
 We started creating a chart per service but after sometime it was clear that for the majority of microservices they all looked the same, regardless of the technology of the service, the charts looked the same. 
 
-So I introduced a generic chart called Stateless-svc (https://github.com/icgc-argo/charts/tree/master/stateless-svc) and it allows users to configure and customize it through providing the values file. This allows us to:
+So I introduced a generic chart called [Stateless-svc](https://github.com/icgc-argo/charts/tree/master/stateless-svc) and it allows users to configure and customize it through providing the values file. This allows us to:
 
 - enforce common practices like labeling, security, adding extra common resources without having to go over all charts
 - maintain only 1 chart for many microservices. There is no need to create a new chart for every new service which cuts the time to get up and running.
@@ -122,7 +122,7 @@ Some charts are more complicated and may not fit in a generic chart, However, fo
 
 
 ### Secrets Management
-At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with Vault (https://www.hashicorp.com/products/vault) because it basically provides a richer solution when it comes to secrets management and storage like policies, and different storage backends, etc.
+At an early stage of the project, ARGO, we had to decide on how to manage secrets, K8s does provide a `Secret`  resource type, however we decided to go with [Vault](https://www.hashicorp.com/products/vault) because it basically provides a richer solution when it comes to secrets management and storage like policies, and different storage backends, etc.
 
 Now that said, reflecting on it, Vault does have challanges to maintain and add new services, so it's worth taking the time to decide to make the jump or just use K8s secrets, because Helm does make it easier to replicate secrets across environments without a lot of manual work, however it's important to do it in an automation friendly manner and avoid using `--reuse-values` (see below why).
 
@@ -162,7 +162,7 @@ that don't need to provide secrets everytime.
 
 ## Automating Deployments
 ### Jenkins Pipelines
-In our JenkinsFile in each service we have a job call to the deploylment job that deploys the service to a specific K8s namespace, the deployment job is basically a parameterized script that eventually runs a `helm upgrade` command, example: https://github.com/overture-stack/ego/blob/develop/Jenkinsfile 
+In our JenkinsFile in each service we have a job call to the deploylment job that deploys the service to a specific K8s namespace, the deployment job is basically a parameterized script that eventually runs a `helm upgrade` command, [example:](https://github.com/overture-stack/ego/blob/develop/Jenkinsfile) 
 
 ```
         stage('Deploy to Overture QA') {
