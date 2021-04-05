@@ -112,20 +112,6 @@ linda_xiang:
   avatar: linda_xiang.svg
   github: lindaxiang
 
-minh_ha:
-  name: Minh Ha
-  position: Software developer
-  info: Javascript enthusiast, constantly looking to explore the ever-expanding limit of web technologies. When I am not coding, playing guitar, or working out, I fill my time with running workshops and helping aspired developers.
-  avatar: minh_ha.png
-  github: hlminh2000
-
-robert_tisma:
-  name: Robert Tisma
-  position: Senior Software Developer
-  info: Back-End software developer with a background in electrical & biomedical engineering, interested in developing innovative and beautiful software solutions to aid in cancer research.
-  avatar: robert_tisma.svg
-  github: rtisma
-
 rosi_bajari:
   name: Rosi Bajari
   position: Technical Business Analyst
@@ -261,6 +247,14 @@ kevin_hartmann:
   github: KevinFHartmann
   is_alumni: true
 
+minh_ha:
+  name: Minh Ha
+  position: Software developer
+  info: Javascript enthusiast, constantly looking to explore the ever-expanding limit of web technologies. When I am not coding, playing guitar, or working out, I fill my time with running workshops and helping aspired developers.
+  avatar: minh_ha.png
+  github: hlminh2000
+  is_alumni: true
+
 phuong-my_do:
   name: Phuong-My Do
   position: Business Analyst
@@ -275,6 +269,14 @@ rahul_verma:
   info: Software developer with love for many languages. Passionate for a good design. Always looking for various ways to decompose a complex problem and taking a stab at it in the quickest possible way.
   avatar: rahul_verma.png
   github: ra-ver
+  is_alumni: true
+
+robert_tisma:
+  name: Robert Tisma
+  position: Senior Software Developer
+  info: Back-End software developer with a background in electrical & biomedical engineering, interested in developing innovative and beautiful software solutions to aid in cancer research.
+  avatar: robert_tisma.svg
+  github: rtisma
   is_alumni: true
 
 shane_wilson:

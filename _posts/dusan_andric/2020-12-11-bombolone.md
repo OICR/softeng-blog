@@ -132,11 +132,11 @@ For the UI, I quickly wrote a small single page application in Typescript and Re
 
 I ended up using an off the shelf QR Reader component I found on npm. It worked well enough though sometimes it had issues reading the QR Code from my terminal under certain colour themes.
 
-```jsx
+```
 <div className="column center aligned">
     {
         this.state.showQr
-        ? <QrReader delay={300} onError={(err) => this.handleError(err)} onScan={(data) => this.handleScan(data)} style={{ 'width': '100%', 'margin-right': '-50%' }}/>
+        ? <QrReader delay={300} onError={(err) => this.handleError(err)} onScan={(data) => this.handleScan(data)} style={ { 'width': '100%', 'margin-right': '-50%' } }/>
         : <button className="ui button" onClick={() => this.showQr()}>Scan QR Code</button>
     }
 </div>
