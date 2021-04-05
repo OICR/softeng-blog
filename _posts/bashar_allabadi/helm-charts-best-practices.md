@@ -23,41 +23,44 @@ header:
 
 ## Background
 
-We started the ICGC ARGO project (https://platform.icgc-argo.org/) in mid 2019, and it's still on going. So it's a relatively new project and the team decided to adopt and use Kubernetes (https://kubernetes.io/) for the first time. 
+We started the [ICGC ARGO project](https://platform.icgc-argo.org/) in mid 2019, and it's still on going. It's still a relatively new project and the team decided to adopt and use [Kubernetes](https://kubernetes.io/) for the first time. 
 
-Kuberenetes is a very powerful and the defacto container orchestration tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challanges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to create, update and manage to communuicate with K8s on how we want to deploy, scale, control storage and conenct our containers together and monitor their needs and health.
+Kuberenetes, K8s for short, is a very powerful and the defacto container orchestration tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challenges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to :
+- Create, update and communicate with K8s. 
+- Express how we want to deploy, scale, control storage 
+- Specify how to connect our containers together 
+- Monitor their needs and health.
 
-to easily author and maintain these Resource files, which are in YAML, K8s has a package manager, called Helm (https://helm.sh/). Helm is the defacto package manager for K8s and is widely adopted by the indudstry. Briefly, what Helm does is to allow users to create templated YAML files and provide a way to render these templates based on a set of values so that we can reuse these resources and package them in one coherent self contained package (called Chart) and it communicates with K8s APIs to deploy these resources after rendering the templates with the provided values (a Release) and gives the users the ability to track the history of their release.
+To easily author and maintain these "Resource" files, which are written in YAML, K8s has a package manager, called [Helm](https://helm.sh/). Helm is the defacto package manager for K8s and is widely adopted by the industry. Briefly, what Helm does is to allow users to create templated YAML files and provide a way to render these templates based on a set of values so that they can be reused, these resources are packaged in one coherent self contained package (called a Chart). Helm communicates with the K8s APIs to deploy these resources after rendering the templates with the provided values (a Release) and gives the users the ability to track history of their releases.
 
-For examples on our charts, you can visit this Repostiory: https://github.com/overture-stack/helm-charts
+For examples of our charts, you can visit this [repository](https://github.com/overture-stack/helm-charts)
 
 ## Using Helm
 
 Helm is another abstraction layer and comes with a learning curve, not necessarily a steep one, but still there are a few gotchas 
 To use helm as deployment tool for charts we needed to:
-- Have a Helm tool script.
+- Have the Helm script.
 - Create charts and host them:
-  -  to host the charts, we have the charts in their own repository and we use github pages as way to host them publicly, it's a quick and easy way to get up and running quickly, see https://github.com/overture-stack/charts-server.
-- write the script that will call the helm tool and pass to it the information it needs to deploy the chart
+  -  to host the charts, we have the charts in their own repository and we use [github pages](https://pages.github.com/) as way to host them publicly, it's a quick and easy way to get up and running quickly, see [Overture Charts server](https://github.com/overture-stack/charts-server).
+- write the script that will call Helm and pass to it the information it needs to deploy the chart
 - Run the deployment script when needed.
 
 In each of these steps we had experiences and lessons that I'll share in this blog.
 
 
 ## Creating Charts
-You can get the scaffold for a chart using `helm create <chart name>`
-after that you need to start customizing the chart files to get what you need.
+You can get the scaffold for a chart using `helm create <chart name>` After that you need to start customizing the chart files to get what you need.
 
 ### Understand the generated chart
-- Read the templates 
-- Understand the template helpers auto created
-- understand each template and how it will get it's values
+- Read the templates.
+- Understand the template helpers auto created for you.
+- Understand each template and how it will get its values.
 
 ### YAML is not Typed
-Remember YAML is not typed, but if you pass an string where an integer is expected like ports for example, on deployment time you will get a cryptic error from K8s unfortunately the errors are hard to read so keep this in mind when providing values and debugging issues related to types.
+Remember YAML is not typed, but if you pass an string where an integer is expected, like ports for example, on deployment time you will get a cryptic error from K8s about it. Unfortunately the errors are hard to read so keep this in mind when providing values and debugging issues related to types.
 
 ### Bundled Charts
-Helm allows you to specify dependencies of your chart and it will bundle those together, this approach has Pros and Cons, but usually I'd say we try to avoid it because if the charts diverge during their life time in terms of operation it can become hard to maintain, so make sure you are aware of the impact of bundling the charts as dependencies, and only do it when needed.
+Helm allows you to specify dependencies of your chart and it will bundle those together, this approach has Pros and Cons, but usually I'd say we try to avoid it because if the charts diverge during their life time in terms of operations, it can become hard to maintain. So make sure you are aware of the impact of bundling the charts as dependencies, and only do it when needed.
 
 #### Stateful charts 
 An example of a case where we bundled charts and learned that it was bad, is when we bundled postgres db with our microservices charts, although it's more convenient to deploy them in one shot, it became harder to maintain.
@@ -103,7 +106,7 @@ there are different approaches to do this with helm:
 
 ```
 
-My experience is that the 2nd approach is easier to maintain and has less overhead because env vars are added and removed often and in the second way there is no need to change anything in the chart itself, it is dynamic enough do that.
+My experience is that the 2nd approach is easier to maintain and has less overhead because env vars are added and removed often, and in the second way there is no need to change anything in the chart itself, it is dynamic enough do that through values updates only.
 
 ### Chart per service vs Common chart
 We started creating a chart per service but after sometime it was clear that for the majority of microservices they all looked the same, regardless of the technology of the service, the charts looked the same. 
@@ -126,9 +129,9 @@ Now that said, reflecting on it, Vault does have challanges to maintain and add 
 
 ### 3rd Party Charts
 #### Chart quality 
-Not all charts, even official ones are well written, charts authoring can be simple, but to get a production ready and high quality chart, take the time to research and consider:
-- Allows Secure configurations (running containers without root).
-- Allows adding extra secrets, extra Environment values etc, all these will make customizing much easier.
+Not all charts, even official ones, are well written. Creating a new chart can be simple, but creating a production ready and high quality chart requires more effort and maintenance, take the time to research and consider the following when you select a chart:
+- It allows Secure configurations (running containers without root) and some are even secure by default.
+- It allows adding extra secrets, extra Environment values, labels, etc, all these will make customization much easier.
 - Maintianability, look for charts that are well maintained and widely used.
 - Reliabile, some stateful charts use volumes instead of properly using Stateful sets, which can result in data loss if the helm release gets deleted.
 
@@ -146,6 +149,16 @@ Another challange we face is now we have another version to maintain, which is t
 When you deploy a chart you usually need to override the default values to fit your needs and there are two ways to do it either inline or using values files.
 to keep things organized and keep thing well tracked in source control we have a git repository with all the values files for each environment and that way when we run helm commands we can direct it to the right values files per chart.  
 example: `helm upgrade ego -f values/qa/values.yaml overture/ego` 
+
+### Reuse values flag `--reuse-values`
+Helm provides a flag to reuse the same values from the exsiting release, it does a three way merge between default values in the chart, values you provide in the command line, values you provide from files using `-f` and existing values from the existing release, if any. 
+
+This from our experience turned out to be problematic, because it's not clear for anyone who looks at our values repostiory (the section above) to know for sure what the final values will be, if `--reuse-values` is used. 
+
+It's better when everything is explicit in the values file to avoid these problems and avoid unexpected values ending in the release. That said, in some cases as I mentioned, secrets can be a challange unless you provide them everytime you do the release, so reuse values can be helpful there. 
+
+Consider limiting your use of `reuse-values` unless necessary and isolate the charts that need such treatement or avoid them all together by using charts 
+that don't need to provide secrets everytime.
 
 ## Automating Deployments
 ### Jenkins Pipelines
@@ -238,7 +251,9 @@ spec:
 ```
 
 ### Terraform 
-Our charts repository specially 3rd party chart is not recorded anywhere, same for the chart version, we are now relying on jenkins parameters to provide these, also trying to know everything needs deployment requires looking around the git repository, my colleague Dusan, worked on enahncing and automating helm releases with Terraform but that will be a topic for another blog.
+Our charts repositories (i.e. the url of where the chart is hosted), specially 3rd party chart are not recorded anywhere in helm values files, same for the chart version. We are now relying on jenkins parameters to provide and feed these to the scripts. Also trying to know everything we use in our stack deployment requires looking around the git repository and cannot be seen in a simple fashion as, for example, a docker compose file.
+
+My colleague, Dusan, worked on enahncing and automating helm releases with Terraform to address these gaps, but that will be a topic for another blog.
 
 
 Thanks for reading ! Happy Helming
