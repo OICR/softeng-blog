@@ -138,7 +138,7 @@ Not all charts, even official ones, are well written. Creating a new chart can b
 Example on this is using postgres chart from the helm stable repository vs Bitnami chart, the Bitnami chart has higher quality and is a better fit for produciton environments and they allow secure configurations out of the box.
 
 #### Operator Charts
-Operator pattern is very powerful and much more suitable for production operations than satetful set charts, it's much easier to manage application and it abstracts many of the network details in a good way, check Prometheus opreator chart for example.
+The [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/), introduced in [2016](https://web.archive.org/web/20210210032403/https://coreos.com/blog/introducing-operators.html) is very powerful and much more suitable for production operations than satetful set charts, it's much easier to manage application with it, and it abstracts many of the network details, in a good way. check [Prometheus opreator](https://github.com/prometheus-operator/prometheus-operator) chart for example.
 
 ### Chart version vs App version
 Another challange we face is now we have another version to maintain, which is the chart version, in our release process we have to record the chart version that needs to be released if changes occured to the chart, which is not hard but is an extra thing to worry about. This is why keeping charts as generic as possible is a good thing to avoid the need to update it very often for small app related changes.
@@ -251,9 +251,10 @@ spec:
 ```
 
 ### Terraform 
-Our charts repositories (i.e. the url of where the chart is hosted), specially 3rd party chart are not recorded anywhere in helm values files, same for the chart version. We are now relying on jenkins parameters to provide and feed these to the scripts. Also trying to know everything we use in our stack deployment requires looking around the git repository and cannot be seen in a simple fashion as, for example, a docker compose file.
+Our charts repositories (i.e. the url of where the chart is hosted), specially 3rd party chart are not recorded anywhere in helm values files, same for the charts version. We are now relying on jenkins parameters to provide and feed these to the scripts. 
+Also trying to know everything we use in our stack deployment requires looking around the git repository and cannot be viewed in a simple fashion as, for example, a docker compose file.
 
-My colleague, Dusan, worked on enahncing and automating helm releases with Terraform to address these gaps, but that will be a topic for another blog.
+My colleague, Dusan, worked on enhancing and automating helm releases with Terraform to address these gaps, but that will be a topic for another blog.
 
 
 Thanks for reading ! Happy Helming
