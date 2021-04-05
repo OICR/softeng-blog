@@ -1,0 +1,12 @@
+---
+layout: category
+title: Bashar Posts
+category: bashar_allabadi
+permalink: /blog/category/bashar_allabadi
+header: 
+    version: small
+    title: Software Engineer
+    image: header-logo-crop.png
+    page: team
+    icon: icon-blog
+---
