@@ -59,7 +59,7 @@ Branch name can be your firstname_topic (for example: dusan_azure). Branches can
 
 Start adding content into your user directory inside `/_posts/`, user directories are in the form `firstname_lastname`, if you are unsure about your username, please refer to `/_data/authors.yml`.
 
-To be properly indexed, markdown files must contain the specific header.
+To be properly indexed, markdown files must contain the specific header, and the file name should start with its date (e.g. `_posts/sam_lee/2021-06-06-starting-up-from-scratch.md`)
 
 ```yml
 ---

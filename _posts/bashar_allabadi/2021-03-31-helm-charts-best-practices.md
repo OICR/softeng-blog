@@ -6,18 +6,18 @@ author: bashar_allabadi
 date: 2021-03-31
 categories: bashar_allabadi
 tags:
-    - Devops
-    - Helm
-    - Helm Charts
-    - Best Practice
+  - Devops
+  - Helm
+  - Helm Charts
+  - Best Practice
 teaser:
-    info: Team's experience with helm, and the lessons we learnd 
-    image: bashar_allabadi/helm.svg
+  info: Team experience with helm and the lessons we learned 
+  image: bashar_allabadi/helm.svg
 header:
-    version: small
-    title: Software Engineering Blog
-    image: header-logo-crop.png
-    icon: icon-blog
+  version: small
+  title: Software Engineering Blog
+  image: header-logo-crop.png
+  icon: icon-blog
 ---
 
 
@@ -165,7 +165,7 @@ that don't need to provide secrets everytime.
 In our JenkinsFile in each service we have a job call to the deploylment job that deploys the service to a specific K8s namespace, the deployment job is basically a parameterized script that eventually runs a `helm upgrade` command, [example:](https://github.com/overture-stack/ego/blob/develop/Jenkinsfile) 
 
 ```
-        stage('Deploy to Overture QA') {
+  stage('Deploy to Overture QA') {
             when {
                   branch "develop"
             }
@@ -181,7 +181,7 @@ In our JenkinsFile in each service we have a job call to the deploylment job tha
 				])
 			}
         }
-````
+```
 and this job pulls down the git repository where the helm values files are and executs the helm command:
 
 ```
@@ -257,5 +257,5 @@ Also trying to know everything we use in our stack deployment requires looking a
 My colleague, Dusan, worked on enhancing and automating helm releases with Terraform to address these gaps, but that will be a topic for another blog.
 
 
-Thanks for reading ! Happy Helming
+Thanks for reading! Happy Helming
 
