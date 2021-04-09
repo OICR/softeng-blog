@@ -26,6 +26,7 @@ header:
 We started the [ICGC ARGO project](https://platform.icgc-argo.org/) in mid 2019, and it's still on going. It's still a relatively new project and the team decided to adopt and use [Kubernetes](https://kubernetes.io/) for the first time. 
 
 Kuberenetes, K8s for short, is a very powerful and the defacto container orchestration tool at this time (not sure if tool is the right word to describe this beast!). K8s comes with a new set of challenges as any other new abstraction layer we introduce in software building process, and one of these challanges is the management of the Resource files we need to :
+
 - Create, update and communicate with K8s. 
 - Express how we want to deploy, scale, control storage 
 - Specify how to connect our containers together 
@@ -39,6 +40,7 @@ For examples of our charts, you can visit this [repository](https://github.com/o
 
 Helm is another abstraction layer and comes with a learning curve, not necessarily a steep one, but still there are a few gotchas 
 To use helm as deployment tool for charts we needed to:
+
 - Have the Helm script.
 - Create charts and host them:
   -  to host the charts, we have the charts in their own repository and we use [github pages](https://pages.github.com/) as way to host them publicly, it's a quick and easy way to get up and running quickly, see [Overture Charts server](https://github.com/overture-stack/charts-server).
@@ -66,45 +68,49 @@ Helm allows you to specify dependencies of your chart and it will bundle those t
 An example of a case where we bundled charts and learned that it was bad, is when we bundled postgres db with our microservices charts, although it's more convenient to deploy them in one shot, it became harder to maintain.
 
 Stateful applications like DBs have different requirements than stateless applications (microservices):
-    - they need storage and storage managment and migrations before deleting a release. 
-    - they also store data like passwords in their storage and since it's insecure to keep these values plain in the helm files, we had to resort to `--reuse-values` which also affected our stateless service
-    - they don't need frequent updates as microservice, usually stateful sets are 3rd party charts that are stable and rarely touched
+
+- they need storage and storage managment and migrations before deleting a release. 
+- they also store data like passwords in their storage and since it's insecure to keep these values plain in the helm files, we had to resort to `--reuse-values` which also affected our stateless service
+- they don't need frequent updates as microservice, usually stateful sets are 3rd party charts that are stable and rarely touched
 
 So in summary their operations are different from stateless services.
 
 ### Passing Application configurations
 To pass application configuration, we use Environment variables as recommended by the [12 factor application principles](https://12factor.net/) 
 there are different approaches to do this with helm:
+
 - You can add your env vars as an array in the deployment file itself 
-```
-    spec:
-      serviceAccountName: {{ include "ego.fullname" . }}
-      containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: SERVER_PORT
-              value: "8081"
-```
+
+  ~~~
+  spec:
+    serviceAccountName: {{ include "ego.fullname" . }}
+    containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+          - name: SERVER_PORT
+            value: "8081"
+  ~~~
 
 - Or you can create a generic non hardcoded way to render your env vars:
-```
-    spec:
-      serviceAccountName: {{ include "ego.fullname" . }}
-      containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-{{- if .Values.extraEnv }}
-  {{ range $key, $value := .Values.extraEnv }}
-            - name: {{ $key }}
-              value: {{ $value | quote }}
-  {{- end }}
-{{- end }}
 
-```
+  ~~~
+  spec:
+    serviceAccountName: {{ include "ego.fullname" . }}
+    containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+  {{- if .Values.extraEnv }}
+  {{ range $key, $value := .Values.extraEnv }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+  {{- end }}
+  {{- end }}
+
+  ~~~
 
 My experience is that the 2nd approach is easier to maintain and has less overhead because env vars are added and removed often, and in the second way there is no need to change anything in the chart itself, it is dynamic enough do that through values updates only.
 
@@ -128,8 +134,11 @@ Now that said, reflecting on it, Vault does have challanges to maintain and add 
 
 
 ### 3rd Party Charts
+
 #### Chart quality 
+
 Not all charts, even official ones, are well written. Creating a new chart can be simple, but creating a production ready and high quality chart requires more effort and maintenance, take the time to research and consider the following when you select a chart:
+
 - It allows Secure configurations (running containers without root) and some are even secure by default.
 - It allows adding extra secrets, extra Environment values, labels, etc, all these will make customization much easier.
 - Maintianability, look for charts that are well maintained and widely used.
@@ -145,12 +154,15 @@ Another challange we face is now we have another version to maintain, which is t
 
 
 ## Deploying Charts
+
 ### Helm values 
+
 When you deploy a chart you usually need to override the default values to fit your needs and there are two ways to do it either inline or using values files.
 to keep things organized and keep thing well tracked in source control we have a git repository with all the values files for each environment and that way when we run helm commands we can direct it to the right values files per chart.  
 example: `helm upgrade ego -f values/qa/values.yaml overture/ego` 
 
 ### Reuse values flag `--reuse-values`
+
 Helm provides a flag to reuse the same values from the exsiting release, it does a three way merge between default values in the chart, values you provide in the command line, values you provide from files using `-f` and existing values from the existing release, if any. 
 
 This from our experience turned out to be problematic, because it's not clear for anyone who looks at our values repostiory (the section above) to know for sure what the final values will be, if `--reuse-values` is used. 
@@ -161,30 +173,33 @@ Consider limiting your use of `reuse-values` unless necessary and isolate the ch
 that don't need to provide secrets everytime.
 
 ## Automating Deployments
+
 ### Jenkins Pipelines
+
 In our JenkinsFile in each service we have a job call to the deploylment job that deploys the service to a specific K8s namespace, the deployment job is basically a parameterized script that eventually runs a `helm upgrade` command, [example:](https://github.com/overture-stack/ego/blob/develop/Jenkinsfile) 
 
-```
-  stage('Deploy to Overture QA') {
-            when {
-                  branch "develop"
-            }
-			steps {
-				build(job: "/Overture.bio/provision/helm", parameters: [
-						[$class: 'StringParameterValue', name: 'OVERTURE_ENV', value: 'qa' ],
-						[$class: 'StringParameterValue', name: 'OVERTURE_CHART_NAME', value: 'ego'],
-						[$class: 'StringParameterValue', name: 'OVERTURE_RELEASE_NAME', value: 'ego'],
-						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_CHART_VERSION', value: '2.5.0'],
-						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_REPO_URL', value: "https://overture-stack.github.io/charts-server/"],
-						[$class: 'StringParameterValue', name: 'OVERTURE_HELM_REUSE_VALUES', value: "false" ],
-						[$class: 'StringParameterValue', name: 'OVERTURE_ARGS_LINE', value: "--set-string image.tag=${commit}" ]
-				])
-			}
-        }
-```
+~~~
+stage('Deploy to Overture QA') {
+    when {
+          branch "develop"
+    }
+    steps {
+      build(job: "/Overture.bio/provision/helm", parameters: [
+          [$class: 'StringParameterValue', name: 'OVERTURE_ENV', value: 'qa' ],
+          [$class: 'StringParameterValue', name: 'OVERTURE_CHART_NAME', value: 'ego'],
+          [$class: 'StringParameterValue', name: 'OVERTURE_RELEASE_NAME', value: 'ego'],
+          [$class: 'StringParameterValue', name: 'OVERTURE_HELM_CHART_VERSION', value: '2.5.0'],
+          [$class: 'StringParameterValue', name: 'OVERTURE_HELM_REPO_URL', value: "https://overture-stack.github.io/charts-server/"],
+          [$class: 'StringParameterValue', name: 'OVERTURE_HELM_REUSE_VALUES', value: "false" ],
+          [$class: 'StringParameterValue', name: 'OVERTURE_ARGS_LINE', value: "--set-string image.tag=${commit}" ]
+      ])
+    }
+  }
+~~~
+
 and this job pulls down the git repository where the helm values files are and executs the helm command:
 
-```
+~~~
 def releaseName = env.OVERTURE_RELEASE_NAME
 def deployTo = env.OVERTURE_ENV
 def chartName = env.OVERTURE_CHART_NAME
@@ -248,7 +263,7 @@ spec:
     }
 }
 
-```
+~~~
 
 ### Terraform 
 Our charts repositories (i.e. the url of where the chart is hosted), specially 3rd party chart are not recorded anywhere in helm values files, same for the charts version. We are now relying on jenkins parameters to provide and feed these to the scripts. 
@@ -257,5 +272,5 @@ Also trying to know everything we use in our stack deployment requires looking a
 My colleague, Dusan, worked on enhancing and automating helm releases with Terraform to address these gaps, but that will be a topic for another blog.
 
 
-Thanks for reading! Happy Helming
+Thanks for reading! Happy Helming.
 
