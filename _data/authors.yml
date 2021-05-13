@@ -63,6 +63,13 @@ hardeep_nahal:
   avatar: hardeep_nahal.svg
   github:
 
+henrich_feher:
+  name: Henrich Feher
+  position: Cloud Architect
+  info: If it can't be deployed in Kubernetes, it's not worth deploying.
+  avatar: henrich_feher.png
+  github: henro001
+
 jared_baker:
   name: Jared Baker
   position: Cloud Specialist
