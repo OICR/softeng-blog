@@ -126,6 +126,13 @@ rosi_bajari:
   avatar: rosi_bajari.png
   github: rosibaj
 
+yelizar_alturmessov:
+  name: Yelizar Alturmessov
+  position: DevOps
+  info: Linux / Kubernetes admin, automation engineer and technical problem solver. Solution for a technology problem is incomplete unless automated.
+  avatar: yelizar_alturmessov.png
+  github: yalturmes
+
 aleks_pejovic:
   name: Aleks Pejovic
   position: Technical Business Analyst
