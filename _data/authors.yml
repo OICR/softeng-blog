@@ -333,3 +333,11 @@ xu_deng:
   avatar: xu_deng.svg
   github: d8660091
   is_alumni: true
+
+yelizar_alturmessov:
+  name: Yelizar Alturmessov
+  position: DevOps
+  info: Linux / Kubernetes admin, automation engineer and technical problem solver. Solution for a technology problem is incomplete unless automated.
+  avatar: yelizar_alturmessov.png
+  github: yalturmes
+
