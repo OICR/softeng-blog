@@ -55,6 +55,7 @@ dusan_andric:
   info: Software Architect and a full-stack software developer who enjoys tackling all manner of problems. Has a passion and history working in scientific and healthcare related fields. Will yell about the importance of testing. Loves dogs.
   avatar: dusan_andric.png
   github: andricDu
+  is_alumni: true
 
 hardeep_nahal:
   name: Hardeep Nahal
