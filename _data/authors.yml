@@ -1,12 +1,5 @@
 # Author details
 
-alex_lepsa:
-  name: Alex Lepsa
-  position: Senior Software Developer
-  info: "Software developer operating at the intersection of science and technology. If not coding can usually be found tinkering with some personal project, 'scending routes, or paddling for OmNomNom DBC."
-  avatar: alex_lepsa.svg
-  github: lepsalex
-
 alexis_li:
   name: Alexis Li
   position: Software Developer
@@ -49,13 +42,6 @@ denis_yuen:
   avatar: denis_yuen.svg
   github: denis-yuen
 
-dusan_andric:
-  name: Dusan Andric
-  position: Team Lead
-  info: Software Architect and a full-stack software developer who enjoys tackling all manner of problems. Has a passion and history working in scientific and healthcare related fields. Will yell about the importance of testing. Loves dogs.
-  avatar: dusan_andric.png
-  github: andricDu
-
 hardeep_nahal:
   name: Hardeep Nahal
   position: Bioinformatician
@@ -91,13 +77,6 @@ jon_eubank:
   avatar: jon_eubank.svg
   github: joneubank
 
-junjun_zhang:
-  name: Junjun Zhang
-  position: Bioinformatics Team Lead
-  info: True hybrid expertise in both biology world and information technology world. Enjoy working with biologists and software developers, serving as a bridge bringing best software solutions to complex biological data management challenges. Fascinated and inspired by ingenious open source software solutions, such as Elasticsearch, wishing to come up with his own one day.
-  avatar: junjun_zhang.svg
-  github: junjun-zhang
-
 justin_richardsson:
   name: Justin Richardsson
   position: Technical Lead Developer
@@ -126,13 +105,6 @@ rakesh_mistry:
   avatar: rakesh_mistry.svg
   github: mistryrn
 
-rosi_bajari:
-  name: Rosi Bajari
-  position: Technical Business Analyst
-  info: Business analyst with a bioinformatics background.  Enjoys unhealthy amounts of coffee, games, and coming up with ideas to solve very complex problems.
-  avatar: rosi_bajari.png
-  github: rosibaj
-
 yelizar_alturmessov:
   name: Yelizar Alturmessov
   position: DevOps
@@ -143,9 +115,17 @@ yelizar_alturmessov:
 aleks_pejovic:
   name: Aleks Pejovic
   position: Technical Business Analyst
-  info: "Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast."
+  info: Detail-orientated BA with a longstanding passion for the intersection of healthcare and technology. Educational background in Immunology, Computer Science and Business Analysis. Thrill-seeker, world-traveler, and Netflix-enthusiast.
   avatar: aleks_pejovic.svg
   github: alekspejovic
+  is_alumni: true
+
+alex_lepsa:
+  name: Alex Lepsa
+  position: Senior Software Developer
+  info: Software developer operating at the intersection of science and technology. If not coding can usually be found tinkering with some personal project, 'scending routes, or paddling for OmNomNom DBC.
+  avatar: alex_lepsa.svg
+  github: lepsalex
   is_alumni: true
 
 alex_wilmer:
@@ -199,7 +179,7 @@ chang_wang:
 chen_chen:
   name: Chen Chen
   position: Bioinformatics Coop
-  info: "Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud."
+  info: Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud.
   avatar: chen_chen.png
   github: Chen2x
   is_alumni: true
@@ -210,6 +190,14 @@ christine_yu:
   info: Software developer navigating the weird, wacky and ever changing world of JavaScript. Dreads winding bobbins, will eat dessert for dinner.
   avatar: christine_yu.svg
   github: cy
+  is_alumni: true
+
+dusan_andric:
+  name: Dusan Andric
+  position: Team Lead
+  info: Software Architect and a full-stack software developer who enjoys tackling all manner of problems. Has a passion and history working in scientific and healthcare related fields. Will yell about the importance of testing. Loves dogs.
+  avatar: dusan_andric.png
+  github: andricDu
   is_alumni: true
 
 francois_gerthoffert:
@@ -260,6 +248,14 @@ jeffrey_burt:
   github: jephuff
   is_alumni: true
 
+junjun_zhang:
+  name: Junjun Zhang
+  position: Bioinformatics Team Lead
+  info: True hybrid expertise in both biology world and information technology world. Enjoy working with biologists and software developers, serving as a bridge bringing best software solutions to complex biological data management challenges. Fascinated and inspired by ingenious open source software solutions, such as Elasticsearch, wishing to come up with his own one day.
+  avatar: junjun_zhang.svg
+  github: junjun-zhang
+  is_alumni: true
+
 kevin_hartmann:
   name: Kevin Hartmann
   position: Senior Software Developer
@@ -298,6 +294,14 @@ robert_tisma:
   info: Back-End software developer with a background in electrical & biomedical engineering, interested in developing innovative and beautiful software solutions to aid in cancer research.
   avatar: robert_tisma.svg
   github: rtisma
+  is_alumni: true
+
+rosi_bajari:
+  name: Rosi Bajari
+  position: Technical Business Analyst
+  info: Business analyst with a bioinformatics background.  Enjoys unhealthy amounts of coffee, games, and coming up with ideas to solve very complex problems.
+  avatar: rosi_bajari.png
+  github: rosibaj
   is_alumni: true
 
 shane_wilson:
