@@ -14,13 +14,6 @@ ann_catton:
   avatar: ann_catton.svg
   github: anncatton
 
-bashar_allabadi:
-  name: Bashar Allabadi
-  position: Software Engineer
-  info: Simple, yet detail and process oriented individual, likes being challenged to design, implement and take ownership of the work. Interested in large scale cloud native architectures & machine learning. Also enjoys cooking, nutrition, weight lifting and basketball.
-  avatar: bashar_allabadi.svg
-  github: blabadi
-
 brandon_chan:
   name: Brandon Chan
   position: Business Analyst
@@ -38,7 +31,7 @@ ciaran_schutte:
 daniel_lu:
   name: Daniel Lu
   position: Software Developer
-  info: 
+  info:
   avatar: daniel_lu.svg
   github: daniel-cy-lu
 
@@ -70,33 +63,19 @@ jared_baker:
   avatar: jared_baker.svg
   github:
 
-jaser_uddin:
-  name: Jaser Uddin
-  position: Software Developer
-  info: Developer working across the full stack. Quick learner and creative problem solver. Can always be found playing music or video games when not coding.
-  avatar: jaser_uddin.svg
-  github: jaserud
-
 jon_eubank:
   name: Jon Eubank
-  position: Senior Software Developer
+  position: Software Architect
   info: Full-stack developer who survived an education in "nanotechnology engineering" before escaping to the wonderful world of software. Practitioner of java, python, and javascript; dabbling in the dark arts of dev-ops, soccer, and Go/Baduk.
   avatar: jon_eubank.svg
   github: joneubank
 
 justin_richardsson:
   name: Justin Richardsson
-  position: Technical Lead Developer
+  position: Software Architect
   info: A crossbreed of Software Developer and UX Designer; devoted to functional programming, behavioural economics, information architecture, heuristics, and metacognitive analysis. Seasoned mentor, marathon runner, bicycle mechanic, and conference organiser.
   avatar: justin_richardsson.png
   github: caravinci
-
-kim_cullion:
-  name: Kim Cullion
-  position: Senior UX/UI Designer
-  info: Detail oriented designer who loves creating user friendly tools that help people in some way. Likes to balance functionality with creativity, while basing design decisions on data, user scenarios and business goals. Enjoys drawing, volleyball, puns, improv and live music.
-  avatar: kim_cullion.svg
-  github: kcullion
 
 linda_xiang:
   name: Linda Xiang
@@ -149,6 +128,14 @@ andy_yang:
   info: Right-brained developer back when right-brained was still a thing; now just non-linear. Pragmatic. Seeks simplicity. Holds strong opinions, lightly. Luddite. Ironic.
   avatar: andy_yang.png
   github: ayang99
+  is_alumni: true
+
+bashar_allabadi:
+  name: Bashar Allabadi
+  position: Software Engineer
+  info: Simple, yet detail and process oriented individual, likes being challenged to design, implement and take ownership of the work. Interested in large scale cloud native architectures & machine learning. Also enjoys cooking, nutrition, weight lifting and basketball.
+  avatar: bashar_allabadi.svg
+  github: blabadi
   is_alumni: true
 
 bessie_rogel:
@@ -247,6 +234,14 @@ ivan_borozan:
   github: iborozan
   is_alumni: true
 
+jaser_uddin:
+  name: Jaser Uddin
+  position: Software Developer
+  info: Developer working across the full stack. Quick learner and creative problem solver. Can always be found playing music or video games when not coding.
+  avatar: jaser_uddin.svg
+  github: jaserud
+  is_alumni: true
+
 jeffrey_burt:
   name: Jeffrey Burt
   position: Software Developer
@@ -269,6 +264,14 @@ kevin_hartmann:
   info: Veteran programmer who still likes to learn new things. Plays with programming language design in his spare time. Currently owned by four cats and one spouse.
   avatar: kevin_hartmann.png
   github: KevinFHartmann
+  is_alumni: true
+
+kim_cullion:
+  name: Kim Cullion
+  position: Senior UX/UI Designer
+  info: Detail oriented designer who loves creating user friendly tools that help people in some way. Likes to balance functionality with creativity, while basing design decisions on data, user scenarios and business goals. Enjoys drawing, volleyball, puns, improv and live music.
+  avatar: kim_cullion.svg
+  github: kcullion
   is_alumni: true
 
 minh_ha:
