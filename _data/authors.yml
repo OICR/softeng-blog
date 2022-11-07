@@ -84,6 +84,20 @@ linda_xiang:
   avatar: linda_xiang.svg
   github: lindaxiang
 
+mitchell_shiell:
+  name: Mitchell Shiell
+  position: Outreach Lead
+  info: Scientist, educator, and digital creative using his powers to increase public support and awareness of incredible and innovative technologies. Also an avid hockey player and passionate photographer.
+  avatar: mitchell_shiell.svg
+  github: mitchellshiell
+
+patrick_dos_santos:
+  name: Patrick Dos Santos
+  position: Senior UI/UX Designer
+  info: Obsessed with making technology as intuitive as possible through data driven design choices. Always starts with the why before asking how. Also enjoys long walks along the ice-cream aisle.
+  avatar: patrick_dos_santos.png
+  github: patrickdsantos
+
 rakesh_mistry:
   name: Rakesh Mistry
   position: Software Developer
