@@ -22,20 +22,20 @@ We are the OICR team of software engineers, infrastructure professionals, and bi
 
 |Post Date| Author(s) |Topic|Reviewer|
 |---|---|---|---|
-|Nov 22|Henro|```link google doc```|
-|Dec 13|Edmund|```link google doc```|
-|Dec 27|Ciaran|```link google doc```|
-|Jan 10|Hardeep|```link google doc```|
-|Jan 24|Ann|```link google doc```|
-|Feb 7|Brazas|```link google doc```|
-|Feb 21|Justin|```link google doc```|
-|Mar 7|Linda|```link google doc```|
-|Mar 21|Jon|```link google doc```|
-|Apr 4|Radak|```link google doc```|
-|Apr 18|Yelizar|```link google doc```|
-|May 2|Rakesh|```link google doc```|
-|May 16|Sam|```link google doc```|
-|May 30|Christina|```link google doc```|
+|Dec 13|Ann Catton|```link google doc```|
+|Dec 27|Daniel Lu|```link google doc```|
+|Jan 10|Brandon Chan|```link google doc```|
+|Jan 24|Yelizar Alturmessov|```link google doc```|
+|Feb 7|Edmund Su|```link google doc```|
+|Feb 21|Jon Eubank|```link google doc```|
+|Mar 7|Samantha Rich|```link google doc```|
+|Mar 21|Alexis Li|```link google doc```|
+|Apr 4|Daniel DeMaria|```link google doc```|
+|Apr 18|Mitchell Shiell|```link google doc```|
+|May 2|Linda Xiang|```link google doc```|
+|May 16|Ummulkiram Rangwala|```link google doc```|
+|May 30|Justin Richardsson|```link google doc```|
+|June 14|Rakesh Mistry|```link google doc```|
 
 <br />
 
@@ -106,8 +106,21 @@ Three simple steps when stuck on ideas:
 
 <br />
 
-# :memo: Writing to an Audience
+# :memo: Writing to our Audience
 
+- This blog's target audience is you. You are writing for yourself
+- Be yourself, do not say anything in writing that you wouldn't say in conversation
+
+- Beware of the ***curse of knowledge***:
+    
+    > <br />
+    > The curse of knowledge is a cognitive bias that occurs when an individual, who is communicating with other individuals, assumes that the other individuals have the background knowledge to understand. This bias is also called by some authors the curse of expertise.
+    >
+    > <br />
+<br />
+
+- You are the expert in your domain/topic. Wherever possible, simplify your language and provide background for your reader (in-text or hyperlinked).
+<!--
 When writing it's important to have a clear idea who your readers are. I made the following table to help you narrow in who your readership is when writing your article.
 
 |Categories|Keywords|Description|
@@ -116,7 +129,7 @@ When writing it's important to have a clear idea who your readers are. I made th
 |Intent|Inform, Describe, Convince|Why are you writing this article? Is it informative, descriptive, or argumentative?|
 |Audience|General, Knowledgeable, Experts|For our purposes, assuming a general or knowledgeable audience is probably the best bet.<ul><li>General audience -> less or no assumptions, give extensive background information and define all key technical terms (hyperlinks can save word-count).</li><li>Knowledgeable audience -> cut down on background information and use common key terms without explanation (still good practice to hyperlink)</li><li>Expert audience -> no need for extensive background information. Use technical terms freely without definition</li></ul>|
 |Formality|Informal, Neutral, Formal|This can depend on the structure/aim of your article. <ul><li>For a [wiki style post](#wiki-post) you will likely write more formally</li><li>For a [problem centered post](#problem-centered-post) you may chose a more neutral tone</li><li>For a [conversational post](#conversational-post) you may chose to be more informal</li></ul>|
-
+-->
 <br />
 
 # :dart: Structuring your blog post
@@ -131,7 +144,7 @@ When writing it's important to have a clear idea who your readers are. I made th
     - Sentences (~ 25 words) 
     - Paragraphs (~ 3 sentences no more than 6)
 
-- **Length:** Based on SEO metrics articles roughly 1500-2500 words tend to do best
+- **Length:** Based on SEO metrics articles roughly 1500-2500 words tend to do best however this is a large word count and is not absolutely required. ***Tailor as needed.***
     
 - **Hyperlinks:** By doing so, extraneous background information can be reduced while still enabling a wider audience to follow along.
 
@@ -154,7 +167,7 @@ Here you'll find guided templates for three blog-post structures that should wor
 
 **Description** Present a problem that your reader is experiencing, empathize with that problem, and then solve the problem.
 
-**Approximate word count:** 1500-2500 words. 
+**Approximate word count:** 1500-2500 words. *Tailor as needed.*
 
 :memo: **Google Docs:** [Problem Centered Post Template](https://docs.google.com/document/d/1BStxDjG_iGDc1m-pgOxnMNsh3e5oRmD4llS9DLe92k0/edit?usp=sharing)
 
@@ -178,7 +191,7 @@ Here you'll find guided templates for three blog-post structures that should wor
 
 **Description:** Gain readers, establish your expertise on a subject, and help many people along the way. Content from wikis or encyclopedias, particularly material that Wikipedia hasn't covered, is also a huge benefit for gaining search traffic. Keep in mind this is still a blog post and not actually a Wikipedia article   
 
-**Approximate word count:** 1500-2500 words. 
+**Approximate word count:** 1500-2500 words. *Tailor as needed.*
 
  :memo: **Google Docs:** [Wiki Post Template Linked Here](https://docs.google.com/document/d/1BEra-ugD4ETTv_9WQNOwGhMBgry7yeYnW5TEzmDb7Bs/edit?usp=sharing)
 
@@ -206,7 +219,7 @@ Here you'll find guided templates for three blog-post structures that should wor
 
 **Description:** Spark engagement with readers by creating a thought provoking conversational piece.
 
-**Approximate word count:** 1500 words. 
+**Approximate word count:** 1500 words.  *Tailor as needed.*
 
 :memo: **Google Docs:** [Conversational Post Template](https://docs.google.com/document/d/1_-hJgzEvtFbCwIfn6hrhhojI-mYaFZ-NJ0bWnDqExgM/edit?usp=sharing)
 
