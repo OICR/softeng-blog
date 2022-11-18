@@ -30,7 +30,7 @@ ciaran_schutte:
 
 dan_demaria:
   name: Dan DeMaria
-  position: Software Developer III
+  position: Software Developer
   info: Dan is a full stack developer building new features for the ICGC Data Platform. He is a father to 3 kids and a lifelong musician originally from California.
   avatar: dan_demaria.svg
   github: demariadaniel
@@ -130,11 +130,10 @@ sifa_vahora:
 
 ummulkiram_rangwala:
   name: Ummulkiram Rangwala
-  position: Software Developer 3
+  position: Software Developer
   info: I like to have fun.
   avatar: ummulkiram_rangwala.svg
   github: UmmulkiramR
-
 
 yelizar_alturmessov:
   name: Yelizar Alturmessov
