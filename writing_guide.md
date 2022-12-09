@@ -92,7 +92,7 @@ Three simple steps when stuck on ideas:
 
 ## Wiki Post
 
-**Description:** Gain readers, establish your expertise on a subject, and help many people along the way. Content from wikis or encyclopedias, particularly material that Wikipedia hasn't covered, is also a huge benefit for gaining search traffic. Keep in mind this is still a blog post and not actually a Wikipedia article   
+**Description:** Gain readers, establish your expertise on a subject, and help many people along the way. Content from wikis or encyclopedias, particularly material Wikipedia hasn't covered, is also a huge benefit for gaining search traffic. Keep in mind that this is still a blog post, not a Wikipedia article.  
 
 **Approximate word count:** 1500-2500 words. *Tailor as needed.*
 
@@ -116,19 +116,15 @@ Three simple steps when stuck on ideas:
 
 - Simple hyperlinks for any referenced web content within the article 
 
-- If citing a journal article use APA  
+- If citing a journal article use [APA](https://www.grammarly.com/citations?utm_source=google&utm_medium=cpc&utm_campaign=bts2022-citations-ps-cg&gclid=EAIaIQobChMIm6Kgh_Xs-wIVz8mUCR0-yQGMEAAYASAAEgLu__D_BwE&gclsrc=aw.ds)
 
 
-last name, first name initial., ..., ..., & last name, first name initial. title of article. *title of journal*, volume(Issue), page(s).DOI
+    - last name, first name initial., ..., ..., & last name, first name initial. title of article. *title of journal*, volume(Issue), page(s).DOI
 
 *Example*
 
 Tolufi, M., Boreman, N., & ,Trotsky D. (2040). The computer goes beep. *Advanced computer systems America*, 5(2), 161. < insert doi link >
 
-- In-text citation example
+*In-text citation:* (Tolufi et al., 2040)
 
-    (Tolufi et al., 2040)
-
-- If two authors 
-
-    (Tolufi & Boreman., 2040)
+*If two authors:* (Tolufi & Boreman., 2040)
