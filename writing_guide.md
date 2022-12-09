@@ -1,10 +1,3 @@
-<!--Sources-->
-<!--https://blog.hubspot.com/marketing/what-is-a-pillar-page-->
-<!--https://thewritepractice.s3-us-west-1.amazonaws.com/Blog+Post+Template+Worksheet.pdf-->
-<!--https://www.verblio.com/blog/blog-post-length#:~:text=The%20ideal%20paragraph%20size%20for,that%20number%20can%20fluctuate%20wildly.-->
-<!--https://thewritepractice.com/formatting-tips/.-->
-<!--https://blog.hubspot.com/marketing/how-long-should-your-blog-posts-be-faq-->
-<!--https://www.wix.com/blog/2021/06/how-long-should-a-blog-post-be/#:~:text=After%20in%2Ddepth%20industry%20research,sweet%20spot%20right%20at%202%2C450.-->
 # :newspaper: OICR Engineering Blog Writing Guide
 
 <a href="https://softeng.oicr.on.ca/"><img src="images/OICRHero.jpg"></a>
@@ -13,9 +6,7 @@
 
 **Hello all!**
 
-The following guide is only meant to provide some clarity to how to approach your writing and is by no means prescriptive. 
-
-In it you will find the information on following:
+The following guide is for clarity on writing posts for the blog. It is not prescriptive. Here you can find information on:
 
 1. [Determining a topic](#thought_balloon-determining-a-topic)
 
@@ -27,6 +18,7 @@ In it you will find the information on following:
     - [Problem Centered Template](#problem-centered-post)
     - [Wiki Template](#wiki-post)
     - [Conversational Template](#wiki-post)
+4. [Citing sources](#citing-sources)
 
 <br />
 
@@ -34,21 +26,21 @@ In it you will find the information on following:
 
 Three simple steps when stuck on ideas:
 
-1. Start with your reader
+1. Start with your reader.
 
     - What problems does your reader experience?
     - What questions are they asking? 
 
 <br/>
 
-2. Jot a list of everything that comes to mind
+2. Jot a list of everything that comes to mind.
 
 </br>
 
-3. Pick and Google one of these problems and take note of the top three search results
+3. Pick and Google one of these problems and take note of the top three search results.
     - How have these search results phrased the problem?
     - How are they solving the problem?
-    - Does that change your approach to your article?
+    - Does that change your approach to the article?
 
 <br />
 
@@ -60,9 +52,10 @@ Three simple steps when stuck on ideas:
 - Beware of the ***curse of knowledge***:
     
     > <br />
-    > The curse of knowledge is a cognitive bias that occurs when an individual, who is communicating with other individuals, assumes that the other individuals have the background knowledge to understand. This bias is also called by some authors the curse of expertise.
+    > A bias that occurs when an individual, who is communicating with other individuals, assumes that the other individuals have the background knowledge to understand.
     >
     > <br />
+
 <br />
 
 - You are the expert in your domain/topic. Wherever possible, simplify your language and provide background for your reader (in-text or hyperlinked).
@@ -118,3 +111,24 @@ Three simple steps when stuck on ideas:
 **Titles:** Information on creating a title can be found within the google doc. 
 
 <br />
+
+# :pencil: Citing Sources
+
+- Simple hyperlinks for any referenced web content within the article 
+
+- If citing a journal article use APA  
+
+
+last name, first name initial., ..., ..., & last name, first name initial. title of article. *title of journal*, volume(Issue), page(s).DOI
+
+*Example*
+
+Tolufi, M., Boreman, N., & ,Trotsky D. (2040). The computer goes beep. *Advanced computer systems America*, 5(2), 161. < insert doi link >
+
+- In-text citation example
+
+    (Tolufi et al., 2040)
+
+- If two authors 
+
+    (Tolufi & Boreman., 2040)
