@@ -361,3 +361,11 @@ xu_deng:
   avatar: xu_deng.svg
   github: d8660091
   is_alumni: true
+
+aditya_dahiya:
+  name: Aditya Dahiya
+  position: Software Developer
+  info: Tech enthusiast with a background in computer engineering. Enjoys playing video games, working out, petting dogs and grinding out leetcode in spare time.
+  avatar: aditya_dahiya.png
+  github: dahiyaAD
+  is_alumni: true
