@@ -52,7 +52,7 @@ hardeep_nahal:
 henrich_feher:
   name: Henrich Feher
   position: Cloud Architect
-  info: If it can't be deployed in Kubernetes, it's not worth deploying.
+  info: If you can't fix it with duct tape or a martini it ain't worth fixing.
   avatar: henrich_feher.png
   github: henro001
 
