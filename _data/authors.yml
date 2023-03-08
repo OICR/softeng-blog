@@ -24,14 +24,21 @@ brandon_chan:
 ciaran_schutte:
   name: Ciarán Schütte
   position: Software Developer
-  info:
+  info: Ciarán, a full stack developer, tried to get an AI to write his bio. He just couldn’t get it to write anything sensible, so instead he chose to write the bio himself using JavaScript and javascript. Especially the bit about delicious garlic.
   avatar: ciaran_schutte.svg
   github: ciaranschutte
+
+dan_demaria:
+  name: Dan DeMaria
+  position: Software Developer
+  info: Dan is a full stack developer building new features for the ICGC Data Platform. He is a father to 3 kids and a lifelong musician originally from California.
+  avatar: dan_demaria.svg
+  github: demariadaniel
 
 daniel_lu:
   name: Daniel Lu
   position: Software Developer
-  info:
+  info: 
   avatar: daniel_lu.svg
   github: daniel-cy-lu
 
@@ -41,13 +48,22 @@ denis_yuen:
   info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
   avatar: denis_yuen.svg
   github: denis-yuen
+  is_alumni: true
+
+edmund_su:
+  name: Edmund Su
+  position: Bioinformatician
+  info: Bioinformatician with experience in analyzing multi-omic and single-cell assays. Versed in Python, a touch of Java, and unfortunately R. Always happy to talk shop about bioinformatics, biology, and cancer.
+  avatar: denis_yuen.svg
+  github: denis-yuen
+
 
 hardeep_nahal:
-  name: Hardeep Nahal
+  name: Hardeep Nahal-Bose
   position: Bioinformatician
   info: Bioinformatician who enjoys making sense of complicated data. Background in both bioinformatics and molecular biology with a strong desire to help cancer researchers tackle difficult problems. Strong appetite for knowledge and skittles.
   avatar: hardeep_nahal.svg
-  github:
+  github: hknahal
 
 henrich_feher:
   name: Henrich Feher
@@ -61,7 +77,7 @@ jared_baker:
   position: Cloud Specialist
   info: Infrastructure guy & sys admin. Advocate of read-only fridays. Allergic to downtime.
   avatar: jared_baker.svg
-  github:
+  github: jmimico
 
 jon_eubank:
   name: Jon Eubank
@@ -84,12 +100,40 @@ linda_xiang:
   avatar: linda_xiang.svg
   github: lindaxiang
 
+mitchell_shiell:
+  name: Mitchell Shiell
+  position: Outreach Lead
+  info: Scientist, educator, and digital creative using his powers to increase public support and awareness of incredible and innovative technologies. Also an avid hockey player and passionate photographer.
+  avatar: mitchell_shiell.svg
+  github: mitchellshiell
+
+patrick_dos_santos:
+  name: Patrick Dos Santos
+  position: Senior UI/UX Designer
+  info: Obsessed with making technology as intuitive as possible through data driven design choices. Always starts with the why before asking how. Also enjoys long walks along the ice-cream aisle.
+  avatar: patrick_dos_santos.png
+  github: patrickdsantos
+
 rakesh_mistry:
   name: Rakesh Mistry
   position: Software Developer
   info: Full-stack developer with a passion for the front-end and web accessibility.
   avatar: rakesh_mistry.svg
   github: mistryrn
+
+sifa_vahora:
+  name: Sifa Vahora
+  position: Senior Technical Business Analyst
+  info: Always working, 110% is minimum quality requirement. Loves food, people and softwares!!! Here to work on a noble cause, using my skills and expertise to make the world a better place!!!
+  avatar: sifa_vahora.png
+  github: sifavahora
+
+ummulkiram_rangwala:
+  name: Ummulkiram Rangwala
+  position: Software Developer
+  info: I like to have fun.
+  avatar: ummulkiram_rangwala.svg
+  github: UmmulkiramR
 
 yelizar_alturmessov:
   name: Yelizar Alturmessov
@@ -121,6 +165,13 @@ alex_wilmer:
   avatar: alex_wilmer.png
   github: alex-wilmer
   is_alumni: true
+  
+Azher Ali_Mohammed:
+name: Azher Ali Mohammed
+position: Software Developer
+info: An engineer who loves to solve complex coding and work on logic building. Hold background in Computer Science and Master of Science in Project Management and Analysis. Also seeks interest in natural and wild life photography.
+avatar: Azher.svg
+github: Azher2Ali
 
 andy_yang:
   name: Andy Yang
