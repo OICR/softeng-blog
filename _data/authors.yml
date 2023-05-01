@@ -14,6 +14,13 @@ ann_catton:
   avatar: ann_catton.svg
   github: anncatton
 
+Azher Ali_Mohammed:
+  name: Azher Ali Mohammed
+  position: Software Developer
+  info: An engineer who loves to solve complex coding and work on logic building. Hold background in Computer Science and Master of Science in Project Management and Analysis. Also seeks interest in natural and wild life photography.
+  avatar: Azher.svg
+  github: Azher2Ali
+
 brandon_chan:
   name: Brandon Chan
   position: Business Analyst
@@ -38,25 +45,16 @@ dan_demaria:
 daniel_lu:
   name: Daniel Lu
   position: Software Developer
-  info: 
+  info:
   avatar: daniel_lu.svg
   github: daniel-cy-lu
-
-denis_yuen:
-  name: Denis Yuen
-  position: Software Developer
-  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
-  avatar: denis_yuen.svg
-  github: denis-yuen
-  is_alumni: true
 
 edmund_su:
   name: Edmund Su
   position: Bioinformatician
   info: Bioinformatician with experience in analyzing multi-omic and single-cell assays. Versed in Python, a touch of Java, and unfortunately R. Always happy to talk shop about bioinformatics, biology, and cancer.
-  avatar: denis_yuen.svg
-  github: denis-yuen
-
+  avatar: edmund_su.svg
+  github: edsu7
 
 hardeep_nahal:
   name: Hardeep Nahal-Bose
@@ -68,7 +66,7 @@ hardeep_nahal:
 henrich_feher:
   name: Henrich Feher
   position: Cloud Architect
-  info: If you can't fix it with duct tape or a martini it ain't worth fixing.
+  info: If you can't fix it with duct tape or a martini, it ain't worth fixing.
   avatar: henrich_feher.png
   github: henro001
 
@@ -81,17 +79,17 @@ jared_baker:
 
 jon_eubank:
   name: Jon Eubank
-  position: Software Architect
+  position: Associate Technical Director
   info: Full-stack developer who survived an education in "nanotechnology engineering" before escaping to the wonderful world of software. Practitioner of java, python, and javascript; dabbling in the dark arts of dev-ops, soccer, and Go/Baduk.
   avatar: jon_eubank.svg
   github: joneubank
 
 justin_richardsson:
   name: Justin Richardsson
-  position: Software Architect
-  info: A crossbreed of Software Developer and UX Designer; devoted to functional programming, behavioural economics, information architecture, heuristics, and metacognitive analysis. Seasoned mentor, marathon runner, bicycle mechanic, and conference organiser.
+  position: Associate Technical Director
+  info: A crossbreed of Software Engineer and UX Designer; devoted to functional programming, behavioural economics, information architecture, heuristics, and metacognitive analysis. May or not be a chatbot.
   avatar: justin_richardsson.png
-  github: caravinci
+  github: justincorrigible
 
 linda_xiang:
   name: Linda Xiang
@@ -121,19 +119,12 @@ rakesh_mistry:
   avatar: rakesh_mistry.svg
   github: mistryrn
 
-sifa_vahora:
-  name: Sifa Vahora
-  position: Senior Technical Business Analyst
-  info: Always working, 110% is minimum quality requirement. Loves food, people and softwares!!! Here to work on a noble cause, using my skills and expertise to make the world a better place!!!
-  avatar: sifa_vahora.png
-  github: sifavahora
-
 ummulkiram_rangwala:
   name: Ummulkiram Rangwala
   position: Software Developer
   info: I like to have fun.
   avatar: ummulkiram_rangwala.svg
-  github: UmmulkiramR
+  github: Ummulkiramr
 
 yelizar_alturmessov:
   name: Yelizar Alturmessov
@@ -165,13 +156,6 @@ alex_wilmer:
   avatar: alex_wilmer.png
   github: alex-wilmer
   is_alumni: true
-  
-Azher Ali_Mohammed:
-name: Azher Ali Mohammed
-position: Software Developer
-info: An engineer who loves to solve complex coding and work on logic building. Hold background in Computer Science and Master of Science in Project Management and Analysis. Also seeks interest in natural and wild life photography.
-avatar: Azher.svg
-github: Azher2Ali
 
 andy_yang:
   name: Andy Yang
@@ -224,7 +208,7 @@ chang_wang:
 chen_chen:
   name: Chen Chen
   position: Bioinformatics Coop
-  info: Studying Honours Computer Science at McMaster University . Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud.
+  info: Studying Honours Computer Science at McMaster University. Python and Java are nice but ask me about Elm and CalcCheck. Tea enthusiast, coffee addict. Still a fawn in the game but I don't stay in my lane. Follow me on SoundCloud.
   avatar: chen_chen.png
   github: Chen2x
   is_alumni: true
@@ -235,6 +219,14 @@ christine_yu:
   info: Software developer navigating the weird, wacky and ever changing world of JavaScript. Dreads winding bobbins, will eat dessert for dinner.
   avatar: christine_yu.svg
   github: cy
+  is_alumni: true
+
+denis_yuen:
+  name: Denis Yuen
+  position: Software Developer
+  info: Back-end developer making sense of a multiverse of cloud technologies, virtualization, infrastructure, and workflow tools. Making sure that the office isn't destroyed to make way for a hyperspace bypass. Also loves travel, good food, and history.
+  avatar: denis_yuen.svg
+  github: denis-yuen
   is_alumni: true
 
 dusan_andric:
@@ -381,6 +373,14 @@ sid_joshi:
   github: sidsyrus
   is_alumni: true
 
+sifa_vahora:
+  name: Sifa Vahora
+  position: Senior Technical Business Analyst
+  info: Always working, 110% is minimum quality requirement. Loves food, people and softwares!!! Here to work on a noble cause, using my skills and expertise to make the world a better place!!!
+  avatar: sifa_vahora.png
+  github: sifavahora
+  is_alumni: true
+
 touhidul_mridha:
   name: Touhidul Mridha
   position: Technical Business Analyst
@@ -389,20 +389,20 @@ touhidul_mridha:
   github: touhidulmridha
   is_alumni: true
 
-vitalii_slobodianyk:
-  name: Vitalii Slobodianyk
-  position: Software Developer
-  info: Big Data developer who always wants to improve software performance, reliability and maintainability. Prefers extensive code coverage over debugging.
-  avatar: vitalii_slobodianyk.svg
-  github: slovit
-  is_alumni: true
-
 vincent_ferretti:
   name: Vincent Ferretti
   position: Principal Investigator
   info: Principal Investigator, team leader, revered monarch. Lead his teams in delivering high-quality infrastructure and software solutions used by cancer researchers worldwide. Detailed oriented, result focused, asks for nothing less than excellence. Rocks and trees are the perfect source of inspiration for software names.
   avatar: vincent_ferretti.svg
   github: vferretti
+  is_alumni: true
+
+vitalii_slobodianyk:
+  name: Vitalii Slobodianyk
+  position: Software Developer
+  info: Big Data developer who always wants to improve software performance, reliability and maintainability. Prefers extensive code coverage over debugging.
+  avatar: vitalii_slobodianyk.svg
+  github: slovit
   is_alumni: true
 
 xu_deng:
