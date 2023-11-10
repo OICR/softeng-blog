@@ -7,24 +7,23 @@
 #                                                 /____/
 #
 # Title of your website
-title: 'OICR Softeng Blog'
+title: "OICR Softeng Blog"
 
 # The slogan describes your website and is used on homepage in <title> and other important places
-slogan: ''
+slogan: ""
 
-description: 'We are OICRs passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.'
-
+description: "We are OICR's passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events."
 
 # Main author of the website
 # See > authors.yml
-author: ICGC
+author: OICR SoftEng
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: 'https://softeng.oicr.on.ca'
-baseurl: ''
+url: "https://softeng.oicr.on.ca"
+baseurl: ""
 
-rss-link: ''
+rss-link: ""
 
 # This URL points directly to the images directory making
 # things easier to link to images in posts and templates. It needs a slash at the end.
@@ -32,19 +31,19 @@ rss-link: ''
 # Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
 # Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
 #
-urlimg: '/images/'
+urlimg: "/images/"
 
 #Time zone for the site
 timezone: Canada/Eastern
 
 # Logo size is 600x80 pixels
-logo: "logo-Ferretti-blog.png"
+logo: "logo.svg"
 
 # Plugins
 plugins:
-    - jekyll-asciidoc
-    - jekyll-gist
-    - jekyll-paginate
+  - jekyll-asciidoc
+  - jekyll-gist
+  - jekyll-paginate
 
 disqusShorname: oicr-softeng-blog
 
@@ -55,29 +54,26 @@ disqusShorname: oicr-softeng-blog
 #   /_/    \__,_/\__, /_/_/ /_/\__,_/\__/_/\____/_/ /_/
 #               /____/
 #
-paginate: 12                      # Paginates all X entries
-paginate_path: "blog/page:num"   # Pagination path › Important for blog page in /blog/ to work
-
+paginate: 12 # Paginates all X entries
+paginate_path: "blog/page:num" # Pagination path › Important for blog page in /blog/ to work
 
 # Theme works best with Kramdown (using the table of contents function)
 markdown: kramdown
 permalink: /:categories/:year/:month/:day/:title/
 highlight: rouge
 excerpt_separator: "<!--more-->"
-include: ['.htaccess']
+include: [".htaccess"]
 # Exclude these files from your production _site
 exclude:
-    - .sass-cache
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - INSTALL.md
-
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - INSTALL.md
 
 # The language setting is used in /includes/header.html for html-settings
-language: 'en'
-
+language: "en"
 
 # Used › default.html front-matter and compress.html
 # Options › http://jch.penibelst.de
@@ -89,7 +85,6 @@ compress_html:
   ignore:
     envs: [development]
 
-
 #
 #       ____       ____            ____
 #      / __ \___  / __/___ ___  __/ / /_
@@ -100,26 +95,22 @@ compress_html:
 # Default Settings
 
 defaults:
-  -
-    scope:
-      path: '' 				# an empty string here means all files in the project
-      type: 'pages'
+  - scope:
+      path: "" # an empty string here means all files in the project
+      type: "pages"
     values:
-      show_meta: false 	# Hide metadata for all pages
+      show_meta: false # Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: ICGC     # Default author for pages
-  -
-    scope:
-      path: ''
-      type: 'posts'
+      author: ICGC # Default author for pages
+  - scope:
+      path: ""
+      type: "posts"
     values:
-      show_meta: true   # Show metadata for all posts
+      show_meta: true # Show metadata for all posts
       # sidebar:        # Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: ICGC     # Default author for posts
-
-
+      author: ICGC # Default author for posts
 
 #       _   __            _             __  _
 #      / | / /___ __   __(_)___ _____ _/ /_(_)___  ____
@@ -131,20 +122,16 @@ defaults:
 #  Open _data/navigation.yml to adjust the left and right topbar navigation
 #
 
-
-
 #     _____ __________
 #    / ___// ____/ __ \
 #    \__ \/ __/ / / / /
 #   ___/ / /___/ /_/ /
 #  /____/_____/\____/    Verify Website to Webmaster Tools
 
-google_author:             ''
-google_site_verification:  ''
-bing_webmastertools_id:    ''
+google_author: ""
+google_site_verification: ""
+bing_webmastertools_id: ""
 # alexa_verify_id:         ''
-
-
 
 #       ______            _
 #      / ____/___ __   __(_)________  ____  _____
@@ -153,7 +140,7 @@ bing_webmastertools_id:    ''
 #   /_/    \__,_/ |___/_/\___/\____/_/ /_/____/   Favicon-Crap: Favicons, Chrome, Android & Apple Touch Buttons
 #                                                 More information » https://mathiasbynens.be/notes/touch-icons
 
-favicon-32x32:                          'favicon-64x64.png'
+favicon-32x32: "favicon-64x64.png"
 # touch-icon-192x192:                     'touch-icon-192x192.png'
 # apple-touch-icon-180x180-precomposed:   'apple-touch-icon-180x180-precomposed.png'
 # apple-touch-icon-152x152-precomposed:   'apple-touch-icon-152x152-precomposed.png'
@@ -166,7 +153,6 @@ favicon-32x32:                          'favicon-64x64.png'
 # msapplication_tileimage:                'msapplication_tileimage.png'               # Size 144x144
 # msapplication_tilecolor:                '#234572'
 
-
 #       ______                __                __
 #      / ____/___ _________  / /_  ____  ____  / /__
 #     / /_  / __ `/ ___/ _ \/ __ \/ __ \/ __ \/ //_/
@@ -176,7 +162,6 @@ favicon-32x32:                          'favicon-64x64.png'
 # og_image:                           'http://images.phlow.de/phlow/phlow_de-logo-512x.png'
 # og_locale:                          'en_EN'
 # og_type:                            'website'
-
 
 #      _____            _       __   __  ___         ___
 #     / ___/____  _____(_)___ _/ /  /  |/  /__  ____/ (_)___ _
@@ -191,7 +176,6 @@ favicon-32x32:                          'favicon-64x64.png'
 #     twitter: phlow
 #     facebook: phlow.media
 
-
 #        ____  _
 #       / __ \(_)________ ___  _______
 #      / / / / / ___/ __ `/ / / / ___/
@@ -203,7 +187,6 @@ favicon-32x32:                          'favicon-64x64.png'
 
 # disqus_shortname: feelingresponsive
 
-
 #      _____
 #     / ___/____ ___________
 #     \__ \/ __ `/ ___/ ___/
@@ -212,9 +195,8 @@ favicon-32x32:                          'favicon-64x64.png'
 #
 
 sass:
-    sass_dir: _sass
-    style: :compressed
-
+  sass_dir: _sass
+  style: :compressed
 
 #       ___                __      __  _
 #      /   |  ____  ____ _/ /_  __/ /_(_)_________
@@ -227,8 +209,6 @@ sass:
 
 # google_analytics_tracking_id: UA-60112281-1
 google_analytics_tracking_id: UA-87708930-1
-
-
 
 #   _                 _     _
 #  | |_ __ ___      _| | __| |_ ___
@@ -244,7 +224,6 @@ google_analytics_tracking_id: UA-87708930-1
 # used in _includes/footer_scripts
 
 # tawkto_embed_uri:
-
 
 #     ___              _     __           __
 #    /   |  __________(_)___/ /___  _____/ /_____  _____

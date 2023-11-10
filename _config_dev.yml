@@ -5,10 +5,10 @@
 #
 # Start development with › $ jekyll serve --config _config.yml,_config_dev.yml
 
-url:  'http://localhost:4000'
-baseurl: 	''
-urlimg: 	'http://localhost:4000/images/'
-description: 'We are OICRs passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events.'
+url: "http://localhost:4000"
+baseurl: ""
+urlimg: "http://localhost:4000/images/"
+description: "We are OICR's passionate team of software engineers who build tools that help cancer researchers collaborate, work faster and take on more difficult challenges. This blog allows us to share information about or cutting-edge technology, groundbreaking tools and upcoming events."
 
 # See › https://github.com/jekyll/jekyll-gist#disabling-noscript-support
 gist:
@@ -28,17 +28,17 @@ google_analytics_tracking_id: false
 
 # Plugins
 plugins:
-    - jekyll-asciidoc
-    - jekyll-gist
-    - jekyll-paginate
+  - jekyll-asciidoc
+  - jekyll-gist
+  - jekyll-paginate
 
 # Pagination
-paginate: 5                      # Paginates all X entries
-paginate_path: "blog/page:num"   # Pagination path › Important for blog page in /blog/ to work
+paginate: 5 # Paginates all X entries
+paginate_path: "blog/page:num" # Pagination path › Important for blog page in /blog/ to work
 
 # Theme works best with Kramdown (using the table of contents function)
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 highlight: rouge
 excerpt_separator: "<!--more-->"
-include: ['.htaccess']
+include: [".htaccess"]

@@ -1,17 +1,11 @@
-- title: Blog
-  url: "/blog/"
-
 - title: Meet the Team
   url: "/team/"
 
 - title: Our Projects
   url: "/projects/"
 
-- title: Software Engineering Club
-  url: "/club/"
-
 - title: Careers
-  url: "/careers/"
+  url: https://oicr.on.ca/careers/
 
 - title: Contact Us
   url: "/contact/"

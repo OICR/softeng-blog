@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '3.5.1'
+gem 'jekyll', '~> 3'
 gem 'guard'
 gem 'guard-livereload'
-gem 'kramdown', '1.13.2'
 
 group :jekyll_plugins do
   gem 'jekyll-gist'
@@ -14,3 +13,4 @@ end
 gem 'asciidoctor', '~> 1.5.4'
 gem 'coderay', '1.1.1'
 
+gem "kramdown-parser-gfm", "~> 1.1"
